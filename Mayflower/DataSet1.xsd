@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="pec9vbox" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="pec9vbox (MySettings)" PropertyReference="ApplicationSettings.Mayflower.My.MySettings.GlobalReference.Default.pec9vbox" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTableSourceLangTableAdapter" GeneratorDataComponentClassName="DataTableSourceLangTableAdapter" Name="DataTableSourceLang" UserDataComponentName="DataTableSourceLangTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="pec9vbox (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT "AIT$CUSTOMF00068" AS SourceLang
+FROM            RESOURCES
+WHERE        (NOT ("AIT$CUSTOMF00068" IS NULL))</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SOURCELANG" DataSetColumn="SOURCELANG" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTableTargetLangTableAdapter" GeneratorDataComponentClassName="DataTableTargetLangTableAdapter" Name="DataTableTargetLang" UserDataComponentName="DataTableTargetLangTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="pec9vbox (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT "AIT$CUSTOMF00069" AS TargetLang, "AIT$CUSTOMF00068" AS SourceLang
+FROM            RESOURCES
+WHERE        (NOT ("AIT$CUSTOMF00069" IS NULL))</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TARGETLANG" DataSetColumn="TARGETLANG" />
+              <Mapping SourceColumn="SOURCELANG" DataSetColumn="SOURCELANG" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="pec9vbox (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT "AIT$CUSTOMF00069" AS TargetLang, "AIT$CUSTOMF00068" AS SourceLang
+FROM            RESOURCES
+WHERE        (NOT ("AIT$CUSTOMF00069" IS NULL)) AND ("AIT$CUSTOMF00068" = '@source')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="source" Precision="0" Scale="0" Size="0" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTablePeopleTableAdapter" GeneratorDataComponentClassName="DataTablePeopleTableAdapter" Name="DataTablePeople" UserDataComponentName="DataTablePeopleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="pec9vbox (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES."AIT$CUSTOMF00068" AS SourceLang, RESOURCES."AIT$CUSTOMF00069" AS TargetLang1, RESOURCES.RES_CODE, CURR.CURR_NAME, 
+                         CURR.CURR_DESC, COUNTRIES.COUN_NAME, COUNTRIES.COUN_FLAG
+FROM            RESOURCES, CURR, COUNTRIES
+WHERE        RESOURCES.CURR_ID = CURR.CURR_ID AND RESOURCES.COUN_ID = COUNTRIES.COUN_ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RES_ID" DataSetColumn="RES_ID" />
+              <Mapping SourceColumn="RES_NAME" DataSetColumn="RES_NAME" />
+              <Mapping SourceColumn="RES_CODE" DataSetColumn="RES_CODE" />
+              <Mapping SourceColumn="CURR_NAME" DataSetColumn="CURR_NAME" />
+              <Mapping SourceColumn="CURR_DESC" DataSetColumn="CURR_DESC" />
+              <Mapping SourceColumn="COUN_NAME" DataSetColumn="COUN_NAME" />
+              <Mapping SourceColumn="COUN_FLAG" DataSetColumn="COUN_FLAG" />
+              <Mapping SourceColumn="SOURCELANG" DataSetColumn="SOURCELANG" />
+              <Mapping SourceColumn="TARGETLANG1" DataSetColumn="TARGETLANG1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="False" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTableSourceLang" msprop:Generator_TableClassName="DataTableSourceLangDataTable" msprop:Generator_TableVarName="tableDataTableSourceLang" msprop:Generator_TablePropName="DataTableSourceLang" msprop:Generator_RowDeletingName="DataTableSourceLangRowDeleting" msprop:Generator_RowChangingName="DataTableSourceLangRowChanging" msprop:Generator_RowEvHandlerName="DataTableSourceLangRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableSourceLangRowDeleted" msprop:Generator_UserTableName="DataTableSourceLang" msprop:Generator_RowChangedName="DataTableSourceLangRowChanged" msprop:Generator_RowEvArgName="DataTableSourceLangRowChangeEvent" msprop:Generator_RowClassName="DataTableSourceLangRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SOURCELANG" msprop:Generator_ColumnVarNameInTable="columnSOURCELANG" msprop:Generator_ColumnPropNameInRow="SOURCELANG" msprop:Generator_ColumnPropNameInTable="SOURCELANGColumn" msprop:Generator_UserColumnName="SOURCELANG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="127" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTableTargetLang" msprop:Generator_TableClassName="DataTableTargetLangDataTable" msprop:Generator_TableVarName="tableDataTableTargetLang" msprop:Generator_TablePropName="DataTableTargetLang" msprop:Generator_RowDeletingName="DataTableTargetLangRowDeleting" msprop:Generator_RowChangingName="DataTableTargetLangRowChanging" msprop:Generator_RowEvHandlerName="DataTableTargetLangRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableTargetLangRowDeleted" msprop:Generator_UserTableName="DataTableTargetLang" msprop:Generator_RowChangedName="DataTableTargetLangRowChanged" msprop:Generator_RowEvArgName="DataTableTargetLangRowChangeEvent" msprop:Generator_RowClassName="DataTableTargetLangRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TARGETLANG" msprop:Generator_ColumnVarNameInTable="columnTARGETLANG" msprop:Generator_ColumnPropNameInRow="TARGETLANG" msprop:Generator_ColumnPropNameInTable="TARGETLANGColumn" msprop:Generator_UserColumnName="TARGETLANG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="127" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SOURCELANG" msprop:Generator_ColumnVarNameInTable="columnSOURCELANG" msprop:Generator_ColumnPropNameInRow="SOURCELANG" msprop:Generator_ColumnPropNameInTable="SOURCELANGColumn" msprop:Generator_UserColumnName="SOURCELANG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="127" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTablePeople" msprop:Generator_TableClassName="DataTablePeopleDataTable" msprop:Generator_TableVarName="tableDataTablePeople" msprop:Generator_TablePropName="DataTablePeople" msprop:Generator_RowDeletingName="DataTablePeopleRowDeleting" msprop:Generator_RowChangingName="DataTablePeopleRowChanging" msprop:Generator_RowEvHandlerName="DataTablePeopleRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTablePeopleRowDeleted" msprop:Generator_UserTableName="DataTablePeople" msprop:Generator_RowChangedName="DataTablePeopleRowChanged" msprop:Generator_RowEvArgName="DataTablePeopleRowChangeEvent" msprop:Generator_RowClassName="DataTablePeopleRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RES_ID" msprop:Generator_ColumnVarNameInTable="columnRES_ID" msprop:Generator_ColumnPropNameInRow="RES_ID" msprop:Generator_ColumnPropNameInTable="RES_IDColumn" msprop:Generator_UserColumnName="RES_ID" type="xs:int" />
+              <xs:element name="RES_NAME" msprop:Generator_ColumnVarNameInTable="columnRES_NAME" msprop:Generator_ColumnPropNameInRow="RES_NAME" msprop:Generator_ColumnPropNameInTable="RES_NAMEColumn" msprop:Generator_UserColumnName="RES_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_CODE" msprop:Generator_ColumnVarNameInTable="columnRES_CODE" msprop:Generator_ColumnPropNameInRow="RES_CODE" msprop:Generator_ColumnPropNameInTable="RES_CODEColumn" msprop:Generator_UserColumnName="RES_CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="7" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CURR_NAME" msprop:Generator_ColumnVarNameInTable="columnCURR_NAME" msprop:Generator_ColumnPropNameInRow="CURR_NAME" msprop:Generator_ColumnPropNameInTable="CURR_NAMEColumn" msprop:Generator_UserColumnName="CURR_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CURR_DESC" msprop:Generator_ColumnVarNameInTable="columnCURR_DESC" msprop:Generator_ColumnPropNameInRow="CURR_DESC" msprop:Generator_ColumnPropNameInTable="CURR_DESCColumn" msprop:Generator_UserColumnName="CURR_DESC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COUN_NAME" msprop:Generator_ColumnVarNameInTable="columnCOUN_NAME" msprop:Generator_ColumnPropNameInRow="COUN_NAME" msprop:Generator_ColumnPropNameInTable="COUN_NAMEColumn" msprop:Generator_UserColumnName="COUN_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COUN_FLAG" msprop:Generator_ColumnVarNameInTable="columnCOUN_FLAG" msprop:Generator_ColumnPropNameInRow="COUN_FLAG" msprop:Generator_ColumnPropNameInTable="COUN_FLAGColumn" msprop:Generator_UserColumnName="COUN_FLAG" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="SOURCELANG" msprop:Generator_ColumnVarNameInTable="columnSOURCELANG" msprop:Generator_ColumnPropNameInRow="SOURCELANG" msprop:Generator_ColumnPropNameInTable="SOURCELANGColumn" msprop:Generator_UserColumnName="SOURCELANG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="127" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TARGETLANG1" msprop:Generator_ColumnVarNameInTable="columnTARGETLANG1" msprop:Generator_ColumnPropNameInRow="TARGETLANG1" msprop:Generator_ColumnPropNameInTable="TARGETLANG1Column" msprop:Generator_UserColumnName="TARGETLANG1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="127" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTablePeople" />
+      <xs:field xpath="mstns:RES_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
