@@ -13,6 +13,14 @@
     End Function
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
+        Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
+        'TODO: This line of code loads data into the 'DataSet2.DataTableSourceLang' table. You can move, or remove it, as needed.
+        Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
+        'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
+        Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+
+
         'TODO: This line of code loads data into the 'DataSet1.DataTablePeople' table. You can move, or remove it, as needed.
         '        Me.DataTablePeopleTableAdapter.Fill(Me.DataSet1.DataTablePeople)
         'TODO: This line of code loads data into the 'DataSet1.DataTableTargetLang' table. You can move, or remove it, as needed.
@@ -39,8 +47,8 @@
         'Next
         'a = a & Filters(Filters.Count - 1)
         a = MakeSQLFilter()
-        DataTablePeopleBindingSource.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
-        DataTableTargetLangBindingSource.Filter = " (SOURCELANG = '" + ComboBoxSourceLang.Text + "')"
+        BindingSource3.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
+        BindingSource2.Filter = " (SOURCELANG = '" + ComboBoxSourceLang.Text + "')"
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
@@ -48,7 +56,7 @@
     End Sub
 
     Private Sub ComboBoxTargetLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxTargetLang.SelectedIndexChanged
-        DataTablePeopleBindingSource.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
+        BindingSource3.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
     End Sub
 
     Private Sub CheckBox2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox2.CheckedChanged
@@ -67,7 +75,7 @@
     Private Sub ButtonApplyDBSettings_Click(sender As System.Object, e As System.EventArgs) Handles ButtonApplyDBSettings.Click
         Dim DefConn As String = "Driver={Firebird/InterBase(r) driver};dbname=localhost/3050:C:\Projetex9\Projetex Server\Database\projetex.fdb;charset=UTF8;uid=ODBC;role=PROJETEX_ODBC;client=C:\Program Files (x86)\AIT\Firebird Server\bin\fbclient.dll"
         Dim connstr As String
-        Dim a As System.Data.ConnectionState
+        'Dim a As System.Data.ConnectionState
         Dim ok As Boolean = True
 
         connstr = "Driver={Firebird/InterBase(r) driver};" +
@@ -84,20 +92,20 @@
         'DataTablePeopleBindingSource
 
         Try
-            DataSet1.Clear()
-            DataTablePeopleTableAdapter.Connection.Close()
-            DataTablePeopleTableAdapter.ConnectionString = connstr
-            a = DataTablePeopleTableAdapter.Connection.State
-            DataTablePeopleTableAdapter.Connection.Open()
-            DataTablePeopleTableAdapter.Fill(Me.DataSet1.DataTablePeople)
-            DataTableSourceLangTableAdapter.Connection.Close()
-            DataTableSourceLangTableAdapter.Connection.ConnectionString = connstr
-            DataTableSourceLangTableAdapter.Connection.Open()
-            DataTableSourceLangTableAdapter.Fill(Me.DataSet1.DataTableSourceLang)
-            DataTableTargetLangTableAdapter.Connection.Close()
-            DataTableTargetLangTableAdapter.Connection.ConnectionString = connstr
-            DataTableTargetLangTableAdapter.Connection.Open()
-            DataTableTargetLangTableAdapter.Fill(Me.DataSet1.DataTableTargetLang)
+            '            DataSet1.Clear()
+            '            DataTablePeopleTableAdapter.Connection.Close()
+            '            DataTablePeopleTableAdapter.ConnectionString = connstr
+            '            a = DataTablePeopleTableAdapter.Connection.State
+            '            DataTablePeopleTableAdapter.Connection.Open()
+            '            DataTablePeopleTableAdapter.Fill(Me.DataSet1.DataTablePeople)
+            '            DataTableSourceLangTableAdapter.Connection.Close()
+            '            DataTableSourceLangTableAdapter.Connection.ConnectionString = connstr
+            '           DataTableSourceLangTableAdapter.Connection.Open()
+            '           DataTableSourceLangTableAdapter.Fill(Me.DataSet1.DataTableSourceLang)
+            ''           DataTableTargetLangTableAdapter.Connection.Close()
+            '           DataTableTargetLangTableAdapter.Connection.ConnectionString = connstr
+            '           DataTableTargetLangTableAdapter.Connection.Open()
+            '           DataTableTargetLangTableAdapter.Fill(Me.DataSet1.DataTableTargetLang)
 
         Catch ex As Exception
             MessageBox.Show("Failed to connect to data source: " & ex.Message)
