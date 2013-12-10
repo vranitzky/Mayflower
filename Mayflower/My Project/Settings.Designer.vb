@@ -54,28 +54,67 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Dsn=pex9vbox32;Driver={Firebird/InterBase(r) driver};dbname=192.168.56.101/3050:c"& _ 
-            ":\projetex9\projetex server\database\projetex.fdb;charset=UTF8;uid=ODBC;role=PRO"& _ 
-            "JETEX_ODBC;client=C:\Program Files (x86)\AIT\Firebird Server\bin\fbclient.dll")>  _
-        Public ReadOnly Property pec9vbox() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("192.168.56.101")>  _
+        Public Property DBAddress() As String
             Get
-                Return CType(Me("pec9vbox"),String)
+                Return CType(Me("DBAddress"),String)
             End Get
+            Set
+                Me("DBAddress") = value
+            End Set
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=192.168.56.101;initial catalog=""C:\Projetex9\Proje"& _ 
-            "tex Server\Database\Projetex.fdb"";user id=ODBC;password=password;role=PROJETEX_O"& _ 
-            "DBC")>  _
-        Public ReadOnly Property ProjetexDB() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("3050")>  _
+        Public Property DBPort() As String
+            Get
+                Return CType(Me("DBPort"),String)
+            End Get
+            Set
+                Me("DBPort") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("c:\projetex9\projetex server\database\projetex.fdb")>  _
+        Public Property DBFile() As String
+            Get
+                Return CType(Me("DBFile"),String)
+            End Get
+            Set
+                Me("DBFile") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("password")>  _
+        Public Property DBPassword() As String
+            Get
+                Return CType(Me("DBPassword"),String)
+            End Get
+            Set
+                Me("DBPassword") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("User=ODBC;Password=pw;Database=c:\projetex9\projetex server\database\projetex.fdb"& _ 
+            ";DataSource=192.168.56.101;Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODBC;C"& _ 
+            "onnection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192"& _ 
+            ";ServerType=0")>  _
+        Public Property ProjetexDB() As String
             Get
                 Return CType(Me("ProjetexDB"),String)
             End Get
+            Set
+                Me("ProjetexDB") = value
+            End Set
         End Property
     End Class
 End Namespace

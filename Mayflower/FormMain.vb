@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class FormMain
     Dim Filters As New List(Of String)
     Private Function MakeSQLFilter()
         Dim a As String = ""
@@ -12,76 +12,21 @@
         Return a
     End Function
 
-    Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        StatusLed.Tag = False
-        StatusLed.BackColor = Color.Red
-        Try
-            'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
-            Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
-            'TODO: This line of code loads data into the 'DataSet2.DataTableSourceLang' table. You can move, or remove it, as needed.
-            Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
-            'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
-            Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
-            StatusLed.BackColor = Color.Green
-        Catch ex As Exception
-            '"Failed to connect to database: " & Environment.NewLine &
-            MessageBox.Show(
-                            ex.Message & Environment.NewLine &
-                            "Please set up parameters.",
-                            "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error
-                            )
-            TabControl1.SelectedTab = TabPage2
-            'TabPage1.
-            '        Finally
-            '            FbConnection1.Close()
-        End Try
-
-    End Sub
-
     Private Sub ComboBoxSourceLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxSourceLang.SelectedIndexChanged
-        'DataTablePeopleBindingSource.Filter = "SOURCELANG='" + ComboBoxSourceLang.Text + "'"
-        Dim a As String = ""
-        ' = """" + "AIT$CUSTOMF00068""='" + ComboBoxSourceLang.Text + "'"
-        'a = Chr(34) + "AIT$CUSTOMF00068" + Chr(34) + " = 'English'"
-        'a = "(NOT (""AIT$CUSTOMF00069"" IS NULL)) AND (""AIT$CUSTOMF00068"" = 'English')"
-        'a = "(" + Chr(34) + "RES_ID" + Chr(34) + " = '1088')"
-        'DataTableTargetLangBindingSource.Filter = a '"(""AIT$CUSTOMF00068"" = 'English')"
-        'DataTableTargetLangTableAdapter.FillBy(DataSet1.DataTableTargetLang, "English")
-        Filters.Clear()
-        Filters.Add("(SOURCELANG='" + ComboBoxSourceLang.Text + "')")
-        Filters.Add("(TARGETLANG1='" + ComboBoxTargetLang.Text + "')")
-        'For index = 0 To Filters.Count - 2
-        'a = a & (Filters(index) & " AND ")
-        'Next
-        'a = a & Filters(Filters.Count - 1)
-        a = MakeSQLFilter()
-        BindingSourceTargetLang.Filter = " (SOURCELANG = '" + ComboBoxSourceLang.Text + "')"
-        BindingSourceFreelancers.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
-    End Sub
+        'BindingSourceTargetLang.Filter = " (SOURCELANG = '" + ComboBoxSourceLang.Text + "')"
+        'Dim dt As DataTable
+        'dt = TargetLangTableAdapter.GetDataBySourceLanguage(ComboBoxSourceLang.Text)
 
-    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
+        TargetLangTableAdapter.FillBySourceLanguage(Me.DataSet2.DataTableTargetLang, ComboBoxSourceLang.Text)
+        ''BindingSourceFreelancers.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
+        FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
     End Sub
 
     Private Sub ComboBoxTargetLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxTargetLang.SelectedIndexChanged
-        BindingSourceFreelancers.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
+        'BindingSourceFreelancers.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
+        FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
     End Sub
 
-    Private Sub CheckBox2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox2.CheckedChanged
-
-    End Sub
-
-    Private Sub CheckBox3_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox3.CheckedChanged
-        If CheckBox3.Checked Then
-            TextBoxPassword.UseSystemPasswordChar = False
-            'PasswordChar = ""
-        Else
-            TextBoxPassword.UseSystemPasswordChar = True
-        End If
-
-    End Sub
 
     Private Sub ButtonApplyDBSettings_Click(sender As System.Object, e As System.EventArgs) Handles ButtonApplyDBSettings.Click
         Dim connstr As String
@@ -122,7 +67,11 @@
             'Finally
             'conn.Close()
         End Try
-        If ok Then StatusLed.BackColor = Color.Green
+        If ok Then
+            StatusLed.BackColor = Color.Green
+            My.Settings.ProjetexDB = connstr
+        End If
+
 
     End Sub
 
@@ -185,7 +134,46 @@
     End Sub
 
     Private Sub Form1_Shown(sender As System.Object, e As System.EventArgs) Handles MyBase.Shown
-        StatusLed.Tag = True
+        'StatusLed.Tag = True
     End Sub
 
+    Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+        StatusLed.BackColor = Color.Red
+        Try
+            'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
+            Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
+            'TODO: This line of code loads data into the 'DataSet2.DataTableSourceLang' table. You can move, or remove it, as needed.
+            Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
+            'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
+            Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+            StatusLed.BackColor = Color.Green
+        Catch ex As Exception
+            '"Failed to connect to database: " & Environment.NewLine &
+            MessageBox.Show(
+                            """" & ex.Message & """" & Environment.NewLine & Environment.NewLine &
+                            "Please set up parameters.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                            )
+            TabControl1.SelectedTab = TabPage2
+            'TabPage1.
+            '        Finally
+            '            FbConnection1.Close()
+        End Try
+
+
+    End Sub
+
+    Private Sub CheckBox3_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox3.CheckedChanged
+
+        TextBoxPassword.UseSystemPasswordChar = Not CheckBox3.Checked
+
+    End Sub
+
+
+    Private Sub RestrictByTargetLang_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTargetLang.CheckedChanged
+
+    End Sub
 End Class

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class FormMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,13 +25,14 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.RestrictByTargetLang = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SOURCELANG = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TARGETLANG2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,6 +67,7 @@ Partial Class Form1
         Me.SourceLangTableAdapter = New Mayflower.DataSet2TableAdapters.SourceLangTableAdapter()
         Me.TargetLangTableAdapter = New Mayflower.DataSet2TableAdapters.TargetLangTableAdapter()
         Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,7 +94,8 @@ Partial Class Form1
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.CheckBox2)
+        Me.TabPage1.Controls.Add(Me.Label4)
+        Me.TabPage1.Controls.Add(Me.RestrictByTargetLang)
         Me.TabPage1.Controls.Add(Me.CheckBox1)
         Me.TabPage1.Controls.Add(Me.DataGridView1)
         Me.TabPage1.Controls.Add(Me.Label2)
@@ -107,22 +110,23 @@ Partial Class Form1
         Me.TabPage1.Text = "Freelancers"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'RestrictByTargetLang
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Checked = True
-        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox2.Location = New System.Drawing.Point(249, 52)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox2.TabIndex = 6
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.RestrictByTargetLang.AutoSize = True
+        Me.RestrictByTargetLang.Checked = True
+        Me.RestrictByTargetLang.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByTargetLang.Location = New System.Drawing.Point(249, 52)
+        Me.RestrictByTargetLang.Name = "RestrictByTargetLang"
+        Me.RestrictByTargetLang.Size = New System.Drawing.Size(15, 14)
+        Me.RestrictByTargetLang.TabIndex = 6
+        Me.RestrictByTargetLang.UseVisualStyleBackColor = True
         '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Checked = True
         Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox1.Enabled = False
         Me.CheckBox1.Location = New System.Drawing.Point(249, 25)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
@@ -133,7 +137,7 @@ Partial Class Form1
         '
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.SOURCELANG, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewImageColumn1})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.SOURCELANG, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewImageColumn1})
         Me.DataGridView1.DataSource = Me.BindingSourceFreelancers
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.DataGridView1.Location = New System.Drawing.Point(3, 117)
@@ -164,6 +168,12 @@ Partial Class Form1
         Me.TARGETLANG1DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG1"
         Me.TARGETLANG1DataGridViewTextBoxColumn.HeaderText = "TARGETLANG1"
         Me.TARGETLANG1DataGridViewTextBoxColumn.Name = "TARGETLANG1DataGridViewTextBoxColumn"
+        '
+        'TARGETLANG2
+        '
+        Me.TARGETLANG2.DataPropertyName = "TARGETLANG2"
+        Me.TARGETLANG2.HeaderText = "TARGETLANG2"
+        Me.TARGETLANG2.Name = "TARGETLANG2"
         '
         'DataGridViewTextBoxColumn3
         '
@@ -346,11 +356,12 @@ Partial Class Form1
         '
         'TextBoxPassword
         '
+        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxPassword.Location = New System.Drawing.Point(95, 97)
         Me.TextBoxPassword.Name = "TextBoxPassword"
         Me.TextBoxPassword.Size = New System.Drawing.Size(301, 20)
         Me.TextBoxPassword.TabIndex = 9
-        Me.TextBoxPassword.Text = "password"
+        Me.TextBoxPassword.Text = Global.Mayflower.My.MySettings.Default.DBPassword
         Me.TextBoxPassword.UseSystemPasswordChar = True
         '
         'Label6
@@ -364,11 +375,12 @@ Partial Class Form1
         '
         'TextBoxDatabase
         '
+        Me.TextBoxDatabase.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBFile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxDatabase.Location = New System.Drawing.Point(95, 71)
         Me.TextBoxDatabase.Name = "TextBoxDatabase"
         Me.TextBoxDatabase.Size = New System.Drawing.Size(301, 20)
         Me.TextBoxDatabase.TabIndex = 7
-        Me.TextBoxDatabase.Text = "c:\projetex9\projetex server\database\projetex.fdb"
+        Me.TextBoxDatabase.Text = Global.Mayflower.My.MySettings.Default.DBFile
         '
         'Label5
         '
@@ -381,11 +393,12 @@ Partial Class Form1
         '
         'TextBoxServerPort
         '
+        Me.TextBoxServerPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxServerPort.Location = New System.Drawing.Point(95, 45)
         Me.TextBoxServerPort.Name = "TextBoxServerPort"
         Me.TextBoxServerPort.Size = New System.Drawing.Size(301, 20)
         Me.TextBoxServerPort.TabIndex = 5
-        Me.TextBoxServerPort.Text = "3050"
+        Me.TextBoxServerPort.Text = Global.Mayflower.My.MySettings.Default.DBPort
         '
         'Label3
         '
@@ -398,11 +411,12 @@ Partial Class Form1
         '
         'TextBoxServerAddress
         '
+        Me.TextBoxServerAddress.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBAddress", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxServerAddress.Location = New System.Drawing.Point(95, 19)
         Me.TextBoxServerAddress.Name = "TextBoxServerAddress"
         Me.TextBoxServerAddress.Size = New System.Drawing.Size(301, 20)
         Me.TextBoxServerAddress.TabIndex = 2
-        Me.TextBoxServerAddress.Text = "192.168.56.101"
+        Me.TextBoxServerAddress.Text = Global.Mayflower.My.MySettings.Default.DBAddress
         '
         'ShapeContainer1
         '
@@ -434,13 +448,22 @@ Partial Class Form1
         '
         Me.TargetLangTableAdapter.ClearBeforeFill = True
         '
-        'Form1
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(236, 6)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(43, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Restrict"
+        '
+        'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(864, 520)
         Me.Controls.Add(Me.TabControl1)
-        Me.Name = "Form1"
+        Me.Name = "FormMain"
         Me.Text = "Mayflower: Projetex Lookup Tool"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
@@ -473,7 +496,7 @@ Partial Class Form1
     Friend WithEvents CURRDESCDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents COUNNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents COUNFLAGDataGridViewImageColumn As System.Windows.Forms.DataGridViewImageColumn
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents RestrictByTargetLang As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -499,17 +522,19 @@ Partial Class Form1
     Friend WithEvents BindingSourceTargetLang As System.Windows.Forms.BindingSource
     Friend WithEvents TargetLangTableAdapter As Mayflower.DataSet2TableAdapters.TargetLangTableAdapter
     Friend WithEvents FbConnection1 As FirebirdSql.Data.FirebirdClient.FbConnection
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents StatusLed As Microsoft.VisualBasic.PowerPacks.OvalShape
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SOURCELANG As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TARGETLANG1DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TARGETLANG2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewImageColumn1 As System.Windows.Forms.DataGridViewImageColumn
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents StatusLed As Microsoft.VisualBasic.PowerPacks.OvalShape
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 
 End Class
