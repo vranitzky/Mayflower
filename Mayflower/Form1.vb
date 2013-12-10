@@ -13,12 +13,18 @@
     End Function
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
-        Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
-        'TODO: This line of code loads data into the 'DataSet2.DataTableSourceLang' table. You can move, or remove it, as needed.
-        Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
-        'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
-        Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+        Try
+            'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
+            Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
+            'TODO: This line of code loads data into the 'DataSet2.DataTableSourceLang' table. You can move, or remove it, as needed.
+            Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
+            'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
+            Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+        Catch ex As Exception
+            MessageBox.Show("Failed to connect to data source: \r\n" & ex.Message)
+            '        Finally
+            '            FbConnection1.Close()
+        End Try
 
 
         'TODO: This line of code loads data into the 'DataSet1.DataTablePeople' table. You can move, or remove it, as needed.
@@ -47,8 +53,8 @@
         'Next
         'a = a & Filters(Filters.Count - 1)
         a = MakeSQLFilter()
-        BindingSource3.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
-        BindingSource2.Filter = " (SOURCELANG = '" + ComboBoxSourceLang.Text + "')"
+        BindingSourceTargetLang.Filter = " (SOURCELANG = '" + ComboBoxSourceLang.Text + "')"
+        BindingSourceFreelancers.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
@@ -56,7 +62,7 @@
     End Sub
 
     Private Sub ComboBoxTargetLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxTargetLang.SelectedIndexChanged
-        BindingSource3.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
+        BindingSourceFreelancers.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
     End Sub
 
     Private Sub CheckBox2_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox2.CheckedChanged
@@ -74,24 +80,38 @@
 
     Private Sub ButtonApplyDBSettings_Click(sender As System.Object, e As System.EventArgs) Handles ButtonApplyDBSettings.Click
         Dim DefConn As String = "Driver={Firebird/InterBase(r) driver};dbname=localhost/3050:C:\Projetex9\Projetex Server\Database\projetex.fdb;charset=UTF8;uid=ODBC;role=PROJETEX_ODBC;client=C:\Program Files (x86)\AIT\Firebird Server\bin\fbclient.dll"
-        Dim connstr As String
+        Dim connstr, connstrFB As String
         'Dim a As System.Data.ConnectionState
         Dim ok As Boolean = True
 
-        connstr = "Driver={Firebird/InterBase(r) driver};" +
-            "dbname=" + TextBoxServerAddress.Text + "/" +
-            TextBoxServerPort.Text + ":" +
-            TextBoxDatabase.Text + ";" +
-            "charset=UTF8;uid=ODBC;role=PROJETEX_ODBC;" +
-            "password=" + TextBoxPassword.Text + ";" +
-            "client=" + TextBoxDBLib.Text
+        connstr = "User=ODBC;" +
+            "Password=" + TextBoxPassword.Text + ";" +
+            "Database=" + TextBoxDatabase.Text + ";" +
+            "DataSource=" + TextBoxServerAddress.Text + ";" +
+            "Port=" + TextBoxServerPort.Text + ";" +
+            "Dialect=3;" +
+            "Charset=UTF8;" +
+            "Role=PROJETEX_ODBC;" +
+            "Connection lifetime=15;" +
+            "Pooling=true;" +
+            "MinPoolSize=0;" +
+            "MaxPoolSize=50;" +
+            "Packet Size=8192;" +
+            "ServerType=0"
+        'FbConnection1.ConnectionString = connstr
         RichTextBoxConnectionString.Text = connstr
 
-        'My.Settings.Properties.
-        'DataSet1.
-        'DataTablePeopleBindingSource
-
         Try
+            DataSet2.Clear()
+            FreelancersTableAdapter.Connection.ConnectionString = connstr
+            SourceLangTableAdapter.Connection.ConnectionString = connstr
+            TargetLangTableAdapter.Connection.ConnectionString = connstr
+
+            SourceLangTableAdapter.Fill(DataSet2.DataTableSourceLang)
+            TargetLangTableAdapter.Fill(DataSet2.DataTableTargetLang)
+            FreelancersTableAdapter.Fill(DataSet2.DataTableFreelancers)
+
+
             '            DataSet1.Clear()
             '            DataTablePeopleTableAdapter.Connection.Close()
             '            DataTablePeopleTableAdapter.ConnectionString = connstr
@@ -108,7 +128,7 @@
             '           DataTableTargetLangTableAdapter.Fill(Me.DataSet1.DataTableTargetLang)
 
         Catch ex As Exception
-            MessageBox.Show("Failed to connect to data source: " & ex.Message)
+            MessageBox.Show("Failed to connect to data source: \r\n" & ex.Message)
             ok = False
             'Finally
             'conn.Close()
@@ -135,27 +155,42 @@
 
     Private Sub ButtonTestDBSettings_Click(sender As System.Object, e As System.EventArgs) Handles ButtonTestDBSettings.Click
         Dim connstr As String
-        Dim conn As New Odbc.OdbcConnection
+        'Dim conn As New 
         Dim OK As Boolean = True
 
-        connstr = "Driver={Firebird/InterBase(r) driver};" +
-            "dbname=" + TextBoxServerAddress.Text + "/" +
-            TextBoxServerPort.Text + ":" +
-            TextBoxDatabase.Text + ";" +
-            "charset=UTF8;uid=ODBC;role=PROJETEX_ODBC;" +
-            "password=" + TextBoxPassword.Text + ";" +
-            "client=" + TextBoxDBLib.Text
+        connstr = "User=ODBC;" +
+            "Password=" + TextBoxPassword.Text + ";" +
+            "Database=" + TextBoxDatabase.Text + ";" +
+            "DataSource=" + TextBoxServerAddress.Text + ";" +
+            "Port=" + TextBoxServerPort.Text + ";" +
+            "Dialect=3;" +
+            "Charset=UTF8;" +
+            "Role=PROJETEX_ODBC;" +
+            "Connection lifetime=15;" +
+            "Pooling=true;" +
+            "MinPoolSize=0;" +
+            "MaxPoolSize=50;" +
+            "Packet Size=8192;" +
+            "ServerType=0"
+        FbConnection1.ConnectionString = connstr
         RichTextBoxConnectionString.Text = connstr
 
-        conn.ConnectionString = connstr
         Try
-            conn.Open()
+            FbConnection1.Open()
         Catch ex As Exception
             MessageBox.Show("Failed to connect to data source: " & ex.Message)
             OK = False
         Finally
-            conn.Close()
+            FbConnection1.Close()
         End Try
-        If (OK) Then MessageBox.Show("Succesfully connected")
+        If (OK) Then
+            ButtonApplyDBSettings.Enabled = True
+            MessageBox.Show("Succesfully connected")
+        End If
+
+    End Sub
+
+    Private Sub TextBoxServerAddress_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBoxServerPort.TextChanged, TextBoxServerAddress.TextChanged, TextBoxPassword.TextChanged, TextBoxDBLib.TextChanged, TextBoxDatabase.TextChanged
+        ButtonApplyDBSettings.Enabled = False
     End Sub
 End Class
