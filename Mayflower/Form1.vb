@@ -13,6 +13,8 @@
     End Function
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        StatusLed.Tag = False
+        StatusLed.BackColor = Color.Red
         Try
             'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
             Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
@@ -20,19 +22,21 @@
             Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
             'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
             Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+            StatusLed.BackColor = Color.Green
         Catch ex As Exception
-            MessageBox.Show("Failed to connect to data source: \r\n" & ex.Message)
+            '"Failed to connect to database: " & Environment.NewLine &
+            MessageBox.Show(
+                            ex.Message & Environment.NewLine &
+                            "Please set up parameters.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                            )
+            TabControl1.SelectedTab = TabPage2
+            'TabPage1.
             '        Finally
             '            FbConnection1.Close()
         End Try
-
-
-        'TODO: This line of code loads data into the 'DataSet1.DataTablePeople' table. You can move, or remove it, as needed.
-        '        Me.DataTablePeopleTableAdapter.Fill(Me.DataSet1.DataTablePeople)
-        'TODO: This line of code loads data into the 'DataSet1.DataTableTargetLang' table. You can move, or remove it, as needed.
-        '        Me.DataTableTargetLangTableAdapter.Fill(Me.DataSet1.DataTableTargetLang)
-        'TODO: This line of code loads data into the 'DataSet1.DataTableSourceLang' table. You can move, or remove it, as needed.
-        '       Me.DataTableSourceLangTableAdapter.Fill(Me.DataSet1.DataTableSourceLang)
 
     End Sub
 
@@ -71,18 +75,19 @@
 
     Private Sub CheckBox3_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox3.CheckedChanged
         If CheckBox3.Checked Then
-            TextBoxPassword.PasswordChar = ""
+            TextBoxPassword.UseSystemPasswordChar = False
+            'PasswordChar = ""
         Else
-            TextBoxPassword.PasswordChar = "*"
+            TextBoxPassword.UseSystemPasswordChar = True
         End If
 
     End Sub
 
     Private Sub ButtonApplyDBSettings_Click(sender As System.Object, e As System.EventArgs) Handles ButtonApplyDBSettings.Click
-        Dim DefConn As String = "Driver={Firebird/InterBase(r) driver};dbname=localhost/3050:C:\Projetex9\Projetex Server\Database\projetex.fdb;charset=UTF8;uid=ODBC;role=PROJETEX_ODBC;client=C:\Program Files (x86)\AIT\Firebird Server\bin\fbclient.dll"
-        Dim connstr, connstrFB As String
-        'Dim a As System.Data.ConnectionState
+        Dim connstr As String
         Dim ok As Boolean = True
+
+        StatusLed.BackColor = Color.Gold
 
         connstr = "User=ODBC;" +
             "Password=" + TextBoxPassword.Text + ";" +
@@ -98,7 +103,6 @@
             "MaxPoolSize=50;" +
             "Packet Size=8192;" +
             "ServerType=0"
-        'FbConnection1.ConnectionString = connstr
         RichTextBoxConnectionString.Text = connstr
 
         Try
@@ -111,52 +115,29 @@
             TargetLangTableAdapter.Fill(DataSet2.DataTableTargetLang)
             FreelancersTableAdapter.Fill(DataSet2.DataTableFreelancers)
 
-
-            '            DataSet1.Clear()
-            '            DataTablePeopleTableAdapter.Connection.Close()
-            '            DataTablePeopleTableAdapter.ConnectionString = connstr
-            '            a = DataTablePeopleTableAdapter.Connection.State
-            '            DataTablePeopleTableAdapter.Connection.Open()
-            '            DataTablePeopleTableAdapter.Fill(Me.DataSet1.DataTablePeople)
-            '            DataTableSourceLangTableAdapter.Connection.Close()
-            '            DataTableSourceLangTableAdapter.Connection.ConnectionString = connstr
-            '           DataTableSourceLangTableAdapter.Connection.Open()
-            '           DataTableSourceLangTableAdapter.Fill(Me.DataSet1.DataTableSourceLang)
-            ''           DataTableTargetLangTableAdapter.Connection.Close()
-            '           DataTableTargetLangTableAdapter.Connection.ConnectionString = connstr
-            '           DataTableTargetLangTableAdapter.Connection.Open()
-            '           DataTableTargetLangTableAdapter.Fill(Me.DataSet1.DataTableTargetLang)
-
         Catch ex As Exception
-            MessageBox.Show("Failed to connect to data source: \r\n" & ex.Message)
+            'MessageBox.Show("Failed to connect to data source: \r\n" & ex.Message)
             ok = False
+            StatusLed.BackColor = Color.Red
             'Finally
             'conn.Close()
         End Try
-        'DataTablePeopleTableAdapter.Connection.ConnectionString = connstr
-        'DataTablePeopleTableAdapter.Connection.Open()
-        'DataTableSourceLangTableAdapter.Connection.Close()
-        'DataTableSourceLangTableAdapter.Connection.ConnectionString = connstr
-        'DataTableSourceLangTableAdapter.Connection.Open()
-        'DataTableTargetLangTableAdapter.Connection.Close()
-        'DataTableTargetLangTableAdapter.Connection.ConnectionString = connstr
-        'DataTableTargetLangTableAdapter.Connection.Open()
-
-
-    End Sub
-
-    Private Sub ButtonSelectLib_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSelectLib.Click
-        OpenFileDialogSelectLib.InitialDirectory = Replace(TextBoxDBLib.Text, "fbclient.dll", "")
-        If (OpenFileDialogSelectLib.ShowDialog()) Then
-            TextBoxDBLib.Text = OpenFileDialogSelectLib.FileName
-        End If
+        If ok Then StatusLed.BackColor = Color.Green
 
     End Sub
 
     Private Sub ButtonTestDBSettings_Click(sender As System.Object, e As System.EventArgs) Handles ButtonTestDBSettings.Click
-        Dim connstr As String
+        Dim connstr, text As String
         'Dim conn As New 
         Dim OK As Boolean = True
+
+        StatusLed.BackColor = Color.Gold
+        text = ButtonTestDBSettings.Text
+        ButtonTestDBSettings.Text = "Testing..."
+        ButtonTestDBSettings.Enabled = False
+        Me.Cursor = Cursors.WaitCursor
+        'TimerLed.Enabled = True
+        'TimerLed.Start()
 
         connstr = "User=ODBC;" +
             "Password=" + TextBoxPassword.Text + ";" +
@@ -178,19 +159,33 @@
         Try
             FbConnection1.Open()
         Catch ex As Exception
-            MessageBox.Show("Failed to connect to data source: " & ex.Message)
+            'MessageBox.Show("Failed to connect to data source: " & ex.Message)
             OK = False
         Finally
             FbConnection1.Close()
+            ButtonTestDBSettings.Enabled = True
+            ButtonTestDBSettings.Text = text
+            'TimerLed.Stop()
+            'TimerLed.Enabled = False
+            Me.Cursor = Cursors.Default
         End Try
         If (OK) Then
             ButtonApplyDBSettings.Enabled = True
-            MessageBox.Show("Succesfully connected")
+            StatusLed.BackColor = Color.Green
+            'MessageBox.Show("Succesfully connected")
+        Else
+            StatusLed.BackColor = Color.Red
         End If
 
     End Sub
 
-    Private Sub TextBoxServerAddress_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBoxServerPort.TextChanged, TextBoxServerAddress.TextChanged, TextBoxPassword.TextChanged, TextBoxDBLib.TextChanged, TextBoxDatabase.TextChanged
+    Private Sub TextBoxServerSetting_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBoxServerPort.TextChanged, TextBoxServerAddress.TextChanged, TextBoxPassword.TextChanged, TextBoxDatabase.TextChanged
         ButtonApplyDBSettings.Enabled = False
+        StatusLed.BackColor = Color.Gold
     End Sub
+
+    Private Sub Form1_Shown(sender As System.Object, e As System.EventArgs) Handles MyBase.Shown
+        StatusLed.Tag = True
+    End Sub
+
 End Class

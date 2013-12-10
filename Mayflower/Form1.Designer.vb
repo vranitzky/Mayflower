@@ -23,12 +23,20 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SOURCELANG = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.BindingSourceFreelancers = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet2 = New Mayflower.DataSet2()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -39,11 +47,9 @@ Partial Class Form1
         Me.BindingSourceSourceLang = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
         Me.RichTextBoxConnectionString = New System.Windows.Forms.RichTextBox()
-        Me.ButtonSelectLib = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBoxDBLib = New System.Windows.Forms.TextBox()
         Me.ButtonApplyDBSettings = New System.Windows.Forms.Button()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -52,23 +58,15 @@ Partial Class Form1
         Me.TextBoxDatabase = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TextBoxServerPort = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
+        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.StatusLed = New Microsoft.VisualBasic.PowerPacks.OvalShape()
         Me.OpenFileDialogSelectLib = New System.Windows.Forms.OpenFileDialog()
         Me.FreelancersTableAdapter = New Mayflower.DataSet2TableAdapters.FreelancersTableAdapter()
         Me.SourceLangTableAdapter = New Mayflower.DataSet2TableAdapters.SourceLangTableAdapter()
         Me.TargetLangTableAdapter = New Mayflower.DataSet2TableAdapters.TargetLangTableAdapter()
         Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SOURCELANG = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -107,7 +105,7 @@ Partial Class Form1
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(854, 493)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.Text = "Freelancers"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'CheckBox2
@@ -143,6 +141,60 @@ Partial Class Form1
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(848, 373)
         Me.DataGridView1.TabIndex = 4
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "RES_ID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "RES_ID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RES_NAME"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "RES_NAME"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'SOURCELANG
+        '
+        Me.SOURCELANG.DataPropertyName = "SOURCELANG"
+        Me.SOURCELANG.HeaderText = "SOURCELANG"
+        Me.SOURCELANG.Name = "SOURCELANG"
+        '
+        'TARGETLANG1DataGridViewTextBoxColumn
+        '
+        Me.TARGETLANG1DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG1"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.HeaderText = "TARGETLANG1"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.Name = "TARGETLANG1DataGridViewTextBoxColumn"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "RES_CODE"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "RES_CODE"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "CURR_NAME"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "CURR_NAME"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "CURR_DESC"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "CURR_DESC"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "COUN_NAME"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "COUN_NAME"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewImageColumn1
+        '
+        Me.DataGridViewImageColumn1.DataPropertyName = "COUN_FLAG"
+        Me.DataGridViewImageColumn1.HeaderText = "COUN_FLAG"
+        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         '
         'BindingSourceFreelancers
         '
@@ -210,18 +262,16 @@ Partial Class Form1
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(854, 493)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.Text = "Settings"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.ButtonTestDBSettings)
         Me.GroupBox1.Controls.Add(Me.RichTextBoxConnectionString)
-        Me.GroupBox1.Controls.Add(Me.ButtonSelectLib)
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.TextBoxDBLib)
         Me.GroupBox1.Controls.Add(Me.ButtonApplyDBSettings)
         Me.GroupBox1.Controls.Add(Me.CheckBox3)
         Me.GroupBox1.Controls.Add(Me.Label7)
@@ -230,15 +280,24 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.TextBoxDatabase)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.TextBoxServerPort)
-        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.TextBoxServerAddress)
+        Me.GroupBox1.Controls.Add(Me.ShapeContainer1)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 6)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(620, 395)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Database"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(10, 128)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(37, 13)
+        Me.Label8.TabIndex = 19
+        Me.Label8.Text = "Status"
         '
         'ButtonTestDBSettings
         '
@@ -257,34 +316,6 @@ Partial Class Form1
         Me.RichTextBoxConnectionString.Size = New System.Drawing.Size(301, 151)
         Me.RichTextBoxConnectionString.TabIndex = 16
         Me.RichTextBoxConnectionString.Text = ""
-        '
-        'ButtonSelectLib
-        '
-        Me.ButtonSelectLib.Enabled = False
-        Me.ButtonSelectLib.Location = New System.Drawing.Point(402, 122)
-        Me.ButtonSelectLib.Name = "ButtonSelectLib"
-        Me.ButtonSelectLib.Size = New System.Drawing.Size(53, 20)
-        Me.ButtonSelectLib.TabIndex = 15
-        Me.ButtonSelectLib.Text = "Select"
-        Me.ButtonSelectLib.UseVisualStyleBackColor = True
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(10, 126)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(38, 13)
-        Me.Label8.TabIndex = 14
-        Me.Label8.Text = "Library"
-        '
-        'TextBoxDBLib
-        '
-        Me.TextBoxDBLib.Enabled = False
-        Me.TextBoxDBLib.Location = New System.Drawing.Point(95, 123)
-        Me.TextBoxDBLib.Name = "TextBoxDBLib"
-        Me.TextBoxDBLib.Size = New System.Drawing.Size(301, 20)
-        Me.TextBoxDBLib.TabIndex = 13
-        Me.TextBoxDBLib.Text = "C:\Program Files (x86)\AIT\Firebird Server\bin\fbclient.dll"
         '
         'ButtonApplyDBSettings
         '
@@ -318,10 +349,10 @@ Partial Class Form1
         '
         Me.TextBoxPassword.Location = New System.Drawing.Point(95, 97)
         Me.TextBoxPassword.Name = "TextBoxPassword"
-        Me.TextBoxPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBoxPassword.Size = New System.Drawing.Size(301, 20)
         Me.TextBoxPassword.TabIndex = 9
         Me.TextBoxPassword.Text = "password"
+        Me.TextBoxPassword.UseSystemPasswordChar = True
         '
         'Label6
         '
@@ -357,15 +388,6 @@ Partial Class Form1
         Me.TextBoxServerPort.TabIndex = 5
         Me.TextBoxServerPort.Text = "3050"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(10, 346)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(1197, 13)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = resources.GetString("Label4.Text")
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -383,6 +405,24 @@ Partial Class Form1
         Me.TextBoxServerAddress.TabIndex = 2
         Me.TextBoxServerAddress.Text = "192.168.56.101"
         '
+        'ShapeContainer1
+        '
+        Me.ShapeContainer1.Location = New System.Drawing.Point(3, 16)
+        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer1.Name = "ShapeContainer1"
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.StatusLed})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(614, 376)
+        Me.ShapeContainer1.TabIndex = 20
+        Me.ShapeContainer1.TabStop = False
+        '
+        'StatusLed
+        '
+        Me.StatusLed.BackColor = System.Drawing.Color.Gold
+        Me.StatusLed.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.StatusLed.Location = New System.Drawing.Point(92, 104)
+        Me.StatusLed.Name = "StatusLed"
+        Me.StatusLed.Size = New System.Drawing.Size(25, 25)
+        '
         'OpenFileDialogSelectLib
         '
         Me.OpenFileDialogSelectLib.FileName = "OpenFileDialog1"
@@ -399,60 +439,6 @@ Partial Class Form1
         'TargetLangTableAdapter
         '
         Me.TargetLangTableAdapter.ClearBeforeFill = True
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "RES_ID"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "RES_ID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "RES_NAME"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "RES_NAME"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        '
-        'SOURCELANG
-        '
-        Me.SOURCELANG.DataPropertyName = "SOURCELANG"
-        Me.SOURCELANG.HeaderText = "SOURCELANG"
-        Me.SOURCELANG.Name = "SOURCELANG"
-        '
-        'TARGETLANG1DataGridViewTextBoxColumn
-        '
-        Me.TARGETLANG1DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG1"
-        Me.TARGETLANG1DataGridViewTextBoxColumn.HeaderText = "TARGETLANG1"
-        Me.TARGETLANG1DataGridViewTextBoxColumn.Name = "TARGETLANG1DataGridViewTextBoxColumn"
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "RES_CODE"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "RES_CODE"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "CURR_NAME"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "CURR_NAME"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "CURR_DESC"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "CURR_DESC"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "COUN_NAME"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "COUN_NAME"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        '
-        'DataGridViewImageColumn1
-        '
-        Me.DataGridViewImageColumn1.DataPropertyName = "COUN_FLAG"
-        Me.DataGridViewImageColumn1.HeaderText = "COUN_FLAG"
-        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         '
         'Form1
         '
@@ -505,11 +491,7 @@ Partial Class Form1
     Friend WithEvents TextBoxDatabase As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents TextBoxServerPort As System.Windows.Forms.TextBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents ButtonApplyDBSettings As System.Windows.Forms.Button
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents TextBoxDBLib As System.Windows.Forms.TextBox
-    Friend WithEvents ButtonSelectLib As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialogSelectLib As System.Windows.Forms.OpenFileDialog
     Friend WithEvents RichTextBoxConnectionString As System.Windows.Forms.RichTextBox
     Friend WithEvents ButtonTestDBSettings As System.Windows.Forms.Button
@@ -533,5 +515,8 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewImageColumn1 As System.Windows.Forms.DataGridViewImageColumn
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents StatusLed As Microsoft.VisualBasic.PowerPacks.OvalShape
 
 End Class
