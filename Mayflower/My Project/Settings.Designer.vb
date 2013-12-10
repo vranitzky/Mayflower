@@ -17,7 +17,7 @@ Namespace My
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
-    Partial Friend NotInheritable Class MySettings
+    Partial Public NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
         
         Private Shared defaultInstance As MySettings = CType(Global.System.Configuration.ApplicationSettingsBase.Synchronized(New MySettings()),MySettings)
@@ -92,7 +92,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("password")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("pwww")>  _
         Public Property DBPassword() As String
             Get
                 Return CType(Me("DBPassword"),String)
@@ -104,10 +104,10 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("User=ODBC;Password=pw;Database=c:\projetex9\projetex server\database\projetex.fdb"& _ 
-            ";DataSource=192.168.56.101;Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODBC;C"& _ 
-            "onnection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192"& _ 
-            ";ServerType=0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("User=ODBC;Password=pwww;Database=c:\projetex9\projetex server\database\projetex.f"& _ 
+            "db;DataSource=192.168.56.101;Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODBC"& _ 
+            ";Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=81"& _ 
+            "92")>  _
         Public Property ProjetexDB() As String
             Get
                 Return CType(Me("ProjetexDB"),String)
@@ -115,6 +115,17 @@ Namespace My
             Set
                 Me("ProjetexDB") = value
             End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=192.168.56.101;initial catalog=""C:\Projetex9\Proje"& _ 
+            "tex Server\Database\Projetex.fdb"";user id=ODBC;password=pwww;role=PROJETEX_ODBC")>  _
+        Public ReadOnly Property ProjetexDB2() As String
+            Get
+                Return CType(Me("ProjetexDB2"),String)
+            End Get
         End Property
     End Class
 End Namespace

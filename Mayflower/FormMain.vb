@@ -138,9 +138,14 @@
     End Sub
 
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        'Dim t As ada
         StatusLed.BackColor = Color.Red
+
         Try
+            FreelancersTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            SourceLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            TargetLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+
             'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
             Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
             'TODO: This line of code loads data into the 'DataSet2.DataTableSourceLang' table. You can move, or remove it, as needed.
@@ -150,6 +155,7 @@
             StatusLed.BackColor = Color.Green
         Catch ex As Exception
             '"Failed to connect to database: " & Environment.NewLine &
+            'SplashScreen1.Close()
             MessageBox.Show(
                             """" & ex.Message & """" & Environment.NewLine & Environment.NewLine &
                             "Please set up parameters.",
