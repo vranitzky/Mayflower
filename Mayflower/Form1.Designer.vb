@@ -62,7 +62,6 @@ Partial Class Form1
         Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.StatusLed = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.OpenFileDialogSelectLib = New System.Windows.Forms.OpenFileDialog()
         Me.FreelancersTableAdapter = New Mayflower.DataSet2TableAdapters.FreelancersTableAdapter()
         Me.SourceLangTableAdapter = New Mayflower.DataSet2TableAdapters.SourceLangTableAdapter()
         Me.TargetLangTableAdapter = New Mayflower.DataSet2TableAdapters.TargetLangTableAdapter()
@@ -423,11 +422,6 @@ Partial Class Form1
         Me.StatusLed.Name = "StatusLed"
         Me.StatusLed.Size = New System.Drawing.Size(25, 25)
         '
-        'OpenFileDialogSelectLib
-        '
-        Me.OpenFileDialogSelectLib.FileName = "OpenFileDialog1"
-        Me.OpenFileDialogSelectLib.Filter = "DLL Files|*.dll"
-        '
         'FreelancersTableAdapter
         '
         Me.FreelancersTableAdapter.ClearBeforeFill = True
@@ -447,7 +441,7 @@ Partial Class Form1
         Me.ClientSize = New System.Drawing.Size(864, 520)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Mayflower: Projetex Lookup Tool"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
@@ -492,7 +486,6 @@ Partial Class Form1
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents TextBoxServerPort As System.Windows.Forms.TextBox
     Friend WithEvents ButtonApplyDBSettings As System.Windows.Forms.Button
-    Friend WithEvents OpenFileDialogSelectLib As System.Windows.Forms.OpenFileDialog
     Friend WithEvents RichTextBoxConnectionString As System.Windows.Forms.RichTextBox
     Friend WithEvents ButtonTestDBSettings As System.Windows.Forms.Button
     Friend WithEvents DataTablePeopleBindingSource As System.Windows.Forms.BindingSource
