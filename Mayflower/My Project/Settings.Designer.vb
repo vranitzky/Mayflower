@@ -127,6 +127,18 @@ Namespace My
                 Return CType(Me("ProjetexDB2"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0, 0")>  _
+        Public Property WindowLocation() As Global.System.Drawing.Point
+            Get
+                Return CType(Me("WindowLocation"),Global.System.Drawing.Point)
+            End Get
+            Set
+                Me("WindowLocation") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

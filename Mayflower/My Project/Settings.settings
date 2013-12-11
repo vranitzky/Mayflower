@@ -25,5 +25,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">character set=UTF8;data source=192.168.56.101;initial catalog="C:\Projetex9\Projetex Server\Database\Projetex.fdb";user id=ODBC;password=pwww;role=PROJETEX_ODBC</Value>
     </Setting>
+    <Setting Name="WindowLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

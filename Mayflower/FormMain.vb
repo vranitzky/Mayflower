@@ -1,5 +1,39 @@
 ﻿Public Class FormMain
-    Dim Filters As New List(Of String)
+    Private Sub GetCatTools()
+        Dim t As Mayflower.DataSet2.CatToolsDataTable
+        Dim r As DataRow
+        Dim a, s As String
+        Dim arr As String()
+        Dim i As Integer = 0
+        Dim collection As SearchableStringCollection = New SearchableStringCollection
+        Dim strlist As List(Of String) = New List(Of String)
+        Dim charSeparators() As String = {vbCrLf, ",", "•", "", ""}
+
+        'Me.CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
+        t = Me.CatToolsTableAdapter.GetData()
+        For Each r In t.Rows
+            s = r.Item(0) ' this get a row. each row has: "value1" & vbCrLf & "value2" ....
+            arr = s.Split(charSeparators, StringSplitOptions.RemoveEmptyEntries)
+            For Each a In arr
+                ' remove spaces and extra characters like: •
+                'collection.Add(a)
+                a = a.Trim
+                'a = a.
+                If a.Length > 1 Then strlist.Add(a)
+            Next
+        Next
+        strlist.Sort()
+
+        Dim uniqueNames = From u In strlist Distinct
+
+        For Each n In uniqueNames
+            ComboBoxTools.Items.Add(n.ToString)
+        Next
+        'For Each s In strlist
+        'ComboBoxTools.Items.Add(s)
+        'Next
+    End Sub
+
     Private Sub FillFreelancersTable()
         Dim ret As Integer = 0
         Dim foundstr As String
@@ -23,19 +57,6 @@
         LabelRecordsFound.Text = foundstr
         Me.Cursor = Cursors.Default
     End Sub
-
-
-    Private Function MakeSQLFilter()
-        Dim a As String = ""
-
-        If Filters.Count = 0 Then Return ""
-        For index = 0 To Filters.Count - 2
-            a = a & (Filters(index) & " AND ")
-        Next
-        a = a & Filters(Filters.Count - 1)
-
-        Return a
-    End Function
 
     Private Sub ComboBoxSourceLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxSourceLang.SelectedIndexChanged
         'BindingSourceTargetLang.Filter = " (SOURCELANG = '" + ComboBoxSourceLang.Text + "')"
@@ -188,7 +209,7 @@
             FreelancersTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             SourceLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             TargetLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            AIT_USERSTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            CatToolsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
 
             'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
             Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
@@ -197,7 +218,9 @@
             'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
             'Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
             'TODO: This line of code loads data into the 'DataSet2._AIT_USERS' table. You can move, or remove it, as needed.
-            Me.AIT_USERSTableAdapter.Fill(Me.DataSet2._AIT_USERS)
+            'Me.CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
+            GetCatTools()
+
 
             FillFreelancersTable()
             StatusLed.BackColor = Color.Green
