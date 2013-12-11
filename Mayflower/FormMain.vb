@@ -1,5 +1,22 @@
 ﻿Public Class FormMain
     Dim Filters As New List(Of String)
+    Private Sub FillFreelancersTable()
+        If RestrictBySourceLang.Checked Then
+            If RestrictByTargetLang.Checked Then
+                FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
+            Else
+                FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
+            End If
+        Else
+            If RestrictByTargetLang.Checked Then
+                FreelancersTableAdapter.FillByTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxTargetLang.Text)
+            Else
+                FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+            End If
+        End If
+
+    End Sub
+
     Private Function MakeSQLFilter()
         Dim a As String = ""
 
@@ -19,12 +36,26 @@
 
         TargetLangTableAdapter.FillBySourceLanguage(Me.DataSet2.DataTableTargetLang, ComboBoxSourceLang.Text)
         ''BindingSourceFreelancers.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
-        FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
+
+        FillFreelancersTable()
+
+        'If RestrictByTargetLang.Checked Then
+        'FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
+        'Else
+        'FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
+        'End If
     End Sub
 
     Private Sub ComboBoxTargetLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxTargetLang.SelectedIndexChanged
         'BindingSourceFreelancers.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
-        FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
+        FillFreelancersTable()
+
+        'If RestrictByTargetLang.Checked Then
+        'FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
+        'Else
+        'FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
+        'End If
+        'FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
     End Sub
 
 
@@ -140,6 +171,10 @@
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         'Dim t As ada
         StatusLed.BackColor = Color.Red
+        RestrictBySourceLang.Checked = True
+        RestrictByTargetLang.Checked = True
+        RestrictBySourceLang.Enabled = True
+        RestrictByTargetLang.Enabled = True
 
         Try
             FreelancersTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
@@ -151,17 +186,19 @@
             'TODO: This line of code loads data into the 'DataSet2.DataTableSourceLang' table. You can move, or remove it, as needed.
             Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
             'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
-            Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+            'Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+
+            FillFreelancersTable()
             StatusLed.BackColor = Color.Green
         Catch ex As Exception
             '"Failed to connect to database: " & Environment.NewLine &
             'SplashScreen1.Close()
-            MessageBox.Show(
+            MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine &
                             """" & ex.Message & """" & Environment.NewLine & Environment.NewLine &
-                            "Please set up parameters.",
+                            "Please set up Database parameters in the next window.",
                             "Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error
                             )
             TabControl1.SelectedTab = TabPage2
             'TabPage1.
@@ -179,7 +216,14 @@
     End Sub
 
 
-    Private Sub RestrictByTargetLang_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTargetLang.CheckedChanged
+    Private Sub RestrictByLang_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTargetLang.CheckedChanged, RestrictBySourceLang.CheckedChanged
+        FillFreelancersTable()
 
+        'If RestrictByTargetLang.Checked Then
+        'FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
+        'Else
+        'FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
+        'End If
     End Sub
+
 End Class

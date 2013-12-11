@@ -25,8 +25,9 @@ Partial Class FormMain
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.RestrictByTargetLang = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.RestrictBySourceLang = New System.Windows.Forms.CheckBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -63,11 +64,10 @@ Partial Class FormMain
         Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.StatusLed = New Microsoft.VisualBasic.PowerPacks.OvalShape()
+        Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
         Me.FreelancersTableAdapter = New Mayflower.DataSet2TableAdapters.FreelancersTableAdapter()
         Me.SourceLangTableAdapter = New Mayflower.DataSet2TableAdapters.SourceLangTableAdapter()
         Me.TargetLangTableAdapter = New Mayflower.DataSet2TableAdapters.TargetLangTableAdapter()
-        Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,7 +96,7 @@ Partial Class FormMain
         '
         Me.TabPage1.Controls.Add(Me.Label4)
         Me.TabPage1.Controls.Add(Me.RestrictByTargetLang)
-        Me.TabPage1.Controls.Add(Me.CheckBox1)
+        Me.TabPage1.Controls.Add(Me.RestrictBySourceLang)
         Me.TabPage1.Controls.Add(Me.DataGridView1)
         Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.ComboBoxTargetLang)
@@ -110,28 +110,38 @@ Partial Class FormMain
         Me.TabPage1.Text = "Freelancers"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(236, 6)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(43, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Restrict"
+        '
         'RestrictByTargetLang
         '
         Me.RestrictByTargetLang.AutoSize = True
         Me.RestrictByTargetLang.Checked = True
         Me.RestrictByTargetLang.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByTargetLang.Enabled = False
         Me.RestrictByTargetLang.Location = New System.Drawing.Point(249, 52)
         Me.RestrictByTargetLang.Name = "RestrictByTargetLang"
         Me.RestrictByTargetLang.Size = New System.Drawing.Size(15, 14)
         Me.RestrictByTargetLang.TabIndex = 6
         Me.RestrictByTargetLang.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'RestrictBySourceLang
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Checked = True
-        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox1.Enabled = False
-        Me.CheckBox1.Location = New System.Drawing.Point(249, 25)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox1.TabIndex = 5
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.RestrictBySourceLang.AutoSize = True
+        Me.RestrictBySourceLang.Checked = True
+        Me.RestrictBySourceLang.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictBySourceLang.Enabled = False
+        Me.RestrictBySourceLang.Location = New System.Drawing.Point(249, 25)
+        Me.RestrictBySourceLang.Name = "RestrictBySourceLang"
+        Me.RestrictBySourceLang.Size = New System.Drawing.Size(15, 14)
+        Me.RestrictBySourceLang.TabIndex = 5
+        Me.RestrictBySourceLang.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -448,15 +458,6 @@ Partial Class FormMain
         '
         Me.TargetLangTableAdapter.ClearBeforeFill = True
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(236, 6)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(43, 13)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Restrict"
-        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -497,7 +498,7 @@ Partial Class FormMain
     Friend WithEvents COUNNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents COUNFLAGDataGridViewImageColumn As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents RestrictByTargetLang As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents RestrictBySourceLang As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TextBoxServerAddress As System.Windows.Forms.TextBox
