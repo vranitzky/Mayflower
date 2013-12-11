@@ -1,21 +1,29 @@
 ﻿Public Class FormMain
     Dim Filters As New List(Of String)
     Private Sub FillFreelancersTable()
+        Dim ret As Integer = 0
+        Dim foundstr As String
+
+        Me.Cursor = Cursors.AppStarting
         If RestrictBySourceLang.Checked Then
             If RestrictByTargetLang.Checked Then
-                FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
+                ret = FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
             Else
-                FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
+                ret = FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
             End If
         Else
             If RestrictByTargetLang.Checked Then
-                FreelancersTableAdapter.FillByTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxTargetLang.Text)
+                ret = FreelancersTableAdapter.FillByTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxTargetLang.Text)
             Else
-                FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+                ret = FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
             End If
         End If
-
+        foundstr = "Found " & ret.ToString & " record"
+        If ret <> 1 Then foundstr &= "s"
+        LabelRecordsFound.Text = foundstr
+        Me.Cursor = Cursors.Default
     End Sub
+
 
     Private Function MakeSQLFilter()
         Dim a As String = ""

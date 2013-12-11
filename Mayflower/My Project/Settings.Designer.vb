@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("192.168.56.101")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("192.168.0.56")>  _
         Public Property DBAddress() As String
             Get
                 Return CType(Me("DBAddress"),String)
@@ -80,7 +80,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("c:\projetex9\projetex server\database\projetex.fdb")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\Projetex.fdb")>  _
         Public Property DBFile() As String
             Get
                 Return CType(Me("DBFile"),String)
@@ -92,7 +92,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("pwww")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("password")>  _
         Public Property DBPassword() As String
             Get
                 Return CType(Me("DBPassword"),String)
