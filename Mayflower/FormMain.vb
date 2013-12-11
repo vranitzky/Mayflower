@@ -188,6 +188,7 @@
             FreelancersTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             SourceLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             TargetLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            AIT_USERSTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
 
             'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
             Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
@@ -195,6 +196,8 @@
             Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
             'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
             'Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+            'TODO: This line of code loads data into the 'DataSet2._AIT_USERS' table. You can move, or remove it, as needed.
+            Me.AIT_USERSTableAdapter.Fill(Me.DataSet2._AIT_USERS)
 
             FillFreelancersTable()
             StatusLed.BackColor = Color.Green

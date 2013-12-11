@@ -25,6 +25,9 @@ Partial Class FormMain
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.AITUSERSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet2 = New Mayflower.DataSet2()
         Me.LabelRecordsFound = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.RestrictByTargetLang = New System.Windows.Forms.CheckBox()
@@ -32,8 +35,17 @@ Partial Class FormMain
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.SOURCELANG = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TARGETLANG2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SOURCELANGDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RESIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RESNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RESCODEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CURRNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CURRDESCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.COUNNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.COUNFLAGDataGridViewImageColumn = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.TARGETLANG2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BindingSourceFreelancers = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet2 = New Mayflower.DataSet2()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBoxTargetLang = New System.Windows.Forms.ComboBox()
         Me.BindingSourceTargetLang = New System.Windows.Forms.BindingSource(Me.components)
@@ -61,21 +73,13 @@ Partial Class FormMain
         Me.FreelancersTableAdapter = New Mayflower.DataSet2TableAdapters.FreelancersTableAdapter()
         Me.SourceLangTableAdapter = New Mayflower.DataSet2TableAdapters.SourceLangTableAdapter()
         Me.TargetLangTableAdapter = New Mayflower.DataSet2TableAdapters.TargetLangTableAdapter()
-        Me.SOURCELANGDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RESIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RESNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RESCODEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CURRNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CURRDESCDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.COUNNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.COUNFLAGDataGridViewImageColumn = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.TARGETLANG2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AIT_USERSTableAdapter = New Mayflower.DataSet2TableAdapters.AIT_USERSTableAdapter()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.AITUSERSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
@@ -97,6 +101,7 @@ Partial Class FormMain
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.ComboBox1)
         Me.TabPage1.Controls.Add(Me.LabelRecordsFound)
         Me.TabPage1.Controls.Add(Me.Label4)
         Me.TabPage1.Controls.Add(Me.RestrictByTargetLang)
@@ -113,6 +118,26 @@ Partial Class FormMain
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Freelancers"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataSource = Me.AITUSERSBindingSource
+        Me.ComboBox1.DisplayMember = "NAME"
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(373, 21)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(342, 21)
+        Me.ComboBox1.TabIndex = 9
+        '
+        'AITUSERSBindingSource
+        '
+        Me.AITUSERSBindingSource.AllowNew = False
+        Me.AITUSERSBindingSource.DataMember = "AIT$USERS"
+        Me.AITUSERSBindingSource.DataSource = Me.DataSet2
+        '
+        'DataSet2
+        '
+        Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'LabelRecordsFound
         '
@@ -182,14 +207,71 @@ Partial Class FormMain
         Me.TARGETLANG2.HeaderText = "TARGETLANG2"
         Me.TARGETLANG2.Name = "TARGETLANG2"
         '
+        'SOURCELANGDataGridViewTextBoxColumn
+        '
+        Me.SOURCELANGDataGridViewTextBoxColumn.DataPropertyName = "SOURCELANG"
+        Me.SOURCELANGDataGridViewTextBoxColumn.HeaderText = "SOURCELANG"
+        Me.SOURCELANGDataGridViewTextBoxColumn.Name = "SOURCELANGDataGridViewTextBoxColumn"
+        '
+        'RESIDDataGridViewTextBoxColumn
+        '
+        Me.RESIDDataGridViewTextBoxColumn.DataPropertyName = "RES_ID"
+        Me.RESIDDataGridViewTextBoxColumn.HeaderText = "RES_ID"
+        Me.RESIDDataGridViewTextBoxColumn.Name = "RESIDDataGridViewTextBoxColumn"
+        '
+        'RESNAMEDataGridViewTextBoxColumn
+        '
+        Me.RESNAMEDataGridViewTextBoxColumn.DataPropertyName = "RES_NAME"
+        Me.RESNAMEDataGridViewTextBoxColumn.HeaderText = "RES_NAME"
+        Me.RESNAMEDataGridViewTextBoxColumn.Name = "RESNAMEDataGridViewTextBoxColumn"
+        '
+        'TARGETLANG1DataGridViewTextBoxColumn
+        '
+        Me.TARGETLANG1DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG1"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.HeaderText = "TARGETLANG1"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.Name = "TARGETLANG1DataGridViewTextBoxColumn"
+        '
+        'RESCODEDataGridViewTextBoxColumn
+        '
+        Me.RESCODEDataGridViewTextBoxColumn.DataPropertyName = "RES_CODE"
+        Me.RESCODEDataGridViewTextBoxColumn.HeaderText = "RES_CODE"
+        Me.RESCODEDataGridViewTextBoxColumn.Name = "RESCODEDataGridViewTextBoxColumn"
+        '
+        'CURRNAMEDataGridViewTextBoxColumn
+        '
+        Me.CURRNAMEDataGridViewTextBoxColumn.DataPropertyName = "CURR_NAME"
+        Me.CURRNAMEDataGridViewTextBoxColumn.HeaderText = "CURR_NAME"
+        Me.CURRNAMEDataGridViewTextBoxColumn.Name = "CURRNAMEDataGridViewTextBoxColumn"
+        '
+        'CURRDESCDataGridViewTextBoxColumn
+        '
+        Me.CURRDESCDataGridViewTextBoxColumn.DataPropertyName = "CURR_DESC"
+        Me.CURRDESCDataGridViewTextBoxColumn.HeaderText = "CURR_DESC"
+        Me.CURRDESCDataGridViewTextBoxColumn.Name = "CURRDESCDataGridViewTextBoxColumn"
+        '
+        'COUNNAMEDataGridViewTextBoxColumn
+        '
+        Me.COUNNAMEDataGridViewTextBoxColumn.DataPropertyName = "COUN_NAME"
+        Me.COUNNAMEDataGridViewTextBoxColumn.HeaderText = "COUN_NAME"
+        Me.COUNNAMEDataGridViewTextBoxColumn.Name = "COUNNAMEDataGridViewTextBoxColumn"
+        '
+        'COUNFLAGDataGridViewImageColumn
+        '
+        Me.COUNFLAGDataGridViewImageColumn.DataPropertyName = "COUN_FLAG"
+        Me.COUNFLAGDataGridViewImageColumn.HeaderText = "COUN_FLAG"
+        Me.COUNFLAGDataGridViewImageColumn.Name = "COUNFLAGDataGridViewImageColumn"
+        '
+        'TARGETLANG2DataGridViewTextBoxColumn
+        '
+        Me.TARGETLANG2DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG2"
+        Me.TARGETLANG2DataGridViewTextBoxColumn.HeaderText = "TARGETLANG2"
+        Me.TARGETLANG2DataGridViewTextBoxColumn.Name = "TARGETLANG2DataGridViewTextBoxColumn"
+        '
         'BindingSourceFreelancers
         '
+        Me.BindingSourceFreelancers.AllowNew = False
         Me.BindingSourceFreelancers.DataMember = "DataTableFreelancers"
         Me.BindingSourceFreelancers.DataSource = Me.DataSet2
-        '
-        'DataSet2
-        '
-        Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -212,6 +294,7 @@ Partial Class FormMain
         '
         'BindingSourceTargetLang
         '
+        Me.BindingSourceTargetLang.AllowNew = False
         Me.BindingSourceTargetLang.DataMember = "DataTableTargetLang"
         Me.BindingSourceTargetLang.DataSource = Me.DataSet2
         '
@@ -236,6 +319,7 @@ Partial Class FormMain
         '
         'BindingSourceSourceLang
         '
+        Me.BindingSourceSourceLang.AllowNew = False
         Me.BindingSourceSourceLang.DataMember = "DataTableSourceLang"
         Me.BindingSourceSourceLang.DataSource = Me.DataSet2
         '
@@ -427,65 +511,9 @@ Partial Class FormMain
         '
         Me.TargetLangTableAdapter.ClearBeforeFill = True
         '
-        'SOURCELANGDataGridViewTextBoxColumn
+        'AIT_USERSTableAdapter
         '
-        Me.SOURCELANGDataGridViewTextBoxColumn.DataPropertyName = "SOURCELANG"
-        Me.SOURCELANGDataGridViewTextBoxColumn.HeaderText = "SOURCELANG"
-        Me.SOURCELANGDataGridViewTextBoxColumn.Name = "SOURCELANGDataGridViewTextBoxColumn"
-        '
-        'RESIDDataGridViewTextBoxColumn
-        '
-        Me.RESIDDataGridViewTextBoxColumn.DataPropertyName = "RES_ID"
-        Me.RESIDDataGridViewTextBoxColumn.HeaderText = "RES_ID"
-        Me.RESIDDataGridViewTextBoxColumn.Name = "RESIDDataGridViewTextBoxColumn"
-        '
-        'RESNAMEDataGridViewTextBoxColumn
-        '
-        Me.RESNAMEDataGridViewTextBoxColumn.DataPropertyName = "RES_NAME"
-        Me.RESNAMEDataGridViewTextBoxColumn.HeaderText = "RES_NAME"
-        Me.RESNAMEDataGridViewTextBoxColumn.Name = "RESNAMEDataGridViewTextBoxColumn"
-        '
-        'TARGETLANG1DataGridViewTextBoxColumn
-        '
-        Me.TARGETLANG1DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG1"
-        Me.TARGETLANG1DataGridViewTextBoxColumn.HeaderText = "TARGETLANG1"
-        Me.TARGETLANG1DataGridViewTextBoxColumn.Name = "TARGETLANG1DataGridViewTextBoxColumn"
-        '
-        'RESCODEDataGridViewTextBoxColumn
-        '
-        Me.RESCODEDataGridViewTextBoxColumn.DataPropertyName = "RES_CODE"
-        Me.RESCODEDataGridViewTextBoxColumn.HeaderText = "RES_CODE"
-        Me.RESCODEDataGridViewTextBoxColumn.Name = "RESCODEDataGridViewTextBoxColumn"
-        '
-        'CURRNAMEDataGridViewTextBoxColumn
-        '
-        Me.CURRNAMEDataGridViewTextBoxColumn.DataPropertyName = "CURR_NAME"
-        Me.CURRNAMEDataGridViewTextBoxColumn.HeaderText = "CURR_NAME"
-        Me.CURRNAMEDataGridViewTextBoxColumn.Name = "CURRNAMEDataGridViewTextBoxColumn"
-        '
-        'CURRDESCDataGridViewTextBoxColumn
-        '
-        Me.CURRDESCDataGridViewTextBoxColumn.DataPropertyName = "CURR_DESC"
-        Me.CURRDESCDataGridViewTextBoxColumn.HeaderText = "CURR_DESC"
-        Me.CURRDESCDataGridViewTextBoxColumn.Name = "CURRDESCDataGridViewTextBoxColumn"
-        '
-        'COUNNAMEDataGridViewTextBoxColumn
-        '
-        Me.COUNNAMEDataGridViewTextBoxColumn.DataPropertyName = "COUN_NAME"
-        Me.COUNNAMEDataGridViewTextBoxColumn.HeaderText = "COUN_NAME"
-        Me.COUNNAMEDataGridViewTextBoxColumn.Name = "COUNNAMEDataGridViewTextBoxColumn"
-        '
-        'COUNFLAGDataGridViewImageColumn
-        '
-        Me.COUNFLAGDataGridViewImageColumn.DataPropertyName = "COUN_FLAG"
-        Me.COUNFLAGDataGridViewImageColumn.HeaderText = "COUN_FLAG"
-        Me.COUNFLAGDataGridViewImageColumn.Name = "COUNFLAGDataGridViewImageColumn"
-        '
-        'TARGETLANG2DataGridViewTextBoxColumn
-        '
-        Me.TARGETLANG2DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG2"
-        Me.TARGETLANG2DataGridViewTextBoxColumn.HeaderText = "TARGETLANG2"
-        Me.TARGETLANG2DataGridViewTextBoxColumn.Name = "TARGETLANG2DataGridViewTextBoxColumn"
+        Me.AIT_USERSTableAdapter.ClearBeforeFill = True
         '
         'FormMain
         '
@@ -498,9 +526,10 @@ Partial Class FormMain
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        CType(Me.AITUSERSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
@@ -569,5 +598,8 @@ Partial Class FormMain
     Friend WithEvents LabelRecordsFound As System.Windows.Forms.Label
     Friend WithEvents SOURCELANGDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TARGETLANG2DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents AITUSERSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents AIT_USERSTableAdapter As Mayflower.DataSet2TableAdapters.AIT_USERSTableAdapter
 
 End Class
