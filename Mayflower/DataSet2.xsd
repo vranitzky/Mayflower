@@ -9,12 +9,18 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SourceLangTableAdapter" GeneratorDataComponentClassName="SourceLangTableAdapter" Name="DataTableSourceLang" UserDataComponentName="SourceLangTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="RESOURCES" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="SELECT DISTINCT &quot;AIT$CUSTOMF00068&quot; AS SourceLang FROM RESOURCES WHERE (NOT (&quot;AIT$CUSTOMF00068&quot; IS NULL)) UNION SELECT '-ALL-' AS SourceLang FROM RESOURCES" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT DISTINCT "AIT$CUSTOMF00068" AS SourceLang
+                    <CommandText>SELECT SourceLang FROM (
+SELECT DISTINCT "AIT$CUSTOMF00068" AS SourceLang
 FROM            RESOURCES
-WHERE        (NOT ("AIT$CUSTOMF00068" IS NULL))</CommandText>
+WHERE        (NOT ("AIT$CUSTOMF00068" IS NULL))
+UNION
+SELECT '-ALL-' AS SourceLang FROM RESOURCES
+) Results
+ORDER BY SourceLang
+</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -27,16 +33,21 @@ WHERE        (NOT ("AIT$CUSTOMF00068" IS NULL))</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TargetLangTableAdapter" GeneratorDataComponentClassName="TargetLangTableAdapter" Name="DataTableTargetLang" UserDataComponentName="TargetLangTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="RESOURCES" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="SELECT DISTINCT &quot;AIT$CUSTOMF00069&quot; AS TargetLang FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00069&quot; &lt;&gt; '') UNION SELECT &quot;AIT$CUSTOMF00074&quot; FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00074&quot; &lt;&gt; '') UNION SELECT '-ALL-' FROM RESOURCES" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT DISTINCT "AIT$CUSTOMF00069" AS TargetLang
+                    <CommandText>SELECT TargetLang FROM (
+SELECT DISTINCT "AIT$CUSTOMF00069" AS TargetLang
 FROM            RESOURCES
 WHERE        ("AIT$CUSTOMF00069" &lt;&gt; '')
 UNION
-SELECT        "AIT$CUSTOMF00074" AS L2
-FROM            RESOURCES RESOURCES_1
-WHERE        ("AIT$CUSTOMF00074" &lt;&gt; '')</CommandText>
+SELECT        "AIT$CUSTOMF00074"
+FROM            RESOURCES 
+WHERE        ("AIT$CUSTOMF00074" &lt;&gt; '')
+UNION
+SELECT '-ALL-' FROM RESOURCES
+) Results
+ORDER BY TargetLang ASC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -46,18 +57,21 @@ WHERE        ("AIT$CUSTOMF00074" &lt;&gt; '')</CommandText>
               <Mapping SourceColumn="TARGETLANG" DataSetColumn="TARGETLANG" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="RESOURCES" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBySourceLanguage" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySourceLanguage" GeneratorSourceName="FillBySourceLanguage" GetMethodModifier="Public" GetMethodName="GetDataBySourceLanguage" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySourceLanguage" UserSourceName="FillBySourceLanguage">
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="SELECT DISTINCT &quot;AIT$CUSTOMF00069&quot; AS TargetLang FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00069&quot; &lt;&gt; '') AND (&quot;AIT$CUSTOMF00068&quot; = @sourcel) UNION SELECT &quot;AIT$CUSTOMF00074&quot; FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00074&quot; &lt;&gt; '') AND (&quot;AIT$CUSTOMF00068&quot; = @sourcel) UNION SELECT '-ALL-' FROM RESOURCES" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySourceLanguage" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySourceLanguage" GeneratorSourceName="FillBySourceLanguage" GetMethodModifier="Public" GetMethodName="GetDataBySourceLanguage" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySourceLanguage" UserSourceName="FillBySourceLanguage">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT DISTINCT "AIT$CUSTOMF00069" AS TargetLang
+                    <CommandText>SELECT TargetLang FROM (
+SELECT DISTINCT "AIT$CUSTOMF00069" AS TargetLang
 FROM            RESOURCES
 WHERE        ("AIT$CUSTOMF00069" &lt;&gt; '') AND ("AIT$CUSTOMF00068" = @sourcel)
 UNION
-SELECT        "AIT$CUSTOMF00074" AS L2
-FROM            RESOURCES RESOURCES_1
+SELECT        "AIT$CUSTOMF00074"
+FROM            RESOURCES 
 WHERE        ("AIT$CUSTOMF00074" &lt;&gt; '') AND ("AIT$CUSTOMF00068" = @sourcel)
-
-</CommandText>
+UNION
+SELECT '-ALL-' FROM RESOURCES
+) Results
+ORDER BY TargetLang ASC</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="sourcel" ColumnName="" DataSourceName="" DataTypeServer="DbType.String(255)" DbType="String" Direction="Input" ParameterName="@sourcel" Precision="0" Scale="0" Size="255" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -94,6 +108,32 @@ FROM            RESOURCES INNER JOIN
               <Mapping SourceColumn="TARGETLANG2" DataSetColumn="TARGETLANG2" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByALL" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByALL" GeneratorSourceName="FillByALL" GetMethodModifier="Public" GetMethodName="GetDataByALL" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByALL" UserSourceName="FillByALL">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT
+	RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES."AIT$CUSTOMF00068" AS SourceLang, RESOURCES."AIT$CUSTOMF00069" AS TargetLang1, RESOURCES."AIT$CUSTOMF00074" AS TargetLang2, RESOURCES.RES_CODE, CURR.CURR_NAME, CURR.CURR_DESC, COUNTRIES.COUN_NAME, COUNTRIES.COUN_FLAG
+FROM
+	RESOURCES INNER JOIN
+	COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN
+	CURR ON RESOURCES.CURR_ID = CURR.CURR_ID
+WHERE
+	1=1 AND
+	(RESOURCES."AIT$CUSTOMF00068" = @slang) AND
+	((RESOURCES."AIT$CUSTOMF00069" = @tlang) OR (RESOURCES."AIT$CUSTOMF00074" = @tlang)) AND
+	("AIT$CUSTOMF00094" = @service) AND
+	((RESOURCES."AIT$CUSTOMF00103" = @domain) OR (RESOURCES."AIT$CUSTOMF00104" = @domain) OR (RESOURCES."AIT$CUSTOMF00105" = @domain)) 
+
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="slang" ColumnName="AIT$CUSTOMF00068" DataSourceName="RESOURCES" DataTypeServer="DbType.String(255)" DbType="String" Direction="Input" ParameterName="@slang" Precision="0" Scale="0" Size="255" SourceColumn="SourceLang" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="tlang" ColumnName="AIT$CUSTOMF00069" DataSourceName="RESOURCES" DataTypeServer="DbType.String(255)" DbType="String" Direction="Input" ParameterName="@tlang" Precision="0" Scale="0" Size="255" SourceColumn="TargetLang1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="service" ColumnName="AIT$CUSTOMF00094" DataSourceName="RESOURCES" DataTypeServer="DbType.String(255)" DbType="String" Direction="Input" ParameterName="@service" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00094" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="domain" ColumnName="AIT$CUSTOMF00103" DataSourceName="RESOURCES" DataTypeServer="DbType.String(255)" DbType="String" Direction="Input" ParameterName="@domain" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00103" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySourceAndTargetLang" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySourceAndTargetLang" GeneratorSourceName="FillBySourceAndTargetLang" GetMethodModifier="Public" GetMethodName="GetDataBySourceAndTargetLang" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySourceAndTargetLang" UserSourceName="FillBySourceAndTargetLang">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
@@ -151,8 +191,8 @@ WHERE        ( (RESOURCES."AIT$CUSTOMF00069" = @tlang) OR
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT DISTINCT "AIT$CUSTOMF00067" AS Tools
 FROM            RESOURCES
-WHERE        (NOT ("AIT$CUSTOMF00067" IS NULL))
-ORDER BY Tools</CommandText>
+WHERE        ("AIT$CUSTOMF00067" &lt;&gt; '')
+ORDER BY Tools ASC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -191,6 +231,31 @@ ORDER BY Domains ASC</CommandText>
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="DOMAINS" DataSetColumn="DOMAINS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ServiceTableAdapter" GeneratorDataComponentClassName="ServiceTableAdapter" Name="DataTableService" UserDataComponentName="ServiceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="SELECT DISTINCT (&quot;AIT$CUSTOMF00094&quot;) AS Service FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00094&quot; &lt;&gt; '') UNION SELECT '-ALL-' AS Service FROM RESOURCES" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Service FROM (
+SELECT DISTINCT ("AIT$CUSTOMF00094") AS Service
+FROM            RESOURCES
+WHERE        ("AIT$CUSTOMF00094" &lt;&gt; '')
+union
+SELECT '-ALL-' AS Service
+FROM RESOURCES
+) Results
+ORDER BY Service ASC
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SERVICE" DataSetColumn="SERVICE" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -309,6 +374,19 @@ ORDER BY Domains ASC</CommandText>
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DOMAINS" msprop:Generator_ColumnVarNameInTable="columnDOMAINS" msprop:Generator_ColumnPropNameInRow="DOMAINS" msprop:Generator_ColumnPropNameInTable="DOMAINSColumn" msprop:Generator_UserColumnName="DOMAINS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTableService" msprop:Generator_TableClassName="DataTableServiceDataTable" msprop:Generator_TableVarName="tableDataTableService" msprop:Generator_TablePropName="DataTableService" msprop:Generator_RowDeletingName="DataTableServiceRowDeleting" msprop:Generator_RowChangingName="DataTableServiceRowChanging" msprop:Generator_RowEvHandlerName="DataTableServiceRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableServiceRowDeleted" msprop:Generator_UserTableName="DataTableService" msprop:Generator_RowChangedName="DataTableServiceRowChanged" msprop:Generator_RowEvArgName="DataTableServiceRowChangeEvent" msprop:Generator_RowClassName="DataTableServiceRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SERVICE" msprop:Generator_ColumnVarNameInTable="columnSERVICE" msprop:Generator_ColumnPropNameInRow="SERVICE" msprop:Generator_ColumnPropNameInTable="SERVICEColumn" msprop:Generator_UserColumnName="SERVICE" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />

@@ -25,11 +25,16 @@ Partial Class FormMain
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.RestrictByService = New System.Windows.Forms.CheckBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.ComboBoxServices = New System.Windows.Forms.ComboBox()
+        Me.DataTableServiceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet21 = New Mayflower.DataSet2()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.CheckBoxDomains = New System.Windows.Forms.CheckBox()
+        Me.RestrictByDomain = New System.Windows.Forms.CheckBox()
         Me.CheckBoxTools = New System.Windows.Forms.CheckBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxDomains = New System.Windows.Forms.ComboBox()
         Me.DataTableDomainsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet2 = New Mayflower.DataSet2()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -73,15 +78,19 @@ Partial Class FormMain
         Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.StatusLed = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.BindingSourceCatTools = New System.Windows.Forms.BindingSource(Me.components)
         Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
+        Me.BindingSourceCatTools = New System.Windows.Forms.BindingSource(Me.components)
         Me.FreelancersTableAdapter = New Mayflower.DataSet2TableAdapters.FreelancersTableAdapter()
         Me.SourceLangTableAdapter = New Mayflower.DataSet2TableAdapters.SourceLangTableAdapter()
         Me.TargetLangTableAdapter = New Mayflower.DataSet2TableAdapters.TargetLangTableAdapter()
         Me.CatToolsTableAdapter = New Mayflower.DataSet2TableAdapters.CatToolsTableAdapter()
         Me.DomainsTableAdapter = New Mayflower.DataSet2TableAdapters.DomainsTableAdapter()
+        Me.ServiceTableAdapter = New Mayflower.DataSet2TableAdapters.ServiceTableAdapter()
+        Me.FbCommand1 = New FirebirdSql.Data.FirebirdClient.FbCommand()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,11 +117,14 @@ Partial Class FormMain
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.RestrictByService)
+        Me.TabPage1.Controls.Add(Me.Label12)
+        Me.TabPage1.Controls.Add(Me.ComboBoxServices)
         Me.TabPage1.Controls.Add(Me.Label11)
-        Me.TabPage1.Controls.Add(Me.CheckBoxDomains)
+        Me.TabPage1.Controls.Add(Me.RestrictByDomain)
         Me.TabPage1.Controls.Add(Me.CheckBoxTools)
         Me.TabPage1.Controls.Add(Me.Label10)
-        Me.TabPage1.Controls.Add(Me.ComboBox1)
+        Me.TabPage1.Controls.Add(Me.ComboBoxDomains)
         Me.TabPage1.Controls.Add(Me.Label9)
         Me.TabPage1.Controls.Add(Me.ComboBoxTools)
         Me.TabPage1.Controls.Add(Me.LabelRecordsFound)
@@ -132,6 +144,44 @@ Partial Class FormMain
         Me.TabPage1.Text = "Freelancers"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'RestrictByService
+        '
+        Me.RestrictByService.AutoSize = True
+        Me.RestrictByService.Location = New System.Drawing.Point(801, 79)
+        Me.RestrictByService.Name = "RestrictByService"
+        Me.RestrictByService.Size = New System.Drawing.Size(15, 14)
+        Me.RestrictByService.TabIndex = 18
+        Me.RestrictByService.UseVisualStyleBackColor = True
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(299, 80)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(43, 13)
+        Me.Label12.TabIndex = 17
+        Me.Label12.Text = "Service"
+        '
+        'ComboBoxServices
+        '
+        Me.ComboBoxServices.DataSource = Me.DataTableServiceBindingSource
+        Me.ComboBoxServices.DisplayMember = "SERVICE"
+        Me.ComboBoxServices.FormattingEnabled = True
+        Me.ComboBoxServices.Location = New System.Drawing.Point(351, 76)
+        Me.ComboBoxServices.Name = "ComboBoxServices"
+        Me.ComboBoxServices.Size = New System.Drawing.Size(444, 21)
+        Me.ComboBoxServices.TabIndex = 16
+        '
+        'DataTableServiceBindingSource
+        '
+        Me.DataTableServiceBindingSource.DataMember = "DataTableService"
+        Me.DataTableServiceBindingSource.DataSource = Me.DataSet21
+        '
+        'DataSet21
+        '
+        Me.DataSet21.DataSetName = "DataSet2"
+        Me.DataSet21.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -141,14 +191,14 @@ Partial Class FormMain
         Me.Label11.TabIndex = 15
         Me.Label11.Text = "Restrict?"
         '
-        'CheckBoxDomains
+        'RestrictByDomain
         '
-        Me.CheckBoxDomains.AutoSize = True
-        Me.CheckBoxDomains.Location = New System.Drawing.Point(801, 52)
-        Me.CheckBoxDomains.Name = "CheckBoxDomains"
-        Me.CheckBoxDomains.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBoxDomains.TabIndex = 14
-        Me.CheckBoxDomains.UseVisualStyleBackColor = True
+        Me.RestrictByDomain.AutoSize = True
+        Me.RestrictByDomain.Location = New System.Drawing.Point(801, 52)
+        Me.RestrictByDomain.Name = "RestrictByDomain"
+        Me.RestrictByDomain.Size = New System.Drawing.Size(15, 14)
+        Me.RestrictByDomain.TabIndex = 14
+        Me.RestrictByDomain.UseVisualStyleBackColor = True
         '
         'CheckBoxTools
         '
@@ -169,15 +219,15 @@ Partial Class FormMain
         Me.Label10.TabIndex = 12
         Me.Label10.Text = "Domain:"
         '
-        'ComboBox1
+        'ComboBoxDomains
         '
-        Me.ComboBox1.DataSource = Me.DataTableDomainsBindingSource
-        Me.ComboBox1.DisplayMember = "DOMAINS"
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(351, 49)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(444, 21)
-        Me.ComboBox1.TabIndex = 11
+        Me.ComboBoxDomains.DataSource = Me.DataTableDomainsBindingSource
+        Me.ComboBoxDomains.DisplayMember = "DOMAINS"
+        Me.ComboBoxDomains.FormattingEnabled = True
+        Me.ComboBoxDomains.Location = New System.Drawing.Point(351, 49)
+        Me.ComboBoxDomains.Name = "ComboBoxDomains"
+        Me.ComboBoxDomains.Size = New System.Drawing.Size(444, 21)
+        Me.ComboBoxDomains.TabIndex = 11
         '
         'DataTableDomainsBindingSource
         '
@@ -200,6 +250,7 @@ Partial Class FormMain
         '
         'ComboBoxTools
         '
+        Me.ComboBoxTools.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ComboBoxTools.FormattingEnabled = True
         Me.ComboBoxTools.Location = New System.Drawing.Point(351, 22)
         Me.ComboBoxTools.Name = "ComboBoxTools"
@@ -551,15 +602,15 @@ Partial Class FormMain
         Me.StatusLed.Name = "StatusLed"
         Me.StatusLed.Size = New System.Drawing.Size(25, 25)
         '
+        'FbConnection1
+        '
+        Me.FbConnection1.ConnectionString = Global.Mayflower.My.MySettings.Default.ProjetexDB
+        '
         'BindingSourceCatTools
         '
         Me.BindingSourceCatTools.AllowNew = False
         Me.BindingSourceCatTools.DataMember = "CatTools"
         Me.BindingSourceCatTools.DataSource = Me.DataSet2
-        '
-        'FbConnection1
-        '
-        Me.FbConnection1.ConnectionString = Global.Mayflower.My.MySettings.Default.ProjetexDB
         '
         'FreelancersTableAdapter
         '
@@ -581,6 +632,15 @@ Partial Class FormMain
         '
         Me.DomainsTableAdapter.ClearBeforeFill = True
         '
+        'ServiceTableAdapter
+        '
+        Me.ServiceTableAdapter.ClearBeforeFill = True
+        '
+        'FbCommand1
+        '
+        Me.FbCommand1.CommandTimeout = 30
+        Me.FbCommand1.Connection = Me.FbConnection1
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -596,6 +656,8 @@ Partial Class FormMain
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -671,12 +733,19 @@ Partial Class FormMain
     Friend WithEvents COUNNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents COUNFLAGDataGridViewImageColumn As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxDomains As System.Windows.Forms.ComboBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents CheckBoxDomains As System.Windows.Forms.CheckBox
+    Friend WithEvents RestrictByDomain As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxTools As System.Windows.Forms.CheckBox
     Friend WithEvents DataTableDomainsBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DomainsTableAdapter As Mayflower.DataSet2TableAdapters.DomainsTableAdapter
+    Friend WithEvents RestrictByService As System.Windows.Forms.CheckBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents ComboBoxServices As System.Windows.Forms.ComboBox
+    Friend WithEvents DataSet21 As Mayflower.DataSet2
+    Friend WithEvents DataTableServiceBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents ServiceTableAdapter As Mayflower.DataSet2TableAdapters.ServiceTableAdapter
+    Friend WithEvents FbCommand1 As FirebirdSql.Data.FirebirdClient.FbCommand
 
 End Class

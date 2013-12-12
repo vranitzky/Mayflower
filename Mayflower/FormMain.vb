@@ -35,23 +35,66 @@
     End Sub
 
     Private Sub FillFreelancersTable()
+        'Here we must check for all possibilites: if filtering by source, target, domain, etc.
+        ' and only display the data relevant to the restrictions
         Dim ret As Integer = 0
-        Dim foundstr As String
+        Dim foundstr, sql As String
+        Dim command As FirebirdSql.Data.FirebirdClient.FbCommand = New FirebirdSql.Data.FirebirdClient.FbCommand
 
         Me.Cursor = Cursors.AppStarting
-        If RestrictBySourceLang.Checked Then
-            If RestrictByTargetLang.Checked Then
-                ret = FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
-            Else
-                ret = FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
-            End If
-        Else
-            If RestrictByTargetLang.Checked Then
-                ret = FreelancersTableAdapter.FillByTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxTargetLang.Text)
-            Else
-                ret = FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
-            End If
+
+        'Dim f As function
+
+        'Build SQL query:
+        sql = "SELECT	RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" AS SourceLang, " &
+                "RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, " &
+                "RESOURCES.RES_CODE, CURR.CURR_NAME, CURR.CURR_DESC, COUNTRIES.COUN_NAME, COUNTRIES.COUN_FLAG " &
+                "FROM RESOURCES " &
+                "INNER JOIN COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID " &
+                "INNER JOIN CURR ON RESOURCES.CURR_ID = CURR.CURR_ID " &
+                "WHERE 1=1 "
+
+        If RestrictBySourceLang.Checked And ComboBoxSourceLang.Text <> "-ALL-" Then
+            sql &= "AND (RESOURCES.""AIT$CUSTOMF00068"" = '" & ComboBoxSourceLang.Text & "')"
         End If
+        If RestrictByTargetLang.Checked And ComboBoxTargetLang.Text <> "-ALL-" Then
+            sql &= "AND ((RESOURCES.""AIT$CUSTOMF00069"" = '" & ComboBoxTargetLang.Text & "') OR (RESOURCES.""AIT$CUSTOMF00074"" = '" & ComboBoxTargetLang.Text & "'))"
+        End If
+        If RestrictByService.Checked And ComboBoxServices.Text <> "-ALL-" Then
+            sql &= "AND (""AIT$CUSTOMF00094"" = '" & ComboBoxServices.Text & "')"
+        End If
+        If RestrictByDomain.Checked And ComboBoxDomains.Text <> "-ALL-" Then
+            sql &= "AND ((RESOURCES.""AIT$CUSTOMF00103"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00104"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00105"" CONTAINING '" & ComboBoxDomains.Text & "'))"
+        End If
+
+        'command = Mayflower.FormMain.comman
+
+        command.Connection = FreelancersTableAdapter.Connection
+        command.CommandText = sql
+        command.CommandType = Global.System.Data.CommandType.Text
+
+        FreelancersTableAdapter.Adapter.SelectCommand = command
+
+        If (FreelancersTableAdapter.ClearBeforeFill = True) Then
+            DataSet2.DataTableFreelancers.Clear()
+        End If
+        ret = FreelancersTableAdapter.Adapter.Fill(DataSet2.DataTableFreelancers)
+
+
+
+        'If RestrictBySourceLang.Checked And ComboBoxSourceLang.Text <> "-ALL-" Then
+        'If RestrictByTargetLang.Checked And ComboBoxTargetLang.Text <> "-ALL-" Then
+        'ret = FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
+        'Else
+        'ret = FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
+        'End If
+        'Else
+        'If RestrictByTargetLang.Checked And ComboBoxTargetLang.Text <> "-ALL-" Then
+        'ret = FreelancersTableAdapter.FillByTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxTargetLang.Text)
+        'Else
+        'ret = FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+        'End If
+        'End If
         foundstr = "Found " & ret.ToString & " record"
         If ret <> 1 Then foundstr &= "s"
         LabelRecordsFound.Text = foundstr
@@ -59,32 +102,43 @@
     End Sub
 
     Private Sub ComboBoxSourceLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxSourceLang.SelectedIndexChanged
-        'BindingSourceTargetLang.Filter = " (SOURCELANG = '" + ComboBoxSourceLang.Text + "')"
-        'Dim dt As DataTable
-        'dt = TargetLangTableAdapter.GetDataBySourceLanguage(ComboBoxSourceLang.Text)
 
-        TargetLangTableAdapter.FillBySourceLanguage(Me.DataSet2.DataTableTargetLang, ComboBoxSourceLang.Text)
-        ''BindingSourceFreelancers.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
+        'TODO: SHOULD save target lang, refill targetlang combo with new languages and
+        'if saved value is in new list, select it in the combo.
 
-        FillFreelancersTable()
-
-        'If RestrictByTargetLang.Checked Then
-        'FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
-        'Else
-        'FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
-        'End If
+        If RestrictBySourceLang.Checked Then 'if not restricted, ignore any change
+            If ComboBoxSourceLang.Text <> "-ALL-" Then
+                TargetLangTableAdapter.FillBySourceLanguage(Me.DataSet2.DataTableTargetLang, ComboBoxSourceLang.Text)
+            Else
+                TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
+            End If
+            FillFreelancersTable()
+        End If
     End Sub
 
     Private Sub ComboBoxTargetLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxTargetLang.SelectedIndexChanged
-        'BindingSourceFreelancers.Filter = "(SOURCELANG='" + ComboBoxSourceLang.Text + "') AND (TARGETLANG1='" + ComboBoxTargetLang.Text + "')"
-        FillFreelancersTable()
+        If RestrictByTargetLang.Checked Then 'if not restricted, ignore any change
+            FillFreelancersTable()
+        End If
+    End Sub
 
-        'If RestrictByTargetLang.Checked Then
-        'FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
-        'Else
-        'FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
-        'End If
-        'FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
+    Private Sub ComboBoxDomains_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxDomains.SelectedIndexChanged
+        If RestrictByDomain.Checked Then
+            FillFreelancersTable()
+        End If
+    End Sub
+
+    Private Sub ComboBoxServices_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxServices.SelectedIndexChanged
+        If RestrictByService.Checked Then
+            FillFreelancersTable()
+        End If
+    End Sub
+    Private Sub RestrictByCheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTargetLang.CheckedChanged, RestrictByService.CheckedChanged, RestrictByDomain.CheckedChanged, RestrictBySourceLang.CheckedChanged
+        FillFreelancersTable()
+    End Sub
+
+    Private Sub DataGridView1_CellMouseDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
+        MessageBox.Show("Double clicked")
     End Sub
 
 
@@ -198,6 +252,8 @@
     End Sub
 
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DataSet21.DataTableService' table. You can move, or remove it, as needed.
+        Me.ServiceTableAdapter.Fill(Me.DataSet21.DataTableService)
         'TODO: This line of code loads data into the 'DataSet2.DataTableDomains' table. You can move, or remove it, as needed.
         Me.DomainsTableAdapter.Fill(Me.DataSet2.DataTableDomains)
         'Dim t As ada
@@ -212,6 +268,9 @@
             SourceLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             TargetLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             CatToolsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            ServiceTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            DomainsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            FbConnection1.ConnectionString = My.Settings.ProjetexDB
 
             'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
             Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
@@ -251,18 +310,4 @@
 
     End Sub
 
-
-    Private Sub RestrictByLang_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTargetLang.CheckedChanged, RestrictBySourceLang.CheckedChanged
-        FillFreelancersTable()
-
-        'If RestrictByTargetLang.Checked Then
-        'FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
-        'Else
-        'FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
-        'End If
-    End Sub
-
-    Private Sub DataGridView1_CellMouseDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
-        MessageBox.Show("Double clicked")
-    End Sub
 End Class
