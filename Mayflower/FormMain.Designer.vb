@@ -25,6 +25,9 @@ Partial Class FormMain
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.ComboBoxTools = New System.Windows.Forms.ComboBox()
         Me.LabelRecordsFound = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -72,6 +75,9 @@ Partial Class FormMain
         Me.SourceLangTableAdapter = New Mayflower.DataSet2TableAdapters.SourceLangTableAdapter()
         Me.TargetLangTableAdapter = New Mayflower.DataSet2TableAdapters.TargetLangTableAdapter()
         Me.CatToolsTableAdapter = New Mayflower.DataSet2TableAdapters.CatToolsTableAdapter()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,6 +105,12 @@ Partial Class FormMain
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Label11)
+        Me.TabPage1.Controls.Add(Me.CheckBox1)
+        Me.TabPage1.Controls.Add(Me.CheckBox2)
+        Me.TabPage1.Controls.Add(Me.Label10)
+        Me.TabPage1.Controls.Add(Me.ComboBox1)
+        Me.TabPage1.Controls.Add(Me.Label9)
         Me.TabPage1.Controls.Add(Me.ComboBoxTools)
         Me.TabPage1.Controls.Add(Me.LabelRecordsFound)
         Me.TabPage1.Controls.Add(Me.Label4)
@@ -117,10 +129,36 @@ Partial Class FormMain
         Me.TabPage1.Text = "Freelancers"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(299, 53)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(46, 13)
+        Me.Label10.TabIndex = 12
+        Me.Label10.Text = "Domain:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(351, 49)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(444, 21)
+        Me.ComboBox1.TabIndex = 11
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(299, 25)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(36, 13)
+        Me.Label9.TabIndex = 10
+        Me.Label9.Text = "Tools:"
+        '
         'ComboBoxTools
         '
         Me.ComboBoxTools.FormattingEnabled = True
-        Me.ComboBoxTools.Location = New System.Drawing.Point(314, 22)
+        Me.ComboBoxTools.Location = New System.Drawing.Point(351, 22)
         Me.ComboBoxTools.Name = "ComboBoxTools"
         Me.ComboBoxTools.Size = New System.Drawing.Size(444, 21)
         Me.ComboBoxTools.TabIndex = 9
@@ -257,9 +295,9 @@ Partial Class FormMain
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(21, 52)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(89, 13)
+        Me.Label2.Size = New System.Drawing.Size(92, 13)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Target Language"
+        Me.Label2.Text = "Target Language:"
         '
         'ComboBoxTargetLang
         '
@@ -282,9 +320,9 @@ Partial Class FormMain
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(21, 25)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(92, 13)
+        Me.Label1.Size = New System.Drawing.Size(95, 13)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Source Language"
+        Me.Label1.Text = "Source Language:"
         '
         'ComboBoxSourceLang
         '
@@ -501,6 +539,39 @@ Partial Class FormMain
         '
         Me.CatToolsTableAdapter.ClearBeforeFill = True
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(767, 6)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(49, 13)
+        Me.Label11.TabIndex = 15
+        Me.Label11.Text = "Restrict?"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Checked = True
+        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox1.Enabled = False
+        Me.CheckBox1.Location = New System.Drawing.Point(801, 52)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox1.TabIndex = 14
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Checked = True
+        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox2.Enabled = False
+        Me.CheckBox2.Location = New System.Drawing.Point(801, 25)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox2.TabIndex = 13
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -508,9 +579,11 @@ Partial Class FormMain
         Me.ClientSize = New System.Drawing.Size(864, 520)
         Me.Controls.Add(Me.TabControl1)
         Me.DataBindings.Add(New System.Windows.Forms.Binding("Location", Global.Mayflower.My.MySettings.Default, "WindowLocation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DataBindings.Add(New System.Windows.Forms.Binding("WindowState", Global.Mayflower.My.MySettings.Default, "MainFormWindowState", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.Location = Global.Mayflower.My.MySettings.Default.WindowLocation
         Me.Name = "FormMain"
         Me.Text = "Mayflower: Projetex Lookup Tool"
+        Me.WindowState = Global.Mayflower.My.MySettings.Default.MainFormWindowState
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
@@ -587,5 +660,11 @@ Partial Class FormMain
     Friend WithEvents CURRDESCDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents COUNNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents COUNFLAGDataGridViewImageColumn As System.Windows.Forms.DataGridViewImageColumn
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
 
 End Class

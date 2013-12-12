@@ -139,6 +139,30 @@ Namespace My
                 Me("WindowLocation") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Normal")>  _
+        Public Property MainFormWindowState() As Global.System.Windows.Forms.FormWindowState
+            Get
+                Return CType(Me("MainFormWindowState"),Global.System.Windows.Forms.FormWindowState)
+            End Get
+            Set
+                Me("MainFormWindowState") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Setting() As String
+            Get
+                Return CType(Me("Setting"),String)
+            End Get
+            Set
+                Me("Setting") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

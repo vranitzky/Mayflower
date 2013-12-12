@@ -7,12 +7,12 @@
         Dim i As Integer = 0
         Dim collection As SearchableStringCollection = New SearchableStringCollection
         Dim strlist As List(Of String) = New List(Of String)
-        Dim charSeparators() As String = {vbCrLf, ",", "•", "", ""}
+        Dim charSeparators() As String = {vbCrLf, ",", "•", "", ""} 'rubbish characters in the Database
 
         'Me.CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
         t = Me.CatToolsTableAdapter.GetData()
         For Each r In t.Rows
-            s = r.Item(0) ' this get a row. each row has: "value1" & vbCrLf & "value2" ....
+            s = r.Item(0).ToString ' this get a row. each row has: "value1" & vbCrLf & "value2" ....
             arr = s.Split(charSeparators, StringSplitOptions.RemoveEmptyEntries)
             For Each a In arr
                 ' remove spaces and extra characters like: •
@@ -260,4 +260,7 @@
         'End If
     End Sub
 
+    Private Sub DataGridView1_CellMouseDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
+        MessageBox.Show("Double clicked")
+    End Sub
 End Class
