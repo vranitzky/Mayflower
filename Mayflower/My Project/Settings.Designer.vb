@@ -163,6 +163,18 @@ Namespace My
                 Me("Setting") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("864, 520")>  _
+        Public Property MainFormSize() As Global.System.Drawing.Size
+            Get
+                Return CType(Me("MainFormSize"),Global.System.Drawing.Size)
+            End Get
+            Set
+                Me("MainFormSize") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

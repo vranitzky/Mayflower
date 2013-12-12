@@ -34,5 +34,8 @@
     <Setting Name="Setting" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="MainFormSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">864, 520</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

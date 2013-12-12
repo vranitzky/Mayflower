@@ -23,6 +23,9 @@ Partial Class FormMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.RestrictByService = New System.Windows.Forms.CheckBox()
@@ -147,6 +150,9 @@ Partial Class FormMain
         'RestrictByService
         '
         Me.RestrictByService.AutoSize = True
+        Me.RestrictByService.Checked = True
+        Me.RestrictByService.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByService.Enabled = False
         Me.RestrictByService.Location = New System.Drawing.Point(801, 79)
         Me.RestrictByService.Name = "RestrictByService"
         Me.RestrictByService.Size = New System.Drawing.Size(15, 14)
@@ -164,8 +170,12 @@ Partial Class FormMain
         '
         'ComboBoxServices
         '
+        Me.ComboBoxServices.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBoxServices.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBoxServices.DataSource = Me.DataTableServiceBindingSource
         Me.ComboBoxServices.DisplayMember = "SERVICE"
+        Me.ComboBoxServices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxServices.Enabled = False
         Me.ComboBoxServices.FormattingEnabled = True
         Me.ComboBoxServices.Location = New System.Drawing.Point(351, 76)
         Me.ComboBoxServices.Name = "ComboBoxServices"
@@ -194,6 +204,9 @@ Partial Class FormMain
         'RestrictByDomain
         '
         Me.RestrictByDomain.AutoSize = True
+        Me.RestrictByDomain.Checked = True
+        Me.RestrictByDomain.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByDomain.Enabled = False
         Me.RestrictByDomain.Location = New System.Drawing.Point(801, 52)
         Me.RestrictByDomain.Name = "RestrictByDomain"
         Me.RestrictByDomain.Size = New System.Drawing.Size(15, 14)
@@ -221,8 +234,12 @@ Partial Class FormMain
         '
         'ComboBoxDomains
         '
+        Me.ComboBoxDomains.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBoxDomains.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBoxDomains.DataSource = Me.DataTableDomainsBindingSource
         Me.ComboBoxDomains.DisplayMember = "DOMAINS"
+        Me.ComboBoxDomains.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxDomains.Enabled = False
         Me.ComboBoxDomains.FormattingEnabled = True
         Me.ComboBoxDomains.Location = New System.Drawing.Point(351, 49)
         Me.ComboBoxDomains.Name = "ComboBoxDomains"
@@ -250,7 +267,10 @@ Partial Class FormMain
         '
         'ComboBoxTools
         '
-        Me.ComboBoxTools.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.ComboBoxTools.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.ComboBoxTools.BackColor = System.Drawing.SystemColors.Window
+        Me.ComboBoxTools.Cursor = System.Windows.Forms.Cursors.Help
+        Me.ComboBoxTools.Enabled = False
         Me.ComboBoxTools.FormattingEnabled = True
         Me.ComboBoxTools.Location = New System.Drawing.Point(351, 22)
         Me.ComboBoxTools.Name = "ComboBoxTools"
@@ -301,15 +321,44 @@ Partial Class FormMain
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoGenerateColumns = False
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RESIDDataGridViewTextBoxColumn, Me.RESNAMEDataGridViewTextBoxColumn, Me.RESCODEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.CURRNAMEDataGridViewTextBoxColumn, Me.CURRDESCDataGridViewTextBoxColumn, Me.COUNNAMEDataGridViewTextBoxColumn, Me.COUNFLAGDataGridViewImageColumn})
         Me.DataGridView1.DataSource = Me.BindingSourceFreelancers
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridView1.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.Size = New System.Drawing.Size(848, 373)
         Me.DataGridView1.TabIndex = 4
         '
@@ -318,60 +367,70 @@ Partial Class FormMain
         Me.RESIDDataGridViewTextBoxColumn.DataPropertyName = "RES_ID"
         Me.RESIDDataGridViewTextBoxColumn.HeaderText = "RES_ID"
         Me.RESIDDataGridViewTextBoxColumn.Name = "RESIDDataGridViewTextBoxColumn"
+        Me.RESIDDataGridViewTextBoxColumn.ReadOnly = True
         '
         'RESNAMEDataGridViewTextBoxColumn
         '
         Me.RESNAMEDataGridViewTextBoxColumn.DataPropertyName = "RES_NAME"
         Me.RESNAMEDataGridViewTextBoxColumn.HeaderText = "RES_NAME"
         Me.RESNAMEDataGridViewTextBoxColumn.Name = "RESNAMEDataGridViewTextBoxColumn"
+        Me.RESNAMEDataGridViewTextBoxColumn.ReadOnly = True
         '
         'RESCODEDataGridViewTextBoxColumn
         '
         Me.RESCODEDataGridViewTextBoxColumn.DataPropertyName = "RES_CODE"
         Me.RESCODEDataGridViewTextBoxColumn.HeaderText = "RES_CODE"
         Me.RESCODEDataGridViewTextBoxColumn.Name = "RESCODEDataGridViewTextBoxColumn"
+        Me.RESCODEDataGridViewTextBoxColumn.ReadOnly = True
         '
         'SOURCELANGDataGridViewTextBoxColumn
         '
         Me.SOURCELANGDataGridViewTextBoxColumn.DataPropertyName = "SOURCELANG"
         Me.SOURCELANGDataGridViewTextBoxColumn.HeaderText = "SOURCELANG"
         Me.SOURCELANGDataGridViewTextBoxColumn.Name = "SOURCELANGDataGridViewTextBoxColumn"
+        Me.SOURCELANGDataGridViewTextBoxColumn.ReadOnly = True
         '
         'TARGETLANG1DataGridViewTextBoxColumn
         '
         Me.TARGETLANG1DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG1"
         Me.TARGETLANG1DataGridViewTextBoxColumn.HeaderText = "TARGETLANG1"
         Me.TARGETLANG1DataGridViewTextBoxColumn.Name = "TARGETLANG1DataGridViewTextBoxColumn"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.ReadOnly = True
         '
         'TARGETLANG2DataGridViewTextBoxColumn
         '
         Me.TARGETLANG2DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG2"
         Me.TARGETLANG2DataGridViewTextBoxColumn.HeaderText = "TARGETLANG2"
         Me.TARGETLANG2DataGridViewTextBoxColumn.Name = "TARGETLANG2DataGridViewTextBoxColumn"
+        Me.TARGETLANG2DataGridViewTextBoxColumn.ReadOnly = True
         '
         'CURRNAMEDataGridViewTextBoxColumn
         '
         Me.CURRNAMEDataGridViewTextBoxColumn.DataPropertyName = "CURR_NAME"
         Me.CURRNAMEDataGridViewTextBoxColumn.HeaderText = "CURR_NAME"
         Me.CURRNAMEDataGridViewTextBoxColumn.Name = "CURRNAMEDataGridViewTextBoxColumn"
+        Me.CURRNAMEDataGridViewTextBoxColumn.ReadOnly = True
         '
         'CURRDESCDataGridViewTextBoxColumn
         '
         Me.CURRDESCDataGridViewTextBoxColumn.DataPropertyName = "CURR_DESC"
         Me.CURRDESCDataGridViewTextBoxColumn.HeaderText = "CURR_DESC"
         Me.CURRDESCDataGridViewTextBoxColumn.Name = "CURRDESCDataGridViewTextBoxColumn"
+        Me.CURRDESCDataGridViewTextBoxColumn.ReadOnly = True
         '
         'COUNNAMEDataGridViewTextBoxColumn
         '
         Me.COUNNAMEDataGridViewTextBoxColumn.DataPropertyName = "COUN_NAME"
         Me.COUNNAMEDataGridViewTextBoxColumn.HeaderText = "COUN_NAME"
         Me.COUNNAMEDataGridViewTextBoxColumn.Name = "COUNNAMEDataGridViewTextBoxColumn"
+        Me.COUNNAMEDataGridViewTextBoxColumn.ReadOnly = True
         '
         'COUNFLAGDataGridViewImageColumn
         '
         Me.COUNFLAGDataGridViewImageColumn.DataPropertyName = "COUN_FLAG"
         Me.COUNFLAGDataGridViewImageColumn.HeaderText = "COUN_FLAG"
         Me.COUNFLAGDataGridViewImageColumn.Name = "COUNFLAGDataGridViewImageColumn"
+        Me.COUNFLAGDataGridViewImageColumn.ReadOnly = True
         '
         'BindingSourceFreelancers
         '
@@ -390,8 +449,12 @@ Partial Class FormMain
         '
         'ComboBoxTargetLang
         '
+        Me.ComboBoxTargetLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBoxTargetLang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBoxTargetLang.DataSource = Me.BindingSourceTargetLang
         Me.ComboBoxTargetLang.DisplayMember = "TARGETLANG"
+        Me.ComboBoxTargetLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxTargetLang.Enabled = False
         Me.ComboBoxTargetLang.FormattingEnabled = True
         Me.ComboBoxTargetLang.Location = New System.Drawing.Point(119, 49)
         Me.ComboBoxTargetLang.Name = "ComboBoxTargetLang"
@@ -415,8 +478,12 @@ Partial Class FormMain
         '
         'ComboBoxSourceLang
         '
+        Me.ComboBoxSourceLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBoxSourceLang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBoxSourceLang.DataSource = Me.BindingSourceSourceLang
         Me.ComboBoxSourceLang.DisplayMember = "SOURCELANG"
+        Me.ComboBoxSourceLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxSourceLang.Enabled = False
         Me.ComboBoxSourceLang.FormattingEnabled = True
         Me.ComboBoxSourceLang.Location = New System.Drawing.Point(119, 22)
         Me.ComboBoxSourceLang.Name = "ComboBoxSourceLang"
@@ -645,10 +712,11 @@ Partial Class FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(864, 520)
+        Me.ClientSize = Global.Mayflower.My.MySettings.Default.MainFormSize
         Me.Controls.Add(Me.TabControl1)
         Me.DataBindings.Add(New System.Windows.Forms.Binding("Location", Global.Mayflower.My.MySettings.Default, "WindowLocation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.DataBindings.Add(New System.Windows.Forms.Binding("WindowState", Global.Mayflower.My.MySettings.Default, "MainFormWindowState", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DataBindings.Add(New System.Windows.Forms.Binding("ClientSize", Global.Mayflower.My.MySettings.Default, "MainFormSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.Location = Global.Mayflower.My.MySettings.Default.WindowLocation
         Me.Name = "FormMain"
         Me.Text = "Mayflower: Projetex Lookup Tool"

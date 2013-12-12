@@ -252,10 +252,6 @@
     End Sub
 
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DataSet21.DataTableService' table. You can move, or remove it, as needed.
-        Me.ServiceTableAdapter.Fill(Me.DataSet21.DataTableService)
-        'TODO: This line of code loads data into the 'DataSet2.DataTableDomains' table. You can move, or remove it, as needed.
-        Me.DomainsTableAdapter.Fill(Me.DataSet2.DataTableDomains)
         'Dim t As ada
         StatusLed.BackColor = Color.Red
         RestrictBySourceLang.Checked = True
@@ -277,13 +273,26 @@
             'TODO: This line of code loads data into the 'DataSet2.DataTableSourceLang' table. You can move, or remove it, as needed.
             Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
             'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
+            'TODO: This line of code loads data into the 'DataSet21.DataTableService' table. You can move, or remove it, as needed.
+            Me.ServiceTableAdapter.Fill(Me.DataSet21.DataTableService)
+            'TODO: This line of code loads data into the 'DataSet2.DataTableDomains' table. You can move, or remove it, as needed.
+            Me.DomainsTableAdapter.Fill(Me.DataSet2.DataTableDomains)
             'Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
             'TODO: This line of code loads data into the 'DataSet2._AIT_USERS' table. You can move, or remove it, as needed.
             'Me.CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
             GetCatTools()
-
-
             FillFreelancersTable()
+
+            ComboBoxSourceLang.Enabled = True
+            ComboBoxTargetLang.Enabled = True
+            ComboBoxDomains.Enabled = True
+            ComboBoxServices.Enabled = True
+            ComboBoxTools.Enabled = True
+            RestrictByDomain.Enabled = True
+            RestrictByService.Enabled = True
+            RestrictBySourceLang.Enabled = True
+            RestrictByTargetLang.Enabled = True
+
             StatusLed.BackColor = Color.Green
         Catch ex As Exception
             '"Failed to connect to database: " & Environment.NewLine &
