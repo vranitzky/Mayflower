@@ -46,13 +46,28 @@
         'Dim f As function
 
         'Build SQL query:
-        sql = "SELECT	RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" AS SourceLang, " &
-                "RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, " &
-                "RESOURCES.RES_CODE, CURR.CURR_NAME, CURR.CURR_DESC, COUNTRIES.COUN_NAME, COUNTRIES.COUN_FLAG " &
+        sql = "SELECT RESOURCES.RES_ID AS ID, " &
+                "RESOURCES.RES_NAME AS Name, " &
+                "RESOURCES.""AIT$CUSTOMF00068"" AS SourceLang, " &
+                "RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, " &
+                "RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, " &
+                "RESOURCES.""AIT$CUSTOMF00092"" AS Rate, " &
+                "CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Country, " &
+                "RESOURCES.""AIT$CUSTOMF00093"" AS ""Role"", " &
+                "RESOURCES.""AIT$CUSTOMF00094"" AS Service, " &
+                "RESOURCES.""AIT$CUSTOMF00125"" AS Approval " &
                 "FROM RESOURCES " &
                 "INNER JOIN COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID " &
                 "INNER JOIN CURR ON RESOURCES.CURR_ID = CURR.CURR_ID " &
                 "WHERE 1=1 "
+
+        'sql = "SELECT	RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" AS SourceLang, " &
+        '        "RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, " &
+        '        "RESOURCES.RES_CODE, CURR.CURR_NAME, CURR.CURR_DESC, COUNTRIES.COUN_NAME, COUNTRIES.COUN_FLAG " &
+        '        "FROM RESOURCES " &
+        '        "INNER JOIN COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID " &
+        '        "INNER JOIN CURR ON RESOURCES.CURR_ID = CURR.CURR_ID " &
+        '        "WHERE 1=1 "
 
         If RestrictBySourceLang.Checked And ComboBoxSourceLang.Text <> "-ALL-" Then
             sql &= "AND (RESOURCES.""AIT$CUSTOMF00068"" = '" & ComboBoxSourceLang.Text & "')"

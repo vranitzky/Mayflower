@@ -964,25 +964,27 @@ Partial Public Class DataSet2
     Partial Public Class DataTableFreelancersDataTable
         Inherits Global.System.Data.TypedTableBase(Of DataTableFreelancersRow)
         
+        Private columnID As Global.System.Data.DataColumn
+        
+        Private columnNAME As Global.System.Data.DataColumn
+        
         Private columnSOURCELANG As Global.System.Data.DataColumn
-        
-        Private columnRES_ID As Global.System.Data.DataColumn
-        
-        Private columnRES_NAME As Global.System.Data.DataColumn
         
         Private columnTARGETLANG1 As Global.System.Data.DataColumn
         
-        Private columnRES_CODE As Global.System.Data.DataColumn
-        
-        Private columnCURR_NAME As Global.System.Data.DataColumn
-        
-        Private columnCURR_DESC As Global.System.Data.DataColumn
-        
-        Private columnCOUN_NAME As Global.System.Data.DataColumn
-        
-        Private columnCOUN_FLAG As Global.System.Data.DataColumn
-        
         Private columnTARGETLANG2 As Global.System.Data.DataColumn
+        
+        Private columnRATE As Global.System.Data.DataColumn
+        
+        Private columnCURRENCY As Global.System.Data.DataColumn
+        
+        Private columnCOUNTRY As Global.System.Data.DataColumn
+        
+        Private columnRole As Global.System.Data.DataColumn
+        
+        Private columnSERVICE As Global.System.Data.DataColumn
+        
+        Private columnAPPROVAL As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -1021,25 +1023,25 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NAMEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNAME
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property SOURCELANGColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnSOURCELANG
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_IDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_ID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_NAMEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_NAME
             End Get
         End Property
         
@@ -1053,49 +1055,57 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_CODEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_CODE
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CURR_NAMEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCURR_NAME
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property CURR_DESCColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCURR_DESC
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property COUN_NAMEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCOUN_NAME
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property COUN_FLAGColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCOUN_FLAG
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property TARGETLANG2Column() As Global.System.Data.DataColumn
             Get
                 Return Me.columnTARGETLANG2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRATE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CURRENCYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCURRENCY
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property COUNTRYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCOUNTRY
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RoleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRole
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property SERVICEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSERVICE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property APPROVALColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAPPROVAL
             End Get
         End Property
         
@@ -1136,9 +1146,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDataTableFreelancersRow(ByVal SOURCELANG As String, ByVal RES_ID As Integer, ByVal RES_NAME As String, ByVal TARGETLANG1 As String, ByVal RES_CODE As String, ByVal CURR_NAME As String, ByVal CURR_DESC As String, ByVal COUN_NAME As String, ByVal COUN_FLAG() As Byte, ByVal TARGETLANG2 As String) As DataTableFreelancersRow
+        Public Overloads Function AddDataTableFreelancersRow(ByVal ID As Integer, ByVal NAME As String, ByVal SOURCELANG As String, ByVal TARGETLANG1 As String, ByVal TARGETLANG2 As String, ByVal RATE As Decimal, ByVal CURRENCY As String, ByVal COUNTRY As String, ByVal Role As String, ByVal SERVICE As String, ByVal APPROVAL As String) As DataTableFreelancersRow
             Dim rowDataTableFreelancersRow As DataTableFreelancersRow = CType(Me.NewRow,DataTableFreelancersRow)
-            Dim columnValuesArray() As Object = New Object() {SOURCELANG, RES_ID, RES_NAME, TARGETLANG1, RES_CODE, CURR_NAME, CURR_DESC, COUN_NAME, COUN_FLAG, TARGETLANG2}
+            Dim columnValuesArray() As Object = New Object() {ID, NAME, SOURCELANG, TARGETLANG1, TARGETLANG2, RATE, CURRENCY, COUNTRY, Role, SERVICE, APPROVAL}
             rowDataTableFreelancersRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTableFreelancersRow)
             Return rowDataTableFreelancersRow
@@ -1146,8 +1156,8 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByRES_ID(ByVal RES_ID As Integer) As DataTableFreelancersRow
-            Return CType(Me.Rows.Find(New Object() {RES_ID}),DataTableFreelancersRow)
+        Public Function FindByID(ByVal ID As Integer) As DataTableFreelancersRow
+            Return CType(Me.Rows.Find(New Object() {ID}),DataTableFreelancersRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1167,56 +1177,58 @@ Partial Public Class DataSet2
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
+            Me.columnID = MyBase.Columns("ID")
+            Me.columnNAME = MyBase.Columns("NAME")
             Me.columnSOURCELANG = MyBase.Columns("SOURCELANG")
-            Me.columnRES_ID = MyBase.Columns("RES_ID")
-            Me.columnRES_NAME = MyBase.Columns("RES_NAME")
             Me.columnTARGETLANG1 = MyBase.Columns("TARGETLANG1")
-            Me.columnRES_CODE = MyBase.Columns("RES_CODE")
-            Me.columnCURR_NAME = MyBase.Columns("CURR_NAME")
-            Me.columnCURR_DESC = MyBase.Columns("CURR_DESC")
-            Me.columnCOUN_NAME = MyBase.Columns("COUN_NAME")
-            Me.columnCOUN_FLAG = MyBase.Columns("COUN_FLAG")
             Me.columnTARGETLANG2 = MyBase.Columns("TARGETLANG2")
+            Me.columnRATE = MyBase.Columns("RATE")
+            Me.columnCURRENCY = MyBase.Columns("CURRENCY")
+            Me.columnCOUNTRY = MyBase.Columns("COUNTRY")
+            Me.columnRole = MyBase.Columns("Role")
+            Me.columnSERVICE = MyBase.Columns("SERVICE")
+            Me.columnAPPROVAL = MyBase.Columns("APPROVAL")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID)
+            Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNAME)
             Me.columnSOURCELANG = New Global.System.Data.DataColumn("SOURCELANG", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSOURCELANG)
-            Me.columnRES_ID = New Global.System.Data.DataColumn("RES_ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_ID)
-            Me.columnRES_NAME = New Global.System.Data.DataColumn("RES_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_NAME)
             Me.columnTARGETLANG1 = New Global.System.Data.DataColumn("TARGETLANG1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTARGETLANG1)
-            Me.columnRES_CODE = New Global.System.Data.DataColumn("RES_CODE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_CODE)
-            Me.columnCURR_NAME = New Global.System.Data.DataColumn("CURR_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCURR_NAME)
-            Me.columnCURR_DESC = New Global.System.Data.DataColumn("CURR_DESC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCURR_DESC)
-            Me.columnCOUN_NAME = New Global.System.Data.DataColumn("COUN_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCOUN_NAME)
-            Me.columnCOUN_FLAG = New Global.System.Data.DataColumn("COUN_FLAG", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCOUN_FLAG)
             Me.columnTARGETLANG2 = New Global.System.Data.DataColumn("TARGETLANG2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTARGETLANG2)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnRES_ID}, true))
+            Me.columnRATE = New Global.System.Data.DataColumn("RATE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRATE)
+            Me.columnCURRENCY = New Global.System.Data.DataColumn("CURRENCY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCURRENCY)
+            Me.columnCOUNTRY = New Global.System.Data.DataColumn("COUNTRY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCOUNTRY)
+            Me.columnRole = New Global.System.Data.DataColumn("Role", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRole)
+            Me.columnSERVICE = New Global.System.Data.DataColumn("SERVICE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSERVICE)
+            Me.columnAPPROVAL = New Global.System.Data.DataColumn("APPROVAL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAPPROVAL)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
+            Me.columnID.AllowDBNull = false
+            Me.columnID.Unique = true
+            Me.columnNAME.AllowDBNull = false
+            Me.columnNAME.MaxLength = 150
             Me.columnSOURCELANG.MaxLength = 255
-            Me.columnRES_ID.AllowDBNull = false
-            Me.columnRES_ID.Unique = true
-            Me.columnRES_NAME.AllowDBNull = false
-            Me.columnRES_NAME.MaxLength = 150
             Me.columnTARGETLANG1.MaxLength = 255
-            Me.columnRES_CODE.AllowDBNull = false
-            Me.columnRES_CODE.MaxLength = 15
-            Me.columnCURR_NAME.AllowDBNull = false
-            Me.columnCURR_NAME.MaxLength = 3
-            Me.columnCURR_DESC.MaxLength = 150
-            Me.columnCOUN_NAME.AllowDBNull = false
-            Me.columnCOUN_NAME.MaxLength = 40
-            Me.columnTARGETLANG2.MaxLength = 2147483647
+            Me.columnTARGETLANG2.MaxLength = 255
+            Me.columnCURRENCY.MaxLength = 150
+            Me.columnCOUNTRY.AllowDBNull = false
+            Me.columnCOUNTRY.MaxLength = 40
+            Me.columnRole.MaxLength = 255
+            Me.columnSERVICE.MaxLength = 255
+            Me.columnAPPROVAL.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2208,6 +2220,28 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ID() As Integer
+            Get
+                Return CType(Me(Me.tableDataTableFreelancers.IDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableDataTableFreelancers.IDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property NAME() As String
+            Get
+                Return CType(Me(Me.tableDataTableFreelancers.NAMEColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTableFreelancers.NAMEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property SOURCELANG() As String
             Get
                 Try 
@@ -2218,28 +2252,6 @@ Partial Public Class DataSet2
             End Get
             Set
                 Me(Me.tableDataTableFreelancers.SOURCELANGColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_ID() As Integer
-            Get
-                Return CType(Me(Me.tableDataTableFreelancers.RES_IDColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableDataTableFreelancers.RES_IDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_NAME() As String
-            Get
-                Return CType(Me(Me.tableDataTableFreelancers.RES_NAMEColumn),String)
-            End Get
-            Set
-                Me(Me.tableDataTableFreelancers.RES_NAMEColumn) = value
             End Set
         End Property
         
@@ -2260,69 +2272,6 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_CODE() As String
-            Get
-                Return CType(Me(Me.tableDataTableFreelancers.RES_CODEColumn),String)
-            End Get
-            Set
-                Me(Me.tableDataTableFreelancers.RES_CODEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CURR_NAME() As String
-            Get
-                Return CType(Me(Me.tableDataTableFreelancers.CURR_NAMEColumn),String)
-            End Get
-            Set
-                Me(Me.tableDataTableFreelancers.CURR_NAMEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property CURR_DESC() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDataTableFreelancers.CURR_DESCColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CURR_DESC' in table 'DataTableFreelancers' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDataTableFreelancers.CURR_DESCColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property COUN_NAME() As String
-            Get
-                Return CType(Me(Me.tableDataTableFreelancers.COUN_NAMEColumn),String)
-            End Get
-            Set
-                Me(Me.tableDataTableFreelancers.COUN_NAMEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property COUN_FLAG() As Byte()
-            Get
-                Try 
-                    Return CType(Me(Me.tableDataTableFreelancers.COUN_FLAGColumn),Byte())
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'COUN_FLAG' in table 'DataTableFreelancers' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDataTableFreelancers.COUN_FLAGColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property TARGETLANG2() As String
             Get
                 Try 
@@ -2333,6 +2282,92 @@ Partial Public Class DataSet2
             End Get
             Set
                 Me(Me.tableDataTableFreelancers.TARGETLANG2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RATE() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTableFreelancers.RATEColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RATE' in table 'DataTableFreelancers' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTableFreelancers.RATEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CURRENCY() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTableFreelancers.CURRENCYColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CURRENCY' in table 'DataTableFreelancers' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTableFreelancers.CURRENCYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property COUNTRY() As String
+            Get
+                Return CType(Me(Me.tableDataTableFreelancers.COUNTRYColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTableFreelancers.COUNTRYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Role() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTableFreelancers.RoleColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Role' in table 'DataTableFreelancers' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTableFreelancers.RoleColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property SERVICE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTableFreelancers.SERVICEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SERVICE' in table 'DataTableFreelancers' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTableFreelancers.SERVICEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property APPROVAL() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTableFreelancers.APPROVALColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'APPROVAL' in table 'DataTableFreelancers' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTableFreelancers.APPROVALColumn) = value
             End Set
         End Property
         
@@ -2362,30 +2397,6 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCURR_DESCNull() As Boolean
-            Return Me.IsNull(Me.tableDataTableFreelancers.CURR_DESCColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCURR_DESCNull()
-            Me(Me.tableDataTableFreelancers.CURR_DESCColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsCOUN_FLAGNull() As Boolean
-            Return Me.IsNull(Me.tableDataTableFreelancers.COUN_FLAGColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetCOUN_FLAGNull()
-            Me(Me.tableDataTableFreelancers.COUN_FLAGColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsTARGETLANG2Null() As Boolean
             Return Me.IsNull(Me.tableDataTableFreelancers.TARGETLANG2Column)
         End Function
@@ -2394,6 +2405,66 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetTARGETLANG2Null()
             Me(Me.tableDataTableFreelancers.TARGETLANG2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRATENull() As Boolean
+            Return Me.IsNull(Me.tableDataTableFreelancers.RATEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRATENull()
+            Me(Me.tableDataTableFreelancers.RATEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCURRENCYNull() As Boolean
+            Return Me.IsNull(Me.tableDataTableFreelancers.CURRENCYColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCURRENCYNull()
+            Me(Me.tableDataTableFreelancers.CURRENCYColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRoleNull() As Boolean
+            Return Me.IsNull(Me.tableDataTableFreelancers.RoleColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRoleNull()
+            Me(Me.tableDataTableFreelancers.RoleColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsSERVICENull() As Boolean
+            Return Me.IsNull(Me.tableDataTableFreelancers.SERVICEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetSERVICENull()
+            Me(Me.tableDataTableFreelancers.SERVICEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsAPPROVALNull() As Boolean
+            Return Me.IsNull(Me.tableDataTableFreelancers.APPROVALColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetAPPROVALNull()
+            Me(Me.tableDataTableFreelancers.APPROVALColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3271,16 +3342,17 @@ Namespace DataSet2TableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "DataTableFreelancers"
+            tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.ColumnMappings.Add("NAME", "NAME")
             tableMapping.ColumnMappings.Add("SOURCELANG", "SOURCELANG")
-            tableMapping.ColumnMappings.Add("RES_ID", "RES_ID")
-            tableMapping.ColumnMappings.Add("RES_NAME", "RES_NAME")
             tableMapping.ColumnMappings.Add("TARGETLANG1", "TARGETLANG1")
-            tableMapping.ColumnMappings.Add("RES_CODE", "RES_CODE")
-            tableMapping.ColumnMappings.Add("CURR_NAME", "CURR_NAME")
-            tableMapping.ColumnMappings.Add("CURR_DESC", "CURR_DESC")
-            tableMapping.ColumnMappings.Add("COUN_NAME", "COUN_NAME")
-            tableMapping.ColumnMappings.Add("COUN_FLAG", "COUN_FLAG")
             tableMapping.ColumnMappings.Add("TARGETLANG2", "TARGETLANG2")
+            tableMapping.ColumnMappings.Add("RATE", "RATE")
+            tableMapping.ColumnMappings.Add("CURRENCY", "CURRENCY")
+            tableMapping.ColumnMappings.Add("COUNTRY", "COUNTRY")
+            tableMapping.ColumnMappings.Add("Role", "Role")
+            tableMapping.ColumnMappings.Add("SERVICE", "SERVICE")
+            tableMapping.ColumnMappings.Add("APPROVAL", "APPROVAL")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -3294,111 +3366,19 @@ Namespace DataSet2TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(4) {}
+            Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(0) {}
             Me._commandCollection(0) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" "& _ 
-                "AS SourceLang, RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, RESOURCES.""AIT$CUSTO"& _ 
-                "MF00074"" AS TargetLang2, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.RES_CODE, CURR.CUR"& _ 
-                "R_NAME, CURR.CURR_DESC, COUNTRIES.COUN_NAME, COUNTRIES.COUN_FLAG"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM          "& _ 
-                "  RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON RESOURCES.COUN_ID "& _ 
-                "= COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURCES.CURR_"& _ 
-                "ID = CURR.CURR_ID"
+            Me._commandCollection(0).CommandText = "SELECT        RESOURCES.RES_ID AS ID, RESOURCES.RES_NAME AS Name, RESOURCES.""AIT$"& _ 
+                "CUSTOMF00068"" AS SourceLang, RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                     RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, RESOURCES.""AIT"& _ 
+                "$CUSTOMF00092"" AS Rate, CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Count"& _ 
+                "ry, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.""AIT$CUSTOMF00093"" AS ""Role"", RESOURCES"& _ 
+                ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
+                "          RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON RESOURCES."& _ 
+                "COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURC"& _ 
+                "ES.CURR_ID = CURR.CURR_ID"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
-            Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&"RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" AS So"& _ 
-                "urceLang, RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, RESOURCES.""AIT$CUSTOMF000"& _ 
-                "74"" AS TargetLang2, RESOURCES.RES_CODE, CURR.CURR_NAME, CURR.CURR_DESC, COUNTRIE"& _ 
-                "S.COUN_NAME, COUNTRIES.COUN_FLAG"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&"RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&"COUNTRIES ON RES"& _ 
-                "OURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&"CURR ON RESOURCES.CURR_ID = CURR"& _ 
-                ".CURR_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&"1=1 AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&"(RESOURCES.""AIT$CUSTOMF00068"" = @slang) AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&"((RESO"& _ 
-                "URCES.""AIT$CUSTOMF00069"" = @tlang) OR (RESOURCES.""AIT$CUSTOMF00074"" = @tlang)) A"& _ 
-                "ND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&"(""AIT$CUSTOMF00094"" = @service) AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&"((RESOURCES.""AIT$CUSTOMF00103"" = @dom"& _ 
-                "ain) OR (RESOURCES.""AIT$CUSTOMF00104"" = @domain) OR (RESOURCES.""AIT$CUSTOMF00105"& _ 
-                """ = @domain)) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
-            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
-            param.ParameterName = "@slang"
-            param.Size = 255
-            param.IsNullable = true
-            param.SourceColumn = "SourceLang"
-            Me._commandCollection(1).Parameters.Add(param)
-            param = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
-            param.ParameterName = "@tlang"
-            param.Size = 255
-            param.IsNullable = true
-            param.SourceColumn = "TargetLang1"
-            Me._commandCollection(1).Parameters.Add(param)
-            param = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
-            param.ParameterName = "@service"
-            param.Size = 255
-            param.IsNullable = true
-            param.SourceColumn = "AIT$CUSTOMF00094"
-            Me._commandCollection(1).Parameters.Add(param)
-            param = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
-            param.ParameterName = "@domain"
-            param.Size = 255
-            param.IsNullable = true
-            param.SourceColumn = "AIT$CUSTOMF00103"
-            Me._commandCollection(1).Parameters.Add(param)
-            Me._commandCollection(2) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
-            Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" "& _ 
-                "AS SourceLang, RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, RESOURCES.""AIT$CUSTO"& _ 
-                "MF00074"" AS TargetLang2, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.RES_CODE, CURR.CUR"& _ 
-                "R_NAME, CURR.CURR_DESC, COUNTRIES.COUN_NAME, COUNTRIES.COUN_FLAG"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM          "& _ 
-                "  RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON RESOURCES.COUN_ID "& _ 
-                "= COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURCES.CURR_"& _ 
-                "ID = CURR.CURR_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RESOURCES.""AIT$CUSTOMF00068"" = @slang) AND ( (R"& _ 
-                "ESOURCES.""AIT$CUSTOMF00069"" = @tlang) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (RESOURCES.""A"& _ 
-                "IT$CUSTOMF00074"" = @tlang))"
-            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            param = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
-            param.ParameterName = "@slang"
-            param.Size = 255
-            param.IsNullable = true
-            param.SourceColumn = "SourceLang"
-            Me._commandCollection(2).Parameters.Add(param)
-            param = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
-            param.ParameterName = "@tlang"
-            param.Size = 255
-            param.IsNullable = true
-            param.SourceColumn = "TargetLang1"
-            Me._commandCollection(2).Parameters.Add(param)
-            Me._commandCollection(3) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
-            Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT        RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" "& _ 
-                "AS SourceLang, RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, RESOURCES.""AIT$CUSTO"& _ 
-                "MF00074"" AS TargetLang2, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.RES_CODE, CURR.CUR"& _ 
-                "R_NAME, CURR.CURR_DESC, COUNTRIES.COUN_NAME, COUNTRIES.COUN_FLAG"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM          "& _ 
-                "  RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON RESOURCES.COUN_ID "& _ 
-                "= COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURCES.CURR_"& _ 
-                "ID = CURR.CURR_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RESOURCES.""AIT$CUSTOMF00068"" = @slang)"
-            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            param = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
-            param.ParameterName = "@slang"
-            param.Size = 255
-            param.IsNullable = true
-            param.SourceColumn = "SourceLang"
-            Me._commandCollection(3).Parameters.Add(param)
-            Me._commandCollection(4) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
-            Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT        RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" "& _ 
-                "AS SourceLang, RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, RESOURCES.""AIT$CUSTO"& _ 
-                "MF00074"" AS TargetLang2, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.RES_CODE, CURR.CUR"& _ 
-                "R_NAME, CURR.CURR_DESC, COUNTRIES.COUN_NAME, COUNTRIES.COUN_FLAG"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM          "& _ 
-                "  RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON RESOURCES.COUN_ID "& _ 
-                "= COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURCES.CURR_"& _ 
-                "ID = CURR.CURR_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ( (RESOURCES.""AIT$CUSTOMF00069"" = @tlang) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
-                "                       (RESOURCES.""AIT$CUSTOMF00074"" = @tlang))"
-            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            param = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
-            param.ParameterName = "@tlang"
-            param.Size = 255
-            param.IsNullable = true
-            param.SourceColumn = "TargetLang1"
-            Me._commandCollection(4).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3420,182 +3400,6 @@ Namespace DataSet2TableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DataSet2.DataTableFreelancersDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByALL(ByVal dataTable As DataSet2.DataTableFreelancersDataTable, ByVal slang As String, ByVal tlang As String, ByVal service As String, ByVal domain As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (slang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(slang,String)
-            End If
-            If (tlang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(tlang,String)
-            End If
-            If (service Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(service,String)
-            End If
-            If (domain Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(domain,String)
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByALL(ByVal slang As String, ByVal tlang As String, ByVal service As String, ByVal domain As String) As DataSet2.DataTableFreelancersDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (slang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(slang,String)
-            End If
-            If (tlang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(tlang,String)
-            End If
-            If (service Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(service,String)
-            End If
-            If (domain Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(domain,String)
-            End If
-            Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBySourceAndTargetLang(ByVal dataTable As DataSet2.DataTableFreelancersDataTable, ByVal slang As String, ByVal tlang As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (slang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(slang,String)
-            End If
-            If (tlang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(tlang,String)
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBySourceAndTargetLang(ByVal slang As String, ByVal tlang As String) As DataSet2.DataTableFreelancersDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (slang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(slang,String)
-            End If
-            If (tlang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(tlang,String)
-            End If
-            Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBySourceLang(ByVal dataTable As DataSet2.DataTableFreelancersDataTable, ByVal slang As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (slang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(slang,String)
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBySourceLang(ByVal slang As String) As DataSet2.DataTableFreelancersDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (slang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(slang,String)
-            End If
-            Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByTargetLang(ByVal dataTable As DataSet2.DataTableFreelancersDataTable, ByVal tlang As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
-            If (tlang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(tlang,String)
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByTargetLang(ByVal tlang As String) As DataSet2.DataTableFreelancersDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
-            If (tlang Is Nothing) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(tlang,String)
-            End If
             Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
