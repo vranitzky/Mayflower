@@ -198,6 +198,8 @@
     End Sub
 
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DataSet2.DataTableDomains' table. You can move, or remove it, as needed.
+        Me.DomainsTableAdapter.Fill(Me.DataSet2.DataTableDomains)
         'Dim t As ada
         StatusLed.BackColor = Color.Red
         RestrictBySourceLang.Checked = True

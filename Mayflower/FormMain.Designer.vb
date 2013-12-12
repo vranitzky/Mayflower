@@ -25,8 +25,13 @@ Partial Class FormMain
         Me.components = New System.ComponentModel.Container()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.CheckBoxDomains = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxTools = New System.Windows.Forms.CheckBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DataTableDomainsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet2 = New Mayflower.DataSet2()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ComboBoxTools = New System.Windows.Forms.ComboBox()
         Me.LabelRecordsFound = New System.Windows.Forms.Label()
@@ -45,7 +50,6 @@ Partial Class FormMain
         Me.COUNNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.COUNFLAGDataGridViewImageColumn = New System.Windows.Forms.DataGridViewImageColumn()
         Me.BindingSourceFreelancers = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet2 = New Mayflower.DataSet2()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBoxTargetLang = New System.Windows.Forms.ComboBox()
         Me.BindingSourceTargetLang = New System.Windows.Forms.BindingSource(Me.components)
@@ -75,14 +79,13 @@ Partial Class FormMain
         Me.SourceLangTableAdapter = New Mayflower.DataSet2TableAdapters.SourceLangTableAdapter()
         Me.TargetLangTableAdapter = New Mayflower.DataSet2TableAdapters.TargetLangTableAdapter()
         Me.CatToolsTableAdapter = New Mayflower.DataSet2TableAdapters.CatToolsTableAdapter()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.DomainsTableAdapter = New Mayflower.DataSet2TableAdapters.DomainsTableAdapter()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
@@ -106,8 +109,8 @@ Partial Class FormMain
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.Label11)
-        Me.TabPage1.Controls.Add(Me.CheckBox1)
-        Me.TabPage1.Controls.Add(Me.CheckBox2)
+        Me.TabPage1.Controls.Add(Me.CheckBoxDomains)
+        Me.TabPage1.Controls.Add(Me.CheckBoxTools)
         Me.TabPage1.Controls.Add(Me.Label10)
         Me.TabPage1.Controls.Add(Me.ComboBox1)
         Me.TabPage1.Controls.Add(Me.Label9)
@@ -129,6 +132,34 @@ Partial Class FormMain
         Me.TabPage1.Text = "Freelancers"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(767, 6)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(49, 13)
+        Me.Label11.TabIndex = 15
+        Me.Label11.Text = "Restrict?"
+        '
+        'CheckBoxDomains
+        '
+        Me.CheckBoxDomains.AutoSize = True
+        Me.CheckBoxDomains.Location = New System.Drawing.Point(801, 52)
+        Me.CheckBoxDomains.Name = "CheckBoxDomains"
+        Me.CheckBoxDomains.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBoxDomains.TabIndex = 14
+        Me.CheckBoxDomains.UseVisualStyleBackColor = True
+        '
+        'CheckBoxTools
+        '
+        Me.CheckBoxTools.AutoSize = True
+        Me.CheckBoxTools.Enabled = False
+        Me.CheckBoxTools.Location = New System.Drawing.Point(801, 25)
+        Me.CheckBoxTools.Name = "CheckBoxTools"
+        Me.CheckBoxTools.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBoxTools.TabIndex = 13
+        Me.CheckBoxTools.UseVisualStyleBackColor = True
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -140,11 +171,23 @@ Partial Class FormMain
         '
         'ComboBox1
         '
+        Me.ComboBox1.DataSource = Me.DataTableDomainsBindingSource
+        Me.ComboBox1.DisplayMember = "DOMAINS"
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(351, 49)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(444, 21)
         Me.ComboBox1.TabIndex = 11
+        '
+        'DataTableDomainsBindingSource
+        '
+        Me.DataTableDomainsBindingSource.DataMember = "DataTableDomains"
+        Me.DataTableDomainsBindingSource.DataSource = Me.DataSet2
+        '
+        'DataSet2
+        '
+        Me.DataSet2.DataSetName = "DataSet2"
+        Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label9
         '
@@ -284,11 +327,6 @@ Partial Class FormMain
         Me.BindingSourceFreelancers.AllowNew = False
         Me.BindingSourceFreelancers.DataMember = "DataTableFreelancers"
         Me.BindingSourceFreelancers.DataSource = Me.DataSet2
-        '
-        'DataSet2
-        '
-        Me.DataSet2.DataSetName = "DataSet2"
-        Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -539,38 +577,9 @@ Partial Class FormMain
         '
         Me.CatToolsTableAdapter.ClearBeforeFill = True
         '
-        'Label11
+        'DomainsTableAdapter
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(767, 6)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(49, 13)
-        Me.Label11.TabIndex = 15
-        Me.Label11.Text = "Restrict?"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Checked = True
-        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox1.Enabled = False
-        Me.CheckBox1.Location = New System.Drawing.Point(801, 52)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox1.TabIndex = 14
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Checked = True
-        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox2.Enabled = False
-        Me.CheckBox2.Location = New System.Drawing.Point(801, 25)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox2.TabIndex = 13
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.DomainsTableAdapter.ClearBeforeFill = True
         '
         'FormMain
         '
@@ -587,9 +596,10 @@ Partial Class FormMain
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
@@ -664,7 +674,9 @@ Partial Class FormMain
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxDomains As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxTools As System.Windows.Forms.CheckBox
+    Friend WithEvents DataTableDomainsBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents DomainsTableAdapter As Mayflower.DataSet2TableAdapters.DomainsTableAdapter
 
 End Class

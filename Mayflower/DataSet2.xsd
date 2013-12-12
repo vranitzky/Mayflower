@@ -163,6 +163,37 @@ ORDER BY Tools</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DomainsTableAdapter" GeneratorDataComponentClassName="DomainsTableAdapter" Name="DataTableDomains" UserDataComponentName="DomainsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="SELECT DISTINCT LOWER(&quot;AIT$CUSTOMF00103&quot;) AS Domains FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00103&quot; &lt;&gt; '') UNION SELECT DISTINCT LOWER(&quot;AIT$CUSTOMF00104&quot;) FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00104&quot; &lt;&gt; '') UNION SELECT DISTINCT LOWER(&quot;AIT$CUSTOMF00105&quot;) FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00105&quot; &lt;&gt; '') UNION SELECT '-ALL-' FROM RESOURCES" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select Domains FROM (
+SELECT DISTINCT LOWER("AIT$CUSTOMF00103") AS Domains
+FROM            RESOURCES
+WHERE        ("AIT$CUSTOMF00103" &lt;&gt; '')
+UNION
+SELECT    DISTINCT    LOWER("AIT$CUSTOMF00104") 
+fROM            RESOURCES 
+WHERE        ("AIT$CUSTOMF00104" &lt;&gt; '')
+UNION
+SELECT    DISTINCT    LOWER("AIT$CUSTOMF00105")
+fROM            RESOURCES 
+WHERE        ("AIT$CUSTOMF00105" &lt;&gt; '')
+UNION 
+SELECT '-ALL-'
+from RESOURCES) Results
+ORDER BY Domains ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DOMAINS" DataSetColumn="DOMAINS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -268,6 +299,19 @@ ORDER BY Tools</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTableDomains" msprop:Generator_TableClassName="DataTableDomainsDataTable" msprop:Generator_TableVarName="tableDataTableDomains" msprop:Generator_TablePropName="DataTableDomains" msprop:Generator_RowDeletingName="DataTableDomainsRowDeleting" msprop:Generator_RowChangingName="DataTableDomainsRowChanging" msprop:Generator_RowEvHandlerName="DataTableDomainsRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableDomainsRowDeleted" msprop:Generator_UserTableName="DataTableDomains" msprop:Generator_RowChangedName="DataTableDomainsRowChanged" msprop:Generator_RowEvArgName="DataTableDomainsRowChangeEvent" msprop:Generator_RowClassName="DataTableDomainsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DOMAINS" msprop:Generator_ColumnVarNameInTable="columnDOMAINS" msprop:Generator_ColumnPropNameInRow="DOMAINS" msprop:Generator_ColumnPropNameInTable="DOMAINSColumn" msprop:Generator_UserColumnName="DOMAINS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
