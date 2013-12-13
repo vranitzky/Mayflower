@@ -159,7 +159,12 @@
         Dim ID As Integer
 
         ID = CInt(DataGridView1.CurrentRow.Cells(0).Value) 'this is the ID
-        DialogDetails.Tag = ID
+        'DataSet2.DataTableDetailsDataTable.
+        'Me.FreelancersTableAdapter.
+        'Me.DetailsTableAdapter.FillByRES_ID('22')
+        'Me.DetailsTableAdapter.FillByRES_ID(Me.DataSet2.DataTableDetails, CInt(Me.Tag))
+
+        DialogDetails.Tag = DataGridView1.CurrentRow.Cells(0).Value
         DialogDetails.ShowDialog()
 
     End Sub
