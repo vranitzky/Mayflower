@@ -31,11 +31,11 @@
     <Setting Name="MainFormWindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
-    <Setting Name="Setting" Type="System.String" Scope="User">
+    <Setting Name="MainFormSize" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="MainFormSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">864, 520</Value>
+    <Setting Name="test" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">837, 435</Value>
     </Setting>
   </Settings>
 </SettingsFile>

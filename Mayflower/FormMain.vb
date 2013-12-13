@@ -114,9 +114,10 @@
         If ret <> 1 Then foundstr &= "s"
         LabelRecordsFound.Text = foundstr
         Me.Cursor = Cursors.Default
+        command.Dispose()
     End Sub
 
-    Private Sub ComboBoxSourceLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxSourceLang.SelectedIndexChanged
+    Private Sub ComboBoxSourceLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxSourceLang.SelectionChangeCommitted
 
         'TODO: SHOULD save target lang, refill targetlang combo with new languages and
         'if saved value is in new list, select it in the combo.
@@ -131,29 +132,36 @@
         End If
     End Sub
 
-    Private Sub ComboBoxTargetLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxTargetLang.SelectedIndexChanged
+    Private Sub ComboBoxTargetLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxTargetLang.SelectionChangeCommitted
         If RestrictByTargetLang.Checked Then 'if not restricted, ignore any change
             FillFreelancersTable()
         End If
     End Sub
 
-    Private Sub ComboBoxDomains_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxDomains.SelectedIndexChanged
+    Private Sub ComboBoxDomains_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxServices.SelectionChangeCommitted, ComboBoxDomains.SelectionChangeCommitted
         If RestrictByDomain.Checked Then
             FillFreelancersTable()
         End If
     End Sub
 
-    Private Sub ComboBoxServices_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxServices.SelectedIndexChanged
+    Private Sub ComboBoxServices_SelectedIndexChanged(sender As System.Object, e As System.EventArgs)
         If RestrictByService.Checked Then
             FillFreelancersTable()
         End If
     End Sub
+
     Private Sub RestrictByCheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTargetLang.CheckedChanged, RestrictByService.CheckedChanged, RestrictByDomain.CheckedChanged, RestrictBySourceLang.CheckedChanged
         FillFreelancersTable()
     End Sub
 
     Private Sub DataGridView1_CellMouseDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
-        MessageBox.Show("Double clicked")
+        'MessageBox.Show("Double clicked")
+        Dim ID As Integer
+
+        ID = CInt(DataGridView1.CurrentRow.Cells(0).Value) 'this is the ID
+        DialogDetails.Tag = ID
+        DialogDetails.ShowDialog()
+
     End Sub
 
 
@@ -298,15 +306,6 @@
             GetCatTools()
             FillFreelancersTable()
 
-            ComboBoxSourceLang.Enabled = True
-            ComboBoxTargetLang.Enabled = True
-            ComboBoxDomains.Enabled = True
-            ComboBoxServices.Enabled = True
-            ComboBoxTools.Enabled = True
-            RestrictByDomain.Enabled = True
-            RestrictByService.Enabled = True
-            RestrictBySourceLang.Enabled = True
-            RestrictByTargetLang.Enabled = True
 
             StatusLed.BackColor = Color.Green
         Catch ex As Exception

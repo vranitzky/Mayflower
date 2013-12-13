@@ -155,24 +155,24 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property Setting() As String
+        Public Property MainFormSize() As String
             Get
-                Return CType(Me("Setting"),String)
+                Return CType(Me("MainFormSize"),String)
             End Get
             Set
-                Me("Setting") = value
+                Me("MainFormSize") = value
             End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("864, 520")>  _
-        Public Property MainFormSize() As Global.System.Drawing.Size
+         Global.System.Configuration.DefaultSettingValueAttribute("837, 435")>  _
+        Public Property test() As Global.System.Drawing.Size
             Get
-                Return CType(Me("MainFormSize"),Global.System.Drawing.Size)
+                Return CType(Me("test"),Global.System.Drawing.Size)
             End Get
             Set
-                Me("MainFormSize") = value
+                Me("test") = value
             End Set
         End Property
     End Class

@@ -26,6 +26,8 @@ Partial Class FormMain
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim MySettings1 As Mayflower.My.MySettings = New Mayflower.My.MySettings()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.RestrictByService = New System.Windows.Forms.CheckBox()
@@ -47,6 +49,17 @@ Partial Class FormMain
         Me.RestrictByTargetLang = New System.Windows.Forms.CheckBox()
         Me.RestrictBySourceLang = New System.Windows.Forms.CheckBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SOURCELANGDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TARGETLANG2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CURRENCYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.COUNTRYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RoleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SERVICEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.APPROVALDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BindingSourceFreelancers = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBoxTargetLang = New System.Windows.Forms.ComboBox()
@@ -80,17 +93,6 @@ Partial Class FormMain
         Me.DomainsTableAdapter = New Mayflower.DataSet2TableAdapters.DomainsTableAdapter()
         Me.ServiceTableAdapter = New Mayflower.DataSet2TableAdapters.ServiceTableAdapter()
         Me.FbCommand1 = New FirebirdSql.Data.FirebirdClient.FbCommand()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SOURCELANGDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TARGETLANG2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CURRENCYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.COUNTRYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RoleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SERVICEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.APPROVALDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,7 +118,7 @@ Partial Class FormMain
         Me.TabControl1.Location = New System.Drawing.Point(1, 1)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(862, 519)
+        Me.TabControl1.Size = New System.Drawing.Size(1415, 693)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -143,7 +145,7 @@ Partial Class FormMain
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(854, 493)
+        Me.TabPage1.Size = New System.Drawing.Size(1407, 667)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Freelancers"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -153,7 +155,6 @@ Partial Class FormMain
         Me.RestrictByService.AutoSize = True
         Me.RestrictByService.Checked = True
         Me.RestrictByService.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictByService.Enabled = False
         Me.RestrictByService.Location = New System.Drawing.Point(801, 79)
         Me.RestrictByService.Name = "RestrictByService"
         Me.RestrictByService.Size = New System.Drawing.Size(15, 14)
@@ -176,7 +177,6 @@ Partial Class FormMain
         Me.ComboBoxServices.DataSource = Me.DataTableServiceBindingSource
         Me.ComboBoxServices.DisplayMember = "SERVICE"
         Me.ComboBoxServices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxServices.Enabled = False
         Me.ComboBoxServices.FormattingEnabled = True
         Me.ComboBoxServices.Location = New System.Drawing.Point(351, 76)
         Me.ComboBoxServices.Name = "ComboBoxServices"
@@ -207,7 +207,6 @@ Partial Class FormMain
         Me.RestrictByDomain.AutoSize = True
         Me.RestrictByDomain.Checked = True
         Me.RestrictByDomain.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictByDomain.Enabled = False
         Me.RestrictByDomain.Location = New System.Drawing.Point(801, 52)
         Me.RestrictByDomain.Name = "RestrictByDomain"
         Me.RestrictByDomain.Size = New System.Drawing.Size(15, 14)
@@ -240,7 +239,6 @@ Partial Class FormMain
         Me.ComboBoxDomains.DataSource = Me.DataTableDomainsBindingSource
         Me.ComboBoxDomains.DisplayMember = "DOMAINS"
         Me.ComboBoxDomains.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxDomains.Enabled = False
         Me.ComboBoxDomains.FormattingEnabled = True
         Me.ComboBoxDomains.Location = New System.Drawing.Point(351, 49)
         Me.ComboBoxDomains.Name = "ComboBoxDomains"
@@ -301,7 +299,6 @@ Partial Class FormMain
         Me.RestrictByTargetLang.AutoSize = True
         Me.RestrictByTargetLang.Checked = True
         Me.RestrictByTargetLang.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictByTargetLang.Enabled = False
         Me.RestrictByTargetLang.Location = New System.Drawing.Point(249, 52)
         Me.RestrictByTargetLang.Name = "RestrictByTargetLang"
         Me.RestrictByTargetLang.Size = New System.Drawing.Size(15, 14)
@@ -313,7 +310,6 @@ Partial Class FormMain
         Me.RestrictBySourceLang.AutoSize = True
         Me.RestrictBySourceLang.Checked = True
         Me.RestrictBySourceLang.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictBySourceLang.Enabled = False
         Me.RestrictBySourceLang.Location = New System.Drawing.Point(249, 25)
         Me.RestrictBySourceLang.Name = "RestrictBySourceLang"
         Me.RestrictBySourceLang.Size = New System.Drawing.Size(15, 14)
@@ -360,284 +356,8 @@ Partial Class FormMain
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(848, 373)
+        Me.DataGridView1.Size = New System.Drawing.Size(800, 547)
         Me.DataGridView1.TabIndex = 4
-        '
-        'BindingSourceFreelancers
-        '
-        Me.BindingSourceFreelancers.AllowNew = False
-        Me.BindingSourceFreelancers.DataMember = "DataTableFreelancers"
-        Me.BindingSourceFreelancers.DataSource = Me.DataSet2
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(21, 52)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(92, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Target Language:"
-        '
-        'ComboBoxTargetLang
-        '
-        Me.ComboBoxTargetLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.ComboBoxTargetLang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBoxTargetLang.DataSource = Me.BindingSourceTargetLang
-        Me.ComboBoxTargetLang.DisplayMember = "TARGETLANG"
-        Me.ComboBoxTargetLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxTargetLang.Enabled = False
-        Me.ComboBoxTargetLang.FormattingEnabled = True
-        Me.ComboBoxTargetLang.Location = New System.Drawing.Point(119, 49)
-        Me.ComboBoxTargetLang.Name = "ComboBoxTargetLang"
-        Me.ComboBoxTargetLang.Size = New System.Drawing.Size(124, 21)
-        Me.ComboBoxTargetLang.TabIndex = 2
-        '
-        'BindingSourceTargetLang
-        '
-        Me.BindingSourceTargetLang.AllowNew = False
-        Me.BindingSourceTargetLang.DataMember = "DataTableTargetLang"
-        Me.BindingSourceTargetLang.DataSource = Me.DataSet2
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(21, 25)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Source Language:"
-        '
-        'ComboBoxSourceLang
-        '
-        Me.ComboBoxSourceLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.ComboBoxSourceLang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBoxSourceLang.DataSource = Me.BindingSourceSourceLang
-        Me.ComboBoxSourceLang.DisplayMember = "SOURCELANG"
-        Me.ComboBoxSourceLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxSourceLang.Enabled = False
-        Me.ComboBoxSourceLang.FormattingEnabled = True
-        Me.ComboBoxSourceLang.Location = New System.Drawing.Point(119, 22)
-        Me.ComboBoxSourceLang.Name = "ComboBoxSourceLang"
-        Me.ComboBoxSourceLang.Size = New System.Drawing.Size(124, 21)
-        Me.ComboBoxSourceLang.TabIndex = 0
-        '
-        'BindingSourceSourceLang
-        '
-        Me.BindingSourceSourceLang.AllowNew = False
-        Me.BindingSourceSourceLang.DataMember = "DataTableSourceLang"
-        Me.BindingSourceSourceLang.DataSource = Me.DataSet2
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.GroupBox1)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(854, 493)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Settings"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.ButtonTestDBSettings)
-        Me.GroupBox1.Controls.Add(Me.RichTextBoxConnectionString)
-        Me.GroupBox1.Controls.Add(Me.ButtonApplyDBSettings)
-        Me.GroupBox1.Controls.Add(Me.CheckBox3)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.TextBoxPassword)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.TextBoxDatabase)
-        Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.TextBoxServerPort)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.TextBoxServerAddress)
-        Me.GroupBox1.Controls.Add(Me.ShapeContainer1)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
-        Me.GroupBox1.MinimumSize = New System.Drawing.Size(504, 369)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(848, 487)
-        Me.GroupBox1.TabIndex = 2
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Database"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(10, 128)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(37, 13)
-        Me.Label8.TabIndex = 19
-        Me.Label8.Text = "Status"
-        '
-        'ButtonTestDBSettings
-        '
-        Me.ButtonTestDBSettings.Location = New System.Drawing.Point(95, 149)
-        Me.ButtonTestDBSettings.Name = "ButtonTestDBSettings"
-        Me.ButtonTestDBSettings.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonTestDBSettings.TabIndex = 18
-        Me.ButtonTestDBSettings.Text = "Test"
-        Me.ButtonTestDBSettings.UseVisualStyleBackColor = True
-        '
-        'RichTextBoxConnectionString
-        '
-        Me.RichTextBoxConnectionString.Location = New System.Drawing.Point(95, 179)
-        Me.RichTextBoxConnectionString.Name = "RichTextBoxConnectionString"
-        Me.RichTextBoxConnectionString.ReadOnly = True
-        Me.RichTextBoxConnectionString.Size = New System.Drawing.Size(301, 151)
-        Me.RichTextBoxConnectionString.TabIndex = 16
-        Me.RichTextBoxConnectionString.Text = ""
-        '
-        'ButtonApplyDBSettings
-        '
-        Me.ButtonApplyDBSettings.Location = New System.Drawing.Point(176, 149)
-        Me.ButtonApplyDBSettings.Name = "ButtonApplyDBSettings"
-        Me.ButtonApplyDBSettings.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonApplyDBSettings.TabIndex = 12
-        Me.ButtonApplyDBSettings.Text = "Apply"
-        Me.ButtonApplyDBSettings.UseVisualStyleBackColor = True
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(402, 99)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(53, 17)
-        Me.CheckBox3.TabIndex = 11
-        Me.CheckBox3.Text = "Show"
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 100)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(53, 13)
-        Me.Label7.TabIndex = 10
-        Me.Label7.Text = "Password"
-        '
-        'TextBoxPassword
-        '
-        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxPassword.Location = New System.Drawing.Point(95, 97)
-        Me.TextBoxPassword.Name = "TextBoxPassword"
-        Me.TextBoxPassword.Size = New System.Drawing.Size(301, 20)
-        Me.TextBoxPassword.TabIndex = 9
-        Me.TextBoxPassword.Text = Global.Mayflower.My.MySettings.Default.DBPassword
-        Me.TextBoxPassword.UseSystemPasswordChar = True
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(10, 74)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(53, 13)
-        Me.Label6.TabIndex = 8
-        Me.Label6.Text = "Database"
-        '
-        'TextBoxDatabase
-        '
-        Me.TextBoxDatabase.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBFile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxDatabase.Location = New System.Drawing.Point(95, 71)
-        Me.TextBoxDatabase.Name = "TextBoxDatabase"
-        Me.TextBoxDatabase.Size = New System.Drawing.Size(301, 20)
-        Me.TextBoxDatabase.TabIndex = 7
-        Me.TextBoxDatabase.Text = Global.Mayflower.My.MySettings.Default.DBFile
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 48)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(60, 13)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "Server Port"
-        '
-        'TextBoxServerPort
-        '
-        Me.TextBoxServerPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxServerPort.Location = New System.Drawing.Point(95, 45)
-        Me.TextBoxServerPort.Name = "TextBoxServerPort"
-        Me.TextBoxServerPort.Size = New System.Drawing.Size(301, 20)
-        Me.TextBoxServerPort.TabIndex = 5
-        Me.TextBoxServerPort.Text = Global.Mayflower.My.MySettings.Default.DBPort
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(10, 22)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 13)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Server Address"
-        '
-        'TextBoxServerAddress
-        '
-        Me.TextBoxServerAddress.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBAddress", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxServerAddress.Location = New System.Drawing.Point(95, 19)
-        Me.TextBoxServerAddress.Name = "TextBoxServerAddress"
-        Me.TextBoxServerAddress.Size = New System.Drawing.Size(301, 20)
-        Me.TextBoxServerAddress.TabIndex = 2
-        Me.TextBoxServerAddress.Text = Global.Mayflower.My.MySettings.Default.DBAddress
-        '
-        'ShapeContainer1
-        '
-        Me.ShapeContainer1.Location = New System.Drawing.Point(3, 16)
-        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.StatusLed})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(842, 468)
-        Me.ShapeContainer1.TabIndex = 20
-        Me.ShapeContainer1.TabStop = False
-        '
-        'StatusLed
-        '
-        Me.StatusLed.BackColor = System.Drawing.Color.Gold
-        Me.StatusLed.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
-        Me.StatusLed.Location = New System.Drawing.Point(92, 104)
-        Me.StatusLed.Name = "StatusLed"
-        Me.StatusLed.Size = New System.Drawing.Size(25, 25)
-        '
-        'FbConnection1
-        '
-        Me.FbConnection1.ConnectionString = Global.Mayflower.My.MySettings.Default.ProjetexDB
-        '
-        'BindingSourceCatTools
-        '
-        Me.BindingSourceCatTools.AllowNew = False
-        Me.BindingSourceCatTools.DataMember = "CatTools"
-        Me.BindingSourceCatTools.DataSource = Me.DataSet2
-        '
-        'FreelancersTableAdapter
-        '
-        Me.FreelancersTableAdapter.ClearBeforeFill = True
-        '
-        'SourceLangTableAdapter
-        '
-        Me.SourceLangTableAdapter.ClearBeforeFill = True
-        '
-        'TargetLangTableAdapter
-        '
-        Me.TargetLangTableAdapter.ClearBeforeFill = True
-        '
-        'CatToolsTableAdapter
-        '
-        Me.CatToolsTableAdapter.ClearBeforeFill = True
-        '
-        'DomainsTableAdapter
-        '
-        Me.DomainsTableAdapter.ClearBeforeFill = True
-        '
-        'ServiceTableAdapter
-        '
-        Me.ServiceTableAdapter.ClearBeforeFill = True
-        '
-        'FbCommand1
-        '
-        Me.FbCommand1.CommandTimeout = 30
-        Me.FbCommand1.Connection = Me.FbConnection1
         '
         'IDDataGridViewTextBoxColumn
         '
@@ -716,19 +436,304 @@ Partial Class FormMain
         Me.APPROVALDataGridViewTextBoxColumn.Name = "APPROVALDataGridViewTextBoxColumn"
         Me.APPROVALDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'BindingSourceFreelancers
+        '
+        Me.BindingSourceFreelancers.AllowNew = False
+        Me.BindingSourceFreelancers.DataMember = "DataTableFreelancers"
+        Me.BindingSourceFreelancers.DataSource = Me.DataSet2
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(21, 52)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(92, 13)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Target Language:"
+        '
+        'ComboBoxTargetLang
+        '
+        Me.ComboBoxTargetLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBoxTargetLang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBoxTargetLang.DataSource = Me.BindingSourceTargetLang
+        Me.ComboBoxTargetLang.DisplayMember = "TARGETLANG"
+        Me.ComboBoxTargetLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxTargetLang.FormattingEnabled = True
+        Me.ComboBoxTargetLang.Location = New System.Drawing.Point(119, 49)
+        Me.ComboBoxTargetLang.Name = "ComboBoxTargetLang"
+        Me.ComboBoxTargetLang.Size = New System.Drawing.Size(124, 21)
+        Me.ComboBoxTargetLang.TabIndex = 2
+        '
+        'BindingSourceTargetLang
+        '
+        Me.BindingSourceTargetLang.AllowNew = False
+        Me.BindingSourceTargetLang.DataMember = "DataTableTargetLang"
+        Me.BindingSourceTargetLang.DataSource = Me.DataSet2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(21, 25)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(95, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Source Language:"
+        '
+        'ComboBoxSourceLang
+        '
+        Me.ComboBoxSourceLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBoxSourceLang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBoxSourceLang.DataSource = Me.BindingSourceSourceLang
+        Me.ComboBoxSourceLang.DisplayMember = "SOURCELANG"
+        Me.ComboBoxSourceLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxSourceLang.FormattingEnabled = True
+        Me.ComboBoxSourceLang.Location = New System.Drawing.Point(119, 22)
+        Me.ComboBoxSourceLang.Name = "ComboBoxSourceLang"
+        Me.ComboBoxSourceLang.Size = New System.Drawing.Size(124, 21)
+        Me.ComboBoxSourceLang.TabIndex = 0
+        '
+        'BindingSourceSourceLang
+        '
+        Me.BindingSourceSourceLang.AllowNew = False
+        Me.BindingSourceSourceLang.DataMember = "DataTableSourceLang"
+        Me.BindingSourceSourceLang.DataSource = Me.DataSet2
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.GroupBox1)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1407, 667)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Settings"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.ButtonTestDBSettings)
+        Me.GroupBox1.Controls.Add(Me.RichTextBoxConnectionString)
+        Me.GroupBox1.Controls.Add(Me.ButtonApplyDBSettings)
+        Me.GroupBox1.Controls.Add(Me.CheckBox3)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.TextBoxPassword)
+        Me.GroupBox1.Controls.Add(Me.Label6)
+        Me.GroupBox1.Controls.Add(Me.TextBoxDatabase)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.TextBoxServerPort)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.TextBoxServerAddress)
+        Me.GroupBox1.Controls.Add(Me.ShapeContainer1)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox1.MinimumSize = New System.Drawing.Size(504, 369)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(1401, 661)
+        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Database"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(10, 128)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(37, 13)
+        Me.Label8.TabIndex = 19
+        Me.Label8.Text = "Status"
+        '
+        'ButtonTestDBSettings
+        '
+        Me.ButtonTestDBSettings.Location = New System.Drawing.Point(95, 149)
+        Me.ButtonTestDBSettings.Name = "ButtonTestDBSettings"
+        Me.ButtonTestDBSettings.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonTestDBSettings.TabIndex = 18
+        Me.ButtonTestDBSettings.Text = "Test"
+        Me.ButtonTestDBSettings.UseVisualStyleBackColor = True
+        '
+        'RichTextBoxConnectionString
+        '
+        Me.RichTextBoxConnectionString.Location = New System.Drawing.Point(95, 179)
+        Me.RichTextBoxConnectionString.Name = "RichTextBoxConnectionString"
+        Me.RichTextBoxConnectionString.ReadOnly = True
+        Me.RichTextBoxConnectionString.Size = New System.Drawing.Size(301, 151)
+        Me.RichTextBoxConnectionString.TabIndex = 16
+        Me.RichTextBoxConnectionString.Text = ""
+        '
+        'ButtonApplyDBSettings
+        '
+        Me.ButtonApplyDBSettings.Location = New System.Drawing.Point(176, 149)
+        Me.ButtonApplyDBSettings.Name = "ButtonApplyDBSettings"
+        Me.ButtonApplyDBSettings.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonApplyDBSettings.TabIndex = 12
+        Me.ButtonApplyDBSettings.Text = "Apply"
+        Me.ButtonApplyDBSettings.UseVisualStyleBackColor = True
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Location = New System.Drawing.Point(402, 99)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(53, 17)
+        Me.CheckBox3.TabIndex = 11
+        Me.CheckBox3.Text = "Show"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(10, 100)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(53, 13)
+        Me.Label7.TabIndex = 10
+        Me.Label7.Text = "Password"
+        '
+        'TextBoxPassword
+        '
+        MySettings1.DBAddress = "192.168.0.56"
+        MySettings1.DBFile = "E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\Projetex.fdb"
+        MySettings1.DBPassword = "password"
+        MySettings1.DBPort = "3050"
+        MySettings1.MainFormSize = ""
+        MySettings1.MainFormWindowState = System.Windows.Forms.FormWindowState.Normal
+        MySettings1.ProjetexDB = resources.GetString("MySettings1.ProjetexDB")
+        MySettings1.SettingsKey = ""
+        MySettings1.test = New System.Drawing.Size(837, 435)
+        MySettings1.WindowLocation = New System.Drawing.Point(0, 0)
+        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", MySettings1, "DBPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxPassword.Location = New System.Drawing.Point(95, 97)
+        Me.TextBoxPassword.Name = "TextBoxPassword"
+        Me.TextBoxPassword.Size = New System.Drawing.Size(301, 20)
+        Me.TextBoxPassword.TabIndex = 9
+        Me.TextBoxPassword.Text = MySettings1.DBPassword
+        Me.TextBoxPassword.UseSystemPasswordChar = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(10, 74)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 13)
+        Me.Label6.TabIndex = 8
+        Me.Label6.Text = "Database"
+        '
+        'TextBoxDatabase
+        '
+        Me.TextBoxDatabase.DataBindings.Add(New System.Windows.Forms.Binding("Text", MySettings1, "DBFile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxDatabase.Location = New System.Drawing.Point(95, 71)
+        Me.TextBoxDatabase.Name = "TextBoxDatabase"
+        Me.TextBoxDatabase.Size = New System.Drawing.Size(301, 20)
+        Me.TextBoxDatabase.TabIndex = 7
+        Me.TextBoxDatabase.Text = MySettings1.DBFile
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(10, 48)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(60, 13)
+        Me.Label5.TabIndex = 6
+        Me.Label5.Text = "Server Port"
+        '
+        'TextBoxServerPort
+        '
+        Me.TextBoxServerPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", MySettings1, "DBPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxServerPort.Location = New System.Drawing.Point(95, 45)
+        Me.TextBoxServerPort.Name = "TextBoxServerPort"
+        Me.TextBoxServerPort.Size = New System.Drawing.Size(301, 20)
+        Me.TextBoxServerPort.TabIndex = 5
+        Me.TextBoxServerPort.Text = MySettings1.DBPort
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(10, 22)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(79, 13)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "Server Address"
+        '
+        'TextBoxServerAddress
+        '
+        Me.TextBoxServerAddress.DataBindings.Add(New System.Windows.Forms.Binding("Text", MySettings1, "DBAddress", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxServerAddress.Location = New System.Drawing.Point(95, 19)
+        Me.TextBoxServerAddress.Name = "TextBoxServerAddress"
+        Me.TextBoxServerAddress.Size = New System.Drawing.Size(301, 20)
+        Me.TextBoxServerAddress.TabIndex = 2
+        Me.TextBoxServerAddress.Text = MySettings1.DBAddress
+        '
+        'ShapeContainer1
+        '
+        Me.ShapeContainer1.Location = New System.Drawing.Point(3, 16)
+        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer1.Name = "ShapeContainer1"
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.StatusLed})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(1395, 642)
+        Me.ShapeContainer1.TabIndex = 20
+        Me.ShapeContainer1.TabStop = False
+        '
+        'StatusLed
+        '
+        Me.StatusLed.BackColor = System.Drawing.Color.Gold
+        Me.StatusLed.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque
+        Me.StatusLed.Location = New System.Drawing.Point(92, 104)
+        Me.StatusLed.Name = "StatusLed"
+        Me.StatusLed.Size = New System.Drawing.Size(25, 25)
+        '
+        'FbConnection1
+        '
+        Me.FbConnection1.ConnectionString = MySettings1.ProjetexDB
+        '
+        'BindingSourceCatTools
+        '
+        Me.BindingSourceCatTools.AllowNew = False
+        Me.BindingSourceCatTools.DataMember = "CatTools"
+        Me.BindingSourceCatTools.DataSource = Me.DataSet2
+        '
+        'FreelancersTableAdapter
+        '
+        Me.FreelancersTableAdapter.ClearBeforeFill = True
+        '
+        'SourceLangTableAdapter
+        '
+        Me.SourceLangTableAdapter.ClearBeforeFill = True
+        '
+        'TargetLangTableAdapter
+        '
+        Me.TargetLangTableAdapter.ClearBeforeFill = True
+        '
+        'CatToolsTableAdapter
+        '
+        Me.CatToolsTableAdapter.ClearBeforeFill = True
+        '
+        'DomainsTableAdapter
+        '
+        Me.DomainsTableAdapter.ClearBeforeFill = True
+        '
+        'ServiceTableAdapter
+        '
+        Me.ServiceTableAdapter.ClearBeforeFill = True
+        '
+        'FbCommand1
+        '
+        Me.FbCommand1.CommandTimeout = 30
+        Me.FbCommand1.Connection = Me.FbConnection1
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = Global.Mayflower.My.MySettings.Default.MainFormSize
+        Me.ClientSize = MySettings1.test
         Me.Controls.Add(Me.TabControl1)
-        Me.DataBindings.Add(New System.Windows.Forms.Binding("Location", Global.Mayflower.My.MySettings.Default, "WindowLocation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.DataBindings.Add(New System.Windows.Forms.Binding("WindowState", Global.Mayflower.My.MySettings.Default, "MainFormWindowState", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.DataBindings.Add(New System.Windows.Forms.Binding("ClientSize", Global.Mayflower.My.MySettings.Default, "MainFormSize", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.Location = Global.Mayflower.My.MySettings.Default.WindowLocation
+        Me.DataBindings.Add(New System.Windows.Forms.Binding("Location", MySettings1, "WindowLocation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DataBindings.Add(New System.Windows.Forms.Binding("WindowState", MySettings1, "MainFormWindowState", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DataBindings.Add(New System.Windows.Forms.Binding("ClientSize", MySettings1, "test", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.Location = MySettings1.WindowLocation
+        Me.MinimumSize = New System.Drawing.Size(850, 39)
         Me.Name = "FormMain"
         Me.Text = "Mayflower: Projetex Lookup Tool"
-        Me.WindowState = Global.Mayflower.My.MySettings.Default.MainFormWindowState
+        Me.WindowState = MySettings1.MainFormWindowState
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
