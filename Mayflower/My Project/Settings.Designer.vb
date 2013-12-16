@@ -80,7 +80,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\Projetex.fdb")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("c:\Projetex9\Projetex Server\Database\Projetex.fdb")>  _
         Public Property DBFile() As String
             Get
                 Return CType(Me("DBFile"),String)
@@ -104,10 +104,10 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("User=ODBC;Password=pwww;Database=c:\projetex9\projetex server\database\projetex.f"& _ 
-            "db;DataSource=192.168.56.101;Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODBC"& _ 
-            ";Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=81"& _ 
-            "92")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("User=ODBC;Password=pw;Database=c:\projetex9\projetex server\database\projetex.fdb"& _ 
+            ";DataSource=192.168.56.101;Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODBC;C"& _ 
+            "onnection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192"& _ 
+            "")>  _
         Public Property ProjetexDB() As String
             Get
                 Return CType(Me("ProjetexDB"),String)
@@ -117,22 +117,9 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("User=ODBC;Password=pwww;Database=c:\projetex9\projetex server\database\projetex.f"& _ 
-            "db;DataSource=192.168.56.101;Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODBC"& _ 
-            ";Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=81"& _ 
-            "92")>  _
-        Public ReadOnly Property ProjetexDB2() As String
-            Get
-                Return CType(Me("ProjetexDB2"),String)
-            End Get
-        End Property
-        
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0, 0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("50, 50")>  _
         Public Property WindowLocation() As Global.System.Drawing.Point
             Get
                 Return CType(Me("WindowLocation"),Global.System.Drawing.Point)
@@ -168,13 +155,37 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("837, 435")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("837, 462")>  _
         Public Property test() As Global.System.Drawing.Size
             Get
                 Return CType(Me("test"),Global.System.Drawing.Size)
             End Get
             Set
                 Me("test") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=192.168.56.101;initial catalog=""C:\Projetex9\Proje"& _ 
+            "tex Server\Database\Projetex.fdb"";user id=ODBC;password=pwww;role=PROJETEX_ODBC")>  _
+        Public ReadOnly Property ProjetexDB2() As String
+            Get
+                Return CType(Me("ProjetexDB2"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=192.168.56.101;initial catalog=""C:\Projetex9\Proje"& _ 
+            "tex Server\Database\Projetex.fdb"";user id=ODBC;password=pwww;role=PROJETEX_ODBC")>  _
+        Public Property test2() As String
+            Get
+                Return CType(Me("test2"),String)
+            End Get
+            Set
+                Me("test2") = value
             End Set
         End Property
     End Class

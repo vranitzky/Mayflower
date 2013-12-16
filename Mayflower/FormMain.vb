@@ -1,4 +1,6 @@
 ﻿Public Class FormMain
+    Private Loaded As Boolean = False
+
     Private Sub GetCatTools()
         Dim t As Mayflower.DataSet2.CatToolsDataTable
         Dim r As DataRow
@@ -35,6 +37,9 @@
     End Sub
 
     Private Sub FillFreelancersTable()
+        ' if not Tag, then form has not loaded yet. no need for this to be called a million times
+        If Not Me.Loaded Then Return
+
         'Here we must check for all possibilites: if filtering by source, target, domain, etc.
         ' and only display the data relevant to the restrictions
         Dim ret As Integer = 0
@@ -93,7 +98,11 @@
         If (FreelancersTableAdapter.ClearBeforeFill = True) Then
             DataSet2.DataTableFreelancers.Clear()
         End If
-        ret = FreelancersTableAdapter.Adapter.Fill(DataSet2.DataTableFreelancers)
+        Try
+            ret = FreelancersTableAdapter.Adapter.Fill(DataSet2.DataTableFreelancers)
+        Catch ex As Exception
+            Return
+        End Try
 
 
 
@@ -221,6 +230,7 @@
         If ok Then
             StatusLed.BackColor = Color.Green
             My.Settings.ProjetexDB = connstr
+            My.Settings.Save()
         End If
 
 
@@ -259,7 +269,7 @@
         Try
             FbConnection1.Open()
         Catch ex As Exception
-            'MessageBox.Show("Failed to connect to data source: " & ex.Message)
+            MessageBox.Show("Failed to connect to data source: " & ex.Message)
             OK = False
         Finally
             FbConnection1.Close()
@@ -290,6 +300,8 @@
 
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         'Dim t As ada
+        Me.Loaded = True
+
         StatusLed.BackColor = Color.Red
         RestrictBySourceLang.Checked = True
         RestrictByTargetLang.Checked = True
@@ -298,12 +310,13 @@
 
         Try
             FbConnection1.ConnectionString = My.Settings.ProjetexDB
-            FreelancersTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            SourceLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            TargetLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            CatToolsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            ServiceTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            DomainsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            'FreelancersTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            'SourceLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            'TargetLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            'CatToolsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            'ServiceTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            'DomainsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            'TADetails.Connection.ConnectionString = My.Settings.ProjetexDB
 
             'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
             Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
@@ -316,8 +329,6 @@
             Me.DomainsTableAdapter.Fill(Me.DataSet2.DataTableDomains)
             'Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
             'TODO: This line of code loads data into the 'DataSet2.DataTableService' table. You can move, or remove it, as needed.
-            Me.ServiceTableAdapter.Fill(Me.DataSet2.DataTableService)
-            'TODO: This line of code loads data into the 'DataSet2._AIT_USERS' table. You can move, or remove it, as needed.
             'Me.CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
             GetCatTools()
             FillFreelancersTable()

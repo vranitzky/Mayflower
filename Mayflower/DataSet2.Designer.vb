@@ -39,6 +39,8 @@ Partial Public Class DataSet2
     
     Private tableDTDetails As DTDetailsDataTable
     
+    Private tableDataTable1 As DataTable1DataTable
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -88,6 +90,9 @@ Partial Public Class DataSet2
             End If
             If (Not (ds.Tables("DTDetails")) Is Nothing) Then
                 MyBase.Tables.Add(New DTDetailsDataTable(ds.Tables("DTDetails")))
+            End If
+            If (Not (ds.Tables("DataTable1")) Is Nothing) Then
+                MyBase.Tables.Add(New DataTable1DataTable(ds.Tables("DataTable1")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -173,6 +178,16 @@ Partial Public Class DataSet2
     Public ReadOnly Property DTDetails() As DTDetailsDataTable
         Get
             Return Me.tableDTDetails
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property DataTable1() As DataTable1DataTable
+        Get
+            Return Me.tableDataTable1
         End Get
     End Property
     
@@ -264,6 +279,9 @@ Partial Public Class DataSet2
             If (Not (ds.Tables("DTDetails")) Is Nothing) Then
                 MyBase.Tables.Add(New DTDetailsDataTable(ds.Tables("DTDetails")))
             End If
+            If (Not (ds.Tables("DataTable1")) Is Nothing) Then
+                MyBase.Tables.Add(New DataTable1DataTable(ds.Tables("DataTable1")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -338,6 +356,12 @@ Partial Public Class DataSet2
                 Me.tableDTDetails.InitVars
             End If
         End If
+        Me.tableDataTable1 = CType(MyBase.Tables("DataTable1"),DataTable1DataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableDataTable1) Is Nothing) Then
+                Me.tableDataTable1.InitVars
+            End If
+        End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -346,7 +370,7 @@ Partial Public Class DataSet2
         Me.DataSetName = "DataSet2"
         Me.Prefix = ""
         Me.Namespace = "http://tempuri.org/DataSet2.xsd"
-        Me.EnforceConstraints = true
+        Me.EnforceConstraints = false
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableDataTableSourceLang = New DataTableSourceLangDataTable()
         MyBase.Tables.Add(Me.tableDataTableSourceLang)
@@ -362,6 +386,8 @@ Partial Public Class DataSet2
         MyBase.Tables.Add(Me.tableDataTableService)
         Me.tableDTDetails = New DTDetailsDataTable()
         MyBase.Tables.Add(Me.tableDTDetails)
+        Me.tableDataTable1 = New DataTable1DataTable()
+        MyBase.Tables.Add(Me.tableDataTable1)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -403,6 +429,12 @@ Partial Public Class DataSet2
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializeDTDetails() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeDataTable1() As Boolean
         Return false
     End Function
     
@@ -484,6 +516,9 @@ Partial Public Class DataSet2
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub DTDetailsRowChangeEventHandler(ByVal sender As Object, ByVal e As DTDetailsRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub DataTable1RowChangeEventHandler(ByVal sender As Object, ByVal e As DataTable1RowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -2160,8 +2195,6 @@ Partial Public Class DataSet2
     Partial Public Class DTDetailsDataTable
         Inherits Global.System.Data.TypedTableBase(Of DTDetailsRow)
         
-        Private columnNAME As Global.System.Data.DataColumn
-        
         Private columnLASTJOB As Global.System.Data.DataColumn
         
         Private columnSERVICE As Global.System.Data.DataColumn
@@ -2172,31 +2205,7 @@ Partial Public Class DataSet2
         
         Private columnPROJECTMANAGER As Global.System.Data.DataColumn
         
-        Private columnCOUN_NAME As Global.System.Data.DataColumn
-        
         Private columnCURR_NAME As Global.System.Data.DataColumn
-        
-        Private columnRES_STREET1 As Global.System.Data.DataColumn
-        
-        Private columnRES_STREET2 As Global.System.Data.DataColumn
-        
-        Private columnRES_CITY As Global.System.Data.DataColumn
-        
-        Private columnRES_STATE As Global.System.Data.DataColumn
-        
-        Private columnRES_EMAIL1 As Global.System.Data.DataColumn
-        
-        Private columnRES_ZIP As Global.System.Data.DataColumn
-        
-        Private columnRES_EMAIL2 As Global.System.Data.DataColumn
-        
-        Private columnRES_PHONE1 As Global.System.Data.DataColumn
-        
-        Private columnRES_PHONE2 As Global.System.Data.DataColumn
-        
-        Private columnRES_FLAG As Global.System.Data.DataColumn
-        
-        Private columnSKYPE As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -2232,14 +2241,6 @@ Partial Public Class DataSet2
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NAMEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNAME
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -2283,105 +2284,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property COUN_NAMEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCOUN_NAME
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property CURR_NAMEColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCURR_NAME
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_STREET1Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_STREET1
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_STREET2Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_STREET2
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_CITYColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_CITY
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_STATEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_STATE
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_EMAIL1Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_EMAIL1
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_ZIPColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_ZIP
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_EMAIL2Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_EMAIL2
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_PHONE1Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_PHONE1
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_PHONE2Column() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_PHONE2
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property RES_FLAGColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnRES_FLAG
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property SKYPEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSKYPE
             End Get
         End Property
         
@@ -2422,28 +2327,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDTDetailsRow( _
-                    ByVal NAME As String,  _
-                    ByVal LASTJOB As String,  _
-                    ByVal SERVICE As String,  _
-                    ByVal LASTPROJECT As String,  _
-                    ByVal CLIENT As String,  _
-                    ByVal PROJECTMANAGER As String,  _
-                    ByVal COUN_NAME As String,  _
-                    ByVal CURR_NAME As String,  _
-                    ByVal RES_STREET1 As String,  _
-                    ByVal RES_STREET2 As String,  _
-                    ByVal RES_CITY As String,  _
-                    ByVal RES_STATE As String,  _
-                    ByVal RES_EMAIL1 As String,  _
-                    ByVal RES_ZIP As String,  _
-                    ByVal RES_EMAIL2 As String,  _
-                    ByVal RES_PHONE1 As String,  _
-                    ByVal RES_PHONE2 As String,  _
-                    ByVal RES_FLAG As Integer,  _
-                    ByVal SKYPE As String) As DTDetailsRow
+        Public Overloads Function AddDTDetailsRow(ByVal LASTJOB As String, ByVal SERVICE As String, ByVal LASTPROJECT As String, ByVal CLIENT As String, ByVal PROJECTMANAGER As String, ByVal CURR_NAME As String) As DTDetailsRow
             Dim rowDTDetailsRow As DTDetailsRow = CType(Me.NewRow,DTDetailsRow)
-            Dim columnValuesArray() As Object = New Object() {NAME, LASTJOB, SERVICE, LASTPROJECT, CLIENT, PROJECTMANAGER, COUN_NAME, CURR_NAME, RES_STREET1, RES_STREET2, RES_CITY, RES_STATE, RES_EMAIL1, RES_ZIP, RES_EMAIL2, RES_PHONE1, RES_PHONE2, RES_FLAG, SKYPE}
+            Dim columnValuesArray() As Object = New Object() {LASTJOB, SERVICE, LASTPROJECT, CLIENT, PROJECTMANAGER, CURR_NAME}
             rowDTDetailsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDTDetailsRow)
             Return rowDTDetailsRow
@@ -2466,32 +2352,17 @@ Partial Public Class DataSet2
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnNAME = MyBase.Columns("NAME")
             Me.columnLASTJOB = MyBase.Columns("LASTJOB")
             Me.columnSERVICE = MyBase.Columns("SERVICE")
             Me.columnLASTPROJECT = MyBase.Columns("LASTPROJECT")
             Me.columnCLIENT = MyBase.Columns("CLIENT")
             Me.columnPROJECTMANAGER = MyBase.Columns("PROJECTMANAGER")
-            Me.columnCOUN_NAME = MyBase.Columns("COUN_NAME")
             Me.columnCURR_NAME = MyBase.Columns("CURR_NAME")
-            Me.columnRES_STREET1 = MyBase.Columns("RES_STREET1")
-            Me.columnRES_STREET2 = MyBase.Columns("RES_STREET2")
-            Me.columnRES_CITY = MyBase.Columns("RES_CITY")
-            Me.columnRES_STATE = MyBase.Columns("RES_STATE")
-            Me.columnRES_EMAIL1 = MyBase.Columns("RES_EMAIL1")
-            Me.columnRES_ZIP = MyBase.Columns("RES_ZIP")
-            Me.columnRES_EMAIL2 = MyBase.Columns("RES_EMAIL2")
-            Me.columnRES_PHONE1 = MyBase.Columns("RES_PHONE1")
-            Me.columnRES_PHONE2 = MyBase.Columns("RES_PHONE2")
-            Me.columnRES_FLAG = MyBase.Columns("RES_FLAG")
-            Me.columnSKYPE = MyBase.Columns("SKYPE")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNAME)
             Me.columnLASTJOB = New Global.System.Data.DataColumn("LASTJOB", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLASTJOB)
             Me.columnSERVICE = New Global.System.Data.DataColumn("SERVICE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -2502,34 +2373,8 @@ Partial Public Class DataSet2
             MyBase.Columns.Add(Me.columnCLIENT)
             Me.columnPROJECTMANAGER = New Global.System.Data.DataColumn("PROJECTMANAGER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPROJECTMANAGER)
-            Me.columnCOUN_NAME = New Global.System.Data.DataColumn("COUN_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCOUN_NAME)
             Me.columnCURR_NAME = New Global.System.Data.DataColumn("CURR_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCURR_NAME)
-            Me.columnRES_STREET1 = New Global.System.Data.DataColumn("RES_STREET1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_STREET1)
-            Me.columnRES_STREET2 = New Global.System.Data.DataColumn("RES_STREET2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_STREET2)
-            Me.columnRES_CITY = New Global.System.Data.DataColumn("RES_CITY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_CITY)
-            Me.columnRES_STATE = New Global.System.Data.DataColumn("RES_STATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_STATE)
-            Me.columnRES_EMAIL1 = New Global.System.Data.DataColumn("RES_EMAIL1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_EMAIL1)
-            Me.columnRES_ZIP = New Global.System.Data.DataColumn("RES_ZIP", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_ZIP)
-            Me.columnRES_EMAIL2 = New Global.System.Data.DataColumn("RES_EMAIL2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_EMAIL2)
-            Me.columnRES_PHONE1 = New Global.System.Data.DataColumn("RES_PHONE1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_PHONE1)
-            Me.columnRES_PHONE2 = New Global.System.Data.DataColumn("RES_PHONE2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_PHONE2)
-            Me.columnRES_FLAG = New Global.System.Data.DataColumn("RES_FLAG", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRES_FLAG)
-            Me.columnSKYPE = New Global.System.Data.DataColumn("SKYPE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSKYPE)
-            Me.columnNAME.AllowDBNull = false
-            Me.columnNAME.MaxLength = 150
             Me.columnLASTJOB.MaxLength = 500
             Me.columnSERVICE.AllowDBNull = false
             Me.columnSERVICE.MaxLength = 150
@@ -2538,29 +2383,8 @@ Partial Public Class DataSet2
             Me.columnCLIENT.MaxLength = 150
             Me.columnPROJECTMANAGER.AllowDBNull = false
             Me.columnPROJECTMANAGER.MaxLength = 100
-            Me.columnCOUN_NAME.AllowDBNull = false
-            Me.columnCOUN_NAME.MaxLength = 40
             Me.columnCURR_NAME.AllowDBNull = false
             Me.columnCURR_NAME.MaxLength = 3
-            Me.columnRES_STREET1.AllowDBNull = false
-            Me.columnRES_STREET1.MaxLength = 50
-            Me.columnRES_STREET2.AllowDBNull = false
-            Me.columnRES_STREET2.MaxLength = 50
-            Me.columnRES_CITY.AllowDBNull = false
-            Me.columnRES_CITY.MaxLength = 40
-            Me.columnRES_STATE.AllowDBNull = false
-            Me.columnRES_STATE.MaxLength = 40
-            Me.columnRES_EMAIL1.AllowDBNull = false
-            Me.columnRES_EMAIL1.MaxLength = 150
-            Me.columnRES_ZIP.AllowDBNull = false
-            Me.columnRES_ZIP.MaxLength = 10
-            Me.columnRES_EMAIL2.AllowDBNull = false
-            Me.columnRES_EMAIL2.MaxLength = 150
-            Me.columnRES_PHONE1.AllowDBNull = false
-            Me.columnRES_PHONE1.MaxLength = 150
-            Me.columnRES_PHONE2.AllowDBNull = false
-            Me.columnRES_PHONE2.MaxLength = 150
-            Me.columnSKYPE.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2647,6 +2471,649 @@ Partial Public Class DataSet2
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "DTDetailsDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class DataTable1DataTable
+        Inherits Global.System.Data.TypedTableBase(Of DataTable1Row)
+        
+        Private columnRES_NAME As Global.System.Data.DataColumn
+        
+        Private columnCURR_NAME As Global.System.Data.DataColumn
+        
+        Private columnCOUN_NAME As Global.System.Data.DataColumn
+        
+        Private columnRES_PT_TYPE As Global.System.Data.DataColumn
+        
+        Private columnRES_PT_DAYS As Global.System.Data.DataColumn
+        
+        Private columnRES_PT_DESC As Global.System.Data.DataColumn
+        
+        Private columnRES_STREET1 As Global.System.Data.DataColumn
+        
+        Private columnRES_STREET2 As Global.System.Data.DataColumn
+        
+        Private columnRES_CITY As Global.System.Data.DataColumn
+        
+        Private columnRES_STATE As Global.System.Data.DataColumn
+        
+        Private columnRES_ZIP As Global.System.Data.DataColumn
+        
+        Private columnRES_EMAIL1 As Global.System.Data.DataColumn
+        
+        Private columnRES_EMAIL2 As Global.System.Data.DataColumn
+        
+        Private columnRES_PHONE1 As Global.System.Data.DataColumn
+        
+        Private columnRES_PHONE2 As Global.System.Data.DataColumn
+        
+        Private columnRES_FAX As Global.System.Data.DataColumn
+        
+        Private columnRES_WWW As Global.System.Data.DataColumn
+        
+        Private columnRES_VATNUM As Global.System.Data.DataColumn
+        
+        Private columnRES_MINFEE As Global.System.Data.DataColumn
+        
+        Private columnRES_PHONE3 As Global.System.Data.DataColumn
+        
+        Private columnRES_PHONE4 As Global.System.Data.DataColumn
+        
+        Private columnSKYPE As Global.System.Data.DataColumn
+        
+        Private columnDOB As Global.System.Data.DataColumn
+        
+        Private columnTOOLS As Global.System.Data.DataColumn
+        
+        Private columnSOURCE As Global.System.Data.DataColumn
+        
+        Private columnTARGET1 As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "DataTable1"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_NAMEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_NAME
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CURR_NAMEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCURR_NAME
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property COUN_NAMEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCOUN_NAME
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_PT_TYPEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_PT_TYPE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_PT_DAYSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_PT_DAYS
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_PT_DESCColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_PT_DESC
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_STREET1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_STREET1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_STREET2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_STREET2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_CITYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_CITY
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_STATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_STATE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_ZIPColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_ZIP
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_EMAIL1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_EMAIL1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_EMAIL2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_EMAIL2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_PHONE1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_PHONE1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_PHONE2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_PHONE2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_FAXColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_FAX
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_WWWColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_WWW
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_VATNUMColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_VATNUM
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_MINFEEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_MINFEE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_PHONE3Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_PHONE3
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RES_PHONE4Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRES_PHONE4
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property SKYPEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSKYPE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DOBColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDOB
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TOOLSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTOOLS
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property SOURCEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSOURCE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TARGET1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTARGET1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As DataTable1Row
+            Get
+                Return CType(Me.Rows(index),DataTable1Row)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event DataTable1RowChanging As DataTable1RowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event DataTable1RowChanged As DataTable1RowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event DataTable1RowDeleting As DataTable1RowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event DataTable1RowDeleted As DataTable1RowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddDataTable1Row(ByVal row As DataTable1Row)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddDataTable1Row( _
+                    ByVal RES_NAME As String,  _
+                    ByVal CURR_NAME As String,  _
+                    ByVal COUN_NAME As String,  _
+                    ByVal RES_PT_TYPE As Integer,  _
+                    ByVal RES_PT_DAYS As Integer,  _
+                    ByVal RES_PT_DESC As String,  _
+                    ByVal RES_STREET1 As String,  _
+                    ByVal RES_STREET2 As String,  _
+                    ByVal RES_CITY As String,  _
+                    ByVal RES_STATE As String,  _
+                    ByVal RES_ZIP As String,  _
+                    ByVal RES_EMAIL1 As String,  _
+                    ByVal RES_EMAIL2 As String,  _
+                    ByVal RES_PHONE1 As String,  _
+                    ByVal RES_PHONE2 As String,  _
+                    ByVal RES_FAX As String,  _
+                    ByVal RES_WWW As String,  _
+                    ByVal RES_VATNUM As String,  _
+                    ByVal RES_MINFEE As Decimal,  _
+                    ByVal RES_PHONE3 As String,  _
+                    ByVal RES_PHONE4 As String,  _
+                    ByVal SKYPE As String,  _
+                    ByVal DOB As Date,  _
+                    ByVal TOOLS As String,  _
+                    ByVal SOURCE As String,  _
+                    ByVal TARGET1 As String) As DataTable1Row
+            Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
+            Dim columnValuesArray() As Object = New Object() {RES_NAME, CURR_NAME, COUN_NAME, RES_PT_TYPE, RES_PT_DAYS, RES_PT_DESC, RES_STREET1, RES_STREET2, RES_CITY, RES_STATE, RES_ZIP, RES_EMAIL1, RES_EMAIL2, RES_PHONE1, RES_PHONE2, RES_FAX, RES_WWW, RES_VATNUM, RES_MINFEE, RES_PHONE3, RES_PHONE4, SKYPE, DOB, TOOLS, SOURCE, TARGET1}
+            rowDataTable1Row.ItemArray = columnValuesArray
+            Me.Rows.Add(rowDataTable1Row)
+            Return rowDataTable1Row
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As DataTable1DataTable = CType(MyBase.Clone,DataTable1DataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New DataTable1DataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnRES_NAME = MyBase.Columns("RES_NAME")
+            Me.columnCURR_NAME = MyBase.Columns("CURR_NAME")
+            Me.columnCOUN_NAME = MyBase.Columns("COUN_NAME")
+            Me.columnRES_PT_TYPE = MyBase.Columns("RES_PT_TYPE")
+            Me.columnRES_PT_DAYS = MyBase.Columns("RES_PT_DAYS")
+            Me.columnRES_PT_DESC = MyBase.Columns("RES_PT_DESC")
+            Me.columnRES_STREET1 = MyBase.Columns("RES_STREET1")
+            Me.columnRES_STREET2 = MyBase.Columns("RES_STREET2")
+            Me.columnRES_CITY = MyBase.Columns("RES_CITY")
+            Me.columnRES_STATE = MyBase.Columns("RES_STATE")
+            Me.columnRES_ZIP = MyBase.Columns("RES_ZIP")
+            Me.columnRES_EMAIL1 = MyBase.Columns("RES_EMAIL1")
+            Me.columnRES_EMAIL2 = MyBase.Columns("RES_EMAIL2")
+            Me.columnRES_PHONE1 = MyBase.Columns("RES_PHONE1")
+            Me.columnRES_PHONE2 = MyBase.Columns("RES_PHONE2")
+            Me.columnRES_FAX = MyBase.Columns("RES_FAX")
+            Me.columnRES_WWW = MyBase.Columns("RES_WWW")
+            Me.columnRES_VATNUM = MyBase.Columns("RES_VATNUM")
+            Me.columnRES_MINFEE = MyBase.Columns("RES_MINFEE")
+            Me.columnRES_PHONE3 = MyBase.Columns("RES_PHONE3")
+            Me.columnRES_PHONE4 = MyBase.Columns("RES_PHONE4")
+            Me.columnSKYPE = MyBase.Columns("SKYPE")
+            Me.columnDOB = MyBase.Columns("DOB")
+            Me.columnTOOLS = MyBase.Columns("TOOLS")
+            Me.columnSOURCE = MyBase.Columns("SOURCE")
+            Me.columnTARGET1 = MyBase.Columns("TARGET1")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnRES_NAME = New Global.System.Data.DataColumn("RES_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_NAME)
+            Me.columnCURR_NAME = New Global.System.Data.DataColumn("CURR_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCURR_NAME)
+            Me.columnCOUN_NAME = New Global.System.Data.DataColumn("COUN_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCOUN_NAME)
+            Me.columnRES_PT_TYPE = New Global.System.Data.DataColumn("RES_PT_TYPE", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_PT_TYPE)
+            Me.columnRES_PT_DAYS = New Global.System.Data.DataColumn("RES_PT_DAYS", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_PT_DAYS)
+            Me.columnRES_PT_DESC = New Global.System.Data.DataColumn("RES_PT_DESC", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_PT_DESC)
+            Me.columnRES_STREET1 = New Global.System.Data.DataColumn("RES_STREET1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_STREET1)
+            Me.columnRES_STREET2 = New Global.System.Data.DataColumn("RES_STREET2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_STREET2)
+            Me.columnRES_CITY = New Global.System.Data.DataColumn("RES_CITY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_CITY)
+            Me.columnRES_STATE = New Global.System.Data.DataColumn("RES_STATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_STATE)
+            Me.columnRES_ZIP = New Global.System.Data.DataColumn("RES_ZIP", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_ZIP)
+            Me.columnRES_EMAIL1 = New Global.System.Data.DataColumn("RES_EMAIL1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_EMAIL1)
+            Me.columnRES_EMAIL2 = New Global.System.Data.DataColumn("RES_EMAIL2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_EMAIL2)
+            Me.columnRES_PHONE1 = New Global.System.Data.DataColumn("RES_PHONE1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_PHONE1)
+            Me.columnRES_PHONE2 = New Global.System.Data.DataColumn("RES_PHONE2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_PHONE2)
+            Me.columnRES_FAX = New Global.System.Data.DataColumn("RES_FAX", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_FAX)
+            Me.columnRES_WWW = New Global.System.Data.DataColumn("RES_WWW", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_WWW)
+            Me.columnRES_VATNUM = New Global.System.Data.DataColumn("RES_VATNUM", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_VATNUM)
+            Me.columnRES_MINFEE = New Global.System.Data.DataColumn("RES_MINFEE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_MINFEE)
+            Me.columnRES_PHONE3 = New Global.System.Data.DataColumn("RES_PHONE3", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_PHONE3)
+            Me.columnRES_PHONE4 = New Global.System.Data.DataColumn("RES_PHONE4", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRES_PHONE4)
+            Me.columnSKYPE = New Global.System.Data.DataColumn("SKYPE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSKYPE)
+            Me.columnDOB = New Global.System.Data.DataColumn("DOB", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDOB)
+            Me.columnTOOLS = New Global.System.Data.DataColumn("TOOLS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTOOLS)
+            Me.columnSOURCE = New Global.System.Data.DataColumn("SOURCE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSOURCE)
+            Me.columnTARGET1 = New Global.System.Data.DataColumn("TARGET1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTARGET1)
+            Me.columnRES_NAME.AllowDBNull = false
+            Me.columnRES_NAME.MaxLength = 150
+            Me.columnCURR_NAME.AllowDBNull = false
+            Me.columnCURR_NAME.MaxLength = 3
+            Me.columnCOUN_NAME.AllowDBNull = false
+            Me.columnCOUN_NAME.MaxLength = 40
+            Me.columnRES_PT_DESC.MaxLength = 200
+            Me.columnRES_STREET1.AllowDBNull = false
+            Me.columnRES_STREET1.MaxLength = 50
+            Me.columnRES_STREET2.AllowDBNull = false
+            Me.columnRES_STREET2.MaxLength = 50
+            Me.columnRES_CITY.AllowDBNull = false
+            Me.columnRES_CITY.MaxLength = 40
+            Me.columnRES_STATE.AllowDBNull = false
+            Me.columnRES_STATE.MaxLength = 40
+            Me.columnRES_ZIP.AllowDBNull = false
+            Me.columnRES_ZIP.MaxLength = 10
+            Me.columnRES_EMAIL1.AllowDBNull = false
+            Me.columnRES_EMAIL1.MaxLength = 150
+            Me.columnRES_EMAIL2.AllowDBNull = false
+            Me.columnRES_EMAIL2.MaxLength = 150
+            Me.columnRES_PHONE1.AllowDBNull = false
+            Me.columnRES_PHONE1.MaxLength = 150
+            Me.columnRES_PHONE2.AllowDBNull = false
+            Me.columnRES_PHONE2.MaxLength = 150
+            Me.columnRES_FAX.AllowDBNull = false
+            Me.columnRES_FAX.MaxLength = 150
+            Me.columnRES_WWW.AllowDBNull = false
+            Me.columnRES_WWW.MaxLength = 120
+            Me.columnRES_VATNUM.AllowDBNull = false
+            Me.columnRES_VATNUM.MaxLength = 20
+            Me.columnRES_MINFEE.AllowDBNull = false
+            Me.columnRES_PHONE3.AllowDBNull = false
+            Me.columnRES_PHONE3.MaxLength = 150
+            Me.columnRES_PHONE4.AllowDBNull = false
+            Me.columnRES_PHONE4.MaxLength = 150
+            Me.columnSKYPE.MaxLength = 255
+            Me.columnTOOLS.MaxLength = 2147483647
+            Me.columnSOURCE.MaxLength = 255
+            Me.columnTARGET1.MaxLength = 255
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewDataTable1Row() As DataTable1Row
+            Return CType(Me.NewRow,DataTable1Row)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New DataTable1Row(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(DataTable1Row)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.DataTable1RowChangedEvent) Is Nothing) Then
+                RaiseEvent DataTable1RowChanged(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.DataTable1RowChangingEvent) Is Nothing) Then
+                RaiseEvent DataTable1RowChanging(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.DataTable1RowDeletedEvent) Is Nothing) Then
+                RaiseEvent DataTable1RowDeleted(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.DataTable1RowDeletingEvent) Is Nothing) Then
+                RaiseEvent DataTable1RowDeleting(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveDataTable1Row(ByVal row As DataTable1Row)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As DataSet2 = New DataSet2()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "DataTable1DataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -3187,17 +3654,6 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NAME() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.NAMEColumn),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.NAMEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property LASTJOB() As String
             Get
                 Try 
@@ -3261,152 +3717,12 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property COUN_NAME() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.COUN_NAMEColumn),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.COUN_NAMEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property CURR_NAME() As String
             Get
                 Return CType(Me(Me.tableDTDetails.CURR_NAMEColumn),String)
             End Get
             Set
                 Me(Me.tableDTDetails.CURR_NAMEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_STREET1() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.RES_STREET1Column),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.RES_STREET1Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_STREET2() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.RES_STREET2Column),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.RES_STREET2Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_CITY() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.RES_CITYColumn),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.RES_CITYColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_STATE() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.RES_STATEColumn),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.RES_STATEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_EMAIL1() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.RES_EMAIL1Column),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.RES_EMAIL1Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_ZIP() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.RES_ZIPColumn),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.RES_ZIPColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_EMAIL2() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.RES_EMAIL2Column),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.RES_EMAIL2Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_PHONE1() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.RES_PHONE1Column),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.RES_PHONE1Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_PHONE2() As String
-            Get
-                Return CType(Me(Me.tableDTDetails.RES_PHONE2Column),String)
-            End Get
-            Set
-                Me(Me.tableDTDetails.RES_PHONE2Column) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property RES_FLAG() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableDTDetails.RES_FLAGColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'RES_FLAG' in table 'DTDetails' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDTDetails.RES_FLAGColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property SKYPE() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDTDetails.SKYPEColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SKYPE' in table 'DTDetails' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDTDetails.SKYPEColumn) = value
             End Set
         End Property
         
@@ -3433,29 +3749,435 @@ Partial Public Class DataSet2
         Public Sub SetLASTPROJECTNull()
             Me(Me.tableDTDetails.LASTPROJECTColumn) = Global.System.Convert.DBNull
         End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class DataTable1Row
+        Inherits Global.System.Data.DataRow
+        
+        Private tableDataTable1 As DataTable1DataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsRES_FLAGNull() As Boolean
-            Return Me.IsNull(Me.tableDTDetails.RES_FLAGColumn)
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableDataTable1 = CType(Me.Table,DataTable1DataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_NAME() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_NAMEColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_NAMEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CURR_NAME() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.CURR_NAMEColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.CURR_NAMEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property COUN_NAME() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.COUN_NAMEColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.COUN_NAMEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_PT_TYPE() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.RES_PT_TYPEColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RES_PT_TYPE' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_PT_TYPEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_PT_DAYS() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.RES_PT_DAYSColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RES_PT_DAYS' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_PT_DAYSColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_PT_DESC() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.RES_PT_DESCColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RES_PT_DESC' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_PT_DESCColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_STREET1() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_STREET1Column),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_STREET1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_STREET2() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_STREET2Column),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_STREET2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_CITY() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_CITYColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_CITYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_STATE() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_STATEColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_STATEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_ZIP() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_ZIPColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_ZIPColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_EMAIL1() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_EMAIL1Column),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_EMAIL1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_EMAIL2() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_EMAIL2Column),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_EMAIL2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_PHONE1() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_PHONE1Column),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_PHONE1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_PHONE2() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_PHONE2Column),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_PHONE2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_FAX() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_FAXColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_FAXColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_WWW() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_WWWColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_WWWColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_VATNUM() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_VATNUMColumn),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_VATNUMColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_MINFEE() As Decimal
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_MINFEEColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_MINFEEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_PHONE3() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_PHONE3Column),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_PHONE3Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RES_PHONE4() As String
+            Get
+                Return CType(Me(Me.tableDataTable1.RES_PHONE4Column),String)
+            End Get
+            Set
+                Me(Me.tableDataTable1.RES_PHONE4Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property SKYPE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.SKYPEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SKYPE' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.SKYPEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DOB() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.DOBColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DOB' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.DOBColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property TOOLS() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.TOOLSColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TOOLS' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.TOOLSColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property SOURCE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.SOURCEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SOURCE' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.SOURCEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property TARGET1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTable1.TARGET1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TARGET1' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTable1.TARGET1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRES_PT_TYPENull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.RES_PT_TYPEColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetRES_FLAGNull()
-            Me(Me.tableDTDetails.RES_FLAGColumn) = Global.System.Convert.DBNull
+        Public Sub SetRES_PT_TYPENull()
+            Me(Me.tableDataTable1.RES_PT_TYPEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRES_PT_DAYSNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.RES_PT_DAYSColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRES_PT_DAYSNull()
+            Me(Me.tableDataTable1.RES_PT_DAYSColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRES_PT_DESCNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.RES_PT_DESCColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRES_PT_DESCNull()
+            Me(Me.tableDataTable1.RES_PT_DESCColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsSKYPENull() As Boolean
-            Return Me.IsNull(Me.tableDTDetails.SKYPEColumn)
+            Return Me.IsNull(Me.tableDataTable1.SKYPEColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetSKYPENull()
-            Me(Me.tableDTDetails.SKYPEColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDataTable1.SKYPEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDOBNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.DOBColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDOBNull()
+            Me(Me.tableDataTable1.DOBColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsTOOLSNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.TOOLSColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetTOOLSNull()
+            Me(Me.tableDataTable1.TOOLSColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsSOURCENull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.SOURCEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetSOURCENull()
+            Me(Me.tableDataTable1.SOURCEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsTARGET1Null() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.TARGET1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetTARGET1Null()
+            Me(Me.tableDataTable1.TARGET1Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3697,6 +4419,42 @@ Partial Public Class DataSet2
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As DTDetailsRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class DataTable1RowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As DataTable1Row
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As DataTable1Row, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As DataTable1Row
             Get
                 Return Me.eventRow
             End Get
@@ -4264,7 +5022,7 @@ Namespace DataSet2TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(0) {}
+            Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(1) {}
             Me._commandCollection(0) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        RESOURCES.RES_ID AS ID, RESOURCES.RES_NAME AS Name, RESOURCES.""AIT$"& _ 
@@ -4277,6 +5035,25 @@ Namespace DataSet2TableAdapters
                 "COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURC"& _ 
                 "ES.CURR_ID = CURR.CURR_ID"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        RESOURCES.RES_ID AS ID, RESOURCES.RES_NAME AS Name, RESOURCES.""AIT$"& _ 
+                "CUSTOMF00068"" AS SourceLang, RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                     RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, RESOURCES.""AIT"& _ 
+                "$CUSTOMF00092"" AS Rate, CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Count"& _ 
+                "ry, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.""AIT$CUSTOMF00093"" AS ""Role"", RESOURCES"& _ 
+                ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
+                "          RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON RESOURCES."& _ 
+                "COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURC"& _ 
+                "ES.CURR_ID = CURR.CURR_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RESOURCES.RES_ID = @resid)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
+            param.ParameterName = "@resid"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.Size = 4
+            param.IsNullable = true
+            param.SourceColumn = "ID"
+            Me._commandCollection(1).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4298,6 +5075,32 @@ Namespace DataSet2TableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DataSet2.DataTableFreelancersDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByRESID(ByVal dataTable As DataSet2.DataTableFreelancersDataTable, ByVal resid As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByRESID(ByVal resid As Integer) As DataSet2.DataTableFreelancersDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
             Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -4958,25 +5761,12 @@ Namespace DataSet2TableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "DTDetails"
-            tableMapping.ColumnMappings.Add("NAME", "NAME")
             tableMapping.ColumnMappings.Add("LASTJOB", "LASTJOB")
             tableMapping.ColumnMappings.Add("SERVICE", "SERVICE")
             tableMapping.ColumnMappings.Add("LASTPROJECT", "LASTPROJECT")
             tableMapping.ColumnMappings.Add("CLIENT", "CLIENT")
             tableMapping.ColumnMappings.Add("PROJECTMANAGER", "PROJECTMANAGER")
-            tableMapping.ColumnMappings.Add("COUN_NAME", "COUN_NAME")
             tableMapping.ColumnMappings.Add("CURR_NAME", "CURR_NAME")
-            tableMapping.ColumnMappings.Add("RES_STREET1", "RES_STREET1")
-            tableMapping.ColumnMappings.Add("RES_STREET2", "RES_STREET2")
-            tableMapping.ColumnMappings.Add("RES_CITY", "RES_CITY")
-            tableMapping.ColumnMappings.Add("RES_STATE", "RES_STATE")
-            tableMapping.ColumnMappings.Add("RES_EMAIL1", "RES_EMAIL1")
-            tableMapping.ColumnMappings.Add("RES_ZIP", "RES_ZIP")
-            tableMapping.ColumnMappings.Add("RES_EMAIL2", "RES_EMAIL2")
-            tableMapping.ColumnMappings.Add("RES_PHONE1", "RES_PHONE1")
-            tableMapping.ColumnMappings.Add("RES_PHONE2", "RES_PHONE2")
-            tableMapping.ColumnMappings.Add("RES_FLAG", "RES_FLAG")
-            tableMapping.ColumnMappings.Add("SKYPE", "SKYPE")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -4993,23 +5783,16 @@ Namespace DataSet2TableAdapters
             Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(0) {}
             Me._commandCollection(0) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        RESOURCES.RES_NAME AS Name, RJOBS.RJOB_NAME AS LastJob, SERVICES.SE"& _ 
-                "RV_NAME AS Service, PROJECTS.PROJ_NAME AS LastProject, CLIENTS.CLIENT_NAME AS Cl"& _ 
-                "ient, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ""AIT$USERS"".""AIT$USER_REALNAME"" AS ProjectManag"& _ 
-                "er, COUNTRIES.COUN_NAME, CURR.CURR_NAME, RESOURCES.RES_STREET1, RESOURCES.RES_ST"& _ 
-                "REET2, RESOURCES.RES_CITY, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.RES_STATE, RESOU"& _ 
-                "RCES.RES_EMAIL1, RESOURCES.RES_ZIP, RESOURCES.RES_EMAIL2, RESOURCES.RES_PHONE1, "& _ 
-                "RESOURCES.RES_PHONE2, RESOURCES.RES_FLAG, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES."""& _ 
-                "AIT$CUSTOMF00016"" AS Skype"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
-                "           COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                   CURR ON RESOURCES.CURR_ID = CURR.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 RJOBS ON RESOURCES.RES_ID = RJOBS.RES_ID AND CURR.CURR_ID = RJO"& _ 
-                "BS.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SERVICES ON RJOBS.SERV_ID = SERV"& _ 
-                "ICES.SERV_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROJECTS ON RJOBS.PROJ_ID = PR"& _ 
-                "OJECTS.PROJ_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CLIENTS ON PROJECTS.CLIENT_I"& _ 
-                "D = CLIENTS.CLIENT_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ""AIT$USERS"" ON PROJEC"& _ 
-                "TS.PROJ_PM = ""AIT$USERS"".""AIT$USER_ID"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RESOURCES.RES_ID = @resid)"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY RJOBS.RJOB_ID DESC"
+            Me._commandCollection(0).CommandText = "SELECT        RJOBS.RJOB_NAME AS LastJob, SERVICES.SERV_NAME AS Service, PROJECTS"& _ 
+                ".PROJ_NAME AS LastProject, CLIENTS.CLIENT_NAME AS Client, ""AIT$USERS"".""AIT$USER_"& _ 
+                "REALNAME"" AS ProjectManager, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR.CURR_NAME"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM    "& _ 
+                "        RJOBS INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RJOBS.CURR_ID = CURR."& _ 
+                "CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SERVICES ON RJOBS.SERV_ID = SERVICE"& _ 
+                "S.SERV_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROJECTS ON RJOBS.PROJ_ID = PROJE"& _ 
+                "CTS.PROJ_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CLIENTS ON PROJECTS.CLIENT_ID ="& _ 
+                " CLIENTS.CLIENT_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ""AIT$USERS"" ON PROJECTS."& _ 
+                "PROJ_PM = ""AIT$USERS"".""AIT$USER_ID"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RJOBS.RES_ID = @resid)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER"& _ 
+                " BY RJOBS.RJOB_ID DESC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
             param.ParameterName = "@resid"
@@ -5024,7 +5807,233 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.DTDetailsDataTable, ByVal resid As Integer) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.DTDetailsDataTable, ByVal resid As Global.System.Nullable(Of Integer)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (resid.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal resid As Global.System.Nullable(Of Integer)) As DataSet2.DTDetailsDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (resid.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid.Value,Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As DataSet2.DTDetailsDataTable = New DataSet2.DTDetailsDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class DataTable1TableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.FirebirdSql.Data.FirebirdClient.FbDataAdapter
+        
+        Private _connection As Global.FirebirdSql.Data.FirebirdClient.FbConnection
+        
+        Private _transaction As Global.FirebirdSql.Data.FirebirdClient.FbTransaction
+        
+        Private _commandCollection() As Global.FirebirdSql.Data.FirebirdClient.FbCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.FirebirdSql.Data.FirebirdClient.FbDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Connection() As Global.FirebirdSql.Data.FirebirdClient.FbConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.FirebirdSql.Data.FirebirdClient.FbCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Transaction() As Global.FirebirdSql.Data.FirebirdClient.FbTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.FirebirdSql.Data.FirebirdClient.FbCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.FirebirdSql.Data.FirebirdClient.FbDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "DataTable1"
+            tableMapping.ColumnMappings.Add("RES_NAME", "RES_NAME")
+            tableMapping.ColumnMappings.Add("CURR_NAME", "CURR_NAME")
+            tableMapping.ColumnMappings.Add("COUN_NAME", "COUN_NAME")
+            tableMapping.ColumnMappings.Add("RES_PT_TYPE", "RES_PT_TYPE")
+            tableMapping.ColumnMappings.Add("RES_PT_DAYS", "RES_PT_DAYS")
+            tableMapping.ColumnMappings.Add("RES_PT_DESC", "RES_PT_DESC")
+            tableMapping.ColumnMappings.Add("RES_STREET1", "RES_STREET1")
+            tableMapping.ColumnMappings.Add("RES_STREET2", "RES_STREET2")
+            tableMapping.ColumnMappings.Add("RES_CITY", "RES_CITY")
+            tableMapping.ColumnMappings.Add("RES_STATE", "RES_STATE")
+            tableMapping.ColumnMappings.Add("RES_ZIP", "RES_ZIP")
+            tableMapping.ColumnMappings.Add("RES_EMAIL1", "RES_EMAIL1")
+            tableMapping.ColumnMappings.Add("RES_EMAIL2", "RES_EMAIL2")
+            tableMapping.ColumnMappings.Add("RES_PHONE1", "RES_PHONE1")
+            tableMapping.ColumnMappings.Add("RES_PHONE2", "RES_PHONE2")
+            tableMapping.ColumnMappings.Add("RES_FAX", "RES_FAX")
+            tableMapping.ColumnMappings.Add("RES_WWW", "RES_WWW")
+            tableMapping.ColumnMappings.Add("RES_VATNUM", "RES_VATNUM")
+            tableMapping.ColumnMappings.Add("RES_MINFEE", "RES_MINFEE")
+            tableMapping.ColumnMappings.Add("RES_PHONE3", "RES_PHONE3")
+            tableMapping.ColumnMappings.Add("RES_PHONE4", "RES_PHONE4")
+            tableMapping.ColumnMappings.Add("SKYPE", "SKYPE")
+            tableMapping.ColumnMappings.Add("DOB", "DOB")
+            tableMapping.ColumnMappings.Add("TOOLS", "TOOLS")
+            tableMapping.ColumnMappings.Add("SOURCE", "SOURCE")
+            tableMapping.ColumnMappings.Add("TARGET1", "TARGET1")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.FirebirdSql.Data.FirebirdClient.FbConnection()
+            Me._connection.ConnectionString = Global.Mayflower.My.MySettings.Default.ProjetexDB2
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(0) {}
+            Me._commandCollection(0) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        RESOURCES.RES_NAME, CURR.CURR_NAME, COUNTRIES.COUN_NAME, RESOURCES."& _ 
+                "RES_PT_TYPE, RESOURCES.RES_PT_DAYS, RESOURCES.RES_PT_DESC, RESOURCES.RES_STREET1"& _ 
+                ", "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.RES_STREET2, RESOURCES.RES_CITY, RESOURCE"& _ 
+                "S.RES_STATE, RESOURCES.RES_ZIP, RESOURCES.RES_EMAIL1, RESOURCES.RES_EMAIL2, RESO"& _ 
+                "URCES.RES_PHONE1, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.RES_PHONE2, RESOURCES.RES"& _ 
+                "_FAX, RESOURCES.RES_WWW, RESOURCES.RES_VATNUM, RESOURCES.RES_MINFEE, RESOURCES.R"& _ 
+                "ES_PHONE3, RESOURCES.RES_PHONE4, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.""AIT$CUSTO"& _ 
+                "MF00016"" AS Skype, RESOURCES.""AIT$CUSTOMF00017"" AS DOB, RESOURCES.""AIT$CUSTOMF00"& _ 
+                "067"" AS Tools, RESOURCES.""AIT$CUSTOMF00068"" AS Source, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  RESOURCES.""AIT$CUSTOMF00069"" AS Target1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
+                "E        (RESOURCES.RES_ID = @resid)"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
+            param.ParameterName = "@resid"
+            param.DbType = Global.System.Data.DbType.Int32
+            param.Size = 4
+            param.IsNullable = true
+            param.SourceColumn = "RES_ID"
+            Me._commandCollection(0).Parameters.Add(param)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function FillByResid(ByVal dataTable As DataSet2.DataTable1DataTable, ByVal resid As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
             If (Me.ClearBeforeFill = true) Then
@@ -5038,10 +6047,10 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal resid As Integer) As DataSet2.DTDetailsDataTable
+        Public Overloads Overridable Function GetDataByResid(ByVal resid As Integer) As DataSet2.DataTable1DataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
-            Dim dataTable As DataSet2.DTDetailsDataTable = New DataSet2.DTDetailsDataTable()
+            Dim dataTable As DataSet2.DataTable1DataTable = New DataSet2.DataTable1DataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function

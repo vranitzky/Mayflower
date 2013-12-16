@@ -1,0 +1,719 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetVBox" targetNamespace="http://tempuri.org/DataSetVBox.xsd" xmlns:mstns="http://tempuri.org/DataSetVBox.xsd" xmlns="http://tempuri.org/DataSetVBox.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ProjetexDB2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ProjetexDB2 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Mayflower.My.MySettings.GlobalReference.Default.ProjetexDB2" Provider="FirebirdSql.Data.FirebirdClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RESOURCESTableAdapter" GeneratorDataComponentClassName="RESOURCESTableAdapter" Name="RESOURCES" UserDataComponentName="RESOURCESTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="RESOURCES" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM "RESOURCES" WHERE (("RES_ID" = @Original_RES_ID) AND ("RES_NAME" = @Original_RES_NAME) AND ("RES_CODE" = @Original_RES_CODE) AND ("CURR_ID" = @Original_CURR_ID) AND ((@IsNull_RES_PT_TYPE = 1 AND "RES_PT_TYPE" IS NULL) OR ("RES_PT_TYPE" = @Original_RES_PT_TYPE)) AND ((@IsNull_RES_PT_DAYS = 1 AND "RES_PT_DAYS" IS NULL) OR ("RES_PT_DAYS" = @Original_RES_PT_DAYS)) AND ((@IsNull_RES_PT_DESC = 1 AND "RES_PT_DESC" IS NULL) OR ("RES_PT_DESC" = @Original_RES_PT_DESC)) AND ("RES_STREET1" = @Original_RES_STREET1) AND ("RES_STREET2" = @Original_RES_STREET2) AND ("RES_CITY" = @Original_RES_CITY) AND ("RES_STATE" = @Original_RES_STATE) AND ("RES_ZIP" = @Original_RES_ZIP) AND ("RES_EMAIL1" = @Original_RES_EMAIL1) AND ("RES_EMAIL2" = @Original_RES_EMAIL2) AND ("RES_PHONE1" = @Original_RES_PHONE1) AND ("RES_PHONE2" = @Original_RES_PHONE2) AND ("RES_FAX" = @Original_RES_FAX) AND ("RES_WWW" = @Original_RES_WWW) AND ("RES_VATNUM" = @Original_RES_VATNUM) AND ("COUN_ID" = @Original_COUN_ID) AND ((@IsNull_RES_NEXT_QUOTE = 1 AND "RES_NEXT_QUOTE" IS NULL) OR ("RES_NEXT_QUOTE" = @Original_RES_NEXT_QUOTE)) AND ((@IsNull_RES_NEXT_JOB = 1 AND "RES_NEXT_JOB" IS NULL) OR ("RES_NEXT_JOB" = @Original_RES_NEXT_JOB)) AND ((@IsNull_RES_NEXT_INVOICE = 1 AND "RES_NEXT_INVOICE" IS NULL) OR ("RES_NEXT_INVOICE" = @Original_RES_NEXT_INVOICE)) AND ((@IsNull_RES_NEXT_PAYMENT = 1 AND "RES_NEXT_PAYMENT" IS NULL) OR ("RES_NEXT_PAYMENT" = @Original_RES_NEXT_PAYMENT)) AND ("RES_MINFEE" = @Original_RES_MINFEE) AND ((@IsNull_RES_PT_FROM = 1 AND "RES_PT_FROM" IS NULL) OR ("RES_PT_FROM" = @Original_RES_PT_FROM)) AND ("RES_PHONE3" = @Original_RES_PHONE3) AND ("RES_PHONE4" = @Original_RES_PHONE4) AND ("RES_INV_MINSUM" = @Original_RES_INV_MINSUM) AND ((@IsNull_RES_INV_PERIOD = 1 AND "RES_INV_PERIOD" IS NULL) OR ("RES_INV_PERIOD" = @Original_RES_INV_PERIOD)) AND ((@IsNull_RES_FLAG = 1 AND "RES_FLAG" IS NULL) OR ("RES_FLAG" = @Original_RES_FLAG)) AND ((@IsNull_AIT$CUSTOMF00016 = 1 AND "AIT$CUSTOMF00016" IS NULL) OR ("AIT$CUSTOMF00016" = @Original_AIT$CUSTOMF00016)) AND ((@IsNull_AIT$CUSTOMF00017 = 1 AND "AIT$CUSTOMF00017" IS NULL) OR ("AIT$CUSTOMF00017" = @Original_AIT$CUSTOMF00017)) AND ((@IsNull_AIT$CUSTOMF00068 = 1 AND "AIT$CUSTOMF00068" IS NULL) OR ("AIT$CUSTOMF00068" = @Original_AIT$CUSTOMF00068)) AND ((@IsNull_AIT$CUSTOMF00069 = 1 AND "AIT$CUSTOMF00069" IS NULL) OR ("AIT$CUSTOMF00069" = @Original_AIT$CUSTOMF00069)) AND ((@IsNull_AIT$CUSTOMF00074 = 1 AND "AIT$CUSTOMF00074" IS NULL) OR ("AIT$CUSTOMF00074" = @Original_AIT$CUSTOMF00074)) AND ((@IsNull_AIT$CUSTOMF00092 = 1 AND "AIT$CUSTOMF00092" IS NULL) OR ("AIT$CUSTOMF00092" = @Original_AIT$CUSTOMF00092)) AND ((@IsNull_AIT$CUSTOMF00085 = 1 AND "AIT$CUSTOMF00085" IS NULL) OR ("AIT$CUSTOMF00085" = @Original_AIT$CUSTOMF00085)) AND ((@IsNull_AIT$CUSTOMF00086 = 1 AND "AIT$CUSTOMF00086" IS NULL) OR ("AIT$CUSTOMF00086" = @Original_AIT$CUSTOMF00086)) AND ((@IsNull_AIT$CUSTOMF00087 = 1 AND "AIT$CUSTOMF00087" IS NULL) OR ("AIT$CUSTOMF00087" = @Original_AIT$CUSTOMF00087)) AND ((@IsNull_AIT$CUSTOMF00088 = 1 AND "AIT$CUSTOMF00088" IS NULL) OR ("AIT$CUSTOMF00088" = @Original_AIT$CUSTOMF00088)) AND ((@IsNull_AIT$CUSTOMF00089 = 1 AND "AIT$CUSTOMF00089" IS NULL) OR ("AIT$CUSTOMF00089" = @Original_AIT$CUSTOMF00089)) AND ((@IsNull_AIT$CUSTOMF00090 = 1 AND "AIT$CUSTOMF00090" IS NULL) OR ("AIT$CUSTOMF00090" = @Original_AIT$CUSTOMF00090)) AND ((@IsNull_AIT$CUSTOMF00091 = 1 AND "AIT$CUSTOMF00091" IS NULL) OR ("AIT$CUSTOMF00091" = @Original_AIT$CUSTOMF00091)) AND ((@IsNull_AIT$CUSTOMF00093 = 1 AND "AIT$CUSTOMF00093" IS NULL) OR ("AIT$CUSTOMF00093" = @Original_AIT$CUSTOMF00093)) AND ((@IsNull_AIT$CUSTOMF00095 = 1 AND "AIT$CUSTOMF00095" IS NULL) OR ("AIT$CUSTOMF00095" = @Original_AIT$CUSTOMF00095)) AND ((@IsNull_AIT$CUSTOMF00094 = 1 AND "AIT$CUSTOMF00094" IS NULL) OR ("AIT$CUSTOMF00094" = @Original_AIT$CUSTOMF00094)) AND ((@IsNull_AIT$CUSTOMF00096 = 1 AND "AIT$CUSTOMF00096" IS NULL) OR ("AIT$CUSTOMF00096" = @Original_AIT$CUSTOMF00096)) AND ((@IsNull_AIT$CUSTOMF00103 = 1 AND "AIT$CUSTOMF00103" IS NULL) OR ("AIT$CUSTOMF00103" = @Original_AIT$CUSTOMF00103)) AND ((@IsNull_AIT$CUSTOMF00104 = 1 AND "AIT$CUSTOMF00104" IS NULL) OR ("AIT$CUSTOMF00104" = @Original_AIT$CUSTOMF00104)) AND ((@IsNull_AIT$CUSTOMF00105 = 1 AND "AIT$CUSTOMF00105" IS NULL) OR ("AIT$CUSTOMF00105" = @Original_AIT$CUSTOMF00105)) AND ((@IsNull_AIT$CUSTOMF00125 = 1 AND "AIT$CUSTOMF00125" IS NULL) OR ("AIT$CUSTOMF00125" = @Original_AIT$CUSTOMF00125)) AND ((@IsNull_AIT$CUSTOMF00149 = 1 AND "AIT$CUSTOMF00149" IS NULL) OR ("AIT$CUSTOMF00149" = @Original_AIT$CUSTOMF00149)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_ID" Precision="0" Scale="0" Size="4" SourceColumn="RES_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_NAME" Precision="0" Scale="0" Size="150" SourceColumn="RES_NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_CODE" Precision="0" Scale="0" Size="15" SourceColumn="RES_CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_CURR_ID" Precision="0" Scale="0" Size="4" SourceColumn="CURR_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_PT_TYPE" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_TYPE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_PT_TYPE" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_TYPE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_PT_DAYS" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_DAYS" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_PT_DAYS" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_DAYS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_PT_DESC" Precision="0" Scale="0" Size="200" SourceColumn="RES_PT_DESC" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_PT_DESC" Precision="0" Scale="0" Size="200" SourceColumn="RES_PT_DESC" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_STREET1" Precision="0" Scale="0" Size="50" SourceColumn="RES_STREET1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_STREET2" Precision="0" Scale="0" Size="50" SourceColumn="RES_STREET2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_CITY" Precision="0" Scale="0" Size="40" SourceColumn="RES_CITY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_STATE" Precision="0" Scale="0" Size="40" SourceColumn="RES_STATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_ZIP" Precision="0" Scale="0" Size="10" SourceColumn="RES_ZIP" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_EMAIL1" Precision="0" Scale="0" Size="150" SourceColumn="RES_EMAIL1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_EMAIL2" Precision="0" Scale="0" Size="150" SourceColumn="RES_EMAIL2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_PHONE1" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_PHONE2" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_FAX" Precision="0" Scale="0" Size="150" SourceColumn="RES_FAX" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_WWW" Precision="0" Scale="0" Size="120" SourceColumn="RES_WWW" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_VATNUM" Precision="0" Scale="0" Size="20" SourceColumn="RES_VATNUM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_COUN_ID" Precision="0" Scale="0" Size="4" SourceColumn="COUN_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_NEXT_QUOTE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_QUOTE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_NEXT_QUOTE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_QUOTE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_NEXT_JOB" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_JOB" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_NEXT_JOB" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_JOB" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_NEXT_INVOICE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_INVOICE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_NEXT_INVOICE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_INVOICE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_NEXT_PAYMENT" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_PAYMENT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_NEXT_PAYMENT" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_PAYMENT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_RES_MINFEE" Precision="0" Scale="0" Size="8" SourceColumn="RES_MINFEE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_PT_FROM" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_FROM" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_PT_FROM" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_FROM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_PHONE3" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE3" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_PHONE4" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE4" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_RES_INV_MINSUM" Precision="0" Scale="0" Size="8" SourceColumn="RES_INV_MINSUM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_INV_PERIOD" Precision="0" Scale="0" Size="4" SourceColumn="RES_INV_PERIOD" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_INV_PERIOD" Precision="0" Scale="0" Size="4" SourceColumn="RES_INV_PERIOD" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_FLAG" Precision="0" Scale="0" Size="4" SourceColumn="RES_FLAG" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_FLAG" Precision="0" Scale="0" Size="4" SourceColumn="RES_FLAG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00016" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00016" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00016" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00016" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00017" Precision="0" Scale="0" Size="4" SourceColumn="AIT$CUSTOMF00017" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00017" Precision="0" Scale="0" Size="4" SourceColumn="AIT$CUSTOMF00017" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00068" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00068" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00068" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00068" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00069" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00069" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00069" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00069" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00074" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00074" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00074" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00074" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00092" Precision="0" Scale="0" Size="8" SourceColumn="AIT$CUSTOMF00092" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00092" Precision="0" Scale="0" Size="8" SourceColumn="AIT$CUSTOMF00092" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00085" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00085" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00085" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00085" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00086" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00086" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00086" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00086" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00087" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00087" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00087" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00087" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00088" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00088" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00088" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00088" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00089" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00089" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00089" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00089" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00090" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00090" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00090" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00090" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00091" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00091" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00091" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00091" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00093" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00093" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00093" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00093" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00095" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00095" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00095" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00095" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00094" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00094" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00094" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00094" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00096" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00096" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00096" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00096" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00103" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00103" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00103" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00103" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00104" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00104" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00104" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00104" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00105" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00105" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00105" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00105" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00125" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00125" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00125" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00125" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00149" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00149" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00149" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00149" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO "RESOURCES" ("RES_ID", "RES_NAME", "RES_CODE", "CURR_ID", "RES_PT_TYPE", "RES_PT_DAYS", "RES_PT_DESC", "RES_STREET1", "RES_STREET2", "RES_CITY", "RES_STATE", "RES_ZIP", "RES_EMAIL1", "RES_EMAIL2", "RES_PHONE1", "RES_PHONE2", "RES_FAX", "RES_WWW", "RES_VATNUM", "COUN_ID", "RES_GINFO", "RES_LOCALE", "RES_APPINFO", "RES_NEXT_QUOTE", "RES_NEXT_JOB", "RES_NEXT_INVOICE", "RES_NEXT_PAYMENT", "RES_MINFEE", "RES_PT_FROM", "RES_PHONE3", "RES_PHONE4", "RES_PHOTO", "RES_INV_MINSUM", "RES_INV_PERIOD", "RES_FLAG", "AIT$CUSTOMF00016", "AIT$CUSTOMF00017", "AIT$CUSTOMF00067", "AIT$CUSTOMF00068", "AIT$CUSTOMF00069", "AIT$CUSTOMF00078", "AIT$CUSTOMF00074", "AIT$CUSTOMF00092", "AIT$CUSTOMF00085", "AIT$CUSTOMF00086", "AIT$CUSTOMF00087", "AIT$CUSTOMF00088", "AIT$CUSTOMF00089", "AIT$CUSTOMF00090", "AIT$CUSTOMF00091", "AIT$CUSTOMF00093", "AIT$CUSTOMF00095", "AIT$CUSTOMF00094", "AIT$CUSTOMF00096", "AIT$CUSTOMF00103", "AIT$CUSTOMF00104", "AIT$CUSTOMF00105", "AIT$CUSTOMF00125", "AIT$CUSTOMF00149") VALUES (@RES_ID, @RES_NAME, @RES_CODE, @CURR_ID, @RES_PT_TYPE, @RES_PT_DAYS, @RES_PT_DESC, @RES_STREET1, @RES_STREET2, @RES_CITY, @RES_STATE, @RES_ZIP, @RES_EMAIL1, @RES_EMAIL2, @RES_PHONE1, @RES_PHONE2, @RES_FAX, @RES_WWW, @RES_VATNUM, @COUN_ID, @RES_GINFO, @RES_LOCALE, @RES_APPINFO, @RES_NEXT_QUOTE, @RES_NEXT_JOB, @RES_NEXT_INVOICE, @RES_NEXT_PAYMENT, @RES_MINFEE, @RES_PT_FROM, @RES_PHONE3, @RES_PHONE4, @RES_PHOTO, @RES_INV_MINSUM, @RES_INV_PERIOD, @RES_FLAG, @AIT$CUSTOMF00016, @AIT$CUSTOMF00017, @AIT$CUSTOMF00067, @AIT$CUSTOMF00068, @AIT$CUSTOMF00069, @AIT$CUSTOMF00078, @AIT$CUSTOMF00074, @AIT$CUSTOMF00092, @AIT$CUSTOMF00085, @AIT$CUSTOMF00086, @AIT$CUSTOMF00087, @AIT$CUSTOMF00088, @AIT$CUSTOMF00089, @AIT$CUSTOMF00090, @AIT$CUSTOMF00091, @AIT$CUSTOMF00093, @AIT$CUSTOMF00095, @AIT$CUSTOMF00094, @AIT$CUSTOMF00096, @AIT$CUSTOMF00103, @AIT$CUSTOMF00104, @AIT$CUSTOMF00105, @AIT$CUSTOMF00125, @AIT$CUSTOMF00149)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_ID" Precision="0" Scale="0" Size="4" SourceColumn="RES_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_NAME" Precision="0" Scale="0" Size="150" SourceColumn="RES_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_CODE" Precision="0" Scale="0" Size="15" SourceColumn="RES_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CURR_ID" Precision="0" Scale="0" Size="4" SourceColumn="CURR_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_PT_TYPE" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_TYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_PT_DAYS" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_DAYS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_PT_DESC" Precision="0" Scale="0" Size="200" SourceColumn="RES_PT_DESC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_STREET1" Precision="0" Scale="0" Size="50" SourceColumn="RES_STREET1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_STREET2" Precision="0" Scale="0" Size="50" SourceColumn="RES_STREET2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_CITY" Precision="0" Scale="0" Size="40" SourceColumn="RES_CITY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_STATE" Precision="0" Scale="0" Size="40" SourceColumn="RES_STATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_ZIP" Precision="0" Scale="0" Size="10" SourceColumn="RES_ZIP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_EMAIL1" Precision="0" Scale="0" Size="150" SourceColumn="RES_EMAIL1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_EMAIL2" Precision="0" Scale="0" Size="150" SourceColumn="RES_EMAIL2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_PHONE1" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_PHONE2" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_FAX" Precision="0" Scale="0" Size="150" SourceColumn="RES_FAX" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_WWW" Precision="0" Scale="0" Size="120" SourceColumn="RES_WWW" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_VATNUM" Precision="0" Scale="0" Size="20" SourceColumn="RES_VATNUM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@COUN_ID" Precision="0" Scale="0" Size="4" SourceColumn="COUN_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_GINFO" Precision="0" Scale="0" Size="2147483647" SourceColumn="RES_GINFO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@RES_LOCALE" Precision="0" Scale="0" Size="2147483647" SourceColumn="RES_LOCALE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_APPINFO" Precision="0" Scale="0" Size="2147483647" SourceColumn="RES_APPINFO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_NEXT_QUOTE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_QUOTE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_NEXT_JOB" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_JOB" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_NEXT_INVOICE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_INVOICE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_NEXT_PAYMENT" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_PAYMENT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RES_MINFEE" Precision="0" Scale="0" Size="8" SourceColumn="RES_MINFEE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_PT_FROM" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_FROM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_PHONE3" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_PHONE4" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@RES_PHOTO" Precision="0" Scale="0" Size="2147483647" SourceColumn="RES_PHOTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RES_INV_MINSUM" Precision="0" Scale="0" Size="8" SourceColumn="RES_INV_MINSUM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_INV_PERIOD" Precision="0" Scale="0" Size="4" SourceColumn="RES_INV_PERIOD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_FLAG" Precision="0" Scale="0" Size="4" SourceColumn="RES_FLAG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00016" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00016" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@AIT$CUSTOMF00017" Precision="0" Scale="0" Size="4" SourceColumn="AIT$CUSTOMF00017" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00067" Precision="0" Scale="0" Size="2147483647" SourceColumn="AIT$CUSTOMF00067" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00068" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00068" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00069" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00069" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00078" Precision="0" Scale="0" Size="2147483647" SourceColumn="AIT$CUSTOMF00078" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00074" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00074" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AIT$CUSTOMF00092" Precision="0" Scale="0" Size="8" SourceColumn="AIT$CUSTOMF00092" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00085" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00085" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00086" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00086" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00087" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00087" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00088" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00088" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00089" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00089" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00090" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00090" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00091" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00091" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00093" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00093" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00095" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00095" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00094" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00094" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00096" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00096" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00103" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00103" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00104" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00104" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00105" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00105" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00125" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00125" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00149" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00149" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT "RES_ID", "RES_NAME", "RES_CODE", "CURR_ID", "RES_PT_TYPE", "RES_PT_DAYS", "RES_PT_DESC", "RES_STREET1", "RES_STREET2", "RES_CITY", "RES_STATE", "RES_ZIP", "RES_EMAIL1", "RES_EMAIL2", "RES_PHONE1", "RES_PHONE2", "RES_FAX", "RES_WWW", "RES_VATNUM", "COUN_ID", "RES_GINFO", "RES_LOCALE", "RES_APPINFO", "RES_NEXT_QUOTE", "RES_NEXT_JOB", "RES_NEXT_INVOICE", "RES_NEXT_PAYMENT", "RES_MINFEE", "RES_PT_FROM", "RES_PHONE3", "RES_PHONE4", "RES_PHOTO", "RES_INV_MINSUM", "RES_INV_PERIOD", "RES_FLAG", "AIT$CUSTOMF00016", "AIT$CUSTOMF00017", "AIT$CUSTOMF00067", "AIT$CUSTOMF00068", "AIT$CUSTOMF00069", "AIT$CUSTOMF00078", "AIT$CUSTOMF00074", "AIT$CUSTOMF00092", "AIT$CUSTOMF00085", "AIT$CUSTOMF00086", "AIT$CUSTOMF00087", "AIT$CUSTOMF00088", "AIT$CUSTOMF00089", "AIT$CUSTOMF00090", "AIT$CUSTOMF00091", "AIT$CUSTOMF00093", "AIT$CUSTOMF00095", "AIT$CUSTOMF00094", "AIT$CUSTOMF00096", "AIT$CUSTOMF00103", "AIT$CUSTOMF00104", "AIT$CUSTOMF00105", "AIT$CUSTOMF00125", "AIT$CUSTOMF00149" FROM "RESOURCES"</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE "RESOURCES" SET "RES_ID" = @RES_ID, "RES_NAME" = @RES_NAME, "RES_CODE" = @RES_CODE, "CURR_ID" = @CURR_ID, "RES_PT_TYPE" = @RES_PT_TYPE, "RES_PT_DAYS" = @RES_PT_DAYS, "RES_PT_DESC" = @RES_PT_DESC, "RES_STREET1" = @RES_STREET1, "RES_STREET2" = @RES_STREET2, "RES_CITY" = @RES_CITY, "RES_STATE" = @RES_STATE, "RES_ZIP" = @RES_ZIP, "RES_EMAIL1" = @RES_EMAIL1, "RES_EMAIL2" = @RES_EMAIL2, "RES_PHONE1" = @RES_PHONE1, "RES_PHONE2" = @RES_PHONE2, "RES_FAX" = @RES_FAX, "RES_WWW" = @RES_WWW, "RES_VATNUM" = @RES_VATNUM, "COUN_ID" = @COUN_ID, "RES_GINFO" = @RES_GINFO, "RES_LOCALE" = @RES_LOCALE, "RES_APPINFO" = @RES_APPINFO, "RES_NEXT_QUOTE" = @RES_NEXT_QUOTE, "RES_NEXT_JOB" = @RES_NEXT_JOB, "RES_NEXT_INVOICE" = @RES_NEXT_INVOICE, "RES_NEXT_PAYMENT" = @RES_NEXT_PAYMENT, "RES_MINFEE" = @RES_MINFEE, "RES_PT_FROM" = @RES_PT_FROM, "RES_PHONE3" = @RES_PHONE3, "RES_PHONE4" = @RES_PHONE4, "RES_PHOTO" = @RES_PHOTO, "RES_INV_MINSUM" = @RES_INV_MINSUM, "RES_INV_PERIOD" = @RES_INV_PERIOD, "RES_FLAG" = @RES_FLAG, "AIT$CUSTOMF00016" = @AIT$CUSTOMF00016, "AIT$CUSTOMF00017" = @AIT$CUSTOMF00017, "AIT$CUSTOMF00067" = @AIT$CUSTOMF00067, "AIT$CUSTOMF00068" = @AIT$CUSTOMF00068, "AIT$CUSTOMF00069" = @AIT$CUSTOMF00069, "AIT$CUSTOMF00078" = @AIT$CUSTOMF00078, "AIT$CUSTOMF00074" = @AIT$CUSTOMF00074, "AIT$CUSTOMF00092" = @AIT$CUSTOMF00092, "AIT$CUSTOMF00085" = @AIT$CUSTOMF00085, "AIT$CUSTOMF00086" = @AIT$CUSTOMF00086, "AIT$CUSTOMF00087" = @AIT$CUSTOMF00087, "AIT$CUSTOMF00088" = @AIT$CUSTOMF00088, "AIT$CUSTOMF00089" = @AIT$CUSTOMF00089, "AIT$CUSTOMF00090" = @AIT$CUSTOMF00090, "AIT$CUSTOMF00091" = @AIT$CUSTOMF00091, "AIT$CUSTOMF00093" = @AIT$CUSTOMF00093, "AIT$CUSTOMF00095" = @AIT$CUSTOMF00095, "AIT$CUSTOMF00094" = @AIT$CUSTOMF00094, "AIT$CUSTOMF00096" = @AIT$CUSTOMF00096, "AIT$CUSTOMF00103" = @AIT$CUSTOMF00103, "AIT$CUSTOMF00104" = @AIT$CUSTOMF00104, "AIT$CUSTOMF00105" = @AIT$CUSTOMF00105, "AIT$CUSTOMF00125" = @AIT$CUSTOMF00125, "AIT$CUSTOMF00149" = @AIT$CUSTOMF00149 WHERE (("RES_ID" = @Original_RES_ID) AND ("RES_NAME" = @Original_RES_NAME) AND ("RES_CODE" = @Original_RES_CODE) AND ("CURR_ID" = @Original_CURR_ID) AND ((@IsNull_RES_PT_TYPE = 1 AND "RES_PT_TYPE" IS NULL) OR ("RES_PT_TYPE" = @Original_RES_PT_TYPE)) AND ((@IsNull_RES_PT_DAYS = 1 AND "RES_PT_DAYS" IS NULL) OR ("RES_PT_DAYS" = @Original_RES_PT_DAYS)) AND ((@IsNull_RES_PT_DESC = 1 AND "RES_PT_DESC" IS NULL) OR ("RES_PT_DESC" = @Original_RES_PT_DESC)) AND ("RES_STREET1" = @Original_RES_STREET1) AND ("RES_STREET2" = @Original_RES_STREET2) AND ("RES_CITY" = @Original_RES_CITY) AND ("RES_STATE" = @Original_RES_STATE) AND ("RES_ZIP" = @Original_RES_ZIP) AND ("RES_EMAIL1" = @Original_RES_EMAIL1) AND ("RES_EMAIL2" = @Original_RES_EMAIL2) AND ("RES_PHONE1" = @Original_RES_PHONE1) AND ("RES_PHONE2" = @Original_RES_PHONE2) AND ("RES_FAX" = @Original_RES_FAX) AND ("RES_WWW" = @Original_RES_WWW) AND ("RES_VATNUM" = @Original_RES_VATNUM) AND ("COUN_ID" = @Original_COUN_ID) AND ((@IsNull_RES_NEXT_QUOTE = 1 AND "RES_NEXT_QUOTE" IS NULL) OR ("RES_NEXT_QUOTE" = @Original_RES_NEXT_QUOTE)) AND ((@IsNull_RES_NEXT_JOB = 1 AND "RES_NEXT_JOB" IS NULL) OR ("RES_NEXT_JOB" = @Original_RES_NEXT_JOB)) AND ((@IsNull_RES_NEXT_INVOICE = 1 AND "RES_NEXT_INVOICE" IS NULL) OR ("RES_NEXT_INVOICE" = @Original_RES_NEXT_INVOICE)) AND ((@IsNull_RES_NEXT_PAYMENT = 1 AND "RES_NEXT_PAYMENT" IS NULL) OR ("RES_NEXT_PAYMENT" = @Original_RES_NEXT_PAYMENT)) AND ("RES_MINFEE" = @Original_RES_MINFEE) AND ((@IsNull_RES_PT_FROM = 1 AND "RES_PT_FROM" IS NULL) OR ("RES_PT_FROM" = @Original_RES_PT_FROM)) AND ("RES_PHONE3" = @Original_RES_PHONE3) AND ("RES_PHONE4" = @Original_RES_PHONE4) AND ("RES_INV_MINSUM" = @Original_RES_INV_MINSUM) AND ((@IsNull_RES_INV_PERIOD = 1 AND "RES_INV_PERIOD" IS NULL) OR ("RES_INV_PERIOD" = @Original_RES_INV_PERIOD)) AND ((@IsNull_RES_FLAG = 1 AND "RES_FLAG" IS NULL) OR ("RES_FLAG" = @Original_RES_FLAG)) AND ((@IsNull_AIT$CUSTOMF00016 = 1 AND "AIT$CUSTOMF00016" IS NULL) OR ("AIT$CUSTOMF00016" = @Original_AIT$CUSTOMF00016)) AND ((@IsNull_AIT$CUSTOMF00017 = 1 AND "AIT$CUSTOMF00017" IS NULL) OR ("AIT$CUSTOMF00017" = @Original_AIT$CUSTOMF00017)) AND ((@IsNull_AIT$CUSTOMF00068 = 1 AND "AIT$CUSTOMF00068" IS NULL) OR ("AIT$CUSTOMF00068" = @Original_AIT$CUSTOMF00068)) AND ((@IsNull_AIT$CUSTOMF00069 = 1 AND "AIT$CUSTOMF00069" IS NULL) OR ("AIT$CUSTOMF00069" = @Original_AIT$CUSTOMF00069)) AND ((@IsNull_AIT$CUSTOMF00074 = 1 AND "AIT$CUSTOMF00074" IS NULL) OR ("AIT$CUSTOMF00074" = @Original_AIT$CUSTOMF00074)) AND ((@IsNull_AIT$CUSTOMF00092 = 1 AND "AIT$CUSTOMF00092" IS NULL) OR ("AIT$CUSTOMF00092" = @Original_AIT$CUSTOMF00092)) AND ((@IsNull_AIT$CUSTOMF00085 = 1 AND "AIT$CUSTOMF00085" IS NULL) OR ("AIT$CUSTOMF00085" = @Original_AIT$CUSTOMF00085)) AND ((@IsNull_AIT$CUSTOMF00086 = 1 AND "AIT$CUSTOMF00086" IS NULL) OR ("AIT$CUSTOMF00086" = @Original_AIT$CUSTOMF00086)) AND ((@IsNull_AIT$CUSTOMF00087 = 1 AND "AIT$CUSTOMF00087" IS NULL) OR ("AIT$CUSTOMF00087" = @Original_AIT$CUSTOMF00087)) AND ((@IsNull_AIT$CUSTOMF00088 = 1 AND "AIT$CUSTOMF00088" IS NULL) OR ("AIT$CUSTOMF00088" = @Original_AIT$CUSTOMF00088)) AND ((@IsNull_AIT$CUSTOMF00089 = 1 AND "AIT$CUSTOMF00089" IS NULL) OR ("AIT$CUSTOMF00089" = @Original_AIT$CUSTOMF00089)) AND ((@IsNull_AIT$CUSTOMF00090 = 1 AND "AIT$CUSTOMF00090" IS NULL) OR ("AIT$CUSTOMF00090" = @Original_AIT$CUSTOMF00090)) AND ((@IsNull_AIT$CUSTOMF00091 = 1 AND "AIT$CUSTOMF00091" IS NULL) OR ("AIT$CUSTOMF00091" = @Original_AIT$CUSTOMF00091)) AND ((@IsNull_AIT$CUSTOMF00093 = 1 AND "AIT$CUSTOMF00093" IS NULL) OR ("AIT$CUSTOMF00093" = @Original_AIT$CUSTOMF00093)) AND ((@IsNull_AIT$CUSTOMF00095 = 1 AND "AIT$CUSTOMF00095" IS NULL) OR ("AIT$CUSTOMF00095" = @Original_AIT$CUSTOMF00095)) AND ((@IsNull_AIT$CUSTOMF00094 = 1 AND "AIT$CUSTOMF00094" IS NULL) OR ("AIT$CUSTOMF00094" = @Original_AIT$CUSTOMF00094)) AND ((@IsNull_AIT$CUSTOMF00096 = 1 AND "AIT$CUSTOMF00096" IS NULL) OR ("AIT$CUSTOMF00096" = @Original_AIT$CUSTOMF00096)) AND ((@IsNull_AIT$CUSTOMF00103 = 1 AND "AIT$CUSTOMF00103" IS NULL) OR ("AIT$CUSTOMF00103" = @Original_AIT$CUSTOMF00103)) AND ((@IsNull_AIT$CUSTOMF00104 = 1 AND "AIT$CUSTOMF00104" IS NULL) OR ("AIT$CUSTOMF00104" = @Original_AIT$CUSTOMF00104)) AND ((@IsNull_AIT$CUSTOMF00105 = 1 AND "AIT$CUSTOMF00105" IS NULL) OR ("AIT$CUSTOMF00105" = @Original_AIT$CUSTOMF00105)) AND ((@IsNull_AIT$CUSTOMF00125 = 1 AND "AIT$CUSTOMF00125" IS NULL) OR ("AIT$CUSTOMF00125" = @Original_AIT$CUSTOMF00125)) AND ((@IsNull_AIT$CUSTOMF00149 = 1 AND "AIT$CUSTOMF00149" IS NULL) OR ("AIT$CUSTOMF00149" = @Original_AIT$CUSTOMF00149)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_ID" Precision="0" Scale="0" Size="4" SourceColumn="RES_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_NAME" Precision="0" Scale="0" Size="150" SourceColumn="RES_NAME" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_CODE" Precision="0" Scale="0" Size="15" SourceColumn="RES_CODE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CURR_ID" Precision="0" Scale="0" Size="4" SourceColumn="CURR_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_PT_TYPE" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_TYPE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_PT_DAYS" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_DAYS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_PT_DESC" Precision="0" Scale="0" Size="200" SourceColumn="RES_PT_DESC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_STREET1" Precision="0" Scale="0" Size="50" SourceColumn="RES_STREET1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_STREET2" Precision="0" Scale="0" Size="50" SourceColumn="RES_STREET2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_CITY" Precision="0" Scale="0" Size="40" SourceColumn="RES_CITY" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_STATE" Precision="0" Scale="0" Size="40" SourceColumn="RES_STATE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_ZIP" Precision="0" Scale="0" Size="10" SourceColumn="RES_ZIP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_EMAIL1" Precision="0" Scale="0" Size="150" SourceColumn="RES_EMAIL1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_EMAIL2" Precision="0" Scale="0" Size="150" SourceColumn="RES_EMAIL2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_PHONE1" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_PHONE2" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_FAX" Precision="0" Scale="0" Size="150" SourceColumn="RES_FAX" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_WWW" Precision="0" Scale="0" Size="120" SourceColumn="RES_WWW" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_VATNUM" Precision="0" Scale="0" Size="20" SourceColumn="RES_VATNUM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@COUN_ID" Precision="0" Scale="0" Size="4" SourceColumn="COUN_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_GINFO" Precision="0" Scale="0" Size="2147483647" SourceColumn="RES_GINFO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@RES_LOCALE" Precision="0" Scale="0" Size="2147483647" SourceColumn="RES_LOCALE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_APPINFO" Precision="0" Scale="0" Size="2147483647" SourceColumn="RES_APPINFO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_NEXT_QUOTE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_QUOTE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_NEXT_JOB" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_JOB" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_NEXT_INVOICE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_INVOICE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_NEXT_PAYMENT" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_PAYMENT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RES_MINFEE" Precision="0" Scale="0" Size="8" SourceColumn="RES_MINFEE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_PT_FROM" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_FROM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_PHONE3" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE3" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@RES_PHONE4" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@RES_PHOTO" Precision="0" Scale="0" Size="2147483647" SourceColumn="RES_PHOTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@RES_INV_MINSUM" Precision="0" Scale="0" Size="8" SourceColumn="RES_INV_MINSUM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_INV_PERIOD" Precision="0" Scale="0" Size="4" SourceColumn="RES_INV_PERIOD" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@RES_FLAG" Precision="0" Scale="0" Size="4" SourceColumn="RES_FLAG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00016" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00016" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@AIT$CUSTOMF00017" Precision="0" Scale="0" Size="4" SourceColumn="AIT$CUSTOMF00017" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00067" Precision="0" Scale="0" Size="2147483647" SourceColumn="AIT$CUSTOMF00067" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00068" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00068" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00069" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00069" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00078" Precision="0" Scale="0" Size="2147483647" SourceColumn="AIT$CUSTOMF00078" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00074" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00074" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@AIT$CUSTOMF00092" Precision="0" Scale="0" Size="8" SourceColumn="AIT$CUSTOMF00092" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00085" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00085" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00086" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00086" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00087" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00087" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00088" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00088" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00089" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00089" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00090" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00090" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00091" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00091" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00093" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00093" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00095" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00095" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00094" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00094" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00096" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00096" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00103" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00103" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00104" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00104" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00105" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00105" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00125" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00125" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AIT$CUSTOMF00149" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00149" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_ID" Precision="0" Scale="0" Size="4" SourceColumn="RES_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_NAME" Precision="0" Scale="0" Size="150" SourceColumn="RES_NAME" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_CODE" Precision="0" Scale="0" Size="15" SourceColumn="RES_CODE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_CURR_ID" Precision="0" Scale="0" Size="4" SourceColumn="CURR_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_PT_TYPE" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_TYPE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_PT_TYPE" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_TYPE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_PT_DAYS" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_DAYS" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_PT_DAYS" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_DAYS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_PT_DESC" Precision="0" Scale="0" Size="200" SourceColumn="RES_PT_DESC" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_PT_DESC" Precision="0" Scale="0" Size="200" SourceColumn="RES_PT_DESC" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_STREET1" Precision="0" Scale="0" Size="50" SourceColumn="RES_STREET1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_STREET2" Precision="0" Scale="0" Size="50" SourceColumn="RES_STREET2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_CITY" Precision="0" Scale="0" Size="40" SourceColumn="RES_CITY" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_STATE" Precision="0" Scale="0" Size="40" SourceColumn="RES_STATE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_ZIP" Precision="0" Scale="0" Size="10" SourceColumn="RES_ZIP" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_EMAIL1" Precision="0" Scale="0" Size="150" SourceColumn="RES_EMAIL1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_EMAIL2" Precision="0" Scale="0" Size="150" SourceColumn="RES_EMAIL2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_PHONE1" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE1" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_PHONE2" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE2" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_FAX" Precision="0" Scale="0" Size="150" SourceColumn="RES_FAX" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_WWW" Precision="0" Scale="0" Size="120" SourceColumn="RES_WWW" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_VATNUM" Precision="0" Scale="0" Size="20" SourceColumn="RES_VATNUM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_COUN_ID" Precision="0" Scale="0" Size="4" SourceColumn="COUN_ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_NEXT_QUOTE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_QUOTE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_NEXT_QUOTE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_QUOTE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_NEXT_JOB" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_JOB" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_NEXT_JOB" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_JOB" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_NEXT_INVOICE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_INVOICE" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_NEXT_INVOICE" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_INVOICE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_NEXT_PAYMENT" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_PAYMENT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_NEXT_PAYMENT" Precision="0" Scale="0" Size="4" SourceColumn="RES_NEXT_PAYMENT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_RES_MINFEE" Precision="0" Scale="0" Size="8" SourceColumn="RES_MINFEE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_PT_FROM" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_FROM" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_PT_FROM" Precision="0" Scale="0" Size="4" SourceColumn="RES_PT_FROM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_PHONE3" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE3" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_RES_PHONE4" Precision="0" Scale="0" Size="150" SourceColumn="RES_PHONE4" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_RES_INV_MINSUM" Precision="0" Scale="0" Size="8" SourceColumn="RES_INV_MINSUM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_INV_PERIOD" Precision="0" Scale="0" Size="4" SourceColumn="RES_INV_PERIOD" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_INV_PERIOD" Precision="0" Scale="0" Size="4" SourceColumn="RES_INV_PERIOD" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_RES_FLAG" Precision="0" Scale="0" Size="4" SourceColumn="RES_FLAG" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_RES_FLAG" Precision="0" Scale="0" Size="4" SourceColumn="RES_FLAG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00016" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00016" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00016" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00016" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00017" Precision="0" Scale="0" Size="4" SourceColumn="AIT$CUSTOMF00017" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00017" Precision="0" Scale="0" Size="4" SourceColumn="AIT$CUSTOMF00017" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00068" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00068" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00068" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00068" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00069" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00069" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00069" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00069" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00074" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00074" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00074" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00074" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00092" Precision="0" Scale="0" Size="8" SourceColumn="AIT$CUSTOMF00092" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00092" Precision="0" Scale="0" Size="8" SourceColumn="AIT$CUSTOMF00092" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00085" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00085" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00085" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00085" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00086" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00086" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00086" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00086" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00087" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00087" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00087" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00087" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00088" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00088" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00088" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00088" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00089" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00089" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00089" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00089" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00090" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00090" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00090" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00090" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00091" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00091" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00091" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00091" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00093" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00093" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00093" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00093" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00095" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00095" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00095" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00095" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00094" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00094" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00094" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00094" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00096" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00096" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00096" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00096" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00103" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00103" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00103" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00103" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00104" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00104" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00104" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00104" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00105" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00105" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00105" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00105" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00125" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00125" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00125" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00125" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_AIT$CUSTOMF00149" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00149" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_AIT$CUSTOMF00149" Precision="0" Scale="0" Size="255" SourceColumn="AIT$CUSTOMF00149" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RES_ID" DataSetColumn="RES_ID" />
+              <Mapping SourceColumn="RES_NAME" DataSetColumn="RES_NAME" />
+              <Mapping SourceColumn="RES_CODE" DataSetColumn="RES_CODE" />
+              <Mapping SourceColumn="CURR_ID" DataSetColumn="CURR_ID" />
+              <Mapping SourceColumn="RES_PT_TYPE" DataSetColumn="RES_PT_TYPE" />
+              <Mapping SourceColumn="RES_PT_DAYS" DataSetColumn="RES_PT_DAYS" />
+              <Mapping SourceColumn="RES_PT_DESC" DataSetColumn="RES_PT_DESC" />
+              <Mapping SourceColumn="RES_STREET1" DataSetColumn="RES_STREET1" />
+              <Mapping SourceColumn="RES_STREET2" DataSetColumn="RES_STREET2" />
+              <Mapping SourceColumn="RES_CITY" DataSetColumn="RES_CITY" />
+              <Mapping SourceColumn="RES_STATE" DataSetColumn="RES_STATE" />
+              <Mapping SourceColumn="RES_ZIP" DataSetColumn="RES_ZIP" />
+              <Mapping SourceColumn="RES_EMAIL1" DataSetColumn="RES_EMAIL1" />
+              <Mapping SourceColumn="RES_EMAIL2" DataSetColumn="RES_EMAIL2" />
+              <Mapping SourceColumn="RES_PHONE1" DataSetColumn="RES_PHONE1" />
+              <Mapping SourceColumn="RES_PHONE2" DataSetColumn="RES_PHONE2" />
+              <Mapping SourceColumn="RES_FAX" DataSetColumn="RES_FAX" />
+              <Mapping SourceColumn="RES_WWW" DataSetColumn="RES_WWW" />
+              <Mapping SourceColumn="RES_VATNUM" DataSetColumn="RES_VATNUM" />
+              <Mapping SourceColumn="COUN_ID" DataSetColumn="COUN_ID" />
+              <Mapping SourceColumn="RES_GINFO" DataSetColumn="RES_GINFO" />
+              <Mapping SourceColumn="RES_LOCALE" DataSetColumn="RES_LOCALE" />
+              <Mapping SourceColumn="RES_APPINFO" DataSetColumn="RES_APPINFO" />
+              <Mapping SourceColumn="RES_NEXT_QUOTE" DataSetColumn="RES_NEXT_QUOTE" />
+              <Mapping SourceColumn="RES_NEXT_JOB" DataSetColumn="RES_NEXT_JOB" />
+              <Mapping SourceColumn="RES_NEXT_INVOICE" DataSetColumn="RES_NEXT_INVOICE" />
+              <Mapping SourceColumn="RES_NEXT_PAYMENT" DataSetColumn="RES_NEXT_PAYMENT" />
+              <Mapping SourceColumn="RES_MINFEE" DataSetColumn="RES_MINFEE" />
+              <Mapping SourceColumn="RES_PT_FROM" DataSetColumn="RES_PT_FROM" />
+              <Mapping SourceColumn="RES_PHONE3" DataSetColumn="RES_PHONE3" />
+              <Mapping SourceColumn="RES_PHONE4" DataSetColumn="RES_PHONE4" />
+              <Mapping SourceColumn="RES_PHOTO" DataSetColumn="RES_PHOTO" />
+              <Mapping SourceColumn="RES_INV_MINSUM" DataSetColumn="RES_INV_MINSUM" />
+              <Mapping SourceColumn="RES_INV_PERIOD" DataSetColumn="RES_INV_PERIOD" />
+              <Mapping SourceColumn="RES_FLAG" DataSetColumn="RES_FLAG" />
+              <Mapping SourceColumn="AIT$CUSTOMF00016" DataSetColumn="AIT$CUSTOMF00016" />
+              <Mapping SourceColumn="AIT$CUSTOMF00017" DataSetColumn="AIT$CUSTOMF00017" />
+              <Mapping SourceColumn="AIT$CUSTOMF00067" DataSetColumn="AIT$CUSTOMF00067" />
+              <Mapping SourceColumn="AIT$CUSTOMF00068" DataSetColumn="AIT$CUSTOMF00068" />
+              <Mapping SourceColumn="AIT$CUSTOMF00069" DataSetColumn="AIT$CUSTOMF00069" />
+              <Mapping SourceColumn="AIT$CUSTOMF00078" DataSetColumn="AIT$CUSTOMF00078" />
+              <Mapping SourceColumn="AIT$CUSTOMF00074" DataSetColumn="AIT$CUSTOMF00074" />
+              <Mapping SourceColumn="AIT$CUSTOMF00092" DataSetColumn="AIT$CUSTOMF00092" />
+              <Mapping SourceColumn="AIT$CUSTOMF00085" DataSetColumn="AIT$CUSTOMF00085" />
+              <Mapping SourceColumn="AIT$CUSTOMF00086" DataSetColumn="AIT$CUSTOMF00086" />
+              <Mapping SourceColumn="AIT$CUSTOMF00087" DataSetColumn="AIT$CUSTOMF00087" />
+              <Mapping SourceColumn="AIT$CUSTOMF00088" DataSetColumn="AIT$CUSTOMF00088" />
+              <Mapping SourceColumn="AIT$CUSTOMF00089" DataSetColumn="AIT$CUSTOMF00089" />
+              <Mapping SourceColumn="AIT$CUSTOMF00090" DataSetColumn="AIT$CUSTOMF00090" />
+              <Mapping SourceColumn="AIT$CUSTOMF00091" DataSetColumn="AIT$CUSTOMF00091" />
+              <Mapping SourceColumn="AIT$CUSTOMF00093" DataSetColumn="AIT$CUSTOMF00093" />
+              <Mapping SourceColumn="AIT$CUSTOMF00095" DataSetColumn="AIT$CUSTOMF00095" />
+              <Mapping SourceColumn="AIT$CUSTOMF00094" DataSetColumn="AIT$CUSTOMF00094" />
+              <Mapping SourceColumn="AIT$CUSTOMF00096" DataSetColumn="AIT$CUSTOMF00096" />
+              <Mapping SourceColumn="AIT$CUSTOMF00103" DataSetColumn="AIT$CUSTOMF00103" />
+              <Mapping SourceColumn="AIT$CUSTOMF00104" DataSetColumn="AIT$CUSTOMF00104" />
+              <Mapping SourceColumn="AIT$CUSTOMF00105" DataSetColumn="AIT$CUSTOMF00105" />
+              <Mapping SourceColumn="AIT$CUSTOMF00125" DataSetColumn="AIT$CUSTOMF00125" />
+              <Mapping SourceColumn="AIT$CUSTOMF00149" DataSetColumn="AIT$CUSTOMF00149" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetVBox" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSetVBox" msprop:Generator_UserDSName="DataSetVBox">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RESOURCES" msprop:Generator_TableClassName="RESOURCESDataTable" msprop:Generator_TableVarName="tableRESOURCES" msprop:Generator_RowChangedName="RESOURCESRowChanged" msprop:Generator_TablePropName="RESOURCES" msprop:Generator_RowDeletingName="RESOURCESRowDeleting" msprop:Generator_RowChangingName="RESOURCESRowChanging" msprop:Generator_RowEvHandlerName="RESOURCESRowChangeEventHandler" msprop:Generator_RowDeletedName="RESOURCESRowDeleted" msprop:Generator_RowClassName="RESOURCESRow" msprop:Generator_UserTableName="RESOURCES" msprop:Generator_RowEvArgName="RESOURCESRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RES_ID" msprop:Generator_ColumnVarNameInTable="columnRES_ID" msprop:Generator_ColumnPropNameInRow="RES_ID" msprop:Generator_ColumnPropNameInTable="RES_IDColumn" msprop:Generator_UserColumnName="RES_ID" type="xs:int" />
+              <xs:element name="RES_NAME" msprop:Generator_ColumnVarNameInTable="columnRES_NAME" msprop:Generator_ColumnPropNameInRow="RES_NAME" msprop:Generator_ColumnPropNameInTable="RES_NAMEColumn" msprop:Generator_UserColumnName="RES_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_CODE" msprop:Generator_ColumnVarNameInTable="columnRES_CODE" msprop:Generator_ColumnPropNameInRow="RES_CODE" msprop:Generator_ColumnPropNameInTable="RES_CODEColumn" msprop:Generator_UserColumnName="RES_CODE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CURR_ID" msprop:Generator_ColumnVarNameInTable="columnCURR_ID" msprop:Generator_ColumnPropNameInRow="CURR_ID" msprop:Generator_ColumnPropNameInTable="CURR_IDColumn" msprop:Generator_UserColumnName="CURR_ID" type="xs:int" />
+              <xs:element name="RES_PT_TYPE" msprop:Generator_ColumnVarNameInTable="columnRES_PT_TYPE" msprop:Generator_ColumnPropNameInRow="RES_PT_TYPE" msprop:Generator_ColumnPropNameInTable="RES_PT_TYPEColumn" msprop:Generator_UserColumnName="RES_PT_TYPE" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_PT_DAYS" msprop:Generator_ColumnVarNameInTable="columnRES_PT_DAYS" msprop:Generator_ColumnPropNameInRow="RES_PT_DAYS" msprop:Generator_ColumnPropNameInTable="RES_PT_DAYSColumn" msprop:Generator_UserColumnName="RES_PT_DAYS" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_PT_DESC" msprop:Generator_ColumnVarNameInTable="columnRES_PT_DESC" msprop:Generator_ColumnPropNameInRow="RES_PT_DESC" msprop:Generator_ColumnPropNameInTable="RES_PT_DESCColumn" msprop:Generator_UserColumnName="RES_PT_DESC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_STREET1" msprop:Generator_ColumnVarNameInTable="columnRES_STREET1" msprop:Generator_ColumnPropNameInRow="RES_STREET1" msprop:Generator_ColumnPropNameInTable="RES_STREET1Column" msprop:Generator_UserColumnName="RES_STREET1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_STREET2" msprop:Generator_ColumnVarNameInTable="columnRES_STREET2" msprop:Generator_ColumnPropNameInRow="RES_STREET2" msprop:Generator_ColumnPropNameInTable="RES_STREET2Column" msprop:Generator_UserColumnName="RES_STREET2">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_CITY" msprop:Generator_ColumnVarNameInTable="columnRES_CITY" msprop:Generator_ColumnPropNameInRow="RES_CITY" msprop:Generator_ColumnPropNameInTable="RES_CITYColumn" msprop:Generator_UserColumnName="RES_CITY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_STATE" msprop:Generator_ColumnVarNameInTable="columnRES_STATE" msprop:Generator_ColumnPropNameInRow="RES_STATE" msprop:Generator_ColumnPropNameInTable="RES_STATEColumn" msprop:Generator_UserColumnName="RES_STATE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_ZIP" msprop:Generator_ColumnVarNameInTable="columnRES_ZIP" msprop:Generator_ColumnPropNameInRow="RES_ZIP" msprop:Generator_ColumnPropNameInTable="RES_ZIPColumn" msprop:Generator_UserColumnName="RES_ZIP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_EMAIL1" msprop:Generator_ColumnVarNameInTable="columnRES_EMAIL1" msprop:Generator_ColumnPropNameInRow="RES_EMAIL1" msprop:Generator_ColumnPropNameInTable="RES_EMAIL1Column" msprop:Generator_UserColumnName="RES_EMAIL1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_EMAIL2" msprop:Generator_ColumnVarNameInTable="columnRES_EMAIL2" msprop:Generator_ColumnPropNameInRow="RES_EMAIL2" msprop:Generator_ColumnPropNameInTable="RES_EMAIL2Column" msprop:Generator_UserColumnName="RES_EMAIL2">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_PHONE1" msprop:Generator_ColumnVarNameInTable="columnRES_PHONE1" msprop:Generator_ColumnPropNameInRow="RES_PHONE1" msprop:Generator_ColumnPropNameInTable="RES_PHONE1Column" msprop:Generator_UserColumnName="RES_PHONE1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_PHONE2" msprop:Generator_ColumnVarNameInTable="columnRES_PHONE2" msprop:Generator_ColumnPropNameInRow="RES_PHONE2" msprop:Generator_ColumnPropNameInTable="RES_PHONE2Column" msprop:Generator_UserColumnName="RES_PHONE2">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_FAX" msprop:Generator_ColumnVarNameInTable="columnRES_FAX" msprop:Generator_ColumnPropNameInRow="RES_FAX" msprop:Generator_ColumnPropNameInTable="RES_FAXColumn" msprop:Generator_UserColumnName="RES_FAX">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_WWW" msprop:Generator_ColumnVarNameInTable="columnRES_WWW" msprop:Generator_ColumnPropNameInRow="RES_WWW" msprop:Generator_ColumnPropNameInTable="RES_WWWColumn" msprop:Generator_UserColumnName="RES_WWW">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_VATNUM" msprop:Generator_ColumnVarNameInTable="columnRES_VATNUM" msprop:Generator_ColumnPropNameInRow="RES_VATNUM" msprop:Generator_ColumnPropNameInTable="RES_VATNUMColumn" msprop:Generator_UserColumnName="RES_VATNUM">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COUN_ID" msprop:Generator_ColumnVarNameInTable="columnCOUN_ID" msprop:Generator_ColumnPropNameInRow="COUN_ID" msprop:Generator_ColumnPropNameInTable="COUN_IDColumn" msprop:Generator_UserColumnName="COUN_ID" type="xs:int" />
+              <xs:element name="RES_GINFO" msprop:Generator_ColumnVarNameInTable="columnRES_GINFO" msprop:Generator_ColumnPropNameInRow="RES_GINFO" msprop:Generator_ColumnPropNameInTable="RES_GINFOColumn" msprop:Generator_UserColumnName="RES_GINFO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_LOCALE" msprop:Generator_ColumnVarNameInTable="columnRES_LOCALE" msprop:Generator_ColumnPropNameInRow="RES_LOCALE" msprop:Generator_ColumnPropNameInTable="RES_LOCALEColumn" msprop:Generator_UserColumnName="RES_LOCALE" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="RES_APPINFO" msprop:Generator_ColumnVarNameInTable="columnRES_APPINFO" msprop:Generator_ColumnPropNameInRow="RES_APPINFO" msprop:Generator_ColumnPropNameInTable="RES_APPINFOColumn" msprop:Generator_UserColumnName="RES_APPINFO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_NEXT_QUOTE" msprop:Generator_ColumnVarNameInTable="columnRES_NEXT_QUOTE" msprop:Generator_ColumnPropNameInRow="RES_NEXT_QUOTE" msprop:Generator_ColumnPropNameInTable="RES_NEXT_QUOTEColumn" msprop:Generator_UserColumnName="RES_NEXT_QUOTE" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_NEXT_JOB" msprop:Generator_ColumnVarNameInTable="columnRES_NEXT_JOB" msprop:Generator_ColumnPropNameInRow="RES_NEXT_JOB" msprop:Generator_ColumnPropNameInTable="RES_NEXT_JOBColumn" msprop:Generator_UserColumnName="RES_NEXT_JOB" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_NEXT_INVOICE" msprop:Generator_ColumnVarNameInTable="columnRES_NEXT_INVOICE" msprop:Generator_ColumnPropNameInRow="RES_NEXT_INVOICE" msprop:Generator_ColumnPropNameInTable="RES_NEXT_INVOICEColumn" msprop:Generator_UserColumnName="RES_NEXT_INVOICE" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_NEXT_PAYMENT" msprop:Generator_ColumnVarNameInTable="columnRES_NEXT_PAYMENT" msprop:Generator_ColumnPropNameInRow="RES_NEXT_PAYMENT" msprop:Generator_ColumnPropNameInTable="RES_NEXT_PAYMENTColumn" msprop:Generator_UserColumnName="RES_NEXT_PAYMENT" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_MINFEE" msprop:Generator_ColumnVarNameInTable="columnRES_MINFEE" msprop:Generator_ColumnPropNameInRow="RES_MINFEE" msprop:Generator_ColumnPropNameInTable="RES_MINFEEColumn" msprop:Generator_UserColumnName="RES_MINFEE" type="xs:decimal" />
+              <xs:element name="RES_PT_FROM" msprop:Generator_ColumnVarNameInTable="columnRES_PT_FROM" msprop:Generator_ColumnPropNameInRow="RES_PT_FROM" msprop:Generator_ColumnPropNameInTable="RES_PT_FROMColumn" msprop:Generator_UserColumnName="RES_PT_FROM" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_PHONE3" msprop:Generator_ColumnVarNameInTable="columnRES_PHONE3" msprop:Generator_ColumnPropNameInRow="RES_PHONE3" msprop:Generator_ColumnPropNameInTable="RES_PHONE3Column" msprop:Generator_UserColumnName="RES_PHONE3">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_PHONE4" msprop:Generator_ColumnVarNameInTable="columnRES_PHONE4" msprop:Generator_ColumnPropNameInRow="RES_PHONE4" msprop:Generator_ColumnPropNameInTable="RES_PHONE4Column" msprop:Generator_UserColumnName="RES_PHONE4">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_PHOTO" msprop:Generator_ColumnVarNameInTable="columnRES_PHOTO" msprop:Generator_ColumnPropNameInRow="RES_PHOTO" msprop:Generator_ColumnPropNameInTable="RES_PHOTOColumn" msprop:Generator_UserColumnName="RES_PHOTO" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="RES_INV_MINSUM" msprop:Generator_ColumnVarNameInTable="columnRES_INV_MINSUM" msprop:Generator_ColumnPropNameInRow="RES_INV_MINSUM" msprop:Generator_ColumnPropNameInTable="RES_INV_MINSUMColumn" msprop:Generator_UserColumnName="RES_INV_MINSUM" type="xs:decimal" />
+              <xs:element name="RES_INV_PERIOD" msprop:Generator_ColumnVarNameInTable="columnRES_INV_PERIOD" msprop:Generator_ColumnPropNameInRow="RES_INV_PERIOD" msprop:Generator_ColumnPropNameInTable="RES_INV_PERIODColumn" msprop:Generator_UserColumnName="RES_INV_PERIOD" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_FLAG" msprop:Generator_ColumnVarNameInTable="columnRES_FLAG" msprop:Generator_ColumnPropNameInRow="RES_FLAG" msprop:Generator_ColumnPropNameInTable="RES_FLAGColumn" msprop:Generator_UserColumnName="RES_FLAG" type="xs:int" minOccurs="0" />
+              <xs:element name="AIT_x0024_CUSTOMF00016" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00016" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00016" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00016Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00016" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00017" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00017" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00017" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00017Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00017" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="AIT_x0024_CUSTOMF00067" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00067" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00067" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00067Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00067" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00068" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00068" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00068" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00068Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00068" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00069" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00069" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00069" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00069Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00069" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00078" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00078" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00078" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00078Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00078" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00074" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00074" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00074" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00074Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00074" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00092" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00092" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00092" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00092Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00092" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AIT_x0024_CUSTOMF00085" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00085" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00085" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00085Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00085" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00086" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00086" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00086" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00086Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00086" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00087" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00087" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00087" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00087Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00087" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00088" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00088" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00088" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00088Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00088" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00089" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00089" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00089" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00089Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00089" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00090" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00090" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00090" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00090Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00090" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00091" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00091" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00091" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00091Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00091" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00093" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00093" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00093" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00093Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00093" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00095" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00095" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00095" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00095Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00095" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00094" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00094" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00094" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00094Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00094" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00096" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00096" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00096" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00096Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00096" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00103" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00103" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00103" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00103Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00103" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00104" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00104" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00104" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00104Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00104" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00105" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00105" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00105" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00105Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00105" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00125" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00125" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00125" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00125Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00125" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AIT_x0024_CUSTOMF00149" msprop:Generator_ColumnVarNameInTable="_columnAIT_CUSTOMF00149" msprop:Generator_ColumnPropNameInRow="_AIT_CUSTOMF00149" msprop:Generator_ColumnPropNameInTable="_AIT_CUSTOMF00149Column" msprop:Generator_UserColumnName="AIT$CUSTOMF00149" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RESOURCES" />
+      <xs:field xpath="mstns:RES_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SourceLangTableAdapter" GeneratorDataComponentClassName="SourceLangTableAdapter" Name="DataTableSourceLang" UserDataComponentName="SourceLangTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="SELECT DISTINCT &quot;AIT$CUSTOMF00068&quot; AS SourceLang FROM RESOURCES WHERE (NOT (&quot;AIT$CUSTOMF00068&quot; IS NULL)) UNION SELECT '-ALL-' AS SourceLang FROM RESOURCES" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT SourceLang FROM (
@@ -82,7 +82,7 @@ ORDER BY TargetLang ASC</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FreelancersTableAdapter" GeneratorDataComponentClassName="FreelancersTableAdapter" Name="DataTableFreelancers" UserDataComponentName="FreelancersTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        RESOURCES.RES_ID AS ID, RESOURCES.RES_NAME AS Name, RESOURCES."AIT$CUSTOMF00068" AS SourceLang, RESOURCES."AIT$CUSTOMF00069" AS TargetLang1, 
@@ -109,7 +109,24 @@ FROM            RESOURCES INNER JOIN
               <Mapping SourceColumn="SERVICE" DataSetColumn="SERVICE" />
               <Mapping SourceColumn="APPROVAL" DataSetColumn="APPROVAL" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByRESID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByRESID" GeneratorSourceName="FillByRESID" GetMethodModifier="Public" GetMethodName="GetDataByRESID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByRESID" UserSourceName="FillByRESID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RESOURCES.RES_ID AS ID, RESOURCES.RES_NAME AS Name, RESOURCES."AIT$CUSTOMF00068" AS SourceLang, RESOURCES."AIT$CUSTOMF00069" AS TargetLang1, 
+                         RESOURCES."AIT$CUSTOMF00074" AS TargetLang2, RESOURCES."AIT$CUSTOMF00092" AS Rate, CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Country, 
+                         RESOURCES."AIT$CUSTOMF00093" AS "Role", RESOURCES."AIT$CUSTOMF00094" AS Service, RESOURCES."AIT$CUSTOMF00125" AS Approval
+FROM            RESOURCES INNER JOIN
+                         COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN
+                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID
+WHERE        (RESOURCES.RES_ID = @resid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="resid" ColumnName="RES_ID" DataSourceName="RESOURCES" DataTypeServer="DbType.Int32(4)" DbType="Int32" Direction="Input" ParameterName="@resid" Precision="0" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CatToolsTableAdapter" GeneratorDataComponentClassName="CatToolsTableAdapter" Name="CatTools" UserDataComponentName="CatToolsTableAdapter">
             <MainSource>
@@ -188,23 +205,50 @@ ORDER BY Service ASC
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TADetails" GeneratorDataComponentClassName="TADetails" Name="DTDetails" UserDataComponentName="TADetails">
             <MainSource>
-              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        RESOURCES.RES_NAME AS Name, RJOBS.RJOB_NAME AS LastJob, SERVICES.SERV_NAME AS Service, PROJECTS.PROJ_NAME AS LastProject, CLIENTS.CLIENT_NAME AS Client, 
-                         "AIT$USERS"."AIT$USER_REALNAME" AS ProjectManager, COUNTRIES.COUN_NAME, CURR.CURR_NAME, RESOURCES.RES_STREET1, RESOURCES.RES_STREET2, RESOURCES.RES_CITY, 
-                         RESOURCES.RES_STATE, RESOURCES.RES_EMAIL1, RESOURCES.RES_ZIP, RESOURCES.RES_EMAIL2, RESOURCES.RES_PHONE1, RESOURCES.RES_PHONE2, RESOURCES.RES_FLAG, 
-                         RESOURCES."AIT$CUSTOMF00016" AS Skype
-FROM            RESOURCES INNER JOIN
-                         COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN
-                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID INNER JOIN
-                         RJOBS ON RESOURCES.RES_ID = RJOBS.RES_ID AND CURR.CURR_ID = RJOBS.CURR_ID INNER JOIN
+                    <CommandText>SELECT        RJOBS.RJOB_NAME AS LastJob, SERVICES.SERV_NAME AS Service, PROJECTS.PROJ_NAME AS LastProject, CLIENTS.CLIENT_NAME AS Client, "AIT$USERS"."AIT$USER_REALNAME" AS ProjectManager, 
+                         CURR.CURR_NAME
+FROM            RJOBS INNER JOIN
+                         CURR ON RJOBS.CURR_ID = CURR.CURR_ID INNER JOIN
                          SERVICES ON RJOBS.SERV_ID = SERVICES.SERV_ID INNER JOIN
                          PROJECTS ON RJOBS.PROJ_ID = PROJECTS.PROJ_ID INNER JOIN
                          CLIENTS ON PROJECTS.CLIENT_ID = CLIENTS.CLIENT_ID INNER JOIN
                          "AIT$USERS" ON PROJECTS.PROJ_PM = "AIT$USERS"."AIT$USER_ID"
-WHERE        (RESOURCES.RES_ID = @resid)
+WHERE        (RJOBS.RES_ID = @resid)
 ORDER BY RJOBS.RJOB_ID DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="resid" ColumnName="RES_ID" DataSourceName="RJOBS" DataTypeServer="DbType.Int32(4)" DbType="Int32" Direction="Input" ParameterName="@resid" Precision="0" Scale="0" Size="4" SourceColumn="RES_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="LASTJOB" DataSetColumn="LASTJOB" />
+              <Mapping SourceColumn="SERVICE" DataSetColumn="SERVICE" />
+              <Mapping SourceColumn="LASTPROJECT" DataSetColumn="LASTPROJECT" />
+              <Mapping SourceColumn="CLIENT" DataSetColumn="CLIENT" />
+              <Mapping SourceColumn="PROJECTMANAGER" DataSetColumn="PROJECTMANAGER" />
+              <Mapping SourceColumn="CURR_NAME" DataSetColumn="CURR_NAME" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByResid" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByResid" GeneratorSourceName="FillByResid" GetMethodModifier="Public" GetMethodName="GetDataByResid" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataByResid" UserSourceName="FillByResid">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        RESOURCES.RES_NAME, CURR.CURR_NAME, COUNTRIES.COUN_NAME, RESOURCES.RES_PT_TYPE, RESOURCES.RES_PT_DAYS, RESOURCES.RES_PT_DESC, RESOURCES.RES_STREET1, 
+                         RESOURCES.RES_STREET2, RESOURCES.RES_CITY, RESOURCES.RES_STATE, RESOURCES.RES_ZIP, RESOURCES.RES_EMAIL1, RESOURCES.RES_EMAIL2, RESOURCES.RES_PHONE1, 
+                         RESOURCES.RES_PHONE2, RESOURCES.RES_FAX, RESOURCES.RES_WWW, RESOURCES.RES_VATNUM, RESOURCES.RES_MINFEE, RESOURCES.RES_PHONE3, RESOURCES.RES_PHONE4, 
+                         RESOURCES."AIT$CUSTOMF00016" AS Skype, RESOURCES."AIT$CUSTOMF00017" AS DOB, RESOURCES."AIT$CUSTOMF00067" AS Tools, RESOURCES."AIT$CUSTOMF00068" AS Source, 
+                         RESOURCES."AIT$CUSTOMF00069" AS Target1
+FROM            RESOURCES INNER JOIN
+                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID INNER JOIN
+                         COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID
+WHERE        (RESOURCES.RES_ID = @resid)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="resid" ColumnName="RES_ID" DataSourceName="RESOURCES" DataTypeServer="DbType.Int32(4)" DbType="Int32" Direction="Input" ParameterName="@resid" Precision="0" Scale="0" Size="4" SourceColumn="RES_ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -213,25 +257,32 @@ ORDER BY RJOBS.RJOB_ID DESC</CommandText>
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
-              <Mapping SourceColumn="LASTJOB" DataSetColumn="LASTJOB" />
-              <Mapping SourceColumn="SERVICE" DataSetColumn="SERVICE" />
-              <Mapping SourceColumn="LASTPROJECT" DataSetColumn="LASTPROJECT" />
-              <Mapping SourceColumn="CLIENT" DataSetColumn="CLIENT" />
-              <Mapping SourceColumn="PROJECTMANAGER" DataSetColumn="PROJECTMANAGER" />
-              <Mapping SourceColumn="COUN_NAME" DataSetColumn="COUN_NAME" />
+              <Mapping SourceColumn="RES_NAME" DataSetColumn="RES_NAME" />
               <Mapping SourceColumn="CURR_NAME" DataSetColumn="CURR_NAME" />
+              <Mapping SourceColumn="COUN_NAME" DataSetColumn="COUN_NAME" />
+              <Mapping SourceColumn="RES_PT_TYPE" DataSetColumn="RES_PT_TYPE" />
+              <Mapping SourceColumn="RES_PT_DAYS" DataSetColumn="RES_PT_DAYS" />
+              <Mapping SourceColumn="RES_PT_DESC" DataSetColumn="RES_PT_DESC" />
               <Mapping SourceColumn="RES_STREET1" DataSetColumn="RES_STREET1" />
               <Mapping SourceColumn="RES_STREET2" DataSetColumn="RES_STREET2" />
               <Mapping SourceColumn="RES_CITY" DataSetColumn="RES_CITY" />
               <Mapping SourceColumn="RES_STATE" DataSetColumn="RES_STATE" />
-              <Mapping SourceColumn="RES_EMAIL1" DataSetColumn="RES_EMAIL1" />
               <Mapping SourceColumn="RES_ZIP" DataSetColumn="RES_ZIP" />
+              <Mapping SourceColumn="RES_EMAIL1" DataSetColumn="RES_EMAIL1" />
               <Mapping SourceColumn="RES_EMAIL2" DataSetColumn="RES_EMAIL2" />
               <Mapping SourceColumn="RES_PHONE1" DataSetColumn="RES_PHONE1" />
               <Mapping SourceColumn="RES_PHONE2" DataSetColumn="RES_PHONE2" />
-              <Mapping SourceColumn="RES_FLAG" DataSetColumn="RES_FLAG" />
+              <Mapping SourceColumn="RES_FAX" DataSetColumn="RES_FAX" />
+              <Mapping SourceColumn="RES_WWW" DataSetColumn="RES_WWW" />
+              <Mapping SourceColumn="RES_VATNUM" DataSetColumn="RES_VATNUM" />
+              <Mapping SourceColumn="RES_MINFEE" DataSetColumn="RES_MINFEE" />
+              <Mapping SourceColumn="RES_PHONE3" DataSetColumn="RES_PHONE3" />
+              <Mapping SourceColumn="RES_PHONE4" DataSetColumn="RES_PHONE4" />
               <Mapping SourceColumn="SKYPE" DataSetColumn="SKYPE" />
+              <Mapping SourceColumn="DOB" DataSetColumn="DOB" />
+              <Mapping SourceColumn="TOOLS" DataSetColumn="TOOLS" />
+              <Mapping SourceColumn="SOURCE" DataSetColumn="SOURCE" />
+              <Mapping SourceColumn="TARGET1" DataSetColumn="TARGET1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -240,7 +291,7 @@ ORDER BY RJOBS.RJOB_ID DESC</CommandText>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
+  <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="False" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="DataTableSourceLang" msprop:Generator_TableClassName="DataTableSourceLangDataTable" msprop:Generator_TableVarName="tableDataTableSourceLang" msprop:Generator_TablePropName="DataTableSourceLang" msprop:Generator_RowDeletingName="DataTableSourceLangRowDeleting" msprop:Generator_RowChangingName="DataTableSourceLangRowChanging" msprop:Generator_RowEvHandlerName="DataTableSourceLangRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableSourceLangRowDeleted" msprop:Generator_UserTableName="DataTableSourceLang" msprop:Generator_RowChangedName="DataTableSourceLangRowChanged" msprop:Generator_RowEvArgName="DataTableSourceLangRowChangeEvent" msprop:Generator_RowClassName="DataTableSourceLangRow">
@@ -382,13 +433,6 @@ ORDER BY RJOBS.RJOB_ID DESC</CommandText>
         <xs:element name="DTDetails" msprop:Generator_TableClassName="DTDetailsDataTable" msprop:Generator_TableVarName="tableDTDetails" msprop:Generator_TablePropName="DTDetails" msprop:Generator_RowDeletingName="DTDetailsRowDeleting" msprop:Generator_RowChangingName="DTDetailsRowChanging" msprop:Generator_RowEvHandlerName="DTDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="DTDetailsRowDeleted" msprop:Generator_UserTableName="DTDetails" msprop:Generator_RowChangedName="DTDetailsRowChanged" msprop:Generator_RowEvArgName="DTDetailsRowChangeEvent" msprop:Generator_RowClassName="DTDetailsRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="150" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="LASTJOB" msprop:Generator_ColumnVarNameInTable="columnLASTJOB" msprop:Generator_ColumnPropNameInRow="LASTJOB" msprop:Generator_ColumnPropNameInTable="LASTJOBColumn" msprop:Generator_UserColumnName="LASTJOB" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -424,10 +468,23 @@ ORDER BY RJOBS.RJOB_ID DESC</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="COUN_NAME" msprop:Generator_ColumnVarNameInTable="columnCOUN_NAME" msprop:Generator_ColumnPropNameInRow="COUN_NAME" msprop:Generator_ColumnPropNameInTable="COUN_NAMEColumn" msprop:Generator_UserColumnName="COUN_NAME">
+              <xs:element name="CURR_NAME" msprop:Generator_ColumnVarNameInTable="columnCURR_NAME" msprop:Generator_ColumnPropNameInRow="CURR_NAME" msprop:Generator_ColumnPropNameInTable="CURR_NAMEColumn" msprop:Generator_UserColumnName="CURR_NAME">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RES_NAME" msprop:Generator_ColumnVarNameInTable="columnRES_NAME" msprop:Generator_ColumnPropNameInRow="RES_NAME" msprop:Generator_ColumnPropNameInTable="RES_NAMEColumn" msprop:Generator_UserColumnName="RES_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -435,6 +492,22 @@ ORDER BY RJOBS.RJOB_ID DESC</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COUN_NAME" msprop:Generator_ColumnVarNameInTable="columnCOUN_NAME" msprop:Generator_ColumnPropNameInRow="COUN_NAME" msprop:Generator_ColumnPropNameInTable="COUN_NAMEColumn" msprop:Generator_UserColumnName="COUN_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_PT_TYPE" msprop:Generator_ColumnVarNameInTable="columnRES_PT_TYPE" msprop:Generator_ColumnPropNameInRow="RES_PT_TYPE" msprop:Generator_ColumnPropNameInTable="RES_PT_TYPEColumn" msprop:Generator_UserColumnName="RES_PT_TYPE" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_PT_DAYS" msprop:Generator_ColumnVarNameInTable="columnRES_PT_DAYS" msprop:Generator_ColumnPropNameInRow="RES_PT_DAYS" msprop:Generator_ColumnPropNameInTable="RES_PT_DAYSColumn" msprop:Generator_UserColumnName="RES_PT_DAYS" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_PT_DESC" msprop:Generator_ColumnVarNameInTable="columnRES_PT_DESC" msprop:Generator_ColumnPropNameInRow="RES_PT_DESC" msprop:Generator_ColumnPropNameInTable="RES_PT_DESCColumn" msprop:Generator_UserColumnName="RES_PT_DESC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -466,17 +539,17 @@ ORDER BY RJOBS.RJOB_ID DESC</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="RES_EMAIL1" msprop:Generator_ColumnVarNameInTable="columnRES_EMAIL1" msprop:Generator_ColumnPropNameInRow="RES_EMAIL1" msprop:Generator_ColumnPropNameInTable="RES_EMAIL1Column" msprop:Generator_UserColumnName="RES_EMAIL1">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="150" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="RES_ZIP" msprop:Generator_ColumnVarNameInTable="columnRES_ZIP" msprop:Generator_ColumnPropNameInRow="RES_ZIP" msprop:Generator_ColumnPropNameInTable="RES_ZIPColumn" msprop:Generator_UserColumnName="RES_ZIP">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_EMAIL1" msprop:Generator_ColumnVarNameInTable="columnRES_EMAIL1" msprop:Generator_ColumnPropNameInRow="RES_EMAIL1" msprop:Generator_ColumnPropNameInTable="RES_EMAIL1Column" msprop:Generator_UserColumnName="RES_EMAIL1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -501,8 +574,65 @@ ORDER BY RJOBS.RJOB_ID DESC</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="RES_FLAG" msprop:Generator_ColumnVarNameInTable="columnRES_FLAG" msprop:Generator_ColumnPropNameInRow="RES_FLAG" msprop:Generator_ColumnPropNameInTable="RES_FLAGColumn" msprop:Generator_UserColumnName="RES_FLAG" type="xs:int" minOccurs="0" />
+              <xs:element name="RES_FAX" msprop:Generator_ColumnVarNameInTable="columnRES_FAX" msprop:Generator_ColumnPropNameInRow="RES_FAX" msprop:Generator_ColumnPropNameInTable="RES_FAXColumn" msprop:Generator_UserColumnName="RES_FAX">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_WWW" msprop:Generator_ColumnVarNameInTable="columnRES_WWW" msprop:Generator_ColumnPropNameInRow="RES_WWW" msprop:Generator_ColumnPropNameInTable="RES_WWWColumn" msprop:Generator_UserColumnName="RES_WWW">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_VATNUM" msprop:Generator_ColumnVarNameInTable="columnRES_VATNUM" msprop:Generator_ColumnPropNameInRow="RES_VATNUM" msprop:Generator_ColumnPropNameInTable="RES_VATNUMColumn" msprop:Generator_UserColumnName="RES_VATNUM">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_MINFEE" msprop:Generator_ColumnVarNameInTable="columnRES_MINFEE" msprop:Generator_ColumnPropNameInRow="RES_MINFEE" msprop:Generator_ColumnPropNameInTable="RES_MINFEEColumn" msprop:Generator_UserColumnName="RES_MINFEE" type="xs:decimal" />
+              <xs:element name="RES_PHONE3" msprop:Generator_ColumnVarNameInTable="columnRES_PHONE3" msprop:Generator_ColumnPropNameInRow="RES_PHONE3" msprop:Generator_ColumnPropNameInTable="RES_PHONE3Column" msprop:Generator_UserColumnName="RES_PHONE3">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RES_PHONE4" msprop:Generator_ColumnVarNameInTable="columnRES_PHONE4" msprop:Generator_ColumnPropNameInRow="RES_PHONE4" msprop:Generator_ColumnPropNameInTable="RES_PHONE4Column" msprop:Generator_UserColumnName="RES_PHONE4">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="SKYPE" msprop:Generator_ColumnVarNameInTable="columnSKYPE" msprop:Generator_ColumnPropNameInRow="SKYPE" msprop:Generator_ColumnPropNameInTable="SKYPEColumn" msprop:Generator_UserColumnName="SKYPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DOB" msprop:Generator_ColumnVarNameInTable="columnDOB" msprop:Generator_ColumnPropNameInRow="DOB" msprop:Generator_ColumnPropNameInTable="DOBColumn" msprop:Generator_UserColumnName="DOB" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TOOLS" msprop:Generator_ColumnVarNameInTable="columnTOOLS" msprop:Generator_ColumnPropNameInRow="TOOLS" msprop:Generator_ColumnPropNameInTable="TOOLSColumn" msprop:Generator_UserColumnName="TOOLS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SOURCE" msprop:Generator_ColumnVarNameInTable="columnSOURCE" msprop:Generator_ColumnPropNameInRow="SOURCE" msprop:Generator_ColumnPropNameInTable="SOURCEColumn" msprop:Generator_UserColumnName="SOURCE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TARGET1" msprop:Generator_ColumnVarNameInTable="columnTARGET1" msprop:Generator_ColumnPropNameInRow="TARGET1" msprop:Generator_ColumnPropNameInTable="TARGET1Column" msprop:Generator_UserColumnName="TARGET1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />

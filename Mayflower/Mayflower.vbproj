@@ -29,7 +29,7 @@
     <ProductName>Projetex Database access</ProductName>
     <PublisherName>Mayflower Languages</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationRevision>21</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -177,6 +177,11 @@
     <Compile Include="DataSet2.vb">
       <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSetVBox.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetVBox.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +205,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="SearchableStringCollection.vb" />
+    <Compile Include="Settings.vb" />
     <Compile Include="SplashScreen1.Designer.vb">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
     </Compile>
@@ -233,6 +239,17 @@
     </None>
     <None Include="DataSet2.xss">
       <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetVBox.xsc">
+      <DependentUpon>DataSetVBox.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetVBox.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetVBox.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetVBox.xss">
+      <DependentUpon>DataSetVBox.xsd</DependentUpon>
     </None>
     <None Include="Mayflower_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest">
