@@ -120,17 +120,8 @@
   <metadata name="DataTableServiceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>190, 136</value>
   </metadata>
-  <metadata name="DataTableServiceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 136</value>
-  </metadata>
   <metadata name="DataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>24, 15</value>
-  </metadata>
-  <metadata name="DataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>24, 15</value>
-  </metadata>
-  <metadata name="DataTableDomainsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>559, 97</value>
   </metadata>
   <metadata name="DataTableDomainsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>559, 97</value>
@@ -141,27 +132,13 @@
   <metadata name="BindingSourceTargetLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 97</value>
   </metadata>
-  <metadata name="BindingSourceTargetLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 97</value>
-  </metadata>
-  <metadata name="BindingSourceSourceLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>205, 58</value>
-  </metadata>
   <metadata name="BindingSourceSourceLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>205, 58</value>
   </metadata>
   <metadata name="DTDetailsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>577, 136</value>
   </metadata>
-  <assembly alias="Microsoft.VSDesigner" name="Microsoft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="MySettings3.ConnectionStringVBox" type="Microsoft.VSDesigner.VSDesignerPackage.SerializableConnectionString, Microsoft.VSDesigner">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;character set=UTF8;data source=192.168.56.101;initial catalog="C:\Projetex9\Projetex Server\Database\Projetex.fdb";user id=ODBC;password=pwww;role=PROJETEX_ODBC&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;FirebirdSql.Data.FirebirdClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</value>
-  </data>
-  <data name="MySettings3.ProjetexDB" xml:space="preserve">
+  <data name="MySettings1.ProjetexDB" xml:space="preserve">
     <value>User=ODBC;Password=pwww;Database=c:\projetex9\projetex server\database\projetex.fdb;DataSource=192.168.56.101;Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODBC;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192</value>
   </data>
   <metadata name="FbConnection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -198,16 +175,9 @@
     <value>759, 136</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>240</value>
+    <value>125</value>
   </metadata>
-  <data name="MySettings4.ConnectionStringVBox" type="Microsoft.VSDesigner.VSDesignerPackage.SerializableConnectionString, Microsoft.VSDesigner">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;character set=UTF8;data source=192.168.56.101;initial catalog="C:\Projetex9\Projetex Server\Database\Projetex.fdb";user id=ODBC;password=pwww;role=PROJETEX_ODBC&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;FirebirdSql.Data.FirebirdClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</value>
-  </data>
-  <data name="MySettings4.ProjetexDB" xml:space="preserve">
+  <data name="MySettings2.ProjetexDB" xml:space="preserve">
     <value>User=ODBC;Password=pwww;Database=c:\projetex9\projetex server\database\projetex.fdb;DataSource=192.168.56.101;Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODBC;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192</value>
   </data>
 </root>

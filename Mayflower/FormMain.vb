@@ -211,17 +211,22 @@
         RichTextBoxConnectionString.Text = connstr
 
         Try
-            DataSet2.Clear()
+            'DataSet2.Clear()
+
             FreelancersTableAdapter.Connection.ConnectionString = connstr
             SourceLangTableAdapter.Connection.ConnectionString = connstr
             TargetLangTableAdapter.Connection.ConnectionString = connstr
+            CatToolsTableAdapter.Connection.ConnectionString = connstr
+            ServiceTableAdapter.Connection.ConnectionString = connstr
+            DomainsTableAdapter.Connection.ConnectionString = connstr
+            TADetails.Connection.ConnectionString = connstr
 
             SourceLangTableAdapter.Fill(DataSet2.DataTableSourceLang)
             TargetLangTableAdapter.Fill(DataSet2.DataTableTargetLang)
             FreelancersTableAdapter.Fill(DataSet2.DataTableFreelancers)
 
         Catch ex As Exception
-            'MessageBox.Show("Failed to connect to data source: \r\n" & ex.Message)
+            MessageBox.Show("Failed to connect to data source: " & ex.Message)
             ok = False
             StatusLed.BackColor = Color.Red
             'Finally
@@ -230,6 +235,14 @@
         If ok Then
             StatusLed.BackColor = Color.Green
             My.Settings.ProjetexDB = connstr
+            My.Settings.DBPort = TextBoxServerPort.Text
+            My.Settings.DBPort = TextBoxPassword.Text
+            My.Settings.DBPort = TextBoxServerAddress.Text
+            My.Settings.DBPort = TextBoxDatabase.Text
+
+            'TODO reset connection
+            'DataSet2.cl()
+
             My.Settings.Save()
         End If
 
@@ -310,13 +323,13 @@
 
         Try
             FbConnection1.ConnectionString = My.Settings.ProjetexDB
-            'FreelancersTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            'SourceLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            'TargetLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            'CatToolsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            'ServiceTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            'DomainsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            'TADetails.Connection.ConnectionString = My.Settings.ProjetexDB
+            FreelancersTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            SourceLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            TargetLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            CatToolsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            ServiceTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            DomainsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            TADetails.Connection.ConnectionString = My.Settings.ProjetexDB
 
             'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
             Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)

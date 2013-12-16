@@ -8,8 +8,8 @@ Namespace My
     ' The SettingsSaving event is raised before the setting values are saved.
     Partial Public NotInheritable Class MySettings
         Private Sub MySettings_PropertyChanged(ByVal sender As Object, ByVal e As System.ComponentModel.PropertyChangedEventArgs) Handles Me.PropertyChanged
-            If e.PropertyName = "ConnectionString" Then
-                Me.Item("ProjetexDB2") = My.Settings.ProjetexDB
+            If e.PropertyName = "ProjetexDB" Then
+                'Me("ProjetexDB2") = Me("ProjetexDB")
             End If
         End Sub
 
@@ -31,9 +31,10 @@ Namespace My
     "Packet Size=8192;" +
     "ServerType=0"
 
-            My.Settings.ProjetexDB = conn
-            a = Me.Item("ProjetexDB2").ToString
-            Me.Item("ProjetexDB2") = My.Settings.ProjetexDB
+            'My.Settings.ProjetexDB = conn
+            a = Me("ProjetexDB2").ToString
+            'MessageBox.Show("Current ProjetexDB2: " & a)
+            Me("ProjetexDB2") = Me("ProjetexDB")
         End Sub
     End Class
 End Namespace
