@@ -180,12 +180,6 @@
     <Compile Include="DataSet2.vb">
       <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DialogDetails.Designer.vb">
-      <DependentUpon>DialogDetails.vb</DependentUpon>
-    </Compile>
-    <Compile Include="DialogDetails.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -217,9 +211,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DialogDetails.resx">
-      <DependentUpon>DialogDetails.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
     </EmbeddedResource>

@@ -159,13 +159,22 @@
         Dim ID As Integer
 
         ID = CInt(DataGridView1.CurrentRow.Cells(0).Value) 'this is the ID
-        'DataSet2.DataTableDetailsDataTable.
+        TADetails.Fill(Me.DataSet2.DTDetails, ID)
+        TabControl1.SelectedIndex = 1
+        'TabDetails.Show()
+
         'Me.FreelancersTableAdapter.
         'Me.DetailsTableAdapter.FillByRES_ID('22')
         'Me.DetailsTableAdapter.FillByRES_ID(Me.DataSet2.DataTableDetails, CInt(Me.Tag))
 
-        DialogDetails.Tag = DataGridView1.CurrentRow.Cells(0).Value
-        DialogDetails.ShowDialog()
+
+
+        'DialogDetails.Tag = DataGridView1.CurrentRow.Cells(0).Value
+        'DialogDetails.ShowDialog()
+
+        'FormDetails.TADetails.Fill(FormDetails.DTDetailsBindingSource.
+
+
 
     End Sub
 
@@ -288,13 +297,13 @@
         RestrictByTargetLang.Enabled = True
 
         Try
+            FbConnection1.ConnectionString = My.Settings.ProjetexDB
             FreelancersTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             SourceLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             TargetLangTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             CatToolsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             ServiceTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             DomainsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
-            FbConnection1.ConnectionString = My.Settings.ProjetexDB
 
             'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
             Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
@@ -302,10 +311,12 @@
             Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
             'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
             'TODO: This line of code loads data into the 'DataSet21.DataTableService' table. You can move, or remove it, as needed.
-            Me.ServiceTableAdapter.Fill(Me.DataSet21.DataTableService)
+            Me.ServiceTableAdapter.Fill(Me.DataSet2.DataTableService)
             'TODO: This line of code loads data into the 'DataSet2.DataTableDomains' table. You can move, or remove it, as needed.
             Me.DomainsTableAdapter.Fill(Me.DataSet2.DataTableDomains)
             'Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+            'TODO: This line of code loads data into the 'DataSet2.DataTableService' table. You can move, or remove it, as needed.
+            Me.ServiceTableAdapter.Fill(Me.DataSet2.DataTableService)
             'TODO: This line of code loads data into the 'DataSet2._AIT_USERS' table. You can move, or remove it, as needed.
             'Me.CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
             GetCatTools()
@@ -323,7 +334,7 @@
             MessageBoxButtons.OK,
             MessageBoxIcon.Error
                             )
-            TabControl1.SelectedTab = TabPage2
+            TabControl1.SelectedTab = TabSettings
             'TabPage1.
             '        Finally
             '            FbConnection1.Close()

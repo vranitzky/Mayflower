@@ -26,22 +26,24 @@ Partial Class FormMain
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim MySettings1 As Mayflower.My.MySettings = New Mayflower.My.MySettings()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabFreelancers = New System.Windows.Forms.TabPage()
         Me.RestrictByService = New System.Windows.Forms.CheckBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.ComboBoxServices = New System.Windows.Forms.ComboBox()
         Me.DataTableServiceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet21 = New Mayflower.DataSet2()
+        Me.DataSet2 = New Mayflower.DataSet2()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.RestrictByDomain = New System.Windows.Forms.CheckBox()
         Me.CheckBoxTools = New System.Windows.Forms.CheckBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.ComboBoxDomains = New System.Windows.Forms.ComboBox()
         Me.DataTableDomainsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet2 = New Mayflower.DataSet2()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ComboBoxTools = New System.Windows.Forms.ComboBox()
         Me.LabelRecordsFound = New System.Windows.Forms.Label()
@@ -67,7 +69,21 @@ Partial Class FormMain
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBoxSourceLang = New System.Windows.Forms.ComboBox()
         Me.BindingSourceSourceLang = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabDetails = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.DTDetailsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.TabSettings = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
@@ -93,17 +109,28 @@ Partial Class FormMain
         Me.DomainsTableAdapter = New Mayflower.DataSet2TableAdapters.DomainsTableAdapter()
         Me.ServiceTableAdapter = New Mayflower.DataSet2TableAdapters.ServiceTableAdapter()
         Me.FbCommand1 = New FirebirdSql.Data.FirebirdClient.FbCommand()
+        Me.TADetails = New Mayflower.DataSet2TableAdapters.TADetails()
+        Me.LASTJOBDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SERVICEDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LASTPROJECTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CLIENTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
+        Me.TabFreelancers.SuspendLayout()
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage2.SuspendLayout()
+        Me.TabDetails.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.DTDetailsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabSettings.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.BindingSourceCatTools, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -113,42 +140,43 @@ Partial Class FormMain
         Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabFreelancers)
+        Me.TabControl1.Controls.Add(Me.TabDetails)
+        Me.TabControl1.Controls.Add(Me.TabSettings)
         Me.TabControl1.Location = New System.Drawing.Point(1, 1)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1415, 693)
+        Me.TabControl1.Size = New System.Drawing.Size(1415, 720)
         Me.TabControl1.TabIndex = 0
         '
-        'TabPage1
+        'TabFreelancers
         '
-        Me.TabPage1.Controls.Add(Me.RestrictByService)
-        Me.TabPage1.Controls.Add(Me.Label12)
-        Me.TabPage1.Controls.Add(Me.ComboBoxServices)
-        Me.TabPage1.Controls.Add(Me.Label11)
-        Me.TabPage1.Controls.Add(Me.RestrictByDomain)
-        Me.TabPage1.Controls.Add(Me.CheckBoxTools)
-        Me.TabPage1.Controls.Add(Me.Label10)
-        Me.TabPage1.Controls.Add(Me.ComboBoxDomains)
-        Me.TabPage1.Controls.Add(Me.Label9)
-        Me.TabPage1.Controls.Add(Me.ComboBoxTools)
-        Me.TabPage1.Controls.Add(Me.LabelRecordsFound)
-        Me.TabPage1.Controls.Add(Me.Label4)
-        Me.TabPage1.Controls.Add(Me.RestrictByTargetLang)
-        Me.TabPage1.Controls.Add(Me.RestrictBySourceLang)
-        Me.TabPage1.Controls.Add(Me.DataGridView1)
-        Me.TabPage1.Controls.Add(Me.Label2)
-        Me.TabPage1.Controls.Add(Me.ComboBoxTargetLang)
-        Me.TabPage1.Controls.Add(Me.Label1)
-        Me.TabPage1.Controls.Add(Me.ComboBoxSourceLang)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1407, 667)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Freelancers"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.TabFreelancers.Controls.Add(Me.RestrictByService)
+        Me.TabFreelancers.Controls.Add(Me.Label12)
+        Me.TabFreelancers.Controls.Add(Me.ComboBoxServices)
+        Me.TabFreelancers.Controls.Add(Me.Label11)
+        Me.TabFreelancers.Controls.Add(Me.RestrictByDomain)
+        Me.TabFreelancers.Controls.Add(Me.CheckBoxTools)
+        Me.TabFreelancers.Controls.Add(Me.Label10)
+        Me.TabFreelancers.Controls.Add(Me.ComboBoxDomains)
+        Me.TabFreelancers.Controls.Add(Me.Label9)
+        Me.TabFreelancers.Controls.Add(Me.ComboBoxTools)
+        Me.TabFreelancers.Controls.Add(Me.LabelRecordsFound)
+        Me.TabFreelancers.Controls.Add(Me.Label4)
+        Me.TabFreelancers.Controls.Add(Me.RestrictByTargetLang)
+        Me.TabFreelancers.Controls.Add(Me.RestrictBySourceLang)
+        Me.TabFreelancers.Controls.Add(Me.DataGridView1)
+        Me.TabFreelancers.Controls.Add(Me.Label2)
+        Me.TabFreelancers.Controls.Add(Me.ComboBoxTargetLang)
+        Me.TabFreelancers.Controls.Add(Me.Label1)
+        Me.TabFreelancers.Controls.Add(Me.ComboBoxSourceLang)
+        Me.TabFreelancers.Location = New System.Drawing.Point(4, 22)
+        Me.TabFreelancers.Name = "TabFreelancers"
+        Me.TabFreelancers.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabFreelancers.Size = New System.Drawing.Size(1407, 694)
+        Me.TabFreelancers.TabIndex = 0
+        Me.TabFreelancers.Text = "Freelancers"
+        Me.TabFreelancers.UseVisualStyleBackColor = True
         '
         'RestrictByService
         '
@@ -186,12 +214,12 @@ Partial Class FormMain
         'DataTableServiceBindingSource
         '
         Me.DataTableServiceBindingSource.DataMember = "DataTableService"
-        Me.DataTableServiceBindingSource.DataSource = Me.DataSet21
+        Me.DataTableServiceBindingSource.DataSource = Me.DataSet2
         '
-        'DataSet21
+        'DataSet2
         '
-        Me.DataSet21.DataSetName = "DataSet2"
-        Me.DataSet21.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.DataSet2.DataSetName = "DataSet2"
+        Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label11
         '
@@ -249,11 +277,6 @@ Partial Class FormMain
         '
         Me.DataTableDomainsBindingSource.DataMember = "DataTableDomains"
         Me.DataTableDomainsBindingSource.DataSource = Me.DataSet2
-        '
-        'DataSet2
-        '
-        Me.DataSet2.DataSetName = "DataSet2"
-        Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label9
         '
@@ -356,7 +379,7 @@ Partial Class FormMain
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(800, 547)
+        Me.DataGridView1.Size = New System.Drawing.Size(827, 320)
         Me.DataGridView1.TabIndex = 4
         '
         'IDDataGridViewTextBoxColumn
@@ -498,16 +521,197 @@ Partial Class FormMain
         Me.BindingSourceSourceLang.DataMember = "DataTableSourceLang"
         Me.BindingSourceSourceLang.DataSource = Me.DataSet2
         '
-        'TabPage2
+        'TabDetails
         '
-        Me.TabPage2.Controls.Add(Me.GroupBox1)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1407, 667)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Settings"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.TabDetails.Controls.Add(Me.TableLayoutPanel1)
+        Me.TabDetails.Controls.Add(Me.DataGridView2)
+        Me.TabDetails.Location = New System.Drawing.Point(4, 22)
+        Me.TabDetails.Name = "TabDetails"
+        Me.TabDetails.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabDetails.Size = New System.Drawing.Size(1407, 694)
+        Me.TabDetails.TabIndex = 2
+        Me.TabDetails.Text = "Details"
+        Me.TabDetails.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Label13, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label14, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label15, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label16, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label17, 0, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label18, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label19, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label20, 1, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label21, 1, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label22, 1, 4)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(8, 7)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 5
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(200, 100)
+        Me.TableLayoutPanel1.TabIndex = 2
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(3, 0)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(45, 13)
+        Me.Label13.TabIndex = 0
+        Me.Label13.Text = "Label13"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(3, 20)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(45, 13)
+        Me.Label14.TabIndex = 1
+        Me.Label14.Text = "Label14"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(3, 40)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(45, 13)
+        Me.Label15.TabIndex = 2
+        Me.Label15.Text = "Label15"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(3, 60)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(45, 13)
+        Me.Label16.TabIndex = 3
+        Me.Label16.Text = "Label16"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(3, 80)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(45, 13)
+        Me.Label17.TabIndex = 4
+        Me.Label17.Text = "Label17"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTDetailsBindingSource, "NAME", True))
+        Me.Label18.Location = New System.Drawing.Point(103, 0)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(45, 13)
+        Me.Label18.TabIndex = 5
+        Me.Label18.Text = "Label18"
+        '
+        'DTDetailsBindingSource
+        '
+        Me.DTDetailsBindingSource.DataMember = "DTDetails"
+        Me.DTDetailsBindingSource.DataSource = Me.DataSet2
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTDetailsBindingSource, "RES_STREET1", True))
+        Me.Label19.Location = New System.Drawing.Point(103, 20)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(45, 13)
+        Me.Label19.TabIndex = 6
+        Me.Label19.Text = "Label19"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTDetailsBindingSource, "RES_EMAIL1", True))
+        Me.Label20.Location = New System.Drawing.Point(103, 40)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(45, 13)
+        Me.Label20.TabIndex = 7
+        Me.Label20.Text = "Label20"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTDetailsBindingSource, "SKYPE", True))
+        Me.Label21.Location = New System.Drawing.Point(103, 60)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(45, 13)
+        Me.Label21.TabIndex = 8
+        Me.Label21.Text = "Label21"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTDetailsBindingSource, "RES_PHONE1", True))
+        Me.Label22.Location = New System.Drawing.Point(103, 80)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(45, 13)
+        Me.Label22.TabIndex = 9
+        Me.Label22.Text = "Label22"
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.AllowUserToOrderColumns = True
+        Me.DataGridView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView2.AutoGenerateColumns = False
+        Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LASTJOBDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn1, Me.LASTPROJECTDataGridViewTextBoxColumn, Me.CLIENTDataGridViewTextBoxColumn, Me.PROJECTMANAGERDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8})
+        Me.DataGridView2.DataSource = Me.DTDetailsBindingSource
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DataGridView2.Location = New System.Drawing.Point(3, 184)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.DataGridView2.Size = New System.Drawing.Size(826, 253)
+        Me.DataGridView2.TabIndex = 1
+        '
+        'TabSettings
+        '
+        Me.TabSettings.BackColor = System.Drawing.Color.IndianRed
+        Me.TabSettings.Controls.Add(Me.GroupBox1)
+        Me.TabSettings.Location = New System.Drawing.Point(4, 22)
+        Me.TabSettings.Name = "TabSettings"
+        Me.TabSettings.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabSettings.Size = New System.Drawing.Size(1407, 694)
+        Me.TabSettings.TabIndex = 1
+        Me.TabSettings.Text = "Settings"
         '
         'GroupBox1
         '
@@ -529,7 +733,7 @@ Partial Class FormMain
         Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.MinimumSize = New System.Drawing.Size(504, 369)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1401, 661)
+        Me.GroupBox1.Size = New System.Drawing.Size(1401, 688)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Database"
@@ -599,8 +803,8 @@ Partial Class FormMain
         MySettings1.MainFormWindowState = System.Windows.Forms.FormWindowState.Normal
         MySettings1.ProjetexDB = resources.GetString("MySettings1.ProjetexDB")
         MySettings1.SettingsKey = ""
-        MySettings1.test = New System.Drawing.Size(837, 435)
-        MySettings1.WindowLocation = New System.Drawing.Point(0, 0)
+        MySettings1.test = New System.Drawing.Size(837, 462)
+        MySettings1.WindowLocation = New System.Drawing.Point(50, 50)
         Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", MySettings1, "DBPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxPassword.Location = New System.Drawing.Point(95, 97)
         Me.TextBoxPassword.Name = "TextBoxPassword"
@@ -669,7 +873,7 @@ Partial Class FormMain
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.StatusLed})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(1395, 642)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(1395, 669)
         Me.ShapeContainer1.TabIndex = 20
         Me.ShapeContainer1.TabStop = False
         '
@@ -683,7 +887,7 @@ Partial Class FormMain
         '
         'FbConnection1
         '
-        Me.FbConnection1.ConnectionString = MySettings1.ProjetexDB
+        Me.FbConnection1.ConnectionString = resources.GetString("FbConnection1.ConnectionString")
         '
         'BindingSourceCatTools
         '
@@ -720,6 +924,64 @@ Partial Class FormMain
         Me.FbCommand1.CommandTimeout = 30
         Me.FbCommand1.Connection = Me.FbConnection1
         '
+        'TADetails
+        '
+        Me.TADetails.ClearBeforeFill = True
+        '
+        'LASTJOBDataGridViewTextBoxColumn
+        '
+        Me.LASTJOBDataGridViewTextBoxColumn.DataPropertyName = "LASTJOB"
+        Me.LASTJOBDataGridViewTextBoxColumn.HeaderText = "LASTJOB"
+        Me.LASTJOBDataGridViewTextBoxColumn.Name = "LASTJOBDataGridViewTextBoxColumn"
+        Me.LASTJOBDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LASTJOBDataGridViewTextBoxColumn.Width = 79
+        '
+        'SERVICEDataGridViewTextBoxColumn1
+        '
+        Me.SERVICEDataGridViewTextBoxColumn1.DataPropertyName = "SERVICE"
+        Me.SERVICEDataGridViewTextBoxColumn1.HeaderText = "SERVICE"
+        Me.SERVICEDataGridViewTextBoxColumn1.Name = "SERVICEDataGridViewTextBoxColumn1"
+        Me.SERVICEDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.SERVICEDataGridViewTextBoxColumn1.Width = 78
+        '
+        'LASTPROJECTDataGridViewTextBoxColumn
+        '
+        Me.LASTPROJECTDataGridViewTextBoxColumn.DataPropertyName = "LASTPROJECT"
+        Me.LASTPROJECTDataGridViewTextBoxColumn.HeaderText = "LASTPROJECT"
+        Me.LASTPROJECTDataGridViewTextBoxColumn.Name = "LASTPROJECTDataGridViewTextBoxColumn"
+        Me.LASTPROJECTDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LASTPROJECTDataGridViewTextBoxColumn.Width = 108
+        '
+        'CLIENTDataGridViewTextBoxColumn
+        '
+        Me.CLIENTDataGridViewTextBoxColumn.DataPropertyName = "CLIENT"
+        Me.CLIENTDataGridViewTextBoxColumn.HeaderText = "CLIENT"
+        Me.CLIENTDataGridViewTextBoxColumn.Name = "CLIENTDataGridViewTextBoxColumn"
+        Me.CLIENTDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CLIENTDataGridViewTextBoxColumn.Width = 70
+        '
+        'PROJECTMANAGERDataGridViewTextBoxColumn
+        '
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn.DataPropertyName = "PROJECTMANAGER"
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn.HeaderText = "PROJECTMANAGER"
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn.Name = "PROJECTMANAGERDataGridViewTextBoxColumn"
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn.Width = 135
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "COUN_NAME"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "COUN_NAME"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "CURR_NAME"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "CURR_NAME"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -730,22 +992,27 @@ Partial Class FormMain
         Me.DataBindings.Add(New System.Windows.Forms.Binding("WindowState", MySettings1, "MainFormWindowState", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.DataBindings.Add(New System.Windows.Forms.Binding("ClientSize", MySettings1, "test", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.Location = MySettings1.WindowLocation
-        Me.MinimumSize = New System.Drawing.Size(850, 39)
+        Me.MinimumSize = New System.Drawing.Size(850, 300)
         Me.Name = "FormMain"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Mayflower: Projetex Lookup Tool"
         Me.WindowState = MySettings1.MainFormWindowState
         Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
+        Me.TabFreelancers.ResumeLayout(False)
+        Me.TabFreelancers.PerformLayout()
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage2.ResumeLayout(False)
+        Me.TabDetails.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.DTDetailsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabSettings.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.BindingSourceCatTools, System.ComponentModel.ISupportInitialize).EndInit()
@@ -753,8 +1020,8 @@ Partial Class FormMain
 
     End Sub
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents TabFreelancers As System.Windows.Forms.TabPage
+    Friend WithEvents TabSettings As System.Windows.Forms.TabPage
     Friend WithEvents ComboBoxSourceLang As System.Windows.Forms.ComboBox
     Friend WithEvents DataTableSourceLangBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -821,7 +1088,6 @@ Partial Class FormMain
     Friend WithEvents RestrictByService As System.Windows.Forms.CheckBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents ComboBoxServices As System.Windows.Forms.ComboBox
-    Friend WithEvents DataSet21 As Mayflower.DataSet2
     Friend WithEvents DataTableServiceBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ServiceTableAdapter As Mayflower.DataSet2TableAdapters.ServiceTableAdapter
     Friend WithEvents FbCommand1 As FirebirdSql.Data.FirebirdClient.FbCommand
@@ -836,5 +1102,27 @@ Partial Class FormMain
     Friend WithEvents RoleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SERVICEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents APPROVALDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TabDetails As System.Windows.Forms.TabPage
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents DTDetailsBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TADetails As Mayflower.DataSet2TableAdapters.TADetails
+    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents LASTJOBDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SERVICEDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LASTPROJECTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CLIENTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PROJECTMANAGERDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class

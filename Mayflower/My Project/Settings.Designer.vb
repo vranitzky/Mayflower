@@ -120,9 +120,10 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=192.168.0.56;initial catalog=""E:\Program Files (x8"& _ 
-            "6)\AIT\Projetex 9\Projetex Server\Database\Projetex.fdb"";user id=ODBC;password=p"& _ 
-            "assword;role=PROJETEX_ODBC")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("User=ODBC;Password=pwww;Database=c:\projetex9\projetex server\database\projetex.f"& _ 
+            "db;DataSource=192.168.56.101;Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODBC"& _ 
+            ";Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=81"& _ 
+            "92")>  _
         Public ReadOnly Property ProjetexDB2() As String
             Get
                 Return CType(Me("ProjetexDB2"),String)
