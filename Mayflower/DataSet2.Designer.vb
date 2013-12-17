@@ -39,7 +39,7 @@ Partial Public Class DataSet2
     
     Private tableDTDetails As DTDetailsDataTable
     
-    Private tableDataTable1 As DataTable1DataTable
+    Private tableDTFreelancerInfo As DTFreelancerInfoDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -91,8 +91,8 @@ Partial Public Class DataSet2
             If (Not (ds.Tables("DTDetails")) Is Nothing) Then
                 MyBase.Tables.Add(New DTDetailsDataTable(ds.Tables("DTDetails")))
             End If
-            If (Not (ds.Tables("DataTable1")) Is Nothing) Then
-                MyBase.Tables.Add(New DataTable1DataTable(ds.Tables("DataTable1")))
+            If (Not (ds.Tables("DTFreelancerInfo")) Is Nothing) Then
+                MyBase.Tables.Add(New DTFreelancerInfoDataTable(ds.Tables("DTFreelancerInfo")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -185,9 +185,9 @@ Partial Public Class DataSet2
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property DataTable1() As DataTable1DataTable
+    Public ReadOnly Property DTFreelancerInfo() As DTFreelancerInfoDataTable
         Get
-            Return Me.tableDataTable1
+            Return Me.tableDTFreelancerInfo
         End Get
     End Property
     
@@ -279,8 +279,8 @@ Partial Public Class DataSet2
             If (Not (ds.Tables("DTDetails")) Is Nothing) Then
                 MyBase.Tables.Add(New DTDetailsDataTable(ds.Tables("DTDetails")))
             End If
-            If (Not (ds.Tables("DataTable1")) Is Nothing) Then
-                MyBase.Tables.Add(New DataTable1DataTable(ds.Tables("DataTable1")))
+            If (Not (ds.Tables("DTFreelancerInfo")) Is Nothing) Then
+                MyBase.Tables.Add(New DTFreelancerInfoDataTable(ds.Tables("DTFreelancerInfo")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -356,10 +356,10 @@ Partial Public Class DataSet2
                 Me.tableDTDetails.InitVars
             End If
         End If
-        Me.tableDataTable1 = CType(MyBase.Tables("DataTable1"),DataTable1DataTable)
+        Me.tableDTFreelancerInfo = CType(MyBase.Tables("DTFreelancerInfo"),DTFreelancerInfoDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableDataTable1) Is Nothing) Then
-                Me.tableDataTable1.InitVars
+            If (Not (Me.tableDTFreelancerInfo) Is Nothing) Then
+                Me.tableDTFreelancerInfo.InitVars
             End If
         End If
     End Sub
@@ -386,8 +386,8 @@ Partial Public Class DataSet2
         MyBase.Tables.Add(Me.tableDataTableService)
         Me.tableDTDetails = New DTDetailsDataTable()
         MyBase.Tables.Add(Me.tableDTDetails)
-        Me.tableDataTable1 = New DataTable1DataTable()
-        MyBase.Tables.Add(Me.tableDataTable1)
+        Me.tableDTFreelancerInfo = New DTFreelancerInfoDataTable()
+        MyBase.Tables.Add(Me.tableDTFreelancerInfo)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -434,7 +434,7 @@ Partial Public Class DataSet2
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeDataTable1() As Boolean
+    Private Function ShouldSerializeDTFreelancerInfo() As Boolean
         Return false
     End Function
     
@@ -518,7 +518,7 @@ Partial Public Class DataSet2
     Public Delegate Sub DTDetailsRowChangeEventHandler(ByVal sender As Object, ByVal e As DTDetailsRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub DataTable1RowChangeEventHandler(ByVal sender As Object, ByVal e As DataTable1RowChangeEvent)
+    Public Delegate Sub DTFreelancerInfoRowChangeEventHandler(ByVal sender As Object, ByVal e As DTFreelancerInfoRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -1056,6 +1056,8 @@ Partial Public Class DataSet2
         
         Private columnAPPROVAL As Global.System.Data.DataColumn
         
+        Private columnNATIVE As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1180,6 +1182,14 @@ Partial Public Class DataSet2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property NATIVEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNATIVE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1216,9 +1226,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDataTableFreelancersRow(ByVal ID As Integer, ByVal NAME As String, ByVal SOURCELANG As String, ByVal TARGETLANG1 As String, ByVal TARGETLANG2 As String, ByVal RATE As Decimal, ByVal CURRENCY As String, ByVal COUNTRY As String, ByVal Role As String, ByVal SERVICE As String, ByVal APPROVAL As String) As DataTableFreelancersRow
+        Public Overloads Function AddDataTableFreelancersRow(ByVal ID As Integer, ByVal NAME As String, ByVal SOURCELANG As String, ByVal TARGETLANG1 As String, ByVal TARGETLANG2 As String, ByVal RATE As Decimal, ByVal CURRENCY As String, ByVal COUNTRY As String, ByVal Role As String, ByVal SERVICE As String, ByVal APPROVAL As String, ByVal NATIVE As String) As DataTableFreelancersRow
             Dim rowDataTableFreelancersRow As DataTableFreelancersRow = CType(Me.NewRow,DataTableFreelancersRow)
-            Dim columnValuesArray() As Object = New Object() {ID, NAME, SOURCELANG, TARGETLANG1, TARGETLANG2, RATE, CURRENCY, COUNTRY, Role, SERVICE, APPROVAL}
+            Dim columnValuesArray() As Object = New Object() {ID, NAME, SOURCELANG, TARGETLANG1, TARGETLANG2, RATE, CURRENCY, COUNTRY, Role, SERVICE, APPROVAL, NATIVE}
             rowDataTableFreelancersRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTableFreelancersRow)
             Return rowDataTableFreelancersRow
@@ -1258,6 +1268,7 @@ Partial Public Class DataSet2
             Me.columnRole = MyBase.Columns("Role")
             Me.columnSERVICE = MyBase.Columns("SERVICE")
             Me.columnAPPROVAL = MyBase.Columns("APPROVAL")
+            Me.columnNATIVE = MyBase.Columns("NATIVE")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1285,6 +1296,8 @@ Partial Public Class DataSet2
             MyBase.Columns.Add(Me.columnSERVICE)
             Me.columnAPPROVAL = New Global.System.Data.DataColumn("APPROVAL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAPPROVAL)
+            Me.columnNATIVE = New Global.System.Data.DataColumn("NATIVE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNATIVE)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
@@ -1299,6 +1312,7 @@ Partial Public Class DataSet2
             Me.columnRole.MaxLength = 255
             Me.columnSERVICE.MaxLength = 255
             Me.columnAPPROVAL.MaxLength = 255
+            Me.columnNATIVE.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2207,6 +2221,20 @@ Partial Public Class DataSet2
         
         Private columnCURR_NAME As Global.System.Data.DataColumn
         
+        Private columnRJOB_PRICE As Global.System.Data.DataColumn
+        
+        Private columnRJOB_FEE_KIND As Global.System.Data.DataColumn
+        
+        Private columnRJOB_RATE As Global.System.Data.DataColumn
+        
+        Private columnRJOB_TOTAL As Global.System.Data.DataColumn
+        
+        Private columnRJOB_INSTRUCTION As Global.System.Data.DataColumn
+        
+        Private columnRJOB_WORKNOTES As Global.System.Data.DataColumn
+        
+        Private columnRJOB_ASSIGNED As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -2291,6 +2319,62 @@ Partial Public Class DataSet2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RJOB_PRICEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRJOB_PRICE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RJOB_FEE_KINDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRJOB_FEE_KIND
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RJOB_RATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRJOB_RATE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RJOB_TOTALColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRJOB_TOTAL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RJOB_INSTRUCTIONColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRJOB_INSTRUCTION
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RJOB_WORKNOTESColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRJOB_WORKNOTES
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RJOB_ASSIGNEDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRJOB_ASSIGNED
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2327,9 +2411,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDTDetailsRow(ByVal LASTJOB As String, ByVal SERVICE As String, ByVal LASTPROJECT As String, ByVal CLIENT As String, ByVal PROJECTMANAGER As String, ByVal CURR_NAME As String) As DTDetailsRow
+        Public Overloads Function AddDTDetailsRow(ByVal LASTJOB As String, ByVal SERVICE As String, ByVal LASTPROJECT As String, ByVal CLIENT As String, ByVal PROJECTMANAGER As String, ByVal CURR_NAME As String, ByVal RJOB_PRICE As Decimal, ByVal RJOB_FEE_KIND As String, ByVal RJOB_RATE As Decimal, ByVal RJOB_TOTAL As Decimal, ByVal RJOB_INSTRUCTION As String, ByVal RJOB_WORKNOTES As String, ByVal RJOB_ASSIGNED As Date) As DTDetailsRow
             Dim rowDTDetailsRow As DTDetailsRow = CType(Me.NewRow,DTDetailsRow)
-            Dim columnValuesArray() As Object = New Object() {LASTJOB, SERVICE, LASTPROJECT, CLIENT, PROJECTMANAGER, CURR_NAME}
+            Dim columnValuesArray() As Object = New Object() {LASTJOB, SERVICE, LASTPROJECT, CLIENT, PROJECTMANAGER, CURR_NAME, RJOB_PRICE, RJOB_FEE_KIND, RJOB_RATE, RJOB_TOTAL, RJOB_INSTRUCTION, RJOB_WORKNOTES, RJOB_ASSIGNED}
             rowDTDetailsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDTDetailsRow)
             Return rowDTDetailsRow
@@ -2358,6 +2442,13 @@ Partial Public Class DataSet2
             Me.columnCLIENT = MyBase.Columns("CLIENT")
             Me.columnPROJECTMANAGER = MyBase.Columns("PROJECTMANAGER")
             Me.columnCURR_NAME = MyBase.Columns("CURR_NAME")
+            Me.columnRJOB_PRICE = MyBase.Columns("RJOB_PRICE")
+            Me.columnRJOB_FEE_KIND = MyBase.Columns("RJOB_FEE_KIND")
+            Me.columnRJOB_RATE = MyBase.Columns("RJOB_RATE")
+            Me.columnRJOB_TOTAL = MyBase.Columns("RJOB_TOTAL")
+            Me.columnRJOB_INSTRUCTION = MyBase.Columns("RJOB_INSTRUCTION")
+            Me.columnRJOB_WORKNOTES = MyBase.Columns("RJOB_WORKNOTES")
+            Me.columnRJOB_ASSIGNED = MyBase.Columns("RJOB_ASSIGNED")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2375,6 +2466,20 @@ Partial Public Class DataSet2
             MyBase.Columns.Add(Me.columnPROJECTMANAGER)
             Me.columnCURR_NAME = New Global.System.Data.DataColumn("CURR_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCURR_NAME)
+            Me.columnRJOB_PRICE = New Global.System.Data.DataColumn("RJOB_PRICE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRJOB_PRICE)
+            Me.columnRJOB_FEE_KIND = New Global.System.Data.DataColumn("RJOB_FEE_KIND", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRJOB_FEE_KIND)
+            Me.columnRJOB_RATE = New Global.System.Data.DataColumn("RJOB_RATE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRJOB_RATE)
+            Me.columnRJOB_TOTAL = New Global.System.Data.DataColumn("RJOB_TOTAL", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRJOB_TOTAL)
+            Me.columnRJOB_INSTRUCTION = New Global.System.Data.DataColumn("RJOB_INSTRUCTION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRJOB_INSTRUCTION)
+            Me.columnRJOB_WORKNOTES = New Global.System.Data.DataColumn("RJOB_WORKNOTES", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRJOB_WORKNOTES)
+            Me.columnRJOB_ASSIGNED = New Global.System.Data.DataColumn("RJOB_ASSIGNED", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRJOB_ASSIGNED)
             Me.columnLASTJOB.MaxLength = 500
             Me.columnSERVICE.AllowDBNull = false
             Me.columnSERVICE.MaxLength = 150
@@ -2385,6 +2490,14 @@ Partial Public Class DataSet2
             Me.columnPROJECTMANAGER.MaxLength = 100
             Me.columnCURR_NAME.AllowDBNull = false
             Me.columnCURR_NAME.MaxLength = 3
+            Me.columnRJOB_PRICE.AllowDBNull = false
+            Me.columnRJOB_FEE_KIND.AllowDBNull = false
+            Me.columnRJOB_FEE_KIND.MaxLength = 20
+            Me.columnRJOB_RATE.AllowDBNull = false
+            Me.columnRJOB_TOTAL.AllowDBNull = false
+            Me.columnRJOB_INSTRUCTION.MaxLength = 2147483647
+            Me.columnRJOB_WORKNOTES.MaxLength = 2147483647
+            Me.columnRJOB_ASSIGNED.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2519,8 +2632,8 @@ Partial Public Class DataSet2
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class DataTable1DataTable
-        Inherits Global.System.Data.TypedTableBase(Of DataTable1Row)
+    Partial Public Class DTFreelancerInfoDataTable
+        Inherits Global.System.Data.TypedTableBase(Of DTFreelancerInfoRow)
         
         Private columnRES_NAME As Global.System.Data.DataColumn
         
@@ -2578,7 +2691,7 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "DataTable1"
+            Me.TableName = "DTFreelancerInfo"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -2828,33 +2941,33 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As DataTable1Row
+        Public Default ReadOnly Property Item(ByVal index As Integer) As DTFreelancerInfoRow
             Get
-                Return CType(Me.Rows(index),DataTable1Row)
+                Return CType(Me.Rows(index),DTFreelancerInfoRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event DataTable1RowChanging As DataTable1RowChangeEventHandler
+        Public Event DTFreelancerInfoRowChanging As DTFreelancerInfoRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event DataTable1RowChanged As DataTable1RowChangeEventHandler
+        Public Event DTFreelancerInfoRowChanged As DTFreelancerInfoRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event DataTable1RowDeleting As DataTable1RowChangeEventHandler
+        Public Event DTFreelancerInfoRowDeleting As DTFreelancerInfoRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event DataTable1RowDeleted As DataTable1RowChangeEventHandler
+        Public Event DTFreelancerInfoRowDeleted As DTFreelancerInfoRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddDataTable1Row(ByVal row As DataTable1Row)
+        Public Overloads Sub AddDTFreelancerInfoRow(ByVal row As DTFreelancerInfoRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row( _
+        Public Overloads Function AddDTFreelancerInfoRow( _
                     ByVal RES_NAME As String,  _
                     ByVal CURR_NAME As String,  _
                     ByVal COUN_NAME As String,  _
@@ -2880,18 +2993,18 @@ Partial Public Class DataSet2
                     ByVal DOB As Date,  _
                     ByVal TOOLS As String,  _
                     ByVal SOURCE As String,  _
-                    ByVal TARGET1 As String) As DataTable1Row
-            Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
+                    ByVal TARGET1 As String) As DTFreelancerInfoRow
+            Dim rowDTFreelancerInfoRow As DTFreelancerInfoRow = CType(Me.NewRow,DTFreelancerInfoRow)
             Dim columnValuesArray() As Object = New Object() {RES_NAME, CURR_NAME, COUN_NAME, RES_PT_TYPE, RES_PT_DAYS, RES_PT_DESC, RES_STREET1, RES_STREET2, RES_CITY, RES_STATE, RES_ZIP, RES_EMAIL1, RES_EMAIL2, RES_PHONE1, RES_PHONE2, RES_FAX, RES_WWW, RES_VATNUM, RES_MINFEE, RES_PHONE3, RES_PHONE4, SKYPE, DOB, TOOLS, SOURCE, TARGET1}
-            rowDataTable1Row.ItemArray = columnValuesArray
-            Me.Rows.Add(rowDataTable1Row)
-            Return rowDataTable1Row
+            rowDTFreelancerInfoRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowDTFreelancerInfoRow)
+            Return rowDTFreelancerInfoRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As DataTable1DataTable = CType(MyBase.Clone,DataTable1DataTable)
+            Dim cln As DTFreelancerInfoDataTable = CType(MyBase.Clone,DTFreelancerInfoDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -2899,7 +3012,7 @@ Partial Public Class DataSet2
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New DataTable1DataTable()
+            Return New DTFreelancerInfoDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3032,28 +3145,28 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewDataTable1Row() As DataTable1Row
-            Return CType(Me.NewRow,DataTable1Row)
+        Public Function NewDTFreelancerInfoRow() As DTFreelancerInfoRow
+            Return CType(Me.NewRow,DTFreelancerInfoRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New DataTable1Row(builder)
+            Return New DTFreelancerInfoRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(DataTable1Row)
+            Return GetType(DTFreelancerInfoRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.DataTable1RowChangedEvent) Is Nothing) Then
-                RaiseEvent DataTable1RowChanged(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            If (Not (Me.DTFreelancerInfoRowChangedEvent) Is Nothing) Then
+                RaiseEvent DTFreelancerInfoRowChanged(Me, New DTFreelancerInfoRowChangeEvent(CType(e.Row,DTFreelancerInfoRow), e.Action))
             End If
         End Sub
         
@@ -3061,8 +3174,8 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.DataTable1RowChangingEvent) Is Nothing) Then
-                RaiseEvent DataTable1RowChanging(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            If (Not (Me.DTFreelancerInfoRowChangingEvent) Is Nothing) Then
+                RaiseEvent DTFreelancerInfoRowChanging(Me, New DTFreelancerInfoRowChangeEvent(CType(e.Row,DTFreelancerInfoRow), e.Action))
             End If
         End Sub
         
@@ -3070,8 +3183,8 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.DataTable1RowDeletedEvent) Is Nothing) Then
-                RaiseEvent DataTable1RowDeleted(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            If (Not (Me.DTFreelancerInfoRowDeletedEvent) Is Nothing) Then
+                RaiseEvent DTFreelancerInfoRowDeleted(Me, New DTFreelancerInfoRowChangeEvent(CType(e.Row,DTFreelancerInfoRow), e.Action))
             End If
         End Sub
         
@@ -3079,14 +3192,14 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.DataTable1RowDeletingEvent) Is Nothing) Then
-                RaiseEvent DataTable1RowDeleting(Me, New DataTable1RowChangeEvent(CType(e.Row,DataTable1Row), e.Action))
+            If (Not (Me.DTFreelancerInfoRowDeletingEvent) Is Nothing) Then
+                RaiseEvent DTFreelancerInfoRowDeleting(Me, New DTFreelancerInfoRowChangeEvent(CType(e.Row,DTFreelancerInfoRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveDataTable1Row(ByVal row As DataTable1Row)
+        Public Sub RemoveDTFreelancerInfoRow(ByVal row As DTFreelancerInfoRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -3113,7 +3226,7 @@ Partial Public Class DataSet2
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "DataTable1DataTable"
+            attribute2.FixedValue = "DTFreelancerInfoDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -3413,6 +3526,21 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property NATIVE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataTableFreelancers.NATIVEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NATIVE' in table 'DataTableFreelancers' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataTableFreelancers.NATIVEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsSOURCELANGNull() As Boolean
             Return Me.IsNull(Me.tableDataTableFreelancers.SOURCELANGColumn)
         End Function
@@ -3505,6 +3633,18 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetAPPROVALNull()
             Me(Me.tableDataTableFreelancers.APPROVALColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsNATIVENull() As Boolean
+            Return Me.IsNull(Me.tableDataTableFreelancers.NATIVEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetNATIVENull()
+            Me(Me.tableDataTableFreelancers.NATIVEColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3728,6 +3868,91 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RJOB_PRICE() As Decimal
+            Get
+                Return CType(Me(Me.tableDTDetails.RJOB_PRICEColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDTDetails.RJOB_PRICEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RJOB_FEE_KIND() As String
+            Get
+                Return CType(Me(Me.tableDTDetails.RJOB_FEE_KINDColumn),String)
+            End Get
+            Set
+                Me(Me.tableDTDetails.RJOB_FEE_KINDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RJOB_RATE() As Decimal
+            Get
+                Return CType(Me(Me.tableDTDetails.RJOB_RATEColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDTDetails.RJOB_RATEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RJOB_TOTAL() As Decimal
+            Get
+                Return CType(Me(Me.tableDTDetails.RJOB_TOTALColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDTDetails.RJOB_TOTALColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RJOB_INSTRUCTION() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDTDetails.RJOB_INSTRUCTIONColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RJOB_INSTRUCTION' in table 'DTDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDTDetails.RJOB_INSTRUCTIONColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RJOB_WORKNOTES() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDTDetails.RJOB_WORKNOTESColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RJOB_WORKNOTES' in table 'DTDetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDTDetails.RJOB_WORKNOTESColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RJOB_ASSIGNED() As Date
+            Get
+                Return CType(Me(Me.tableDTDetails.RJOB_ASSIGNEDColumn),Date)
+            End Get
+            Set
+                Me(Me.tableDTDetails.RJOB_ASSIGNEDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsLASTJOBNull() As Boolean
             Return Me.IsNull(Me.tableDTDetails.LASTJOBColumn)
         End Function
@@ -3749,31 +3974,55 @@ Partial Public Class DataSet2
         Public Sub SetLASTPROJECTNull()
             Me(Me.tableDTDetails.LASTPROJECTColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRJOB_INSTRUCTIONNull() As Boolean
+            Return Me.IsNull(Me.tableDTDetails.RJOB_INSTRUCTIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRJOB_INSTRUCTIONNull()
+            Me(Me.tableDTDetails.RJOB_INSTRUCTIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRJOB_WORKNOTESNull() As Boolean
+            Return Me.IsNull(Me.tableDTDetails.RJOB_WORKNOTESColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRJOB_WORKNOTESNull()
+            Me(Me.tableDTDetails.RJOB_WORKNOTESColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class DataTable1Row
+    Partial Public Class DTFreelancerInfoRow
         Inherits Global.System.Data.DataRow
         
-        Private tableDataTable1 As DataTable1DataTable
+        Private tableDTFreelancerInfo As DTFreelancerInfoDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableDataTable1 = CType(Me.Table,DataTable1DataTable)
+            Me.tableDTFreelancerInfo = CType(Me.Table,DTFreelancerInfoDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_NAME() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_NAMEColumn),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_NAMEColumn),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_NAMEColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_NAMEColumn) = value
             End Set
         End Property
         
@@ -3781,10 +4030,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property CURR_NAME() As String
             Get
-                Return CType(Me(Me.tableDataTable1.CURR_NAMEColumn),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.CURR_NAMEColumn),String)
             End Get
             Set
-                Me(Me.tableDataTable1.CURR_NAMEColumn) = value
+                Me(Me.tableDTFreelancerInfo.CURR_NAMEColumn) = value
             End Set
         End Property
         
@@ -3792,10 +4041,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property COUN_NAME() As String
             Get
-                Return CType(Me(Me.tableDataTable1.COUN_NAMEColumn),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.COUN_NAMEColumn),String)
             End Get
             Set
-                Me(Me.tableDataTable1.COUN_NAMEColumn) = value
+                Me(Me.tableDTFreelancerInfo.COUN_NAMEColumn) = value
             End Set
         End Property
         
@@ -3804,13 +4053,13 @@ Partial Public Class DataSet2
         Public Property RES_PT_TYPE() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.RES_PT_TYPEColumn),Integer)
+                    Return CType(Me(Me.tableDTFreelancerInfo.RES_PT_TYPEColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'RES_PT_TYPE' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RES_PT_TYPE' in table 'DTFreelancerInfo' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.RES_PT_TYPEColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_PT_TYPEColumn) = value
             End Set
         End Property
         
@@ -3819,13 +4068,13 @@ Partial Public Class DataSet2
         Public Property RES_PT_DAYS() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.RES_PT_DAYSColumn),Integer)
+                    Return CType(Me(Me.tableDTFreelancerInfo.RES_PT_DAYSColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'RES_PT_DAYS' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RES_PT_DAYS' in table 'DTFreelancerInfo' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.RES_PT_DAYSColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_PT_DAYSColumn) = value
             End Set
         End Property
         
@@ -3834,13 +4083,13 @@ Partial Public Class DataSet2
         Public Property RES_PT_DESC() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.RES_PT_DESCColumn),String)
+                    Return CType(Me(Me.tableDTFreelancerInfo.RES_PT_DESCColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'RES_PT_DESC' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RES_PT_DESC' in table 'DTFreelancerInfo' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.RES_PT_DESCColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_PT_DESCColumn) = value
             End Set
         End Property
         
@@ -3848,10 +4097,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_STREET1() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_STREET1Column),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_STREET1Column),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_STREET1Column) = value
+                Me(Me.tableDTFreelancerInfo.RES_STREET1Column) = value
             End Set
         End Property
         
@@ -3859,10 +4108,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_STREET2() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_STREET2Column),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_STREET2Column),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_STREET2Column) = value
+                Me(Me.tableDTFreelancerInfo.RES_STREET2Column) = value
             End Set
         End Property
         
@@ -3870,10 +4119,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_CITY() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_CITYColumn),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_CITYColumn),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_CITYColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_CITYColumn) = value
             End Set
         End Property
         
@@ -3881,10 +4130,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_STATE() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_STATEColumn),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_STATEColumn),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_STATEColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_STATEColumn) = value
             End Set
         End Property
         
@@ -3892,10 +4141,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_ZIP() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_ZIPColumn),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_ZIPColumn),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_ZIPColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_ZIPColumn) = value
             End Set
         End Property
         
@@ -3903,10 +4152,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_EMAIL1() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_EMAIL1Column),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_EMAIL1Column),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_EMAIL1Column) = value
+                Me(Me.tableDTFreelancerInfo.RES_EMAIL1Column) = value
             End Set
         End Property
         
@@ -3914,10 +4163,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_EMAIL2() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_EMAIL2Column),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_EMAIL2Column),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_EMAIL2Column) = value
+                Me(Me.tableDTFreelancerInfo.RES_EMAIL2Column) = value
             End Set
         End Property
         
@@ -3925,10 +4174,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_PHONE1() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_PHONE1Column),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_PHONE1Column),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_PHONE1Column) = value
+                Me(Me.tableDTFreelancerInfo.RES_PHONE1Column) = value
             End Set
         End Property
         
@@ -3936,10 +4185,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_PHONE2() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_PHONE2Column),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_PHONE2Column),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_PHONE2Column) = value
+                Me(Me.tableDTFreelancerInfo.RES_PHONE2Column) = value
             End Set
         End Property
         
@@ -3947,10 +4196,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_FAX() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_FAXColumn),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_FAXColumn),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_FAXColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_FAXColumn) = value
             End Set
         End Property
         
@@ -3958,10 +4207,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_WWW() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_WWWColumn),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_WWWColumn),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_WWWColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_WWWColumn) = value
             End Set
         End Property
         
@@ -3969,10 +4218,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_VATNUM() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_VATNUMColumn),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_VATNUMColumn),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_VATNUMColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_VATNUMColumn) = value
             End Set
         End Property
         
@@ -3980,10 +4229,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_MINFEE() As Decimal
             Get
-                Return CType(Me(Me.tableDataTable1.RES_MINFEEColumn),Decimal)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_MINFEEColumn),Decimal)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_MINFEEColumn) = value
+                Me(Me.tableDTFreelancerInfo.RES_MINFEEColumn) = value
             End Set
         End Property
         
@@ -3991,10 +4240,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_PHONE3() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_PHONE3Column),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_PHONE3Column),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_PHONE3Column) = value
+                Me(Me.tableDTFreelancerInfo.RES_PHONE3Column) = value
             End Set
         End Property
         
@@ -4002,10 +4251,10 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property RES_PHONE4() As String
             Get
-                Return CType(Me(Me.tableDataTable1.RES_PHONE4Column),String)
+                Return CType(Me(Me.tableDTFreelancerInfo.RES_PHONE4Column),String)
             End Get
             Set
-                Me(Me.tableDataTable1.RES_PHONE4Column) = value
+                Me(Me.tableDTFreelancerInfo.RES_PHONE4Column) = value
             End Set
         End Property
         
@@ -4014,13 +4263,13 @@ Partial Public Class DataSet2
         Public Property SKYPE() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.SKYPEColumn),String)
+                    Return CType(Me(Me.tableDTFreelancerInfo.SKYPEColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SKYPE' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SKYPE' in table 'DTFreelancerInfo' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.SKYPEColumn) = value
+                Me(Me.tableDTFreelancerInfo.SKYPEColumn) = value
             End Set
         End Property
         
@@ -4029,13 +4278,13 @@ Partial Public Class DataSet2
         Public Property DOB() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.DOBColumn),Date)
+                    Return CType(Me(Me.tableDTFreelancerInfo.DOBColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DOB' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DOB' in table 'DTFreelancerInfo' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.DOBColumn) = value
+                Me(Me.tableDTFreelancerInfo.DOBColumn) = value
             End Set
         End Property
         
@@ -4044,13 +4293,13 @@ Partial Public Class DataSet2
         Public Property TOOLS() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.TOOLSColumn),String)
+                    Return CType(Me(Me.tableDTFreelancerInfo.TOOLSColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'TOOLS' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TOOLS' in table 'DTFreelancerInfo' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.TOOLSColumn) = value
+                Me(Me.tableDTFreelancerInfo.TOOLSColumn) = value
             End Set
         End Property
         
@@ -4059,13 +4308,13 @@ Partial Public Class DataSet2
         Public Property SOURCE() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.SOURCEColumn),String)
+                    Return CType(Me(Me.tableDTFreelancerInfo.SOURCEColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SOURCE' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SOURCE' in table 'DTFreelancerInfo' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.SOURCEColumn) = value
+                Me(Me.tableDTFreelancerInfo.SOURCEColumn) = value
             End Set
         End Property
         
@@ -4074,110 +4323,110 @@ Partial Public Class DataSet2
         Public Property TARGET1() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.TARGET1Column),String)
+                    Return CType(Me(Me.tableDTFreelancerInfo.TARGET1Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'TARGET1' in table 'DataTable1' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TARGET1' in table 'DTFreelancerInfo' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDataTable1.TARGET1Column) = value
+                Me(Me.tableDTFreelancerInfo.TARGET1Column) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsRES_PT_TYPENull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.RES_PT_TYPEColumn)
+            Return Me.IsNull(Me.tableDTFreelancerInfo.RES_PT_TYPEColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetRES_PT_TYPENull()
-            Me(Me.tableDataTable1.RES_PT_TYPEColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDTFreelancerInfo.RES_PT_TYPEColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsRES_PT_DAYSNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.RES_PT_DAYSColumn)
+            Return Me.IsNull(Me.tableDTFreelancerInfo.RES_PT_DAYSColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetRES_PT_DAYSNull()
-            Me(Me.tableDataTable1.RES_PT_DAYSColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDTFreelancerInfo.RES_PT_DAYSColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsRES_PT_DESCNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.RES_PT_DESCColumn)
+            Return Me.IsNull(Me.tableDTFreelancerInfo.RES_PT_DESCColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetRES_PT_DESCNull()
-            Me(Me.tableDataTable1.RES_PT_DESCColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDTFreelancerInfo.RES_PT_DESCColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsSKYPENull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.SKYPEColumn)
+            Return Me.IsNull(Me.tableDTFreelancerInfo.SKYPEColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetSKYPENull()
-            Me(Me.tableDataTable1.SKYPEColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDTFreelancerInfo.SKYPEColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsDOBNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.DOBColumn)
+            Return Me.IsNull(Me.tableDTFreelancerInfo.DOBColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetDOBNull()
-            Me(Me.tableDataTable1.DOBColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDTFreelancerInfo.DOBColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsTOOLSNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.TOOLSColumn)
+            Return Me.IsNull(Me.tableDTFreelancerInfo.TOOLSColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetTOOLSNull()
-            Me(Me.tableDataTable1.TOOLSColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDTFreelancerInfo.TOOLSColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsSOURCENull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.SOURCEColumn)
+            Return Me.IsNull(Me.tableDTFreelancerInfo.SOURCEColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetSOURCENull()
-            Me(Me.tableDataTable1.SOURCEColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDTFreelancerInfo.SOURCEColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsTARGET1Null() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.TARGET1Column)
+            Return Me.IsNull(Me.tableDTFreelancerInfo.TARGET1Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetTARGET1Null()
-            Me(Me.tableDataTable1.TARGET1Column) = Global.System.Convert.DBNull
+            Me(Me.tableDTFreelancerInfo.TARGET1Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4437,16 +4686,16 @@ Partial Public Class DataSet2
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class DataTable1RowChangeEvent
+    Public Class DTFreelancerInfoRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As DataTable1Row
+        Private eventRow As DTFreelancerInfoRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As DataTable1Row, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As DTFreelancerInfoRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -4454,7 +4703,7 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As DataTable1Row
+        Public ReadOnly Property Row() As DTFreelancerInfoRow
             Get
                 Return Me.eventRow
             End Get
@@ -5009,6 +5258,7 @@ Namespace DataSet2TableAdapters
             tableMapping.ColumnMappings.Add("Role", "Role")
             tableMapping.ColumnMappings.Add("SERVICE", "SERVICE")
             tableMapping.ColumnMappings.Add("APPROVAL", "APPROVAL")
+            tableMapping.ColumnMappings.Add("NATIVE", "NATIVE")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -5030,10 +5280,10 @@ Namespace DataSet2TableAdapters
                 "                     RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, RESOURCES.""AIT"& _ 
                 "$CUSTOMF00092"" AS Rate, CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Count"& _ 
                 "ry, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.""AIT$CUSTOMF00093"" AS ""Role"", RESOURCES"& _ 
-                ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
-                "          RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON RESOURCES."& _ 
-                "COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURC"& _ 
-                "ES.CURR_ID = CURR.CURR_ID"
+                ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval, RESOUR"& _ 
+                "CES.""AIT$CUSTOMF00149"" as Native"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -5042,15 +5292,16 @@ Namespace DataSet2TableAdapters
                 "                     RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, RESOURCES.""AIT"& _ 
                 "$CUSTOMF00092"" AS Rate, CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Count"& _ 
                 "ry, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.""AIT$CUSTOMF00093"" AS ""Role"", RESOURCES"& _ 
-                ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
-                "          RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON RESOURCES."& _ 
-                "COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURC"& _ 
-                "ES.CURR_ID = CURR.CURR_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RESOURCES.RES_ID = @resid)"
+                ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval, RESOUR"& _ 
+                "CES.""AIT$CUSTOMF00149"" as Native"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        "& _ 
+                "(RESOURCES.RES_ID = @resid)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
             param.ParameterName = "@resid"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.Size = 4
+            param.DbType = Global.System.Data.DbType.[Object]
+            param.Size = 1024
             param.IsNullable = true
             param.SourceColumn = "ID"
             Me._commandCollection(1).Parameters.Add(param)
@@ -5084,9 +5335,13 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByRESID(ByVal dataTable As DataSet2.DataTableFreelancersDataTable, ByVal resid As Integer) As Integer
+        Public Overloads Overridable Function FillByRESID(ByVal dataTable As DataSet2.DataTableFreelancersDataTable, ByVal resid As Object) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
+            If (resid Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("resid")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -5098,9 +5353,13 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByRESID(ByVal resid As Integer) As DataSet2.DataTableFreelancersDataTable
+        Public Overloads Overridable Function GetDataByRESID(ByVal resid As Object) As DataSet2.DataTableFreelancersDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
+            If (resid Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("resid")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
+            End If
             Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -5767,6 +6026,13 @@ Namespace DataSet2TableAdapters
             tableMapping.ColumnMappings.Add("CLIENT", "CLIENT")
             tableMapping.ColumnMappings.Add("PROJECTMANAGER", "PROJECTMANAGER")
             tableMapping.ColumnMappings.Add("CURR_NAME", "CURR_NAME")
+            tableMapping.ColumnMappings.Add("RJOB_PRICE", "RJOB_PRICE")
+            tableMapping.ColumnMappings.Add("RJOB_FEE_KIND", "RJOB_FEE_KIND")
+            tableMapping.ColumnMappings.Add("RJOB_RATE", "RJOB_RATE")
+            tableMapping.ColumnMappings.Add("RJOB_TOTAL", "RJOB_TOTAL")
+            tableMapping.ColumnMappings.Add("RJOB_INSTRUCTION", "RJOB_INSTRUCTION")
+            tableMapping.ColumnMappings.Add("RJOB_WORKNOTES", "RJOB_WORKNOTES")
+            tableMapping.ColumnMappings.Add("RJOB_ASSIGNED", "RJOB_ASSIGNED")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -5785,14 +6051,15 @@ Namespace DataSet2TableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        RJOBS.RJOB_NAME AS LastJob, SERVICES.SERV_NAME AS Service, PROJECTS"& _ 
                 ".PROJ_NAME AS LastProject, CLIENTS.CLIENT_NAME AS Client, ""AIT$USERS"".""AIT$USER_"& _ 
-                "REALNAME"" AS ProjectManager, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR.CURR_NAME"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM    "& _ 
-                "        RJOBS INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RJOBS.CURR_ID = CURR."& _ 
-                "CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SERVICES ON RJOBS.SERV_ID = SERVICE"& _ 
-                "S.SERV_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROJECTS ON RJOBS.PROJ_ID = PROJE"& _ 
-                "CTS.PROJ_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CLIENTS ON PROJECTS.CLIENT_ID ="& _ 
-                " CLIENTS.CLIENT_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ""AIT$USERS"" ON PROJECTS."& _ 
-                "PROJ_PM = ""AIT$USERS"".""AIT$USER_ID"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RJOBS.RES_ID = @resid)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER"& _ 
-                " BY RJOBS.RJOB_ID DESC"
+                "REALNAME"" AS ProjectManager, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR.CURR_NAME, RJOBS.RJ"& _ 
+                "OB_PRICE, RJOBS.RJOB_FEE_KIND, RJOBS.RJOB_RATE, RJOBS.RJOB_TOTAL, RJOBS.RJOB_INS"& _ 
+                "TRUCTION, RJOBS.RJOB_WORKNOTES, RJOBS.RJOB_ASSIGNED"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RJOBS INNER"& _ 
+                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RJOBS.CURR_ID = CURR.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SERVICES ON RJOBS.SERV_ID = SERVICES.SERV_ID INNER JOI"& _ 
+                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROJECTS ON RJOBS.PROJ_ID = PROJECTS.PROJ_ID INNER J"& _ 
+                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CLIENTS ON PROJECTS.CLIENT_ID = CLIENTS.CLIENT_ID "& _ 
+                "INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ""AIT$USERS"" ON PROJECTS.PROJ_PM = ""AIT$USER"& _ 
+                "S"".""AIT$USER_ID"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RJOBS.RES_ID = @resid)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY RJOBS.RJOB_ID D"& _ 
+                "ESC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
             param.ParameterName = "@resid"
@@ -5847,7 +6114,7 @@ Namespace DataSet2TableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class DataTable1TableAdapter
+    Partial Public Class FreelancerInfoTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.FirebirdSql.Data.FirebirdClient.FbDataAdapter
@@ -5964,7 +6231,7 @@ Namespace DataSet2TableAdapters
             Me._adapter = New Global.FirebirdSql.Data.FirebirdClient.FbDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "DataTable1"
+            tableMapping.DataSetTable = "DTFreelancerInfo"
             tableMapping.ColumnMappings.Add("RES_NAME", "RES_NAME")
             tableMapping.ColumnMappings.Add("CURR_NAME", "CURR_NAME")
             tableMapping.ColumnMappings.Add("COUN_NAME", "COUN_NAME")
@@ -6004,7 +6271,7 @@ Namespace DataSet2TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(0) {}
+            Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(1) {}
             Me._commandCollection(0) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        RESOURCES.RES_NAME, CURR.CURR_NAME, COUNTRIES.COUN_NAME, RESOURCES."& _ 
@@ -6016,26 +6283,44 @@ Namespace DataSet2TableAdapters
                 "ES_PHONE3, RESOURCES.RES_PHONE4, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.""AIT$CUSTO"& _ 
                 "MF00016"" AS Skype, RESOURCES.""AIT$CUSTOMF00017"" AS DOB, RESOURCES.""AIT$CUSTOMF00"& _ 
                 "067"" AS Tools, RESOURCES.""AIT$CUSTOMF00068"" AS Source, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  RESOURCES.""AIT$CUSTOMF00069"" AS Target1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
-                "                        COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
-                "E        (RESOURCES.RES_ID = @resid)"
+                "  RESOURCES.""AIT$CUSTOMF00069"" AS Target1, RESOURCES.""AIT$CUSTOMF00149"" AS Isnat"& _ 
+                "ive"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESO"& _ 
+                "URCES.CURR_ID = CURR.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON R"& _ 
+                "ESOURCES.COUN_ID = COUNTRIES.COUN_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RESOURCES.RES_ID = @resid)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
             param.ParameterName = "@resid"
-            param.DbType = Global.System.Data.DbType.Int32
-            param.Size = 4
+            param.DbType = Global.System.Data.DbType.[Object]
+            param.Size = 1024
             param.IsNullable = true
-            param.SourceColumn = "RES_ID"
             Me._commandCollection(0).Parameters.Add(param)
+            Me._commandCollection(1) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        RESOURCES.RES_NAME, CURR.CURR_NAME, COUNTRIES.COUN_NAME, RESOURCES."& _ 
+                "RES_PT_TYPE, RESOURCES.RES_PT_DAYS, RESOURCES.RES_PT_DESC, RESOURCES.RES_STREET1"& _ 
+                ", "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.RES_STREET2, RESOURCES.RES_CITY, RESOURCE"& _ 
+                "S.RES_STATE, RESOURCES.RES_ZIP, RESOURCES.RES_EMAIL1, RESOURCES.RES_EMAIL2, RESO"& _ 
+                "URCES.RES_PHONE1, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.RES_PHONE2, RESOURCES.RES"& _ 
+                "_FAX, RESOURCES.RES_WWW, RESOURCES.RES_VATNUM, RESOURCES.RES_MINFEE, RESOURCES.R"& _ 
+                "ES_PHONE3, RESOURCES.RES_PHONE4, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.""AIT$CUSTO"& _ 
+                "MF00016"" AS Skype, RESOURCES.""AIT$CUSTOMF00017"" AS DOB, RESOURCES.""AIT$CUSTOMF00"& _ 
+                "067"" AS Tools, RESOURCES.""AIT$CUSTOMF00068"" AS Source, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  RESOURCES.""AIT$CUSTOMF00069"" AS Target1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function FillByResid(ByVal dataTable As DataSet2.DataTable1DataTable, ByVal resid As Integer) As Integer
+        Public Overloads Overridable Function FillByResid(ByVal dataTable As DataSet2.DTFreelancerInfoDataTable, ByVal resid As Object) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
+            If (resid Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("resid")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -6047,10 +6332,38 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetDataByResid(ByVal resid As Integer) As DataSet2.DataTable1DataTable
+        Public Overloads Overridable Function GetDataByResid(ByVal resid As Object) As DataSet2.DTFreelancerInfoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
-            Dim dataTable As DataSet2.DataTable1DataTable = New DataSet2.DataTable1DataTable()
+            If (resid Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("resid")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
+            End If
+            Dim dataTable As DataSet2.DTFreelancerInfoDataTable = New DataSet2.DTFreelancerInfoDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.DTFreelancerInfoDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetData() As DataSet2.DTFreelancerInfoDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Dim dataTable As DataSet2.DTFreelancerInfoDataTable = New DataSet2.DTFreelancerInfoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function

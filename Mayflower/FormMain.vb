@@ -166,9 +166,13 @@
     Private Sub DataGridView1_CellMouseDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
         'MessageBox.Show("Double clicked")
         Dim ID As Integer
+        Dim a As String
 
         ID = CInt(DataGridView1.CurrentRow.Cells(0).Value) 'this is the ID
         TADetails.Fill(Me.DataSet2.DTDetails, ID)
+        FreelancerInfoTableAdapter.FillByResid(Me.DataSet2.DTFreelancerInfo, ID)
+        ' DataSet2.DTFreelancerInfo = FreelancerInfoTableAdapter.GetDataByResid(ID)
+        'a = DTFreelancerInfoBindingSource.ToString()
         TabControl1.SelectedIndex = 1
         'TabDetails.Show()
 
@@ -220,10 +224,18 @@
             ServiceTableAdapter.Connection.ConnectionString = connstr
             DomainsTableAdapter.Connection.ConnectionString = connstr
             TADetails.Connection.ConnectionString = connstr
+            FreelancerInfoTableAdapter.Connection.ConnectionString = connstr
 
             SourceLangTableAdapter.Fill(DataSet2.DataTableSourceLang)
             TargetLangTableAdapter.Fill(DataSet2.DataTableTargetLang)
-            FreelancersTableAdapter.Fill(DataSet2.DataTableFreelancers)
+            Me.ServiceTableAdapter.Fill(Me.DataSet2.DataTableService)
+            'TODO: This line of code loads data into the 'DataSet2.DataTableDomains' table. You can move, or remove it, as needed.
+            Me.DomainsTableAdapter.Fill(Me.DataSet2.DataTableDomains)
+
+            'FreelancersTableAdapter.Fill(DataSet2.DataTableFreelancers)
+
+            GetCatTools()
+            FillFreelancersTable()
 
         Catch ex As Exception
             MessageBox.Show("Failed to connect to data source: " & ex.Message)
@@ -330,6 +342,7 @@
             ServiceTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             DomainsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             TADetails.Connection.ConnectionString = My.Settings.ProjetexDB
+            FreelancerInfoTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
 
             'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
             Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)

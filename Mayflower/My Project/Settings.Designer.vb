@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("192.168.56.99")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("192.168.0.56")>  _
         Public Property DBAddress() As String
             Get
                 Return CType(Me("DBAddress"),String)
@@ -104,10 +104,8 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("User=ODBC;Password=pwww;Database=c:\projetex9\projetex server\database\projetex.f"& _ 
-            "db;DataSource=192.168.56.99"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&";Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODB"& _ 
-            "C;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8"& _ 
-            "192")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=192.168.56.101;initial catalog=""C:\Projetex9\Proje"& _ 
+            "tex Server\Database\Projetex.fdb"";user id=ODBC;password=pwww;role=PROJETEX_ODBC")>  _
         Public Property ProjetexDB() As String
             Get
                 Return CType(Me("ProjetexDB"),String)
@@ -143,7 +141,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("837, 462")>  _
         Public Property MainFormSize() As String
             Get
                 Return CType(Me("MainFormSize"),String)
