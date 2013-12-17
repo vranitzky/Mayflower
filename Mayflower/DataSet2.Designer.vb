@@ -1056,8 +1056,6 @@ Partial Public Class DataSet2
         
         Private columnAPPROVAL As Global.System.Data.DataColumn
         
-        Private columnNATIVE As Global.System.Data.DataColumn
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1182,14 +1180,6 @@ Partial Public Class DataSet2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NATIVEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNATIVE
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1226,9 +1216,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDataTableFreelancersRow(ByVal ID As Integer, ByVal NAME As String, ByVal SOURCELANG As String, ByVal TARGETLANG1 As String, ByVal TARGETLANG2 As String, ByVal RATE As Decimal, ByVal CURRENCY As String, ByVal COUNTRY As String, ByVal Role As String, ByVal SERVICE As String, ByVal APPROVAL As String, ByVal NATIVE As String) As DataTableFreelancersRow
+        Public Overloads Function AddDataTableFreelancersRow(ByVal ID As Integer, ByVal NAME As String, ByVal SOURCELANG As String, ByVal TARGETLANG1 As String, ByVal TARGETLANG2 As String, ByVal RATE As Decimal, ByVal CURRENCY As String, ByVal COUNTRY As String, ByVal Role As String, ByVal SERVICE As String, ByVal APPROVAL As String) As DataTableFreelancersRow
             Dim rowDataTableFreelancersRow As DataTableFreelancersRow = CType(Me.NewRow,DataTableFreelancersRow)
-            Dim columnValuesArray() As Object = New Object() {ID, NAME, SOURCELANG, TARGETLANG1, TARGETLANG2, RATE, CURRENCY, COUNTRY, Role, SERVICE, APPROVAL, NATIVE}
+            Dim columnValuesArray() As Object = New Object() {ID, NAME, SOURCELANG, TARGETLANG1, TARGETLANG2, RATE, CURRENCY, COUNTRY, Role, SERVICE, APPROVAL}
             rowDataTableFreelancersRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTableFreelancersRow)
             Return rowDataTableFreelancersRow
@@ -1268,7 +1258,6 @@ Partial Public Class DataSet2
             Me.columnRole = MyBase.Columns("Role")
             Me.columnSERVICE = MyBase.Columns("SERVICE")
             Me.columnAPPROVAL = MyBase.Columns("APPROVAL")
-            Me.columnNATIVE = MyBase.Columns("NATIVE")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1296,8 +1285,6 @@ Partial Public Class DataSet2
             MyBase.Columns.Add(Me.columnSERVICE)
             Me.columnAPPROVAL = New Global.System.Data.DataColumn("APPROVAL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAPPROVAL)
-            Me.columnNATIVE = New Global.System.Data.DataColumn("NATIVE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNATIVE)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
@@ -1312,7 +1299,6 @@ Partial Public Class DataSet2
             Me.columnRole.MaxLength = 255
             Me.columnSERVICE.MaxLength = 255
             Me.columnAPPROVAL.MaxLength = 255
-            Me.columnNATIVE.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3540,21 +3526,6 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NATIVE() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDataTableFreelancers.NATIVEColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NATIVE' in table 'DataTableFreelancers' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDataTableFreelancers.NATIVEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsSOURCELANGNull() As Boolean
             Return Me.IsNull(Me.tableDataTableFreelancers.SOURCELANGColumn)
         End Function
@@ -3647,18 +3618,6 @@ Partial Public Class DataSet2
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetAPPROVALNull()
             Me(Me.tableDataTableFreelancers.APPROVALColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsNATIVENull() As Boolean
-            Return Me.IsNull(Me.tableDataTableFreelancers.NATIVEColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetNATIVENull()
-            Me(Me.tableDataTableFreelancers.NATIVEColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -5283,7 +5242,6 @@ Namespace DataSet2TableAdapters
             tableMapping.ColumnMappings.Add("Role", "Role")
             tableMapping.ColumnMappings.Add("SERVICE", "SERVICE")
             tableMapping.ColumnMappings.Add("APPROVAL", "APPROVAL")
-            tableMapping.ColumnMappings.Add("NATIVE", "NATIVE")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -5305,10 +5263,10 @@ Namespace DataSet2TableAdapters
                 "                     RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, RESOURCES.""AIT"& _ 
                 "$CUSTOMF00092"" AS Rate, CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Count"& _ 
                 "ry, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.""AIT$CUSTOMF00093"" AS ""Role"", RESOURCES"& _ 
-                ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval, RESOUR"& _ 
-                "CES.""AIT$CUSTOMF00149"" as Native"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID"
+                ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
+                "          RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON RESOURCES."& _ 
+                "COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURC"& _ 
+                "ES.CURR_ID = CURR.CURR_ID"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -5317,16 +5275,15 @@ Namespace DataSet2TableAdapters
                 "                     RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, RESOURCES.""AIT"& _ 
                 "$CUSTOMF00092"" AS Rate, CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Count"& _ 
                 "ry, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.""AIT$CUSTOMF00093"" AS ""Role"", RESOURCES"& _ 
-                ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval, RESOUR"& _ 
-                "CES.""AIT$CUSTOMF00149"" as Native"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        "& _ 
-                "(RESOURCES.RES_ID = @resid)"
+                ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
+                "          RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON RESOURCES."& _ 
+                "COUN_ID = COUNTRIES.COUN_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURC"& _ 
+                "ES.CURR_ID = CURR.CURR_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RESOURCES.RES_ID = @resid)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
             param.ParameterName = "@resid"
-            param.DbType = Global.System.Data.DbType.[Object]
-            param.Size = 1024
+            param.DbType = Global.System.Data.DbType.Int32
+            param.Size = 4
             param.IsNullable = true
             param.SourceColumn = "ID"
             Me._commandCollection(1).Parameters.Add(param)
@@ -5360,13 +5317,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByRESID(ByVal dataTable As DataSet2.DataTableFreelancersDataTable, ByVal resid As Object) As Integer
+        Public Overloads Overridable Function FillByRESID(ByVal dataTable As DataSet2.DataTableFreelancersDataTable, ByVal resid As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (resid Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("resid")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -5378,13 +5331,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByRESID(ByVal resid As Object) As DataSet2.DataTableFreelancersDataTable
+        Public Overloads Overridable Function GetDataByRESID(ByVal resid As Integer) As DataSet2.DataTableFreelancersDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (resid Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("resid")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
             Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -6355,16 +6304,16 @@ Namespace DataSet2TableAdapters
                 "ES_PHONE3, RESOURCES.RES_PHONE4, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESOURCES.""AIT$CUSTO"& _ 
                 "MF00016"" AS Skype, RESOURCES.""AIT$CUSTOMF00017"" AS DOB, RESOURCES.""AIT$CUSTOMF00"& _ 
                 "067"" AS Tools, RESOURCES.""AIT$CUSTOMF00068"" AS Source, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  RESOURCES.""AIT$CUSTOMF00069"" AS Target1, RESOURCES.""AIT$CUSTOMF00149"" AS Isnat"& _ 
-                "ive"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESO"& _ 
-                "URCES.CURR_ID = CURR.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         COUNTRIES ON R"& _ 
-                "ESOURCES.COUN_ID = COUNTRIES.COUN_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RESOURCES.RES_ID = @resid)"
+                "  RESOURCES.""AIT$CUSTOMF00069"" AS Target1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
+                "E        (RESOURCES.RES_ID = @resid)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
             param.ParameterName = "@resid"
-            param.DbType = Global.System.Data.DbType.[Object]
-            param.Size = 1024
+            param.DbType = Global.System.Data.DbType.Int32
+            param.Size = 4
             param.IsNullable = true
+            param.SourceColumn = "RES_ID"
             Me._commandCollection(0).Parameters.Add(param)
             Me._commandCollection(1) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -6386,13 +6335,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function FillByResid(ByVal dataTable As DataSet2.DTFreelancerInfoDataTable, ByVal resid As Object) As Integer
+        Public Overloads Overridable Function FillByResid(ByVal dataTable As DataSet2.DTFreelancerInfoDataTable, ByVal resid As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (resid Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("resid")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -6404,13 +6349,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetDataByResid(ByVal resid As Object) As DataSet2.DTFreelancerInfoDataTable
+        Public Overloads Overridable Function GetDataByResid(ByVal resid As Integer) As DataSet2.DTFreelancerInfoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (resid Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("resid")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
             Dim dataTable As DataSet2.DTFreelancerInfoDataTable = New DataSet2.DTFreelancerInfoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

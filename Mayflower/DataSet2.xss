@@ -8,12 +8,12 @@
   <Shapes>
     <Shape ID="DesignTable:DataTableSourceLang" ZOrder="8" X="668" Y="70" Height="97" Width="212" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="46" />
     <Shape ID="DesignTable:DataTableTargetLang" ZOrder="7" X="392" Y="91" Height="97" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="46" />
-    <Shape ID="DesignTable:DataTableFreelancers" ZOrder="3" X="29" Y="158" Height="324" Width="221" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:DataTableFreelancers" ZOrder="1" X="29" Y="158" Height="305" Width="221" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
     <Shape ID="DesignTable:CatTools" ZOrder="4" X="209" Y="68" Height="97" Width="219" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="46" />
     <Shape ID="DesignTable:DataTableDomains" ZOrder="5" X="73" Y="423" Height="97" Width="195" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="46" />
     <Shape ID="DesignTable:DataTableService" ZOrder="6" X="41" Y="3" Height="97" Width="186" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="46" />
-    <Shape ID="DesignTable:DTDetails" ZOrder="1" X="321" Y="228" Height="305" Width="153" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:DTFreelancerInfo" ZOrder="2" X="534" Y="221" Height="324" Width="228" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:DTDetails" ZOrder="2" X="307" Y="185" Height="305" Width="153" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:DTFreelancerInfo" ZOrder="3" X="534" Y="221" Height="324" Width="228" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

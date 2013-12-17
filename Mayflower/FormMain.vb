@@ -184,12 +184,6 @@
             MessageBoxButtons.OK,
             MessageBoxIcon.Error
                             )
-        Finally
-            For Each row As DataGridViewRow In DataGridView2.Rows
-                If row.Cells("ISCOMPLETED").Value.ToString = "0" Then
-                    row.DefaultCellStyle.BackColor = Color.Crimson
-                End If
-            Next
         End Try
 
         ' DataSet2.DTFreelancerInfo = FreelancerInfoTableAdapter.GetDataByResid(ID)
@@ -407,4 +401,9 @@
 
     End Sub
 
+    Private Sub DataGridView2_RowPostPaint(sender As System.Object, e As System.Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles DataGridView2.RowPostPaint
+        If DataGridView2.Rows(e.RowIndex).Cells("ISCOMPLETED").Value.ToString = "0" Then
+            DataGridView2.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
+        End If
+    End Sub
 End Class
