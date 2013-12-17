@@ -20,6 +20,8 @@ Thumbs.db
 [Bb]in
 [Dd]ebug*/
 *.lib
+*.zip
+*.rar
 *.sbr
 obj/
 [Rr]elease*/

@@ -9,7 +9,7 @@ Namespace My
     Partial Public NotInheritable Class MySettings
         Private Sub MySettings_PropertyChanged(ByVal sender As Object, ByVal e As System.ComponentModel.PropertyChangedEventArgs) Handles Me.PropertyChanged
             If e.PropertyName = "ProjetexDB" Then
-                'Me("ProjetexDB2") = Me("ProjetexDB")
+                Me("ProjetexDB2") = Me("ProjetexDB")
             End If
         End Sub
 

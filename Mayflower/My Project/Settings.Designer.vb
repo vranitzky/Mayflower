@@ -80,7 +80,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("c:\projetex9\projetex server\database\projetex.fdb")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb")>  _
         Public Property DBFile() As String
             Get
                 Return CType(Me("DBFile"),String)
@@ -92,7 +92,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("pwww")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("password")>  _
         Public Property DBPassword() As String
             Get
                 Return CType(Me("DBPassword"),String)
@@ -115,54 +115,6 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("50, 50")>  _
-        Public Property WindowLocation() As Global.System.Drawing.Point
-            Get
-                Return CType(Me("WindowLocation"),Global.System.Drawing.Point)
-            End Get
-            Set
-                Me("WindowLocation") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Normal")>  _
-        Public Property MainFormWindowState() As Global.System.Windows.Forms.FormWindowState
-            Get
-                Return CType(Me("MainFormWindowState"),Global.System.Windows.Forms.FormWindowState)
-            End Get
-            Set
-                Me("MainFormWindowState") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("837, 462")>  _
-        Public Property MainFormSize() As String
-            Get
-                Return CType(Me("MainFormSize"),String)
-            End Get
-            Set
-                Me("MainFormSize") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("837, 462")>  _
-        Public Property test() As Global.System.Drawing.Size
-            Get
-                Return CType(Me("test"),Global.System.Drawing.Size)
-            End Get
-            Set
-                Me("test") = value
-            End Set
-        End Property
-        
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString)>  _
@@ -180,6 +132,30 @@ Namespace My
             End Get
             Set
                 Me("test2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("100, 100")>  _
+        Public Property MFLocation() As Global.System.Drawing.Point
+            Get
+                Return CType(Me("MFLocation"),Global.System.Drawing.Point)
+            End Get
+            Set
+                Me("MFLocation") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("192.168.0.56")>  _
+        Public Property DBAddrTEST() As String
+            Get
+                Return CType(Me("DBAddrTEST"),String)
+            End Get
+            Set
+                Me("DBAddrTEST") = value
             End Set
         End Property
     End Class

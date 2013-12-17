@@ -2235,6 +2235,8 @@ Partial Public Class DataSet2
         
         Private columnRJOB_ASSIGNED As Global.System.Data.DataColumn
         
+        Private columnISCOMPLETED As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -2375,6 +2377,14 @@ Partial Public Class DataSet2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ISCOMPLETEDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnISCOMPLETED
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2411,9 +2421,9 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDTDetailsRow(ByVal LASTJOB As String, ByVal SERVICE As String, ByVal LASTPROJECT As String, ByVal CLIENT As String, ByVal PROJECTMANAGER As String, ByVal CURR_NAME As String, ByVal RJOB_PRICE As Decimal, ByVal RJOB_FEE_KIND As String, ByVal RJOB_RATE As Decimal, ByVal RJOB_TOTAL As Decimal, ByVal RJOB_INSTRUCTION As String, ByVal RJOB_WORKNOTES As String, ByVal RJOB_ASSIGNED As Date) As DTDetailsRow
+        Public Overloads Function AddDTDetailsRow(ByVal LASTJOB As String, ByVal SERVICE As String, ByVal LASTPROJECT As String, ByVal CLIENT As String, ByVal PROJECTMANAGER As String, ByVal CURR_NAME As String, ByVal RJOB_PRICE As Decimal, ByVal RJOB_FEE_KIND As String, ByVal RJOB_RATE As Decimal, ByVal RJOB_TOTAL As Decimal, ByVal RJOB_INSTRUCTION As String, ByVal RJOB_WORKNOTES As String, ByVal RJOB_ASSIGNED As Date, ByVal ISCOMPLETED As Integer) As DTDetailsRow
             Dim rowDTDetailsRow As DTDetailsRow = CType(Me.NewRow,DTDetailsRow)
-            Dim columnValuesArray() As Object = New Object() {LASTJOB, SERVICE, LASTPROJECT, CLIENT, PROJECTMANAGER, CURR_NAME, RJOB_PRICE, RJOB_FEE_KIND, RJOB_RATE, RJOB_TOTAL, RJOB_INSTRUCTION, RJOB_WORKNOTES, RJOB_ASSIGNED}
+            Dim columnValuesArray() As Object = New Object() {LASTJOB, SERVICE, LASTPROJECT, CLIENT, PROJECTMANAGER, CURR_NAME, RJOB_PRICE, RJOB_FEE_KIND, RJOB_RATE, RJOB_TOTAL, RJOB_INSTRUCTION, RJOB_WORKNOTES, RJOB_ASSIGNED, ISCOMPLETED}
             rowDTDetailsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDTDetailsRow)
             Return rowDTDetailsRow
@@ -2449,6 +2459,7 @@ Partial Public Class DataSet2
             Me.columnRJOB_INSTRUCTION = MyBase.Columns("RJOB_INSTRUCTION")
             Me.columnRJOB_WORKNOTES = MyBase.Columns("RJOB_WORKNOTES")
             Me.columnRJOB_ASSIGNED = MyBase.Columns("RJOB_ASSIGNED")
+            Me.columnISCOMPLETED = MyBase.Columns("ISCOMPLETED")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2480,6 +2491,8 @@ Partial Public Class DataSet2
             MyBase.Columns.Add(Me.columnRJOB_WORKNOTES)
             Me.columnRJOB_ASSIGNED = New Global.System.Data.DataColumn("RJOB_ASSIGNED", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRJOB_ASSIGNED)
+            Me.columnISCOMPLETED = New Global.System.Data.DataColumn("ISCOMPLETED", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnISCOMPLETED)
             Me.columnLASTJOB.MaxLength = 500
             Me.columnSERVICE.AllowDBNull = false
             Me.columnSERVICE.MaxLength = 150
@@ -2498,6 +2511,7 @@ Partial Public Class DataSet2
             Me.columnRJOB_INSTRUCTION.MaxLength = 2147483647
             Me.columnRJOB_WORKNOTES.MaxLength = 2147483647
             Me.columnRJOB_ASSIGNED.AllowDBNull = false
+            Me.columnISCOMPLETED.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3948,6 +3962,17 @@ Partial Public Class DataSet2
             End Get
             Set
                 Me(Me.tableDTDetails.RJOB_ASSIGNEDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ISCOMPLETED() As Integer
+            Get
+                Return CType(Me(Me.tableDTDetails.ISCOMPLETEDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableDTDetails.ISCOMPLETEDColumn) = value
             End Set
         End Property
         
@@ -5507,12 +5532,23 @@ Namespace DataSet2TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(0) {}
+            Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(1) {}
             Me._commandCollection(0) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT DISTINCT ""AIT$CUSTOMF00067"" AS Tools"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
                 "    (""AIT$CUSTOMF00067"" <> '')"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Tools ASC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT DISTINCT ""AIT$CUSTOMF00067"" AS Tools"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RESOURCES"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
+                "    (""AIT$CUSTOMF00067"" <> '') and (RES_ID = @resid)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Tools ASC"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
+            param.ParameterName = "@resid"
+            param.DbType = Global.System.Data.DbType.[Object]
+            param.Size = 1024
+            param.IsNullable = true
+            Me._commandCollection(1).Parameters.Add(param)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5534,6 +5570,40 @@ Namespace DataSet2TableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DataSet2.CatToolsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DataSet2.CatToolsDataTable = New DataSet2.CatToolsDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByResID(ByVal dataTable As DataSet2.CatToolsDataTable, ByVal resid As Object) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (resid Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("resid")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByResID(ByVal resid As Object) As DataSet2.CatToolsDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (resid Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("resid")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
+            End If
             Dim dataTable As DataSet2.CatToolsDataTable = New DataSet2.CatToolsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -6033,6 +6103,7 @@ Namespace DataSet2TableAdapters
             tableMapping.ColumnMappings.Add("RJOB_INSTRUCTION", "RJOB_INSTRUCTION")
             tableMapping.ColumnMappings.Add("RJOB_WORKNOTES", "RJOB_WORKNOTES")
             tableMapping.ColumnMappings.Add("RJOB_ASSIGNED", "RJOB_ASSIGNED")
+            tableMapping.ColumnMappings.Add("ISCOMPLETED", "ISCOMPLETED")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -6053,13 +6124,14 @@ Namespace DataSet2TableAdapters
                 ".PROJ_NAME AS LastProject, CLIENTS.CLIENT_NAME AS Client, ""AIT$USERS"".""AIT$USER_"& _ 
                 "REALNAME"" AS ProjectManager, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR.CURR_NAME, RJOBS.RJ"& _ 
                 "OB_PRICE, RJOBS.RJOB_FEE_KIND, RJOBS.RJOB_RATE, RJOBS.RJOB_TOTAL, RJOBS.RJOB_INS"& _ 
-                "TRUCTION, RJOBS.RJOB_WORKNOTES, RJOBS.RJOB_ASSIGNED"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RJOBS INNER"& _ 
-                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURR ON RJOBS.CURR_ID = CURR.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SERVICES ON RJOBS.SERV_ID = SERVICES.SERV_ID INNER JOI"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PROJECTS ON RJOBS.PROJ_ID = PROJECTS.PROJ_ID INNER J"& _ 
-                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CLIENTS ON PROJECTS.CLIENT_ID = CLIENTS.CLIENT_ID "& _ 
-                "INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ""AIT$USERS"" ON PROJECTS.PROJ_PM = ""AIT$USER"& _ 
-                "S"".""AIT$USER_ID"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RJOBS.RES_ID = @resid)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY RJOBS.RJOB_ID D"& _ 
-                "ESC"
+                "TRUCTION, RJOBS.RJOB_WORKNOTES, RJOBS.RJOB_ASSIGNED, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "RJOBS.RJOB_ISCOMPLETED AS IsCompleted"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            RJOBS INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  CURR ON RJOBS.CURR_ID = CURR.CURR_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "            SERVICES ON RJOBS.SERV_ID = SERVICES.SERV_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "              PROJECTS ON RJOBS.PROJ_ID = PROJECTS.PROJ_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                CLIENTS ON PROJECTS.CLIENT_ID = CLIENTS.CLIENT_ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                       ""AIT$USERS"" ON PROJECTS.PROJ_PM = ""AIT$USERS"".""AIT$USER_I"& _ 
+                "D"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (RJOBS.RES_ID = @resid)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY RJOBS.RJOB_ID DESC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
             param.ParameterName = "@resid"

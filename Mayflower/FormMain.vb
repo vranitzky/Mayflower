@@ -100,8 +100,11 @@
         End If
         Try
             ret = FreelancersTableAdapter.Adapter.Fill(DataSet2.DataTableFreelancers)
+
         Catch ex As Exception
             Return
+        Finally
+            command.Dispose()
         End Try
 
 
@@ -123,7 +126,7 @@
         If ret <> 1 Then foundstr &= "s"
         LabelRecordsFound.Text = foundstr
         Me.Cursor = Cursors.Default
-        command.Dispose()
+        'command.Dispose()
     End Sub
 
     Private Sub ComboBoxSourceLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxSourceLang.SelectionChangeCommitted
@@ -166,11 +169,29 @@
     Private Sub DataGridView1_CellMouseDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
         'MessageBox.Show("Double clicked")
         Dim ID As Integer
-        Dim a As String
+        'Dim a As String
 
-        ID = CInt(DataGridView1.CurrentRow.Cells(0).Value) 'this is the ID
-        TADetails.Fill(Me.DataSet2.DTDetails, ID)
-        FreelancerInfoTableAdapter.FillByResid(Me.DataSet2.DTFreelancerInfo, ID)
+        Try
+            ID = CInt(DataGridView1.CurrentRow.Cells(0).Value) 'this is the ID
+            FreelancerInfoTableAdapter.FillByResid(Me.DataSet2.DTFreelancerInfo, ID)
+            TADetails.Fill(Me.DataSet2.DTDetails, ID)
+            CatToolsTableAdapter.FillByResID(Me.DataSet2.CatTools, ID)
+        Catch ex As Exception
+            MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine &
+                            """" & ex.Message & """" & Environment.NewLine & Environment.NewLine &
+                            "Sorry!",
+                            "Error",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error
+                            )
+        Finally
+            For Each row As DataGridViewRow In DataGridView2.Rows
+                If row.Cells("ISCOMPLETED").Value.ToString = "0" Then
+                    row.DefaultCellStyle.BackColor = Color.Crimson
+                End If
+            Next
+        End Try
+
         ' DataSet2.DTFreelancerInfo = FreelancerInfoTableAdapter.GetDataByResid(ID)
         'a = DTFreelancerInfoBindingSource.ToString()
         TabControl1.SelectedIndex = 1
@@ -248,9 +269,9 @@
             StatusLed.BackColor = Color.Green
             My.Settings.ProjetexDB = connstr
             My.Settings.DBPort = TextBoxServerPort.Text
-            My.Settings.DBPort = TextBoxPassword.Text
-            My.Settings.DBPort = TextBoxServerAddress.Text
-            My.Settings.DBPort = TextBoxDatabase.Text
+            My.Settings.DBPassword = TextBoxPassword.Text
+            My.Settings.DBAddress = TextBoxServerAddress.Text
+            My.Settings.DBFile = TextBoxDatabase.Text
 
             'TODO reset connection
             'DataSet2.cl()
