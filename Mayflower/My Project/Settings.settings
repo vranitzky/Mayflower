@@ -34,5 +34,11 @@
     <Setting Name="DBAddrTEST" Type="System.String" Scope="User">
       <Value Profile="(Default)">192.168.0.56</Value>
     </Setting>
+    <Setting Name="EmailSubject" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Write the subject of the email here.</Value>
+    </Setting>
+    <Setting Name="EmailBody" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Write the body of the email here.</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

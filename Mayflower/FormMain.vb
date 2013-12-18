@@ -426,8 +426,31 @@
             'Put you code here for this button click. You can tell which row it is on by
             'reading the RowIndex property from the event arg e.
             'DataGridView1.
-            MessageBox.Show(String.Format("You clicked the button: {0}", DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString))
+            'MessageBox.Show(String.Format("You clicked the button: {0}", DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString))
+            SendEmail(DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString)
         End If
+
+    End Sub
+
+    Private Sub ButtonSendEmail_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSendEmail.Click
+        SendEmail(TextBoxEmailAddress.Text)
+    End Sub
+
+    Private Sub SendEmail(address As String)
+        Try
+            System.Diagnostics.Process.Start("mailto:" &
+                                             address &
+                                             "?Subject=" & EmailSubject.Text &
+                                             "&Body=" & EmailBody.Text
+                                             )
+        Catch ex As Exception
+            MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine &
+                            """" & ex.Message & """",
+                            "Error",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error
+                            )
+        End Try
 
     End Sub
 End Class

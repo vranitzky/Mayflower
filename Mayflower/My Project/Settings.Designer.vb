@@ -158,6 +158,30 @@ Namespace My
                 Me("DBAddrTEST") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Write the subject of the email here.")>  _
+        Public Property EmailSubject() As String
+            Get
+                Return CType(Me("EmailSubject"),String)
+            End Get
+            Set
+                Me("EmailSubject") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Write the body of the email here.")>  _
+        Public Property EmailBody() As String
+            Get
+                Return CType(Me("EmailBody"),String)
+            End Get
+            Set
+                Me("EmailBody") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
