@@ -273,7 +273,7 @@
             My.Settings.Save()
         End If
 
-
+        ButtonApplyDBSettings.Enabled = False
     End Sub
 
     Private Sub ButtonTestDBSettings_Click(sender As System.Object, e As System.EventArgs) Handles ButtonTestDBSettings.Click
