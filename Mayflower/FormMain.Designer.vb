@@ -32,6 +32,7 @@ Partial Class FormMain
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabFreelancers = New System.Windows.Forms.TabPage()
+        Me.TextBoxTools = New System.Windows.Forms.TextBox()
         Me.RestrictByService = New System.Windows.Forms.CheckBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.ComboBoxServices = New System.Windows.Forms.ComboBox()
@@ -44,24 +45,11 @@ Partial Class FormMain
         Me.ComboBoxDomains = New System.Windows.Forms.ComboBox()
         Me.DataTableDomainsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.ComboBoxTools = New System.Windows.Forms.ComboBox()
-        Me.BindingSourceCatTools = New System.Windows.Forms.BindingSource(Me.components)
         Me.LabelRecordsFound = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.RestrictByTargetLang = New System.Windows.Forms.CheckBox()
         Me.RestrictBySourceLang = New System.Windows.Forms.CheckBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SOURCELANGDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TARGETLANG2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CURRENCYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.COUNTRYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RoleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SERVICEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.APPROVALDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BindingSourceFreelancers = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBoxTargetLang = New System.Windows.Forms.ComboBox()
@@ -72,6 +60,7 @@ Partial Class FormMain
         Me.TabDetails = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.BindingSourceCatTools = New System.Windows.Forms.BindingSource(Me.components)
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.DTFreelancerInfoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TextBox9 = New System.Windows.Forms.TextBox()
@@ -130,18 +119,30 @@ Partial Class FormMain
         Me.FbCommand1 = New FirebirdSql.Data.FirebirdClient.FbCommand()
         Me.TADetails = New Mayflower.DataSet2TableAdapters.TADetails()
         Me.FreelancerInfoTableAdapter = New Mayflower.DataSet2TableAdapters.FreelancerInfoTableAdapter()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SOURCELANGDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TARGETLANG2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CURRENCYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.COUNTRYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RoleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SERVICEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.APPROVALDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmailButton = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabFreelancers.SuspendLayout()
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSourceCatTools, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabDetails.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.BindingSourceCatTools, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTFreelancerInfoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,11 +163,12 @@ Partial Class FormMain
         Me.TabControl1.Location = New System.Drawing.Point(1, 1)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1415, 878)
+        Me.TabControl1.Size = New System.Drawing.Size(830, 461)
         Me.TabControl1.TabIndex = 0
         '
         'TabFreelancers
         '
+        Me.TabFreelancers.Controls.Add(Me.TextBoxTools)
         Me.TabFreelancers.Controls.Add(Me.RestrictByService)
         Me.TabFreelancers.Controls.Add(Me.Label12)
         Me.TabFreelancers.Controls.Add(Me.ComboBoxServices)
@@ -176,7 +178,6 @@ Partial Class FormMain
         Me.TabFreelancers.Controls.Add(Me.Label10)
         Me.TabFreelancers.Controls.Add(Me.ComboBoxDomains)
         Me.TabFreelancers.Controls.Add(Me.Label9)
-        Me.TabFreelancers.Controls.Add(Me.ComboBoxTools)
         Me.TabFreelancers.Controls.Add(Me.LabelRecordsFound)
         Me.TabFreelancers.Controls.Add(Me.Label4)
         Me.TabFreelancers.Controls.Add(Me.RestrictByTargetLang)
@@ -189,10 +190,19 @@ Partial Class FormMain
         Me.TabFreelancers.Location = New System.Drawing.Point(4, 22)
         Me.TabFreelancers.Name = "TabFreelancers"
         Me.TabFreelancers.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabFreelancers.Size = New System.Drawing.Size(1407, 852)
+        Me.TabFreelancers.Size = New System.Drawing.Size(822, 435)
         Me.TabFreelancers.TabIndex = 0
         Me.TabFreelancers.Text = "Freelancers"
         Me.TabFreelancers.UseVisualStyleBackColor = True
+        '
+        'TextBoxTools
+        '
+        Me.TextBoxTools.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.TextBoxTools.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.TextBoxTools.Location = New System.Drawing.Point(351, 22)
+        Me.TextBoxTools.Name = "TextBoxTools"
+        Me.TextBoxTools.Size = New System.Drawing.Size(444, 20)
+        Me.TextBoxTools.TabIndex = 19
         '
         'RestrictByService
         '
@@ -305,25 +315,6 @@ Partial Class FormMain
         Me.Label9.TabIndex = 10
         Me.Label9.Text = "Tools:"
         '
-        'ComboBoxTools
-        '
-        Me.ComboBoxTools.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.ComboBoxTools.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.ComboBoxTools.BackColor = System.Drawing.SystemColors.Window
-        Me.ComboBoxTools.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSourceCatTools, "TOOLS", True))
-        Me.ComboBoxTools.DataSource = Me.BindingSourceCatTools
-        Me.ComboBoxTools.DisplayMember = "TOOLS"
-        Me.ComboBoxTools.Location = New System.Drawing.Point(351, 22)
-        Me.ComboBoxTools.Name = "ComboBoxTools"
-        Me.ComboBoxTools.Size = New System.Drawing.Size(444, 21)
-        Me.ComboBoxTools.TabIndex = 9
-        '
-        'BindingSourceCatTools
-        '
-        Me.BindingSourceCatTools.AllowNew = False
-        Me.BindingSourceCatTools.DataMember = "CatTools"
-        Me.BindingSourceCatTools.DataSource = Me.DataSet2
-        '
         'LabelRecordsFound
         '
         Me.LabelRecordsFound.AutoSize = True
@@ -374,6 +365,7 @@ Partial Class FormMain
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.DataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -383,7 +375,7 @@ Partial Class FormMain
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NAMEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.RATEDataGridViewTextBoxColumn, Me.CURRENCYDataGridViewTextBoxColumn, Me.COUNTRYDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn, Me.APPROVALDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NAMEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.RATEDataGridViewTextBoxColumn, Me.CURRENCYDataGridViewTextBoxColumn, Me.COUNTRYDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn, Me.APPROVALDataGridViewTextBoxColumn, Me.EmailButton})
         Me.DataGridView1.DataSource = Me.BindingSourceFreelancers
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
@@ -405,96 +397,8 @@ Partial Class FormMain
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(814, 278)
+        Me.DataGridView1.Size = New System.Drawing.Size(816, 315)
         Me.DataGridView1.TabIndex = 4
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IDDataGridViewTextBoxColumn.Width = 43
-        '
-        'NAMEDataGridViewTextBoxColumn
-        '
-        Me.NAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME"
-        Me.NAMEDataGridViewTextBoxColumn.HeaderText = "Name"
-        Me.NAMEDataGridViewTextBoxColumn.Name = "NAMEDataGridViewTextBoxColumn"
-        Me.NAMEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.NAMEDataGridViewTextBoxColumn.Width = 60
-        '
-        'SOURCELANGDataGridViewTextBoxColumn
-        '
-        Me.SOURCELANGDataGridViewTextBoxColumn.DataPropertyName = "SOURCELANG"
-        Me.SOURCELANGDataGridViewTextBoxColumn.HeaderText = "Source Lang"
-        Me.SOURCELANGDataGridViewTextBoxColumn.Name = "SOURCELANGDataGridViewTextBoxColumn"
-        Me.SOURCELANGDataGridViewTextBoxColumn.ReadOnly = True
-        Me.SOURCELANGDataGridViewTextBoxColumn.Width = 93
-        '
-        'TARGETLANG1DataGridViewTextBoxColumn
-        '
-        Me.TARGETLANG1DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG1"
-        Me.TARGETLANG1DataGridViewTextBoxColumn.HeaderText = "TargetLang 1"
-        Me.TARGETLANG1DataGridViewTextBoxColumn.Name = "TARGETLANG1DataGridViewTextBoxColumn"
-        Me.TARGETLANG1DataGridViewTextBoxColumn.ReadOnly = True
-        Me.TARGETLANG1DataGridViewTextBoxColumn.Width = 96
-        '
-        'TARGETLANG2DataGridViewTextBoxColumn
-        '
-        Me.TARGETLANG2DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG2"
-        Me.TARGETLANG2DataGridViewTextBoxColumn.HeaderText = "TargetLang 2"
-        Me.TARGETLANG2DataGridViewTextBoxColumn.Name = "TARGETLANG2DataGridViewTextBoxColumn"
-        Me.TARGETLANG2DataGridViewTextBoxColumn.ReadOnly = True
-        Me.TARGETLANG2DataGridViewTextBoxColumn.Width = 96
-        '
-        'RATEDataGridViewTextBoxColumn
-        '
-        Me.RATEDataGridViewTextBoxColumn.DataPropertyName = "RATE"
-        Me.RATEDataGridViewTextBoxColumn.HeaderText = "Rate"
-        Me.RATEDataGridViewTextBoxColumn.Name = "RATEDataGridViewTextBoxColumn"
-        Me.RATEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.RATEDataGridViewTextBoxColumn.Width = 55
-        '
-        'CURRENCYDataGridViewTextBoxColumn
-        '
-        Me.CURRENCYDataGridViewTextBoxColumn.DataPropertyName = "CURRENCY"
-        Me.CURRENCYDataGridViewTextBoxColumn.HeaderText = "Currency"
-        Me.CURRENCYDataGridViewTextBoxColumn.Name = "CURRENCYDataGridViewTextBoxColumn"
-        Me.CURRENCYDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CURRENCYDataGridViewTextBoxColumn.Width = 74
-        '
-        'COUNTRYDataGridViewTextBoxColumn
-        '
-        Me.COUNTRYDataGridViewTextBoxColumn.DataPropertyName = "COUNTRY"
-        Me.COUNTRYDataGridViewTextBoxColumn.HeaderText = "Country"
-        Me.COUNTRYDataGridViewTextBoxColumn.Name = "COUNTRYDataGridViewTextBoxColumn"
-        Me.COUNTRYDataGridViewTextBoxColumn.ReadOnly = True
-        Me.COUNTRYDataGridViewTextBoxColumn.Width = 68
-        '
-        'RoleDataGridViewTextBoxColumn
-        '
-        Me.RoleDataGridViewTextBoxColumn.DataPropertyName = "Role"
-        Me.RoleDataGridViewTextBoxColumn.HeaderText = "Role"
-        Me.RoleDataGridViewTextBoxColumn.Name = "RoleDataGridViewTextBoxColumn"
-        Me.RoleDataGridViewTextBoxColumn.ReadOnly = True
-        Me.RoleDataGridViewTextBoxColumn.Width = 54
-        '
-        'SERVICEDataGridViewTextBoxColumn
-        '
-        Me.SERVICEDataGridViewTextBoxColumn.DataPropertyName = "SERVICE"
-        Me.SERVICEDataGridViewTextBoxColumn.HeaderText = "Service"
-        Me.SERVICEDataGridViewTextBoxColumn.Name = "SERVICEDataGridViewTextBoxColumn"
-        Me.SERVICEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.SERVICEDataGridViewTextBoxColumn.Width = 68
-        '
-        'APPROVALDataGridViewTextBoxColumn
-        '
-        Me.APPROVALDataGridViewTextBoxColumn.DataPropertyName = "APPROVAL"
-        Me.APPROVALDataGridViewTextBoxColumn.HeaderText = "Approval"
-        Me.APPROVALDataGridViewTextBoxColumn.Name = "APPROVALDataGridViewTextBoxColumn"
-        Me.APPROVALDataGridViewTextBoxColumn.ReadOnly = True
-        Me.APPROVALDataGridViewTextBoxColumn.Width = 74
         '
         'BindingSourceFreelancers
         '
@@ -566,7 +470,7 @@ Partial Class FormMain
         Me.TabDetails.Location = New System.Drawing.Point(4, 22)
         Me.TabDetails.Name = "TabDetails"
         Me.TabDetails.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabDetails.Size = New System.Drawing.Size(1407, 852)
+        Me.TabDetails.Size = New System.Drawing.Size(1494, 894)
         Me.TabDetails.TabIndex = 2
         Me.TabDetails.Text = "Details"
         Me.TabDetails.UseVisualStyleBackColor = True
@@ -604,6 +508,12 @@ Partial Class FormMain
         Me.RichTextBox1.Size = New System.Drawing.Size(288, 90)
         Me.RichTextBox1.TabIndex = 5
         Me.RichTextBox1.Text = ""
+        '
+        'BindingSourceCatTools
+        '
+        Me.BindingSourceCatTools.AllowNew = False
+        Me.BindingSourceCatTools.DataMember = "CatTools"
+        Me.BindingSourceCatTools.DataSource = Me.DataSet2
         '
         'TextBox8
         '
@@ -829,7 +739,7 @@ Partial Class FormMain
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView2.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.DataGridView2.Size = New System.Drawing.Size(828, 211)
+        Me.DataGridView2.Size = New System.Drawing.Size(915, 253)
         Me.DataGridView2.TabIndex = 1
         '
         'RJOB_ASSIGNED
@@ -916,7 +826,7 @@ Partial Class FormMain
         Me.TabSettings.Location = New System.Drawing.Point(4, 22)
         Me.TabSettings.Name = "TabSettings"
         Me.TabSettings.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabSettings.Size = New System.Drawing.Size(1407, 852)
+        Me.TabSettings.Size = New System.Drawing.Size(1494, 894)
         Me.TabSettings.TabIndex = 1
         Me.TabSettings.Text = "Settings"
         '
@@ -940,7 +850,7 @@ Partial Class FormMain
         Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.MinimumSize = New System.Drawing.Size(504, 369)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1401, 846)
+        Me.GroupBox1.Size = New System.Drawing.Size(1488, 888)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Database"
@@ -1071,7 +981,7 @@ Partial Class FormMain
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.StatusLed})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(1395, 827)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(1482, 869)
         Me.ShapeContainer1.TabIndex = 20
         Me.ShapeContainer1.TabStop = False
         '
@@ -1130,16 +1040,113 @@ Partial Class FormMain
         '
         Me.FreelancerInfoTableAdapter.ClearBeforeFill = True
         '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IDDataGridViewTextBoxColumn.Width = 43
+        '
+        'NAMEDataGridViewTextBoxColumn
+        '
+        Me.NAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME"
+        Me.NAMEDataGridViewTextBoxColumn.HeaderText = "Name"
+        Me.NAMEDataGridViewTextBoxColumn.Name = "NAMEDataGridViewTextBoxColumn"
+        Me.NAMEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.NAMEDataGridViewTextBoxColumn.Width = 60
+        '
+        'SOURCELANGDataGridViewTextBoxColumn
+        '
+        Me.SOURCELANGDataGridViewTextBoxColumn.DataPropertyName = "SOURCELANG"
+        Me.SOURCELANGDataGridViewTextBoxColumn.HeaderText = "Source Lang"
+        Me.SOURCELANGDataGridViewTextBoxColumn.Name = "SOURCELANGDataGridViewTextBoxColumn"
+        Me.SOURCELANGDataGridViewTextBoxColumn.ReadOnly = True
+        Me.SOURCELANGDataGridViewTextBoxColumn.Width = 93
+        '
+        'TARGETLANG1DataGridViewTextBoxColumn
+        '
+        Me.TARGETLANG1DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG1"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.HeaderText = "TargetLang 1"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.Name = "TARGETLANG1DataGridViewTextBoxColumn"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.ReadOnly = True
+        Me.TARGETLANG1DataGridViewTextBoxColumn.Width = 96
+        '
+        'TARGETLANG2DataGridViewTextBoxColumn
+        '
+        Me.TARGETLANG2DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG2"
+        Me.TARGETLANG2DataGridViewTextBoxColumn.HeaderText = "TargetLang 2"
+        Me.TARGETLANG2DataGridViewTextBoxColumn.Name = "TARGETLANG2DataGridViewTextBoxColumn"
+        Me.TARGETLANG2DataGridViewTextBoxColumn.ReadOnly = True
+        Me.TARGETLANG2DataGridViewTextBoxColumn.Width = 96
+        '
+        'RATEDataGridViewTextBoxColumn
+        '
+        Me.RATEDataGridViewTextBoxColumn.DataPropertyName = "RATE"
+        Me.RATEDataGridViewTextBoxColumn.HeaderText = "Rate"
+        Me.RATEDataGridViewTextBoxColumn.Name = "RATEDataGridViewTextBoxColumn"
+        Me.RATEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.RATEDataGridViewTextBoxColumn.Width = 55
+        '
+        'CURRENCYDataGridViewTextBoxColumn
+        '
+        Me.CURRENCYDataGridViewTextBoxColumn.DataPropertyName = "CURRENCY"
+        Me.CURRENCYDataGridViewTextBoxColumn.HeaderText = "Currency"
+        Me.CURRENCYDataGridViewTextBoxColumn.Name = "CURRENCYDataGridViewTextBoxColumn"
+        Me.CURRENCYDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CURRENCYDataGridViewTextBoxColumn.Width = 74
+        '
+        'COUNTRYDataGridViewTextBoxColumn
+        '
+        Me.COUNTRYDataGridViewTextBoxColumn.DataPropertyName = "COUNTRY"
+        Me.COUNTRYDataGridViewTextBoxColumn.HeaderText = "Country"
+        Me.COUNTRYDataGridViewTextBoxColumn.Name = "COUNTRYDataGridViewTextBoxColumn"
+        Me.COUNTRYDataGridViewTextBoxColumn.ReadOnly = True
+        Me.COUNTRYDataGridViewTextBoxColumn.Width = 68
+        '
+        'RoleDataGridViewTextBoxColumn
+        '
+        Me.RoleDataGridViewTextBoxColumn.DataPropertyName = "Role"
+        Me.RoleDataGridViewTextBoxColumn.HeaderText = "Role"
+        Me.RoleDataGridViewTextBoxColumn.Name = "RoleDataGridViewTextBoxColumn"
+        Me.RoleDataGridViewTextBoxColumn.ReadOnly = True
+        Me.RoleDataGridViewTextBoxColumn.Width = 54
+        '
+        'SERVICEDataGridViewTextBoxColumn
+        '
+        Me.SERVICEDataGridViewTextBoxColumn.DataPropertyName = "SERVICE"
+        Me.SERVICEDataGridViewTextBoxColumn.HeaderText = "Service"
+        Me.SERVICEDataGridViewTextBoxColumn.Name = "SERVICEDataGridViewTextBoxColumn"
+        Me.SERVICEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.SERVICEDataGridViewTextBoxColumn.Width = 68
+        '
+        'APPROVALDataGridViewTextBoxColumn
+        '
+        Me.APPROVALDataGridViewTextBoxColumn.DataPropertyName = "APPROVAL"
+        Me.APPROVALDataGridViewTextBoxColumn.HeaderText = "Approval"
+        Me.APPROVALDataGridViewTextBoxColumn.Name = "APPROVALDataGridViewTextBoxColumn"
+        Me.APPROVALDataGridViewTextBoxColumn.ReadOnly = True
+        Me.APPROVALDataGridViewTextBoxColumn.Width = 74
+        '
+        'EmailButton
+        '
+        Me.EmailButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.EmailButton.DataPropertyName = "EMAIL1"
+        Me.EmailButton.HeaderText = "Emailing"
+        Me.EmailButton.Name = "EmailButton"
+        Me.EmailButton.ReadOnly = True
+        Me.EmailButton.Width = 52
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(834, 420)
+        Me.ClientSize = New System.Drawing.Size(830, 462)
         Me.Controls.Add(Me.TabControl1)
         Me.DataBindings.Add(New System.Windows.Forms.Binding("Location", Global.Mayflower.My.MySettings.Default, "MFLocation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.Location = Global.Mayflower.My.MySettings.Default.MFLocation
-        Me.MinimumSize = New System.Drawing.Size(850, 300)
+        Me.MinimumSize = New System.Drawing.Size(846, 300)
         Me.Name = "FormMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Mayflower: Projetex Lookup Tool"
@@ -1149,7 +1156,6 @@ Partial Class FormMain
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSourceCatTools, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1157,6 +1163,7 @@ Partial Class FormMain
         Me.TabDetails.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        CType(Me.BindingSourceCatTools, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTFreelancerInfoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
@@ -1217,7 +1224,6 @@ Partial Class FormMain
     Friend WithEvents DataGridViewImageColumn1 As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents LabelRecordsFound As System.Windows.Forms.Label
-    Friend WithEvents ComboBoxTools As System.Windows.Forms.ComboBox
     Friend WithEvents BindingSourceCatTools As System.Windows.Forms.BindingSource
     Friend WithEvents CatToolsTableAdapter As Mayflower.DataSet2TableAdapters.CatToolsTableAdapter
     Friend WithEvents RESIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1278,6 +1284,7 @@ Partial Class FormMain
     Friend WithEvents RJOB_PRICE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RJOB_FEE_KIND As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TextBoxTools As System.Windows.Forms.TextBox
     Friend WithEvents IDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SOURCELANGDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1289,5 +1296,6 @@ Partial Class FormMain
     Friend WithEvents RoleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SERVICEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents APPROVALDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents EmailButton As System.Windows.Forms.DataGridViewButtonColumn
 
 End Class

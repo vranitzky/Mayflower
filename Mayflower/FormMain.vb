@@ -11,7 +11,7 @@
         Dim strlist As List(Of String) = New List(Of String)
         Dim charSeparators() As String = {vbCrLf, ",", "•", "", ""} 'rubbish characters in the Database
 
-        ComboBoxTools.AutoCompleteCustomSource.Clear()
+        TextBoxTools.AutoCompleteCustomSource.Clear()
         'Me.CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
         t = Me.CatToolsTableAdapter.GetData()
         For Each r In t.Rows
@@ -31,7 +31,7 @@
 
         For Each n In uniqueNames
             'ComboBoxTools.Items.Add(n.ToString)
-            ComboBoxTools.AutoCompleteCustomSource.Add(n.ToString)
+            TextBoxTools.AutoCompleteCustomSource.Add(n.ToString)
         Next
         'For Each s In strlist
         'ComboBoxTools.Items.Add(s)
@@ -62,6 +62,7 @@
                 "CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Country, " &
                 "RESOURCES.""AIT$CUSTOMF00093"" AS ""Role"", " &
                 "RESOURCES.""AIT$CUSTOMF00094"" AS Service, " &
+                "RESOURCES.RES_EMAIL1 AS Email1, " &
                 "RESOURCES.""AIT$CUSTOMF00125"" AS Approval " &
                 "FROM RESOURCES " &
                 "INNER JOIN COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID " &
@@ -89,8 +90,8 @@
         If RestrictByDomain.Checked And ComboBoxDomains.Text <> "-ALL-" Then
             sql &= "AND ((RESOURCES.""AIT$CUSTOMF00103"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00104"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00105"" CONTAINING '" & ComboBoxDomains.Text & "')) "
         End If
-        If RestrictByTools.Checked And ComboBoxTools.Text <> "" And ComboBoxTools.Text <> "-ALL-" Then
-            sql &= "AND (UPPER(RESOURCES.""AIT$CUSTOMF00067"") LIKE UPPER('%" & ComboBoxTools.Text & "%')) "
+        If RestrictByTools.Checked And TextBoxTools.Text <> "" And TextBoxTools.Text <> "-ALL-" Then
+            sql &= "AND (UPPER(RESOURCES.""AIT$CUSTOMF00067"") LIKE UPPER('%" & TextBoxTools.Text & "%')) "
         End If
 
         command.Connection = FreelancersTableAdapter.Connection
@@ -411,9 +412,21 @@
         End If
     End Sub
 
-    Private Sub ComboBoxTools_KeyDown(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles ComboBoxTools.KeyDown
+    Private Sub ComboBoxTools_KeyDown(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles TextBoxTools.KeyDown
         If e.KeyCode = Keys.Return Then
             FillFreelancersTable()
+        End If
+
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        Dim colName As String = DataGridView1.Columns(e.ColumnIndex).Name
+        Dim a As String = DataGridView1.CurrentRow.Cells(1).Value.ToString
+        If colName = "EmailButton" Then
+            'Put you code here for this button click. You can tell which row it is on by
+            'reading the RowIndex property from the event arg e.
+            'DataGridView1.
+            MessageBox.Show(String.Format("You clicked the button: {0}", DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString))
         End If
 
     End Sub

@@ -87,7 +87,7 @@ ORDER BY TargetLang ASC</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        RESOURCES.RES_ID AS ID, RESOURCES.RES_NAME AS Name, RESOURCES."AIT$CUSTOMF00068" AS SourceLang, RESOURCES."AIT$CUSTOMF00069" AS TargetLang1, 
                          RESOURCES."AIT$CUSTOMF00074" AS TargetLang2, RESOURCES."AIT$CUSTOMF00092" AS Rate, CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Country, 
-                         RESOURCES."AIT$CUSTOMF00093" AS "Role", RESOURCES."AIT$CUSTOMF00094" AS Service, RESOURCES."AIT$CUSTOMF00125" AS Approval
+                         RESOURCES."AIT$CUSTOMF00093" AS "Role", RESOURCES."AIT$CUSTOMF00094" AS Service, RESOURCES."AIT$CUSTOMF00125" AS Approval, RESOURCES.RES_EMAIL1 AS Email1
 FROM            RESOURCES INNER JOIN
                          COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN
                          CURR ON RESOURCES.CURR_ID = CURR.CURR_ID</CommandText>
@@ -108,6 +108,7 @@ FROM            RESOURCES INNER JOIN
               <Mapping SourceColumn="Role" DataSetColumn="Role" />
               <Mapping SourceColumn="SERVICE" DataSetColumn="SERVICE" />
               <Mapping SourceColumn="APPROVAL" DataSetColumn="APPROVAL" />
+              <Mapping SourceColumn="EMAIL1" DataSetColumn="EMAIL1" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByRESID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByRESID" GeneratorSourceName="FillByRESID" GetMethodModifier="Public" GetMethodName="GetDataByRESID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByRESID" UserSourceName="FillByRESID">
@@ -430,6 +431,13 @@ FROM            RESOURCES INNER JOIN
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EMAIL1" msprop:Generator_ColumnVarNameInTable="columnEMAIL1" msprop:Generator_ColumnPropNameInRow="EMAIL1" msprop:Generator_ColumnPropNameInTable="EMAIL1Column" msprop:Generator_UserColumnName="EMAIL1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
