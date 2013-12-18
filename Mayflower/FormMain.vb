@@ -11,6 +11,7 @@
         Dim strlist As List(Of String) = New List(Of String)
         Dim charSeparators() As String = {vbCrLf, ",", "•", "", ""} 'rubbish characters in the Database
 
+        ComboBoxTools.AutoCompleteCustomSource.Clear()
         'Me.CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
         t = Me.CatToolsTableAdapter.GetData()
         For Each r In t.Rows
@@ -29,7 +30,8 @@
         Dim uniqueNames = From u In strlist Distinct
 
         For Each n In uniqueNames
-            ComboBoxTools.Items.Add(n.ToString)
+            'ComboBoxTools.Items.Add(n.ToString)
+            ComboBoxTools.AutoCompleteCustomSource.Add(n.ToString)
         Next
         'For Each s In strlist
         'ComboBoxTools.Items.Add(s)
@@ -64,7 +66,8 @@
                 "FROM RESOURCES " &
                 "INNER JOIN COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID " &
                 "INNER JOIN CURR ON RESOURCES.CURR_ID = CURR.CURR_ID " &
-                "WHERE 1=1 "
+                "WHERE ((""AIT$CUSTOMF00125"" <> 'Rejected') OR (""AIT$CUSTOMF00125"" is null)) "
+        '"WHERE 1=1 "
 
         'sql = "SELECT	RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" AS SourceLang, " &
         '        "RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, " &
@@ -78,16 +81,17 @@
             sql &= "AND (RESOURCES.""AIT$CUSTOMF00068"" = '" & ComboBoxSourceLang.Text & "')"
         End If
         If RestrictByTargetLang.Checked And ComboBoxTargetLang.Text <> "-ALL-" Then
-            sql &= "AND ((RESOURCES.""AIT$CUSTOMF00069"" = '" & ComboBoxTargetLang.Text & "') OR (RESOURCES.""AIT$CUSTOMF00074"" = '" & ComboBoxTargetLang.Text & "'))"
+            sql &= "AND ((RESOURCES.""AIT$CUSTOMF00069"" = '" & ComboBoxTargetLang.Text & "') OR (RESOURCES.""AIT$CUSTOMF00074"" = '" & ComboBoxTargetLang.Text & "')) "
         End If
         If RestrictByService.Checked And ComboBoxServices.Text <> "-ALL-" Then
-            sql &= "AND (""AIT$CUSTOMF00094"" = '" & ComboBoxServices.Text & "')"
+            sql &= "AND (""AIT$CUSTOMF00094"" = '" & ComboBoxServices.Text & "') "
         End If
         If RestrictByDomain.Checked And ComboBoxDomains.Text <> "-ALL-" Then
-            sql &= "AND ((RESOURCES.""AIT$CUSTOMF00103"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00104"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00105"" CONTAINING '" & ComboBoxDomains.Text & "'))"
+            sql &= "AND ((RESOURCES.""AIT$CUSTOMF00103"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00104"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00105"" CONTAINING '" & ComboBoxDomains.Text & "')) "
         End If
-
-        'command = Mayflower.FormMain.comman
+        If RestrictByTools.Checked And ComboBoxTools.Text <> "" And ComboBoxTools.Text <> "-ALL-" Then
+            sql &= "AND (UPPER(RESOURCES.""AIT$CUSTOMF00067"") LIKE UPPER('%" & ComboBoxTools.Text & "%')) "
+        End If
 
         command.Connection = FreelancersTableAdapter.Connection
         command.CommandText = sql
@@ -162,7 +166,7 @@
         End If
     End Sub
 
-    Private Sub RestrictByCheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTargetLang.CheckedChanged, RestrictByService.CheckedChanged, RestrictByDomain.CheckedChanged, RestrictBySourceLang.CheckedChanged
+    Private Sub RestrictByCheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTargetLang.CheckedChanged, RestrictByService.CheckedChanged, RestrictByDomain.CheckedChanged, RestrictBySourceLang.CheckedChanged, RestrictByTools.CheckedChanged
         FillFreelancersTable()
     End Sub
 
@@ -206,7 +210,6 @@
 
     End Sub
 
-
     Private Sub ButtonApplyDBSettings_Click(sender As System.Object, e As System.EventArgs) Handles ButtonApplyDBSettings.Click
         Dim connstr As String
         Dim ok As Boolean = True
@@ -246,6 +249,7 @@
             Me.ServiceTableAdapter.Fill(Me.DataSet2.DataTableService)
             'TODO: This line of code loads data into the 'DataSet2.DataTableDomains' table. You can move, or remove it, as needed.
             Me.DomainsTableAdapter.Fill(Me.DataSet2.DataTableDomains)
+            CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
 
             'FreelancersTableAdapter.Fill(DataSet2.DataTableFreelancers)
 
@@ -405,5 +409,12 @@
         If DataGridView2.Rows(e.RowIndex).Cells("ISCOMPLETED").Value.ToString = "0" Then
             DataGridView2.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
         End If
+    End Sub
+
+    Private Sub ComboBoxTools_KeyDown(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles ComboBoxTools.KeyDown
+        If e.KeyCode = Keys.Return Then
+            FillFreelancersTable()
+        End If
+
     End Sub
 End Class

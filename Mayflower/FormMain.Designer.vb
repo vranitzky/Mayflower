@@ -39,12 +39,13 @@ Partial Class FormMain
         Me.DataSet2 = New Mayflower.DataSet2()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.RestrictByDomain = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxTools = New System.Windows.Forms.CheckBox()
+        Me.RestrictByTools = New System.Windows.Forms.CheckBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.ComboBoxDomains = New System.Windows.Forms.ComboBox()
         Me.DataTableDomainsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ComboBoxTools = New System.Windows.Forms.ComboBox()
+        Me.BindingSourceCatTools = New System.Windows.Forms.BindingSource(Me.components)
         Me.LabelRecordsFound = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.RestrictByTargetLang = New System.Windows.Forms.CheckBox()
@@ -71,7 +72,6 @@ Partial Class FormMain
         Me.TabDetails = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.BindingSourceCatTools = New System.Windows.Forms.BindingSource(Me.components)
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.DTFreelancerInfoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TextBox9 = New System.Windows.Forms.TextBox()
@@ -135,13 +135,13 @@ Partial Class FormMain
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSourceCatTools, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabDetails.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.BindingSourceCatTools, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTFreelancerInfoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -172,7 +172,7 @@ Partial Class FormMain
         Me.TabFreelancers.Controls.Add(Me.ComboBoxServices)
         Me.TabFreelancers.Controls.Add(Me.Label11)
         Me.TabFreelancers.Controls.Add(Me.RestrictByDomain)
-        Me.TabFreelancers.Controls.Add(Me.CheckBoxTools)
+        Me.TabFreelancers.Controls.Add(Me.RestrictByTools)
         Me.TabFreelancers.Controls.Add(Me.Label10)
         Me.TabFreelancers.Controls.Add(Me.ComboBoxDomains)
         Me.TabFreelancers.Controls.Add(Me.Label9)
@@ -258,14 +258,16 @@ Partial Class FormMain
         Me.RestrictByDomain.TabIndex = 14
         Me.RestrictByDomain.UseVisualStyleBackColor = True
         '
-        'CheckBoxTools
+        'RestrictByTools
         '
-        Me.CheckBoxTools.AutoSize = True
-        Me.CheckBoxTools.Location = New System.Drawing.Point(801, 25)
-        Me.CheckBoxTools.Name = "CheckBoxTools"
-        Me.CheckBoxTools.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBoxTools.TabIndex = 13
-        Me.CheckBoxTools.UseVisualStyleBackColor = True
+        Me.RestrictByTools.AutoSize = True
+        Me.RestrictByTools.Checked = True
+        Me.RestrictByTools.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByTools.Location = New System.Drawing.Point(801, 25)
+        Me.RestrictByTools.Name = "RestrictByTools"
+        Me.RestrictByTools.Size = New System.Drawing.Size(15, 14)
+        Me.RestrictByTools.TabIndex = 13
+        Me.RestrictByTools.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -305,13 +307,22 @@ Partial Class FormMain
         '
         'ComboBoxTools
         '
+        Me.ComboBoxTools.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.ComboBoxTools.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.ComboBoxTools.BackColor = System.Drawing.SystemColors.Window
-        Me.ComboBoxTools.FormattingEnabled = True
+        Me.ComboBoxTools.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSourceCatTools, "TOOLS", True))
+        Me.ComboBoxTools.DataSource = Me.BindingSourceCatTools
+        Me.ComboBoxTools.DisplayMember = "TOOLS"
         Me.ComboBoxTools.Location = New System.Drawing.Point(351, 22)
         Me.ComboBoxTools.Name = "ComboBoxTools"
         Me.ComboBoxTools.Size = New System.Drawing.Size(444, 21)
         Me.ComboBoxTools.TabIndex = 9
+        '
+        'BindingSourceCatTools
+        '
+        Me.BindingSourceCatTools.AllowNew = False
+        Me.BindingSourceCatTools.DataMember = "CatTools"
+        Me.BindingSourceCatTools.DataSource = Me.DataSet2
         '
         'LabelRecordsFound
         '
@@ -593,12 +604,6 @@ Partial Class FormMain
         Me.RichTextBox1.Size = New System.Drawing.Size(288, 90)
         Me.RichTextBox1.TabIndex = 5
         Me.RichTextBox1.Text = ""
-        '
-        'BindingSourceCatTools
-        '
-        Me.BindingSourceCatTools.AllowNew = False
-        Me.BindingSourceCatTools.DataMember = "CatTools"
-        Me.BindingSourceCatTools.DataSource = Me.DataSet2
         '
         'TextBox8
         '
@@ -1144,6 +1149,7 @@ Partial Class FormMain
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSourceCatTools, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1151,7 +1157,6 @@ Partial Class FormMain
         Me.TabDetails.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        CType(Me.BindingSourceCatTools, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTFreelancerInfoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
@@ -1227,7 +1232,7 @@ Partial Class FormMain
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents RestrictByDomain As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxTools As System.Windows.Forms.CheckBox
+    Friend WithEvents RestrictByTools As System.Windows.Forms.CheckBox
     Friend WithEvents DataTableDomainsBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DomainsTableAdapter As Mayflower.DataSet2TableAdapters.DomainsTableAdapter
     Friend WithEvents RestrictByService As System.Windows.Forms.CheckBox
