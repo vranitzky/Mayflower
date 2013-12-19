@@ -155,19 +155,19 @@
         End If
     End Sub
 
-    Private Sub ComboBoxDomains_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxServices.SelectionChangeCommitted, ComboBoxDomains.SelectionChangeCommitted
+    Private Sub ComboBoxDomains_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxDomains.SelectionChangeCommitted
         If RestrictByDomain.Checked Then
             FillFreelancersTable()
         End If
     End Sub
 
-    Private Sub ComboBoxServices_SelectedIndexChanged(sender As System.Object, e As System.EventArgs)
+    Private Sub ComboBoxServices_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxServices.SelectionChangeCommitted
         If RestrictByService.Checked Then
             FillFreelancersTable()
         End If
     End Sub
 
-    Private Sub RestrictByCheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTargetLang.CheckedChanged, RestrictByService.CheckedChanged, RestrictByDomain.CheckedChanged, RestrictBySourceLang.CheckedChanged, RestrictByTools.CheckedChanged
+    Private Sub RestrictByCheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTools.CheckedChanged, RestrictByTargetLang.CheckedChanged, RestrictBySourceLang.CheckedChanged, RestrictByService.CheckedChanged, RestrictByDomain.CheckedChanged
         FillFreelancersTable()
     End Sub
 
