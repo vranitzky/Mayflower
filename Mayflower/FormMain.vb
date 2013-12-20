@@ -483,7 +483,7 @@ Public Class FormMain
             SMTPServer.Host = Server
             SMTPServer.Port = Port
             SMTPServer.Credentials = New System.Net.NetworkCredential(UserName, Password)
-            SMTPServer.EnableSsl = True
+            SMTPServer.EnableSsl = False
             SMTPServer.Send(Email)
             Email.Dispose()
             Return "Email to " & Recipients(0) & " from " & FromAddress & " was sent."
@@ -500,14 +500,14 @@ Public Class FormMain
     End Function
     Private Sub EmailTestButton_Click(sender As Object, e As EventArgs) Handles EmailButtonTest.Click
         Dim Recipients As New List(Of String)
-        Recipients.Add("michael@mayflowerlanguages.com")
+        Recipients.Add(EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">")
         Dim FromEmailAddress As String = Recipients(0)
         Dim Subject As String = "Test From VB."
-        Dim Body As String = "email body text, if you are reading this from your gmail account, the program worked."
-        Dim UserName As String = "scalet@gmail.com"
-        Dim Password As String = "RaraAvisInTerris"
-        Dim Port As Integer = 587
-        Dim Server As String = "smtp.gmail.com"
+        Dim Body As String = "email body text, if you are reading this, the program worked."
+        Dim UserName As String = EmailSettingsEmail.Text
+        Dim Password As String = EmailSettingsPassword.Text
+        Dim Port As Integer = CInt(EmailSettingsPort.Text)
+        Dim Server As String = EmailSettingsServer.Text
         Dim Attachments As New List(Of String)
         MsgBox(SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, Attachments))
     End Sub

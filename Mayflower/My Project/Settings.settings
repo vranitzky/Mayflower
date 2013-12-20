@@ -40,5 +40,20 @@
     <Setting Name="EmailBody" Type="System.String" Scope="User">
       <Value Profile="(Default)">Write the body of the email here.</Value>
     </Setting>
+    <Setting Name="EmailSettingsName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Enter your full name here</Value>
+    </Setting>
+    <Setting Name="EmailSettingsEmail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Enter your email here</Value>
+    </Setting>
+    <Setting Name="EmailSettingsServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mail.mayflowerlanguages.com</Value>
+    </Setting>
+    <Setting Name="EmailSettingsPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+    <Setting Name="EmailSettingsPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

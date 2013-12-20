@@ -182,6 +182,66 @@ Namespace My
                 Me("EmailBody") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Enter your full name here")>  _
+        Public Property EmailSettingsName() As String
+            Get
+                Return CType(Me("EmailSettingsName"),String)
+            End Get
+            Set
+                Me("EmailSettingsName") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Enter your email here")>  _
+        Public Property EmailSettingsEmail() As String
+            Get
+                Return CType(Me("EmailSettingsEmail"),String)
+            End Get
+            Set
+                Me("EmailSettingsEmail") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("mail.mayflowerlanguages.com")>  _
+        Public Property EmailSettingsServer() As String
+            Get
+                Return CType(Me("EmailSettingsServer"),String)
+            End Get
+            Set
+                Me("EmailSettingsServer") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("587")>  _
+        Public Property EmailSettingsPort() As String
+            Get
+                Return CType(Me("EmailSettingsPort"),String)
+            End Get
+            Set
+                Me("EmailSettingsPort") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property EmailSettingsPassword() As String
+            Get
+                Return CType(Me("EmailSettingsPassword"),String)
+            End Get
+            Set
+                Me("EmailSettingsPassword") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
