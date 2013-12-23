@@ -343,12 +343,17 @@ Public Class FormMain
     End Sub
 
     Private Sub Form1_Shown(sender As System.Object, e As System.EventArgs) Handles MyBase.Shown
+        ' This is needed to load email body into the txtcontrol, to avoid "txrcontrol must be visible" error
         Dim c As Control = EmailBody.Parent
-        EmailBody.Parent = Me
-        EmailBody.CreateControl()
+        EmailBody.Parent = Nothing
+        If Not EmailBody.IsHandleCreated Then
+            EmailBody.CreateControl()
+        End If
         EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
+
         EmailBody.Parent = c
-        Me.Text = ProductName & " - " & ProductVersion
+        'Me.Text &= " - " & ProductVersion
+
     End Sub
 
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -452,7 +457,13 @@ Public Class FormMain
         '                   )
         'Return
         If String.IsNullOrWhiteSpace(EmailSettingsPassword.Text) Then
-            MsgBox("Please set your enail details first under the ""Settings"" tab!")
+            ' MsgBox("Please set your enail details first under the ""Settings"" tab!")
+            MessageBox.Show("Please set your email details first under the ""Settings"" tab!",
+                            "Email setting undetected",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error
+                            )
+            TabControl1.SelectTab(TabSettings)
             Return
         End If
         Dim Recipients As New List(Of String)
@@ -471,10 +482,14 @@ Public Class FormMain
             '                                          "&Body=" & EmailBody.Text
             '                                         )
             ' should be "address" but use own email for testing
-            MsgBox("Please note that in this test version, email is sent to yourself:" & Environment.NewLine & Environment.NewLine &
+            MessageBox.Show("Please note that in this test version, email is sent to yourself:" & Environment.NewLine & Environment.NewLine &
                     EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">" & Environment.NewLine & Environment.NewLine &
                     "NOT:" & Environment.NewLine & Environment.NewLine &
-                    address)
+                    address,
+                            "Testing email mode",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning
+                            )
             Recipients.Add(EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">")
             EmailBody.Save(Body, TXTextControl.StringStreamType.HTMLFormat)
             MsgBox(SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, Attachments))
@@ -490,8 +505,13 @@ Public Class FormMain
 
     End Sub
 
-
-
+    ''' <summary>
+    ''' Sends and email to a list of recipients
+    ''' </summary>
+    ''' <param name="Recipients">The List(of string) of recipients.</param>
+    ''' <param name="FromAddress">The List(of string) of recipients.</param>
+    ''' <param name="Subject">The List(of string) of recipients.</param>
+    ''' <remarks></remarks>
     Function SendEmail(ByVal Recipients As List(Of String), _
                   ByVal FromAddress As String, _
                   ByVal Subject As String, _
@@ -534,6 +554,7 @@ Public Class FormMain
             Email.Dispose()
             Return "Sending Email Failed with the following error:" & Environment.NewLine & Ex.Message
         End Try
+        Return Nothing
     End Function
     Private Sub EmailTestButton_Click(sender As Object, e As EventArgs) Handles EmailButtonTest.Click
         Dim Recipients As New List(Of String)
@@ -547,7 +568,16 @@ Public Class FormMain
         Dim Port As Integer = CInt(EmailSettingsPort.Text)
         Dim Server As String = EmailSettingsServer.Text
         Dim Attachments As New List(Of String)
-        MsgBox(SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, Attachments))
+        Dim Err As String
+        Err = SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, Attachments)
+        If Not Err Is Nothing Then
+            MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine & """" & Err & """",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+            )
+
+        End If
     End Sub
 
     Private Sub EmailBody_Leave(sender As System.Object, e As System.EventArgs) Handles EmailBody.Leave

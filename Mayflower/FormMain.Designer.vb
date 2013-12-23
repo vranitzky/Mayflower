@@ -23,12 +23,12 @@ Partial Class FormMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabFreelancers = New System.Windows.Forms.TabPage()
@@ -106,6 +106,7 @@ Partial Class FormMain
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DTDetailsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabEmail = New System.Windows.Forms.TabPage()
+        Me.EmailBody = New TXTextControl.TextControl()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.EmailSubject = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -113,6 +114,7 @@ Partial Class FormMain
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.EmailSettingsGroupBox = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.EmailButtonTest = New System.Windows.Forms.Button()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
@@ -125,10 +127,6 @@ Partial Class FormMain
         Me.EmailSettingsPassword = New System.Windows.Forms.TextBox()
         Me.EmailSettingsPort = New System.Windows.Forms.TextBox()
         Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
-        Me.EmailButtonTest = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
@@ -156,7 +154,7 @@ Partial Class FormMain
         Me.FbCommand1 = New FirebirdSql.Data.FirebirdClient.FbCommand()
         Me.TADetails = New Mayflower.DataSet2TableAdapters.TADetails()
         Me.FreelancerInfoTableAdapter = New Mayflower.DataSet2TableAdapters.FreelancerInfoTableAdapter()
-        Me.EmailBody = New TXTextControl.TextControl()
+        Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
         Me.TabControl1.SuspendLayout()
         Me.TabFreelancers.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -185,12 +183,12 @@ Partial Class FormMain
         Me.SplitContainer2.SuspendLayout()
         Me.EmailSettingsGroupBox.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer3.Panel1.SuspendLayout()
         Me.SplitContainer3.Panel2.SuspendLayout()
         Me.SplitContainer3.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -333,7 +331,6 @@ Partial Class FormMain
         '
         'DataSet2
         '
-        Me.DataSet2.DataSetName = "DataSet2"
         Me.DataSet2.EnforceConstraints = False
         Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
@@ -477,37 +474,37 @@ Partial Class FormMain
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.DataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle31.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle31
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NAMEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.RATEDataGridViewTextBoxColumn, Me.CURRENCYDataGridViewTextBoxColumn, Me.COUNTRYDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn, Me.APPROVALDataGridViewTextBoxColumn, Me.EmailButton})
         Me.DataGridView1.DataSource = Me.BindingSourceFreelancers
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle32.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle32
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle33.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle33
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.Size = New System.Drawing.Size(816, 305)
         Me.DataGridView1.TabIndex = 25
@@ -617,9 +614,7 @@ Partial Class FormMain
         '
         'TabDetails
         '
-        Me.TabDetails.Controls.Add(Me.TableLayoutPanel2)
-        Me.TabDetails.Controls.Add(Me.TableLayoutPanel1)
-        Me.TabDetails.Controls.Add(Me.DataGridView2)
+        Me.TabDetails.Controls.Add(Me.SplitContainer3)
         Me.TabDetails.Location = New System.Drawing.Point(4, 22)
         Me.TabDetails.Name = "TabDetails"
         Me.TabDetails.Padding = New System.Windows.Forms.Padding(3)
@@ -641,7 +636,7 @@ Partial Class FormMain
         Me.TableLayoutPanel2.Controls.Add(Me.Label20, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Label21, 0, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.TextBox10, 1, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(406, 7)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(392, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 4
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
@@ -660,7 +655,6 @@ Partial Class FormMain
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(288, 90)
         Me.RichTextBox1.TabIndex = 5
-        Me.RichTextBox1.Text = ""
         '
         'BindingSourceCatTools
         '
@@ -760,7 +754,7 @@ Partial Class FormMain
         Me.TableLayoutPanel1.Controls.Add(Me.Label17, 0, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.TextBox1, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ButtonSendEmail, 1, 5)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 7)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 6
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
@@ -889,37 +883,38 @@ Partial Class FormMain
         Me.DataGridView2.AutoGenerateColumns = False
         Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridView2.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle34.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle34
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RJOB_ASSIGNED, Me.ISCOMPLETED, Me.LASTJOBDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn1, Me.CLIENTDataGridViewTextBoxColumn, Me.PROJECTMANAGERDataGridViewTextBoxColumn, Me.RJOB_PRICE, Me.RJOB_FEE_KIND, Me.DataGridViewTextBoxColumn8})
         Me.DataGridView2.DataSource = Me.DTDetailsBindingSource
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle17
-        Me.DataGridView2.Location = New System.Drawing.Point(0, 184)
+        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle35
+        Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.RowHeadersDefaultCellStyle = DataGridViewCellStyle18
-        Me.DataGridView2.Size = New System.Drawing.Size(915, 253)
+        DataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.RowHeadersDefaultCellStyle = DataGridViewCellStyle36
+        Me.DataGridView2.Size = New System.Drawing.Size(816, 242)
         Me.DataGridView2.TabIndex = 1
         '
         'RJOB_ASSIGNED
@@ -1012,6 +1007,17 @@ Partial Class FormMain
         Me.TabEmail.Text = "Email"
         Me.TabEmail.UseVisualStyleBackColor = True
         '
+        'EmailBody
+        '
+        Me.EmailBody.BorderStyle = TXTextControl.BorderStyle.FixedSingle
+        Me.EmailBody.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.EmailBody.Location = New System.Drawing.Point(54, 53)
+        Me.EmailBody.Name = "EmailBody"
+        Me.EmailBody.Size = New System.Drawing.Size(701, 346)
+        Me.EmailBody.TabIndex = 8
+        Me.EmailBody.Text = "Write the body of the email here."
+        Me.EmailBody.ViewMode = TXTextControl.ViewMode.SimpleControl
+        '
         'Label23
         '
         Me.Label23.AutoSize = True
@@ -1076,7 +1082,7 @@ Partial Class FormMain
         Me.EmailSettingsGroupBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.EmailSettingsGroupBox.Location = New System.Drawing.Point(0, 0)
         Me.EmailSettingsGroupBox.Name = "EmailSettingsGroupBox"
-        Me.EmailSettingsGroupBox.Size = New System.Drawing.Size(347, 349)
+        Me.EmailSettingsGroupBox.Size = New System.Drawing.Size(347, 203)
         Me.EmailSettingsGroupBox.TabIndex = 0
         Me.EmailSettingsGroupBox.TabStop = False
         Me.EmailSettingsGroupBox.Text = "Email Settings"
@@ -1086,6 +1092,7 @@ Partial Class FormMain
         Me.TableLayoutPanel3.ColumnCount = 2
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.1028!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.8972!))
+        Me.TableLayoutPanel3.Controls.Add(Me.EmailButtonTest, 1, 6)
         Me.TableLayoutPanel3.Controls.Add(Me.Label27, 0, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.Label24, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label25, 0, 1)
@@ -1098,8 +1105,6 @@ Partial Class FormMain
         Me.TableLayoutPanel3.Controls.Add(Me.EmailSettingsPassword, 1, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.EmailSettingsPort, 1, 4)
         Me.TableLayoutPanel3.Controls.Add(Me.TextBox13, 1, 5)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label30, 0, 6)
-        Me.TableLayoutPanel3.Controls.Add(Me.SplitContainer3, 1, 6)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 16)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -1111,8 +1116,17 @@ Partial Class FormMain
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(341, 330)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(341, 184)
         Me.TableLayoutPanel3.TabIndex = 0
+        '
+        'EmailButtonTest
+        '
+        Me.EmailButtonTest.Location = New System.Drawing.Point(95, 159)
+        Me.EmailButtonTest.Name = "EmailButtonTest"
+        Me.EmailButtonTest.Size = New System.Drawing.Size(75, 23)
+        Me.EmailButtonTest.TabIndex = 0
+        Me.EmailButtonTest.Text = "Test Email"
+        Me.EmailButtonTest.UseVisualStyleBackColor = True
         '
         'Label27
         '
@@ -1240,53 +1254,6 @@ Partial Class FormMain
         Me.TextBox13.Size = New System.Drawing.Size(243, 20)
         Me.TextBox13.TabIndex = 11
         '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label30.Location = New System.Drawing.Point(3, 156)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(86, 174)
-        Me.Label30.TabIndex = 12
-        Me.Label30.Text = "Label30"
-        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'SplitContainer3
-        '
-        Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer3.Location = New System.Drawing.Point(95, 159)
-        Me.SplitContainer3.Name = "SplitContainer3"
-        '
-        'SplitContainer3.Panel1
-        '
-        Me.SplitContainer3.Panel1.Controls.Add(Me.EmailButtonTest)
-        '
-        'SplitContainer3.Panel2
-        '
-        Me.SplitContainer3.Panel2.Controls.Add(Me.Button2)
-        Me.SplitContainer3.Size = New System.Drawing.Size(243, 168)
-        Me.SplitContainer3.SplitterDistance = 116
-        Me.SplitContainer3.TabIndex = 13
-        '
-        'EmailButtonTest
-        '
-        Me.EmailButtonTest.Location = New System.Drawing.Point(17, 20)
-        Me.EmailButtonTest.Name = "EmailButtonTest"
-        Me.EmailButtonTest.Size = New System.Drawing.Size(75, 23)
-        Me.EmailButtonTest.TabIndex = 0
-        Me.EmailButtonTest.Text = "Test Email"
-        Me.EmailButtonTest.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Enabled = False
-        Me.Button2.Location = New System.Drawing.Point(21, 20)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 0
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'GroupBox1
         '
         Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
@@ -1305,7 +1272,6 @@ Partial Class FormMain
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.TextBoxServerAddress)
         Me.GroupBox1.Controls.Add(Me.ShapeContainer1)
-        Me.GroupBox1.Cursor = System.Windows.Forms.Cursors.No
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.MinimumSize = New System.Drawing.Size(459, 262)
@@ -1335,7 +1301,6 @@ Partial Class FormMain
         '
         'RichTextBoxConnectionString
         '
-        Me.RichTextBoxConnectionString.Cursor = System.Windows.Forms.Cursors.No
         Me.RichTextBoxConnectionString.Location = New System.Drawing.Point(95, 179)
         Me.RichTextBoxConnectionString.Name = "RichTextBoxConnectionString"
         Me.RichTextBoxConnectionString.ReadOnly = True
@@ -1374,7 +1339,6 @@ Partial Class FormMain
         '
         'TextBoxPassword
         '
-        Me.TextBoxPassword.Cursor = System.Windows.Forms.Cursors.No
         Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxPassword.Location = New System.Drawing.Point(95, 97)
         Me.TextBoxPassword.Name = "TextBoxPassword"
@@ -1397,7 +1361,6 @@ Partial Class FormMain
         Me.TextBoxDatabase.AutoCompleteCustomSource.AddRange(New String() {"E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb", "C:\Projetex9\Projetex Server\Database\projetex.fdb"})
         Me.TextBoxDatabase.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.TextBoxDatabase.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxDatabase.Cursor = System.Windows.Forms.Cursors.No
         Me.TextBoxDatabase.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBFile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxDatabase.Location = New System.Drawing.Point(95, 71)
         Me.TextBoxDatabase.Name = "TextBoxDatabase"
@@ -1418,7 +1381,6 @@ Partial Class FormMain
         '
         Me.TextBoxServerPort.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.TextBoxServerPort.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxServerPort.Cursor = System.Windows.Forms.Cursors.No
         Me.TextBoxServerPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxServerPort.Location = New System.Drawing.Point(95, 45)
         Me.TextBoxServerPort.Name = "TextBoxServerPort"
@@ -1440,7 +1402,6 @@ Partial Class FormMain
         Me.TextBoxServerAddress.AutoCompleteCustomSource.AddRange(New String() {"192.168.0.56", "192.168.56.101"})
         Me.TextBoxServerAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.TextBoxServerAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxServerAddress.Cursor = System.Windows.Forms.Cursors.No
         Me.TextBoxServerAddress.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBAddress", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxServerAddress.Location = New System.Drawing.Point(95, 19)
         Me.TextBoxServerAddress.Name = "TextBoxServerAddress"
@@ -1468,7 +1429,6 @@ Partial Class FormMain
         '
         'DataSet21
         '
-        Me.DataSet21.DataSetName = "DataSet2"
         Me.DataSet21.EnforceConstraints = False
         Me.DataSet21.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
@@ -1513,16 +1473,26 @@ Partial Class FormMain
         '
         Me.FreelancerInfoTableAdapter.ClearBeforeFill = True
         '
-        'EmailBody
+        'SplitContainer3
         '
-        Me.EmailBody.BorderStyle = TXTextControl.BorderStyle.FixedSingle
-        Me.EmailBody.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.EmailBody.Location = New System.Drawing.Point(54, 53)
-        Me.EmailBody.Name = "EmailBody"
-        Me.EmailBody.Size = New System.Drawing.Size(701, 346)
-        Me.EmailBody.TabIndex = 8
-        Me.EmailBody.Text = "Write the body of the email here."
-        Me.EmailBody.ViewMode = TXTextControl.ViewMode.SimpleControl
+        Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.SplitContainer3.IsSplitterFixed = True
+        Me.SplitContainer3.Location = New System.Drawing.Point(3, 3)
+        Me.SplitContainer3.Name = "SplitContainer3"
+        Me.SplitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer3.Panel1
+        '
+        Me.SplitContainer3.Panel1.Controls.Add(Me.TableLayoutPanel1)
+        Me.SplitContainer3.Panel1.Controls.Add(Me.TableLayoutPanel2)
+        '
+        'SplitContainer3.Panel2
+        '
+        Me.SplitContainer3.Panel2.Controls.Add(Me.DataGridView2)
+        Me.SplitContainer3.Size = New System.Drawing.Size(816, 430)
+        Me.SplitContainer3.SplitterDistance = 184
+        Me.SplitContainer3.TabIndex = 4
         '
         'FormMain
         '
@@ -1533,7 +1503,7 @@ Partial Class FormMain
         Me.DataBindings.Add(New System.Windows.Forms.Binding("Location", Global.Mayflower.My.MySettings.Default, "MFLocation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Location = Global.Mayflower.My.MySettings.Default.MFLocation
-        Me.MinimumSize = New System.Drawing.Size(846, 300)
+        Me.MinimumSize = New System.Drawing.Size(846, 320)
         Me.Name = "FormMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Mayflower: Projetex Lookup Tool"
@@ -1570,13 +1540,13 @@ Partial Class FormMain
         Me.EmailSettingsGroupBox.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer3.Panel1.ResumeLayout(False)
         Me.SplitContainer3.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer3.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1721,11 +1691,9 @@ Partial Class FormMain
     Friend WithEvents EmailSettingsPassword As System.Windows.Forms.TextBox
     Friend WithEvents EmailSettingsPort As System.Windows.Forms.TextBox
     Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
-    Friend WithEvents Label30 As System.Windows.Forms.Label
-    Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
     Friend WithEvents EmailButtonTest As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents EmailBody As TXTextControl.TextControl
+    Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
 
 End Class
