@@ -343,7 +343,12 @@ Public Class FormMain
     End Sub
 
     Private Sub Form1_Shown(sender As System.Object, e As System.EventArgs) Handles MyBase.Shown
-        'StatusLed.Tag = True
+        Dim c As Control = EmailBody.Parent
+        EmailBody.Parent = Me
+        EmailBody.CreateControl()
+        EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
+        EmailBody.Parent = c
+        Me.Text = ProductName & " - " & ProductVersion
     End Sub
 
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -440,12 +445,40 @@ Public Class FormMain
     End Sub
 
     Private Sub SendEmail(address As String)
+        'MessageBox.Show("Temporarily disabled",
+        '                  "Warning",
+        'MessageBoxButtons.OK,
+        'MessageBoxIcon.Warning()
+        '                   )
+        'Return
+        If String.IsNullOrWhiteSpace(EmailSettingsPassword.Text) Then
+            MsgBox("Please set your enail details first under the ""Settings"" tab!")
+            Return
+        End If
+        Dim Recipients As New List(Of String)
+        Dim FromEmailAddress As String = EmailSettingsEmail.Text
+        Dim Subject As String = EmailSubject.Text
+        Dim Body As String = ""
+        Dim UserName As String = EmailSettingsEmail.Text
+        Dim Password As String = EmailSettingsPassword.Text
+        Dim Port As Integer = CInt(EmailSettingsPort.Text)
+        Dim Server As String = EmailSettingsServer.Text
+        Dim Attachments As New List(Of String)
         Try
-            System.Diagnostics.Process.Start("mailto:" &
-                                             address &
-                                             "?Subject=" & EmailSubject.Text &
-                                             "&Body=" & EmailBody.Text
-                                             )
+            '            System.Diagnostics.Process.Start("mailto:" &
+            '                                            address &
+            '                                           "?Subject=" & EmailSubject.Text &
+            '                                          "&Body=" & EmailBody.Text
+            '                                         )
+            ' should be "address" but use own email for testing
+            MsgBox("Please note that in this test version, email is sent to yourself:" & Environment.NewLine & Environment.NewLine &
+                    EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">" & Environment.NewLine & Environment.NewLine &
+                    "NOT:" & Environment.NewLine & Environment.NewLine &
+                    address)
+            Recipients.Add(EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">")
+            EmailBody.Save(Body, TXTextControl.StringStreamType.HTMLFormat)
+            MsgBox(SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, Attachments))
+
         Catch ex As Exception
             MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine &
                             """" & ex.Message & """",
@@ -478,6 +511,7 @@ Public Class FormMain
             For Each Recipient As String In Recipients
                 Email.To.Add(Recipient)
             Next
+            Email.IsBodyHtml = True
             Email.Subject = Subject
             Email.Body = Body
             SMTPServer.Host = Server
@@ -496,19 +530,35 @@ Public Class FormMain
         Catch Ex As InvalidOperationException
             Email.Dispose()
             Return "Sending Email Failed. Check Port Number."
+        Catch Ex As Exception
+            Email.Dispose()
+            Return "Sending Email Failed with the following error:" & Environment.NewLine & Ex.Message
         End Try
     End Function
     Private Sub EmailTestButton_Click(sender As Object, e As EventArgs) Handles EmailButtonTest.Click
         Dim Recipients As New List(Of String)
         Recipients.Add(EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">")
         Dim FromEmailAddress As String = Recipients(0)
-        Dim Subject As String = "Test From VB."
-        Dim Body As String = "email body text, if you are reading this, the program worked."
+        Dim Subject As String = "Test From Projetex Lookup tool."
+        Dim Body As String = ""
+        EmailBody.Save(Body, TXTextControl.StringStreamType.HTMLFormat)
         Dim UserName As String = EmailSettingsEmail.Text
         Dim Password As String = EmailSettingsPassword.Text
         Dim Port As Integer = CInt(EmailSettingsPort.Text)
         Dim Server As String = EmailSettingsServer.Text
         Dim Attachments As New List(Of String)
         MsgBox(SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, Attachments))
+    End Sub
+
+    Private Sub EmailBody_Leave(sender As System.Object, e As System.EventArgs) Handles EmailBody.Leave
+        'My.Settings.EmailBody = 
+        'Dim str As String = New String
+        EmailBody.Save(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
+
+        'My.Settings.EmailBody = str
+    End Sub
+
+    Private Sub EmailBody_Enter(sender As System.Object, e As System.EventArgs) Handles EmailBody.Enter
+        'EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
     End Sub
 End Class

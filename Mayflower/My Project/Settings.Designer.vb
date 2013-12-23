@@ -173,7 +173,39 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Write the body of the email here.")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("<?xml version=""1.0"" ?>  <html xmlns=""http://www.w3.org/1999/xhtml"">  <head>  <met"& _ 
+            "a content=""TX20_HTM 20.0.405.501"" name=""GENERATOR"" />  <title></title>  </head> "& _ 
+            " <body style=""font-family:'Arial';font-size:12pt;text-align:left;"">  <p lang=""en"& _ 
+            "-GB"" style=""margin-top:0pt;margin-bottom:0pt;""><span style=""font-family:'Calibri"& _ 
+            "';font-size:11pt;"">Test</span></p>  <p lang=""en-GB"" style=""margin-top:0pt;margin"& _ 
+            "-bottom:0pt;""><span style=""font-family:'Calibri';font-size:11pt;""> </span></p>  "& _ 
+            "<p lang=""en-GB"" style=""margin-top:0pt;margin-bottom:0pt;""><span style=""font-fami"& _ 
+            "ly:'Times New Roman';font-size:10pt;color:#000080;"">Thanks &amp; Regards,</span>"& _ 
+            "</p>  <p lang=""en-GB"" style=""margin-top:0pt;margin-bottom:0pt;""><span style=""fon"& _ 
+            "t-family:'Times New Roman';font-size:10pt;color:#000080;"">Mohamed Kunhi M A</spa"& _ 
+            "n></p>  <p lang=""en-GB"" style=""margin-top:0pt;margin-bottom:0pt;""><span style=""f"& _ 
+            "ont-family:'Times New Roman';font-size:10pt;color:#000080;"">System Administrator"& _ 
+            "</span></p>  <p lang=""en-GB"" style=""margin-top:0pt;margin-bottom:0pt;""><a href="""& _ 
+            "http://mayflowerlanguages.com/"" style=""color:#E36C0A;font-weight:bold;text-decor"& _ 
+            "ation:underline ;"">Mayflower Language Services (P) Ltd.</a></p>  <p lang=""en-GB"""& _ 
+            " style=""margin-top:0pt;margin-bottom:0pt;""><span style=""font-family:'Century';fo"& _ 
+            "nt-size:10pt;font-weight:bold;"">An ISO 9001:2008 &amp; 27001:2005 Certified Orga"& _ 
+            "nization</span></p>  <p lang=""en-GB"" style=""margin-top:0pt;margin-bottom:0pt;""><"& _ 
+            "span style=""font-family:'Times New Roman';font-size:10pt;"">Landline : 91-80-2210"& _ 
+            "1888<br />  </span><a href=""mailto:Mohamed@mayflowerlanguages.com"" style=""font-f"& _ 
+            "amily:'Times New Roman';font-size:10pt;color:#0000FF;text-decoration:underline ;"& _ 
+            """>Mohamed@mayflowerlanguages.com</a><span style=""font-family:'Times New Roman';f"& _ 
+            "ont-size:10pt;color:#0000FF;"">  |</span><a href=""http://www.mayflowerlanguages.c"& _ 
+            "om/"" style=""font-family:'Times New Roman';font-size:10pt;color:#0000FF;text-deco"& _ 
+            "ration:underline ;"">www.mayflowerlanguages.com</a></p>  <p lang=""en-GB"" style=""m"& _ 
+            "argin-top:0pt;margin-bottom:0pt;""><span style=""font-size:9pt;color:#E36C0A;font-"& _ 
+            "weight:bold;""> </span></p>  <p lang=""en-GB"" style=""margin-top:0pt;margin-bottom:"& _ 
+            "0pt;""><span style=""font-size:9pt;color:#E36C0A;font-weight:bold;"">LOCALIZATION |"& _ 
+            " TRANSLATION | TESTING | VOICEOVER | MEDIA MONITORING</span></p>  <p lang=""en-GB"& _ 
+            """ style=""margin-top:0pt;margin-bottom:0pt;""><span style=""font-size:9pt;color:#E3"& _ 
+            "6C0A;font-weight:bold;""> </span></p>  <p lang=""en-GB"" style=""margin-top:0pt;marg"& _ 
+            "in-bottom:0pt;""><span style=""font-family:'Cambria';"">Celebrating 10 Years of  Ex"& _ 
+            "cellence in Translation &amp; Localization !!!</span></p>  </body>  </html>")>  _
         Public Property EmailBody() As String
             Get
                 Return CType(Me("EmailBody"),String)
