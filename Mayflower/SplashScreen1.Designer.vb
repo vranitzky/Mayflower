@@ -25,7 +25,6 @@ Partial Class SplashScreen1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SplashScreen1))
         Me.ApplicationTitle = New System.Windows.Forms.Label()
         Me.DetailsLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.Version = New System.Windows.Forms.Label()
         Me.Copyright = New System.Windows.Forms.Label()
         Me.MainLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.DetailsLayoutPanel.SuspendLayout()
@@ -50,7 +49,6 @@ Partial Class SplashScreen1
         Me.DetailsLayoutPanel.ColumnCount = 1
         Me.DetailsLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 247.0!))
         Me.DetailsLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142.0!))
-        Me.DetailsLayoutPanel.Controls.Add(Me.Version, 0, 0)
         Me.DetailsLayoutPanel.Controls.Add(Me.Copyright, 0, 1)
         Me.DetailsLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DetailsLayoutPanel.Location = New System.Drawing.Point(404, 221)
@@ -59,17 +57,6 @@ Partial Class SplashScreen1
         Me.DetailsLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.0!))
         Me.DetailsLayoutPanel.Size = New System.Drawing.Size(215, 79)
         Me.DetailsLayoutPanel.TabIndex = 1
-        '
-        'Version
-        '
-        Me.Version.BackColor = System.Drawing.Color.Transparent
-        Me.Version.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Version.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Version.Location = New System.Drawing.Point(3, 0)
-        Me.Version.Name = "Version"
-        Me.Version.Size = New System.Drawing.Size(241, 39)
-        Me.Version.TabIndex = 1
-        Me.Version.Text = "Version {0}.{0}.{0}"
         '
         'Copyright
         '
@@ -120,7 +107,6 @@ Partial Class SplashScreen1
     End Sub
     Friend WithEvents ApplicationTitle As System.Windows.Forms.Label
     Friend WithEvents DetailsLayoutPanel As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents Version As System.Windows.Forms.Label
     Friend WithEvents Copyright As System.Windows.Forms.Label
     Friend WithEvents MainLayoutPanel As System.Windows.Forms.TableLayoutPanel
 

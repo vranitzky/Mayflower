@@ -196,7 +196,8 @@ Public Class FormMain
 
         ' DataSet2.DTFreelancerInfo = FreelancerInfoTableAdapter.GetDataByResid(ID)
         'a = DTFreelancerInfoBindingSource.ToString()
-        TabControl1.SelectedIndex = 1
+        'TabDetails.Show() ' = True
+        TabControl1.SelectedTab = TabDetails
         'TabDetails.Show()
 
         'Me.FreelancersTableAdapter.
@@ -352,7 +353,9 @@ Public Class FormMain
         EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
 
         EmailBody.Parent = c
-        'Me.Text &= " - " & ProductVersion
+
+        'TabDetails.Hide()
+        ''''''''''''''Me.Text &= " - " & ProductVersion
 
     End Sub
 
@@ -432,24 +435,39 @@ Public Class FormMain
 
     End Sub
 
+    Private Function ShowEmailPreviewWarning() As Boolean
+        Dim result As Boolean = True
+
+        If DialogEmailWarning.CheckBoxRemindMe.Checked Then
+            DialogEmailWarning.ShowDialog()
+            result = (DialogEmailWarning.DialogResult = Windows.Forms.DialogResult.OK)
+        End If
+        Return result
+    End Function
+
     Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         Dim colName As String = DataGridView1.Columns(e.ColumnIndex).Name
         Dim a As String = DataGridView1.CurrentRow.Cells(1).Value.ToString
         If colName = "EmailButton" Then
-            'Put you code here for this button click. You can tell which row it is on by
-            'reading the RowIndex property from the event arg e.
-            'DataGridView1.
-            'MessageBox.Show(String.Format("You clicked the button: {0}", DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString))
-            SendEmail(DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString)
+            If ShowEmailPreviewWarning() Then SendEmail(DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString)
         End If
 
     End Sub
 
     Private Sub ButtonSendEmail_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSendEmail.Click
-        SendEmail(TextBoxEmailAddress.Text)
+        Dim result As Boolean = True
+
+        If String.IsNullOrWhiteSpace(TextBoxEmailAddress.Text) Then
+            MsgBox("There is no email address to send to!", MsgBoxStyle.Information, "Email error")
+        Else
+            If ShowEmailPreviewWarning() Then
+                SendEmail(TextBoxEmailAddress.Text)
+            End If
+        End If
     End Sub
 
     Private Sub SendEmail(address As String)
+        Dim result As String
         'MessageBox.Show("Temporarily disabled",
         '                  "Warning",
         'MessageBoxButtons.OK,
@@ -466,6 +484,7 @@ Public Class FormMain
             TabControl1.SelectTab(TabSettings)
             Return
         End If
+
         Dim Recipients As New List(Of String)
         Dim FromEmailAddress As String = EmailSettingsEmail.Text
         Dim Subject As String = EmailSubject.Text
@@ -488,11 +507,16 @@ Public Class FormMain
                     address,
                             "Testing email mode",
             MessageBoxButtons.OK,
-            MessageBoxIcon.Warning
+            MessageBoxIcon.Information
                             )
             Recipients.Add(EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">")
             EmailBody.Save(Body, TXTextControl.StringStreamType.HTMLFormat)
-            MsgBox(SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, Attachments))
+            result = SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, Attachments)
+            If result Is Nothing Then
+                MsgBox("Success!", MsgBoxStyle.Information, "Email result")
+            Else
+                MsgBox(result, MsgBoxStyle.Critical, "Email result")
+            End If
 
         Catch ex As Exception
             MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine &
@@ -538,9 +562,11 @@ Public Class FormMain
             SMTPServer.Port = Port
             SMTPServer.Credentials = New System.Net.NetworkCredential(UserName, Password)
             SMTPServer.EnableSsl = False
+            Me.Cursor = Cursors.WaitCursor
             SMTPServer.Send(Email)
+            Me.Cursor = Me.DefaultCursor
             Email.Dispose()
-            Return "Email to " & Recipients(0) & " from " & FromAddress & " was sent."
+            'Return "Email to " & Recipients(0) & " from " & FromAddress & " was sent."
         Catch ex As SmtpException
             Email.Dispose()
             Return "Sending Email Failed. Smtp Error."

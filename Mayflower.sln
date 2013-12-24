@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mayflower", "Mayflower\Mayflower.vbproj", "{5539DF28-529E-4927-BB77-8740B9E016C4}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MayflowerSetup", "MayflowerSetup\MayflowerSetup.vdproj", "{EDDC0918-1113-493A-93AD-BE1A611DD577}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,10 @@ Global
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Debug|x86.Build.0 = Debug|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Release|x86.ActiveCfg = Release|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Release|x86.Build.0 = Release|x86
+		{EDDC0918-1113-493A-93AD-BE1A611DD577}.Debug|x86.ActiveCfg = Debug
+		{EDDC0918-1113-493A-93AD-BE1A611DD577}.Debug|x86.Build.0 = Debug
+		{EDDC0918-1113-493A-93AD-BE1A611DD577}.Release|x86.ActiveCfg = Release
+		{EDDC0918-1113-493A-93AD-BE1A611DD577}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
