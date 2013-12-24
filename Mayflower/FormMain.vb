@@ -344,6 +344,7 @@ Public Class FormMain
     End Sub
 
     Private Sub Form1_Shown(sender As System.Object, e As System.EventArgs) Handles MyBase.Shown
+
         ' This is needed to load email body into the txtcontrol, to avoid "txrcontrol must be visible" error
         Dim c As Control = EmailBody.Parent
         EmailBody.Parent = Nothing
@@ -351,10 +352,18 @@ Public Class FormMain
             EmailBody.CreateControl()
         End If
         EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
-
         EmailBody.Parent = c
 
-        'TabDetails.Hide()
+        ' this checks if first run. If so, display a note that settings must be set
+        If My.Settings.FirstRun Then
+            MsgBox("This is the first run." & Environment.NewLine &
+                   "Please remember to check the Settings tab and input a default email in the Email tab.",
+                   MsgBoxStyle.Exclamation,
+                   "First run"
+            )
+            TabSettings.Select()
+            My.Settings.FirstRun = False
+        End If
         ''''''''''''''Me.Text &= " - " & ProductVersion
 
     End Sub
@@ -602,7 +611,8 @@ Public Class FormMain
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error
             )
-
+        Else
+            MsgBox("Email sent successfully!", MsgBoxStyle.Information, "Email Test")
         End If
     End Sub
 

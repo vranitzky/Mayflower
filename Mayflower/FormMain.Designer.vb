@@ -122,13 +122,11 @@ Partial Class FormMain
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
         Me.EmailSettingsName = New System.Windows.Forms.TextBox()
         Me.EmailSettingsEmail = New System.Windows.Forms.TextBox()
         Me.EmailSettingsServer = New System.Windows.Forms.TextBox()
         Me.EmailSettingsPassword = New System.Windows.Forms.TextBox()
         Me.EmailSettingsPort = New System.Windows.Forms.TextBox()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
@@ -1144,13 +1142,11 @@ Partial Class FormMain
         Me.TableLayoutPanel3.Controls.Add(Me.Label25, 0, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label26, 0, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.Label28, 0, 4)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label29, 0, 5)
         Me.TableLayoutPanel3.Controls.Add(Me.EmailSettingsName, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.EmailSettingsEmail, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.EmailSettingsServer, 1, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.EmailSettingsPassword, 1, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.EmailSettingsPort, 1, 4)
-        Me.TableLayoutPanel3.Controls.Add(Me.TextBox13, 1, 5)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 16)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -1167,7 +1163,7 @@ Partial Class FormMain
         '
         'EmailButtonTest
         '
-        Me.EmailButtonTest.Location = New System.Drawing.Point(95, 159)
+        Me.EmailButtonTest.Location = New System.Drawing.Point(95, 133)
         Me.EmailButtonTest.Name = "EmailButtonTest"
         Me.EmailButtonTest.Size = New System.Drawing.Size(75, 23)
         Me.EmailButtonTest.TabIndex = 0
@@ -1229,17 +1225,6 @@ Partial Class FormMain
         Me.Label28.Text = "Port:"
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label29.Location = New System.Drawing.Point(3, 130)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(86, 26)
-        Me.Label29.TabIndex = 5
-        Me.Label29.Text = "???"
-        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'EmailSettingsName
         '
         Me.EmailSettingsName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsName", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -1290,15 +1275,6 @@ Partial Class FormMain
         Me.EmailSettingsPort.Size = New System.Drawing.Size(243, 20)
         Me.EmailSettingsPort.TabIndex = 10
         Me.EmailSettingsPort.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsPort
-        '
-        'TextBox13
-        '
-        Me.TextBox13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox13.Enabled = False
-        Me.TextBox13.Location = New System.Drawing.Point(95, 133)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(243, 20)
-        Me.TextBox13.TabIndex = 11
         '
         'GroupBox1
         '
@@ -1711,13 +1687,11 @@ Partial Class FormMain
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents Label28 As System.Windows.Forms.Label
-    Friend WithEvents Label29 As System.Windows.Forms.Label
     Friend WithEvents EmailSettingsName As System.Windows.Forms.TextBox
     Friend WithEvents EmailSettingsEmail As System.Windows.Forms.TextBox
     Friend WithEvents EmailSettingsServer As System.Windows.Forms.TextBox
     Friend WithEvents EmailSettingsPassword As System.Windows.Forms.TextBox
     Friend WithEvents EmailSettingsPort As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
     Friend WithEvents EmailButtonTest As System.Windows.Forms.Button
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents EmailBody As TXTextControl.TextControl

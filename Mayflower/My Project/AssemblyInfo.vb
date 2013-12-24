@@ -10,9 +10,9 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("Mayflower - Projetex Lookup Tool")> 
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("Mayflower Languages")> 
-<Assembly: AssemblyProduct("Mayflower")> 
-<Assembly: AssemblyCopyright("Copyright © Mayflower 2013")> 
+<Assembly: AssemblyCompany("Mayflower Language Services")> 
+<Assembly: AssemblyProduct("Mayflower Projetex Lookup Tool")> 
+<Assembly: AssemblyCopyright("© Mayflower 2014")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.3.1.0")> 
-<Assembly: AssemblyFileVersion("1.3.1.0")> 
+<Assembly: AssemblyVersion("1.0.4.0")> 
+<Assembly: AssemblyFileVersion("1.0.4.0")> 
