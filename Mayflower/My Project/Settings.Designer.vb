@@ -286,6 +286,18 @@ Namespace My
                 Me("FirstRun") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property EmailTestMode() As Boolean
+            Get
+                Return CType(Me("EmailTestMode"),Boolean)
+            End Get
+            Set
+                Me("EmailTestMode") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

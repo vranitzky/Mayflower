@@ -180,10 +180,12 @@ Public Class FormMain
         'Dim a As String
 
         Try
+            Me.Cursor = Cursors.WaitCursor
             ID = CInt(DataGridView1.CurrentRow.Cells(0).Value) 'this is the ID
             FreelancerInfoTableAdapter.FillByResid(Me.DataSet2.DTFreelancerInfo, ID)
             TADetails.Fill(Me.DataSet2.DTDetails, ID)
             CatToolsTableAdapter.FillByResID(Me.DataSet2.CatTools, ID)
+            TabControl1.SelectedTab = TabDetails
         Catch ex As Exception
             MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine &
                             """" & ex.Message & """" & Environment.NewLine & Environment.NewLine &
@@ -193,11 +195,10 @@ Public Class FormMain
             MessageBoxIcon.Error
                             )
         End Try
-
+        Me.Cursor = Me.DefaultCursor
         ' DataSet2.DTFreelancerInfo = FreelancerInfoTableAdapter.GetDataByResid(ID)
         'a = DTFreelancerInfoBindingSource.ToString()
         'TabDetails.Show() ' = True
-        TabControl1.SelectedTab = TabDetails
         'TabDetails.Show()
 
         'Me.FreelancersTableAdapter.
@@ -444,10 +445,13 @@ Public Class FormMain
 
     End Sub
 
-    Private Function ShowEmailPreviewWarning() As Boolean
+    Private Function ShowEmailPreviewWarning(recipient As String) As Boolean
         Dim result As Boolean = True
 
         If DialogEmailWarning.CheckBoxRemindMe.Checked Then
+            DialogEmailWarning.LabelYouAreSending.Text = String.Format(
+                DialogEmailWarning.LabelYouAreSending.Text, recipient)
+
             DialogEmailWarning.ShowDialog()
             result = (DialogEmailWarning.DialogResult = Windows.Forms.DialogResult.OK)
         End If
@@ -458,7 +462,7 @@ Public Class FormMain
         Dim colName As String = DataGridView1.Columns(e.ColumnIndex).Name
         Dim a As String = DataGridView1.CurrentRow.Cells(1).Value.ToString
         If colName = "EmailButton" Then
-            If ShowEmailPreviewWarning() Then SendEmail(DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString)
+            If ShowEmailPreviewWarning(DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString) Then SendEmail(DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString)
         End If
 
     End Sub
@@ -469,7 +473,7 @@ Public Class FormMain
         If String.IsNullOrWhiteSpace(TextBoxEmailAddress.Text) Then
             MsgBox("There is no email address to send to!", MsgBoxStyle.Information, "Email error")
         Else
-            If ShowEmailPreviewWarning() Then
+            If ShowEmailPreviewWarning(TextBoxEmailAddress.Text) Then
                 SendEmail(TextBoxEmailAddress.Text)
             End If
         End If
@@ -509,15 +513,20 @@ Public Class FormMain
             '                                           "?Subject=" & EmailSubject.Text &
             '                                          "&Body=" & EmailBody.Text
             '                                         )
-            ' should be "address" but use own email for testing
-            MessageBox.Show("Please note that in this test version, email is sent to yourself:" & Environment.NewLine & Environment.NewLine &
-                    EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">" & Environment.NewLine & Environment.NewLine &
-                    "NOT:" & Environment.NewLine & Environment.NewLine &
-                    address,
-                            "Testing email mode",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.Information
-                            )
+            'if testmode is on, alert, otherwise add recipient to recipients list
+            If My.Settings.EmailTestMode Then
+                MessageBox.Show("Please note that in this test version, email is sent to yourself:" & Environment.NewLine & Environment.NewLine &
+                        EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">" & Environment.NewLine & Environment.NewLine &
+                        "NOT:" & Environment.NewLine & Environment.NewLine &
+                        address,
+                                "Testing email mode",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+                                )
+            Else
+                Recipients.Add(address)
+            End If
+            'in any case, send a copy to yourself
             Recipients.Add(EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">")
             EmailBody.Save(Body, TXTextControl.StringStreamType.HTMLFormat)
             result = SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, Attachments)

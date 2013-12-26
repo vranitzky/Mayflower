@@ -26,11 +26,11 @@ Partial Class DialogEmailWarning
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelYouAreSending = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.EmailBody = New TXTextControl.TextControl()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.CheckBoxRemindMe = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -77,7 +77,7 @@ Partial Class DialogEmailWarning
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.LabelYouAreSending, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label2, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Label3, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.EmailBody, 1, 2)
@@ -91,18 +91,18 @@ Partial Class DialogEmailWarning
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(689, 349)
         Me.TableLayoutPanel2.TabIndex = 1
         '
-        'Label1
+        'LabelYouAreSending
         '
-        Me.Label1.AutoSize = True
-        Me.TableLayoutPanel2.SetColumnSpan(Me.Label1, 2)
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(683, 33)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "You are sending the following email:"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabelYouAreSending.AutoSize = True
+        Me.TableLayoutPanel2.SetColumnSpan(Me.LabelYouAreSending, 2)
+        Me.LabelYouAreSending.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelYouAreSending.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelYouAreSending.Location = New System.Drawing.Point(3, 0)
+        Me.LabelYouAreSending.Name = "LabelYouAreSending"
+        Me.LabelYouAreSending.Size = New System.Drawing.Size(683, 33)
+        Me.LabelYouAreSending.TabIndex = 0
+        Me.LabelYouAreSending.Text = "You are sending the following email to {0}:"
+        Me.LabelYouAreSending.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
         '
@@ -126,17 +126,6 @@ Partial Class DialogEmailWarning
         Me.Label3.Text = "Body:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'TextBox1
-        '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSubject", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox1.Location = New System.Drawing.Point(55, 36)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(631, 20)
-        Me.TextBox1.TabIndex = 3
-        Me.TextBox1.Text = Global.Mayflower.My.MySettings.Default.EmailSubject
-        '
         'EmailBody
         '
         Me.EmailBody.BorderStyle = TXTextControl.BorderStyle.FixedSingle
@@ -147,6 +136,17 @@ Partial Class DialogEmailWarning
         Me.EmailBody.Size = New System.Drawing.Size(631, 284)
         Me.EmailBody.TabIndex = 4
         Me.EmailBody.ViewMode = TXTextControl.ViewMode.SimpleControl
+        '
+        'TextBox1
+        '
+        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSubject", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBox1.Location = New System.Drawing.Point(55, 36)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(631, 20)
+        Me.TextBox1.TabIndex = 3
+        Me.TextBox1.Text = Global.Mayflower.My.MySettings.Default.EmailSubject
         '
         'Panel1
         '
@@ -197,7 +197,7 @@ Partial Class DialogEmailWarning
     Friend WithEvents OK_Button As System.Windows.Forms.Button
     Friend WithEvents Cancel_Button As System.Windows.Forms.Button
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents LabelYouAreSending As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox

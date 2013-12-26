@@ -96,15 +96,6 @@ Partial Class FormMain
         Me.Label21 = New System.Windows.Forms.Label()
         Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.RJOB_ASSIGNED = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ISCOMPLETED = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LASTJOBDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SERVICEDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CLIENTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PROJECTMANAGERDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RJOB_PRICE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RJOB_FEE_KIND = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DTDetailsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabEmail = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
@@ -127,6 +118,7 @@ Partial Class FormMain
         Me.EmailSettingsServer = New System.Windows.Forms.TextBox()
         Me.EmailSettingsPassword = New System.Windows.Forms.TextBox()
         Me.EmailSettingsPort = New System.Windows.Forms.TextBox()
+        Me.EmailTestModeCheckBox = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
@@ -154,6 +146,15 @@ Partial Class FormMain
         Me.FbCommand1 = New FirebirdSql.Data.FirebirdClient.FbCommand()
         Me.TADetails = New Mayflower.DataSet2TableAdapters.TADetails()
         Me.FreelancerInfoTableAdapter = New Mayflower.DataSet2TableAdapters.FreelancerInfoTableAdapter()
+        Me.RJOB_ASSIGNED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ISCOMPLETED = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LASTJOBDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SERVICEDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CLIENTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RJOB_PRICE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RJOB_FEE_KIND = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabFreelancers.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -940,78 +941,6 @@ Partial Class FormMain
         Me.DataGridView2.Size = New System.Drawing.Size(816, 242)
         Me.DataGridView2.TabIndex = 1
         '
-        'RJOB_ASSIGNED
-        '
-        Me.RJOB_ASSIGNED.DataPropertyName = "RJOB_ASSIGNED"
-        Me.RJOB_ASSIGNED.HeaderText = "Date"
-        Me.RJOB_ASSIGNED.Name = "RJOB_ASSIGNED"
-        Me.RJOB_ASSIGNED.ReadOnly = True
-        Me.RJOB_ASSIGNED.Width = 55
-        '
-        'ISCOMPLETED
-        '
-        Me.ISCOMPLETED.DataPropertyName = "ISCOMPLETED"
-        Me.ISCOMPLETED.HeaderText = "Completed"
-        Me.ISCOMPLETED.Name = "ISCOMPLETED"
-        Me.ISCOMPLETED.ReadOnly = True
-        Me.ISCOMPLETED.Width = 82
-        '
-        'LASTJOBDataGridViewTextBoxColumn
-        '
-        Me.LASTJOBDataGridViewTextBoxColumn.DataPropertyName = "LASTJOB"
-        Me.LASTJOBDataGridViewTextBoxColumn.HeaderText = "LastJob"
-        Me.LASTJOBDataGridViewTextBoxColumn.Name = "LASTJOBDataGridViewTextBoxColumn"
-        Me.LASTJOBDataGridViewTextBoxColumn.ReadOnly = True
-        Me.LASTJOBDataGridViewTextBoxColumn.Width = 69
-        '
-        'SERVICEDataGridViewTextBoxColumn1
-        '
-        Me.SERVICEDataGridViewTextBoxColumn1.DataPropertyName = "SERVICE"
-        Me.SERVICEDataGridViewTextBoxColumn1.HeaderText = "Service"
-        Me.SERVICEDataGridViewTextBoxColumn1.Name = "SERVICEDataGridViewTextBoxColumn1"
-        Me.SERVICEDataGridViewTextBoxColumn1.ReadOnly = True
-        Me.SERVICEDataGridViewTextBoxColumn1.Width = 68
-        '
-        'CLIENTDataGridViewTextBoxColumn
-        '
-        Me.CLIENTDataGridViewTextBoxColumn.DataPropertyName = "CLIENT"
-        Me.CLIENTDataGridViewTextBoxColumn.HeaderText = "Client"
-        Me.CLIENTDataGridViewTextBoxColumn.Name = "CLIENTDataGridViewTextBoxColumn"
-        Me.CLIENTDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CLIENTDataGridViewTextBoxColumn.Width = 58
-        '
-        'PROJECTMANAGERDataGridViewTextBoxColumn
-        '
-        Me.PROJECTMANAGERDataGridViewTextBoxColumn.DataPropertyName = "PROJECTMANAGER"
-        Me.PROJECTMANAGERDataGridViewTextBoxColumn.HeaderText = "PM"
-        Me.PROJECTMANAGERDataGridViewTextBoxColumn.Name = "PROJECTMANAGERDataGridViewTextBoxColumn"
-        Me.PROJECTMANAGERDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PROJECTMANAGERDataGridViewTextBoxColumn.Width = 48
-        '
-        'RJOB_PRICE
-        '
-        Me.RJOB_PRICE.DataPropertyName = "RJOB_PRICE"
-        Me.RJOB_PRICE.HeaderText = "Price"
-        Me.RJOB_PRICE.Name = "RJOB_PRICE"
-        Me.RJOB_PRICE.ReadOnly = True
-        Me.RJOB_PRICE.Width = 56
-        '
-        'RJOB_FEE_KIND
-        '
-        Me.RJOB_FEE_KIND.DataPropertyName = "RJOB_FEE_KIND"
-        Me.RJOB_FEE_KIND.HeaderText = "Fee Kind"
-        Me.RJOB_FEE_KIND.Name = "RJOB_FEE_KIND"
-        Me.RJOB_FEE_KIND.ReadOnly = True
-        Me.RJOB_FEE_KIND.Width = 74
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "CURR_NAME"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Currency"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        Me.DataGridViewTextBoxColumn8.Width = 74
-        '
         'DTDetailsBindingSource
         '
         Me.DTDetailsBindingSource.DataMember = "DTDetails"
@@ -1147,6 +1076,7 @@ Partial Class FormMain
         Me.TableLayoutPanel3.Controls.Add(Me.EmailSettingsServer, 1, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.EmailSettingsPassword, 1, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.EmailSettingsPort, 1, 4)
+        Me.TableLayoutPanel3.Controls.Add(Me.EmailTestModeCheckBox, 1, 5)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 16)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -1163,7 +1093,7 @@ Partial Class FormMain
         '
         'EmailButtonTest
         '
-        Me.EmailButtonTest.Location = New System.Drawing.Point(95, 133)
+        Me.EmailButtonTest.Location = New System.Drawing.Point(95, 156)
         Me.EmailButtonTest.Name = "EmailButtonTest"
         Me.EmailButtonTest.Size = New System.Drawing.Size(75, 23)
         Me.EmailButtonTest.TabIndex = 0
@@ -1276,6 +1206,20 @@ Partial Class FormMain
         Me.EmailSettingsPort.TabIndex = 10
         Me.EmailSettingsPort.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsPort
         '
+        'EmailTestModeCheckBox
+        '
+        Me.EmailTestModeCheckBox.AutoSize = True
+        Me.EmailTestModeCheckBox.Checked = Global.Mayflower.My.MySettings.Default.EmailTestMode
+        Me.EmailTestModeCheckBox.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.EmailTestModeCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.Mayflower.My.MySettings.Default, "EmailTestMode", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EmailTestModeCheckBox.Dock = System.Windows.Forms.DockStyle.Left
+        Me.EmailTestModeCheckBox.Location = New System.Drawing.Point(95, 133)
+        Me.EmailTestModeCheckBox.Name = "EmailTestModeCheckBox"
+        Me.EmailTestModeCheckBox.Size = New System.Drawing.Size(201, 17)
+        Me.EmailTestModeCheckBox.TabIndex = 15
+        Me.EmailTestModeCheckBox.Text = "Test Mode: Don't send to real people"
+        Me.EmailTestModeCheckBox.UseVisualStyleBackColor = True
+        '
         'GroupBox1
         '
         Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
@@ -1343,6 +1287,7 @@ Partial Class FormMain
         'CheckBox3
         '
         Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Enabled = False
         Me.CheckBox3.Location = New System.Drawing.Point(402, 99)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(53, 17)
@@ -1496,6 +1441,79 @@ Partial Class FormMain
         '
         Me.FreelancerInfoTableAdapter.ClearBeforeFill = True
         '
+        'RJOB_ASSIGNED
+        '
+        Me.RJOB_ASSIGNED.DataPropertyName = "RJOB_ASSIGNED"
+        Me.RJOB_ASSIGNED.HeaderText = "Date"
+        Me.RJOB_ASSIGNED.Name = "RJOB_ASSIGNED"
+        Me.RJOB_ASSIGNED.ReadOnly = True
+        Me.RJOB_ASSIGNED.Width = 55
+        '
+        'ISCOMPLETED
+        '
+        Me.ISCOMPLETED.DataPropertyName = "ISCOMPLETED"
+        Me.ISCOMPLETED.HeaderText = "Completed"
+        Me.ISCOMPLETED.Name = "ISCOMPLETED"
+        Me.ISCOMPLETED.ReadOnly = True
+        Me.ISCOMPLETED.Visible = False
+        Me.ISCOMPLETED.Width = 82
+        '
+        'LASTJOBDataGridViewTextBoxColumn
+        '
+        Me.LASTJOBDataGridViewTextBoxColumn.DataPropertyName = "LASTJOB"
+        Me.LASTJOBDataGridViewTextBoxColumn.HeaderText = "LastJob"
+        Me.LASTJOBDataGridViewTextBoxColumn.Name = "LASTJOBDataGridViewTextBoxColumn"
+        Me.LASTJOBDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LASTJOBDataGridViewTextBoxColumn.Width = 69
+        '
+        'SERVICEDataGridViewTextBoxColumn1
+        '
+        Me.SERVICEDataGridViewTextBoxColumn1.DataPropertyName = "SERVICE"
+        Me.SERVICEDataGridViewTextBoxColumn1.HeaderText = "Service"
+        Me.SERVICEDataGridViewTextBoxColumn1.Name = "SERVICEDataGridViewTextBoxColumn1"
+        Me.SERVICEDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.SERVICEDataGridViewTextBoxColumn1.Width = 68
+        '
+        'CLIENTDataGridViewTextBoxColumn
+        '
+        Me.CLIENTDataGridViewTextBoxColumn.DataPropertyName = "CLIENT"
+        Me.CLIENTDataGridViewTextBoxColumn.HeaderText = "Client"
+        Me.CLIENTDataGridViewTextBoxColumn.Name = "CLIENTDataGridViewTextBoxColumn"
+        Me.CLIENTDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CLIENTDataGridViewTextBoxColumn.Width = 58
+        '
+        'PROJECTMANAGERDataGridViewTextBoxColumn
+        '
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn.DataPropertyName = "PROJECTMANAGER"
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn.HeaderText = "PM"
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn.Name = "PROJECTMANAGERDataGridViewTextBoxColumn"
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PROJECTMANAGERDataGridViewTextBoxColumn.Width = 48
+        '
+        'RJOB_PRICE
+        '
+        Me.RJOB_PRICE.DataPropertyName = "RJOB_PRICE"
+        Me.RJOB_PRICE.HeaderText = "Price"
+        Me.RJOB_PRICE.Name = "RJOB_PRICE"
+        Me.RJOB_PRICE.ReadOnly = True
+        Me.RJOB_PRICE.Width = 56
+        '
+        'RJOB_FEE_KIND
+        '
+        Me.RJOB_FEE_KIND.DataPropertyName = "RJOB_FEE_KIND"
+        Me.RJOB_FEE_KIND.HeaderText = "Fee Kind"
+        Me.RJOB_FEE_KIND.Name = "RJOB_FEE_KIND"
+        Me.RJOB_FEE_KIND.ReadOnly = True
+        Me.RJOB_FEE_KIND.Width = 74
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "CURR_NAME"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Currency"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        Me.DataGridViewTextBoxColumn8.Width = 74
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1634,15 +1652,6 @@ Partial Class FormMain
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
-    Friend WithEvents RJOB_ASSIGNED As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ISCOMPLETED As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents LASTJOBDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SERVICEDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CLIENTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PROJECTMANAGERDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RJOB_PRICE As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RJOB_FEE_KIND As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TabEmail As System.Windows.Forms.TabPage
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents EmailSubject As System.Windows.Forms.TextBox
@@ -1697,5 +1706,15 @@ Partial Class FormMain
     Friend WithEvents EmailBody As TXTextControl.TextControl
     Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents EmailTestModeCheckBox As System.Windows.Forms.CheckBox
+    Friend WithEvents RJOB_ASSIGNED As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ISCOMPLETED As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LASTJOBDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SERVICEDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CLIENTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PROJECTMANAGERDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RJOB_PRICE As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RJOB_FEE_KIND As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class
