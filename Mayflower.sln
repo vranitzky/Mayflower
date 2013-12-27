@@ -3,29 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mayflower", "Mayflower\Mayflower.vbproj", "{5539DF28-529E-4927-BB77-8740B9E016C4}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VSSetup", "VSSetup\VSSetup.vdproj", "{1BE8BCEE-8265-43DD-B086-CDFFC726E585}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Projetex Lookup Tool Setup", "Projetex Lookup Tool Setup\Projetex Lookup Tool Setup.vdproj", "{D5E5C25B-2A7F-43D7-8354-572142788325}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		CD_ROM|x86 = CD_ROM|x86
 		Debug|x86 = Debug|x86
-		DVD-5|x86 = DVD-5|x86
 		Release|x86 = Release|x86
-		SingleImage|x86 = SingleImage|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5539DF28-529E-4927-BB77-8740B9E016C4}.CD_ROM|x86.ActiveCfg = Release|x64
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Debug|x86.ActiveCfg = Debug|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Debug|x86.Build.0 = Debug|x86
-		{5539DF28-529E-4927-BB77-8740B9E016C4}.DVD-5|x86.ActiveCfg = Debug|x64
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Release|x86.ActiveCfg = Release|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Release|x86.Build.0 = Release|x86
-		{5539DF28-529E-4927-BB77-8740B9E016C4}.SingleImage|x86.ActiveCfg = Release|x64
-		{1BE8BCEE-8265-43DD-B086-CDFFC726E585}.CD_ROM|x86.ActiveCfg = Release
-		{1BE8BCEE-8265-43DD-B086-CDFFC726E585}.Debug|x86.ActiveCfg = Debug
-		{1BE8BCEE-8265-43DD-B086-CDFFC726E585}.DVD-5|x86.ActiveCfg = Debug
-		{1BE8BCEE-8265-43DD-B086-CDFFC726E585}.Release|x86.ActiveCfg = Release
-		{1BE8BCEE-8265-43DD-B086-CDFFC726E585}.SingleImage|x86.ActiveCfg = Release
+		{D5E5C25B-2A7F-43D7-8354-572142788325}.Debug|x86.ActiveCfg = Debug
+		{D5E5C25B-2A7F-43D7-8354-572142788325}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
