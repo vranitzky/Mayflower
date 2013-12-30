@@ -6,7 +6,7 @@ Public Class FormMain
     Public Attachments As New Dictionary(Of String, String) ' = New Dictionary(Of String, String)
 
     Private Sub GetCatTools()
-        Dim t As Mayflower.DataSet2.CatToolsDataTable
+        Dim t As Mayflower.DataSet2DataSet.CatToolsDataTable
         Dim r As DataRow
         Dim a, s As String
         Dim arr As String()
@@ -16,7 +16,7 @@ Public Class FormMain
         Dim charSeparators() As String = {vbCrLf, ",", "•", "", ""} 'rubbish characters in the Database
 
         TextBoxTools.AutoCompleteCustomSource.Clear()
-        'Me.CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
+        'Me.CatToolsTableAdapter.Fill(Me.DataSet2DataSet.CatTools)
         t = Me.CatToolsTableAdapter.GetData()
         For Each r In t.Rows
             s = r.Item(0).ToString ' this get a row. each row has: "value1" & vbCrLf & "value2" ....
@@ -109,10 +109,10 @@ Public Class FormMain
         FreelancersTableAdapter.Adapter.SelectCommand = command
 
         If (FreelancersTableAdapter.ClearBeforeFill = True) Then
-            DataSet2.DataTableFreelancers.Clear()
+            DataSet2DataSet.DataTableFreelancers.Clear()
         End If
         Try
-            ret = FreelancersTableAdapter.Adapter.Fill(DataSet2.DataTableFreelancers)
+            ret = FreelancersTableAdapter.Adapter.Fill(DataSet2DataSet.DataTableFreelancers)
 
         Catch ex As Exception
             Return
@@ -124,15 +124,15 @@ Public Class FormMain
 
         'If RestrictBySourceLang.Checked And ComboBoxSourceLang.Text <> "-ALL-" Then
         'If RestrictByTargetLang.Checked And ComboBoxTargetLang.Text <> "-ALL-" Then
-        'ret = FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
+        'ret = FreelancersTableAdapter.FillBySourceAndTargetLang(Me.DataSet2DataSet.DataTableFreelancers, ComboBoxSourceLang.Text, ComboBoxTargetLang.Text)
         'Else
-        'ret = FreelancersTableAdapter.FillBySourceLang(Me.DataSet2.DataTableFreelancers, ComboBoxSourceLang.Text)
+        'ret = FreelancersTableAdapter.FillBySourceLang(Me.DataSet2DataSet.DataTableFreelancers, ComboBoxSourceLang.Text)
         'End If
         'Else
         'If RestrictByTargetLang.Checked And ComboBoxTargetLang.Text <> "-ALL-" Then
-        'ret = FreelancersTableAdapter.FillByTargetLang(Me.DataSet2.DataTableFreelancers, ComboBoxTargetLang.Text)
+        'ret = FreelancersTableAdapter.FillByTargetLang(Me.DataSet2DataSet.DataTableFreelancers, ComboBoxTargetLang.Text)
         'Else
-        'ret = FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
+        'ret = FreelancersTableAdapter.Fill(Me.DataSet2DataSet.DataTableFreelancers)
         'End If
         'End If
         foundstr = "Found " & ret.ToString & " record"
@@ -149,9 +149,9 @@ Public Class FormMain
 
         If RestrictBySourceLang.Checked Then 'if not restricted, ignore any change
             If ComboBoxSourceLang.Text <> "-ALL-" Then
-                TargetLangTableAdapter.FillBySourceLanguage(Me.DataSet2.DataTableTargetLang, ComboBoxSourceLang.Text)
+                TargetLangTableAdapter.FillBySourceLanguage(Me.DataSet2DataSet.DataTableTargetLang, ComboBoxSourceLang.Text)
             Else
-                TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
+                TargetLangTableAdapter.Fill(Me.DataSet2DataSet.DataTableTargetLang)
             End If
             FillFreelancersTable()
         End If
@@ -193,9 +193,9 @@ Public Class FormMain
         Try
             Me.Cursor = Cursors.WaitCursor
             ID = CInt(DataGridView1.CurrentRow.Cells(0).Value) 'this is the ID
-            FreelancerInfoTableAdapter.FillByResid(Me.DataSet2.DTFreelancerInfo, ID)
-            TADetails.Fill(Me.DataSet2.DTDetails, ID)
-            CatToolsTableAdapter.FillByResID(Me.DataSet2.CatTools, ID)
+            FreelancerInfoTableAdapter.FillByResid(Me.DataSet2DataSet.DTFreelancerInfo, ID)
+            TADetails.Fill(Me.DataSet2DataSet.DTDetails, ID)
+            CatToolsTableAdapter.FillByResID(Me.DataSet2DataSet.CatTools, ID)
             TabControl1.SelectedTab = TabDetails
         Catch ex As Exception
             MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine &
@@ -207,14 +207,14 @@ Public Class FormMain
                             )
         End Try
         Me.Cursor = Me.DefaultCursor
-        ' DataSet2.DTFreelancerInfo = FreelancerInfoTableAdapter.GetDataByResid(ID)
+        ' DataSet2DataSet.DTFreelancerInfo = FreelancerInfoTableAdapter.GetDataByResid(ID)
         'a = DTFreelancerInfoBindingSource.ToString()
         'TabDetails.Show() ' = True
         'TabDetails.Show()
 
         'Me.FreelancersTableAdapter.
         'Me.DetailsTableAdapter.FillByRES_ID('22')
-        'Me.DetailsTableAdapter.FillByRES_ID(Me.DataSet2.DataTableDetails, CInt(Me.Tag))
+        'Me.DetailsTableAdapter.FillByRES_ID(Me.DataSet2DataSet.DataTableDetails, CInt(Me.Tag))
 
 
 
@@ -250,7 +250,7 @@ Public Class FormMain
         RichTextBoxConnectionString.Text = connstr
 
         Try
-            'DataSet2.Clear()
+            'DataSet2DataSet.Clear()
 
             FreelancersTableAdapter.Connection.ConnectionString = connstr
             SourceLangTableAdapter.Connection.ConnectionString = connstr
@@ -261,14 +261,14 @@ Public Class FormMain
             TADetails.Connection.ConnectionString = connstr
             FreelancerInfoTableAdapter.Connection.ConnectionString = connstr
 
-            SourceLangTableAdapter.Fill(DataSet2.DataTableSourceLang)
-            TargetLangTableAdapter.Fill(DataSet2.DataTableTargetLang)
-            Me.ServiceTableAdapter.Fill(Me.DataSet2.DataTableService)
-            'TODO: This line of code loads data into the 'DataSet2.DataTableDomains' table. You can move, or remove it, as needed.
-            Me.DomainsTableAdapter.Fill(Me.DataSet2.DataTableDomains)
-            CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
+            SourceLangTableAdapter.Fill(DataSet2DataSet.DataTableSourceLang)
+            TargetLangTableAdapter.Fill(DataSet2DataSet.DataTableTargetLang)
+            Me.ServiceTableAdapter.Fill(Me.DataSet2DataSet.DataTableService)
+            'TODO: This line of code loads data into the 'DataSet2DataSet.DataTableDomains' table. You can move, or remove it, as needed.
+            Me.DomainsTableAdapter.Fill(Me.DataSet2DataSet.DataTableDomains)
+            CatToolsTableAdapter.Fill(Me.DataSet2DataSet.CatTools)
 
-            'FreelancersTableAdapter.Fill(DataSet2.DataTableFreelancers)
+            'FreelancersTableAdapter.Fill(DataSet2DataSet.DataTableFreelancers)
 
             GetCatTools()
             FillFreelancersTable()
@@ -289,7 +289,7 @@ Public Class FormMain
             My.Settings.DBFile = TextBoxDatabase.Text
 
             'TODO reset connection
-            'DataSet2.cl()
+            'DataSet2DataSet.cl()
 
             My.Settings.Save()
         End If
@@ -381,8 +381,8 @@ Public Class FormMain
     End Sub
 
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DataSet2.COUNTRIES' table. You can move, or remove it, as needed.
-        Me.COUNTRIESTableAdapter.Fill(Me.DataSet2.COUNTRIES)
+        'TODO: This line of code loads data into the 'DataSet2DataSet.COUNTRIES' table. You can move, or remove it, as needed.
+        Me.COUNTRIESTableAdapter.Fill(Me.DataSet2DataSet.COUNTRIES)
         'Dim t As ada
         Me.Loaded = True
 
@@ -399,6 +399,8 @@ Public Class FormMain
             My.Settings.EmailTemplatesBodies.Insert(0, My.Settings.EmailBody)
             My.Settings.EmailTemplatesSubjects.Insert(0, My.Settings.EmailSubject)
         End If
+        ' fill the dropbox
+        'Email()
         'MsgBox(My.Settings.EmailTemplatesSubjects.)
 
         Try
@@ -412,18 +414,18 @@ Public Class FormMain
             TADetails.Connection.ConnectionString = My.Settings.ProjetexDB
             FreelancerInfoTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
 
-            'TODO: This line of code loads data into the 'DataSet2.DataTableTargetLang' table. You can move, or remove it, as needed.
-            Me.TargetLangTableAdapter.Fill(Me.DataSet2.DataTableTargetLang)
-            'TODO: This line of code loads data into the 'DataSet2.DataTableSourceLang' table. You can move, or remove it, as needed.
-            Me.SourceLangTableAdapter.Fill(Me.DataSet2.DataTableSourceLang)
-            'TODO: This line of code loads data into the 'DataSet2.DataTableFreelancers' table. You can move, or remove it, as needed.
-            'TODO: This line of code loads data into the 'DataSet21.DataTableService' table. You can move, or remove it, as needed.
-            Me.ServiceTableAdapter.Fill(Me.DataSet2.DataTableService)
-            'TODO: This line of code loads data into the 'DataSet2.DataTableDomains' table. You can move, or remove it, as needed.
-            Me.DomainsTableAdapter.Fill(Me.DataSet2.DataTableDomains)
-            'Me.FreelancersTableAdapter.Fill(Me.DataSet2.DataTableFreelancers)
-            'TODO: This line of code loads data into the 'DataSet2.DataTableService' table. You can move, or remove it, as needed.
-            'Me.CatToolsTableAdapter.Fill(Me.DataSet2.CatTools)
+            'TODO: This line of code loads data into the 'DataSet2DataSet.DataTableTargetLang' table. You can move, or remove it, as needed.
+            Me.TargetLangTableAdapter.Fill(Me.DataSet2DataSet.DataTableTargetLang)
+            'TODO: This line of code loads data into the 'DataSet2DataSet.DataTableSourceLang' table. You can move, or remove it, as needed.
+            Me.SourceLangTableAdapter.Fill(Me.DataSet2DataSet.DataTableSourceLang)
+            'TODO: This line of code loads data into the 'DataSet2DataSet.DataTableFreelancers' table. You can move, or remove it, as needed.
+            'TODO: This line of code loads data into the 'DataSet2DataSet1.DataTableService' table. You can move, or remove it, as needed.
+            Me.ServiceTableAdapter.Fill(Me.DataSet2DataSet.DataTableService)
+            'TODO: This line of code loads data into the 'DataSet2DataSet.DataTableDomains' table. You can move, or remove it, as needed.
+            Me.DomainsTableAdapter.Fill(Me.DataSet2DataSet.DataTableDomains)
+            'Me.FreelancersTableAdapter.Fill(Me.DataSet2DataSet.DataTableFreelancers)
+            'TODO: This line of code loads data into the 'DataSet2DataSet.DataTableService' table. You can move, or remove it, as needed.
+            'Me.CatToolsTableAdapter.Fill(Me.DataSet2DataSet.CatTools)
             GetCatTools()
             FillFreelancersTable()
 
@@ -666,7 +668,19 @@ Public Class FormMain
         'EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
     End Sub
 
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles ButtonTemplateAdd.Click
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)
+
+    End Sub
+
+    Private Sub TableLayoutPanel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs)
+
+    End Sub
+
+    Private Sub TemplatesButtonAdd_Click(sender As System.Object, e As System.EventArgs) Handles TemplatesButtonAdd.Click
+
+    End Sub
+
+    Private Sub TemplatesButtonRemove_Click(sender As System.Object, e As System.EventArgs) Handles TemplatesButtonRemove.Click
 
     End Sub
 End Class

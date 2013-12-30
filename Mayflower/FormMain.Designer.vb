@@ -23,7 +23,7 @@ Partial Class FormMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabFreelancers = New System.Windows.Forms.TabPage()
@@ -32,7 +32,7 @@ Partial Class FormMain
         Me.Label29 = New System.Windows.Forms.Label()
         Me.ComboBoxCountry = New System.Windows.Forms.ComboBox()
         Me.COUNTRIESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet2 = New Mayflower.DataSet2()
+        Me.DataSet2DataSet = New Mayflower.DataSet2DataSet()
         Me.RestrictByService = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.RestrictByDomain = New System.Windows.Forms.CheckBox()
@@ -108,16 +108,11 @@ Partial Class FormMain
         Me.DTDetailsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabEmail = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label22a = New System.Windows.Forms.Label()
         Me.EmailBody = New TXTextControl.TextControl()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.EmailSubject = New System.Windows.Forms.TextBox()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ButtonTemplateAdd = New System.Windows.Forms.Button()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label30a = New System.Windows.Forms.Label()
         Me.TabSettings = New System.Windows.Forms.TabPage()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.EmailSettingsGroupBox = New System.Windows.Forms.GroupBox()
@@ -150,18 +145,23 @@ Partial Class FormMain
         Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.StatusLed = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.DataSet21 = New Mayflower.DataSet2()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.DataSet2DataSet1 = New Mayflower.DataSet2DataSet()
         Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
-        Me.FreelancersTableAdapter = New Mayflower.DataSet2TableAdapters.FreelancersTableAdapter()
-        Me.SourceLangTableAdapter = New Mayflower.DataSet2TableAdapters.SourceLangTableAdapter()
-        Me.TargetLangTableAdapter = New Mayflower.DataSet2TableAdapters.TargetLangTableAdapter()
-        Me.CatToolsTableAdapter = New Mayflower.DataSet2TableAdapters.CatToolsTableAdapter()
-        Me.DomainsTableAdapter = New Mayflower.DataSet2TableAdapters.DomainsTableAdapter()
-        Me.ServiceTableAdapter = New Mayflower.DataSet2TableAdapters.ServiceTableAdapter()
+        Me.FreelancersTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.FreelancersTableAdapter()
+        Me.SourceLangTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.SourceLangTableAdapter()
+        Me.TargetLangTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.TargetLangTableAdapter()
+        Me.CatToolsTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.CatToolsTableAdapter()
+        Me.DomainsTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.DomainsTableAdapter()
+        Me.ServiceTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.ServiceTableAdapter()
         Me.FbCommand1 = New FirebirdSql.Data.FirebirdClient.FbCommand()
-        Me.TADetails = New Mayflower.DataSet2TableAdapters.TADetails()
-        Me.FreelancerInfoTableAdapter = New Mayflower.DataSet2TableAdapters.FreelancerInfoTableAdapter()
-        Me.COUNTRIESTableAdapter = New Mayflower.DataSet2TableAdapters.COUNTRIESTableAdapter()
+        Me.TADetails = New Mayflower.DataSet2DataSetTableAdapters.TADetails()
+        Me.FreelancerInfoTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.FreelancerInfoTableAdapter()
+        Me.COUNTRIESTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TemplatesButtonAdd = New System.Windows.Forms.Button()
+        Me.TemplatesButtonRemove = New System.Windows.Forms.Button()
+        Me.TemplatesCombo = New System.Windows.Forms.ComboBox()
         Me.TabControl1.SuspendLayout()
         Me.TabFreelancers.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -169,7 +169,7 @@ Partial Class FormMain
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.COUNTRIESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet2DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -189,7 +189,6 @@ Partial Class FormMain
         CType(Me.DTDetailsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabEmail.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
-        Me.TableLayoutPanel5.SuspendLayout()
         Me.TabSettings.SuspendLayout()
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer2.Panel1.SuspendLayout()
@@ -198,7 +197,8 @@ Partial Class FormMain
         Me.EmailSettingsGroupBox.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet2DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -211,7 +211,7 @@ Partial Class FormMain
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1056, 533)
+        Me.TabControl1.Size = New System.Drawing.Size(968, 533)
         Me.TabControl1.TabIndex = 0
         '
         'TabFreelancers
@@ -302,12 +302,13 @@ Partial Class FormMain
         'COUNTRIESBindingSource
         '
         Me.COUNTRIESBindingSource.DataMember = "COUNTRIES"
-        Me.COUNTRIESBindingSource.DataSource = Me.DataSet2
+        Me.COUNTRIESBindingSource.DataSource = Me.DataSet2DataSet
         '
-        'DataSet2
+        'DataSet2DataSet
         '
-        Me.DataSet2.EnforceConstraints = False
-        Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.DataSet2DataSet.DataSetName = "DataSet2DataSet"
+        Me.DataSet2DataSet.EnforceConstraints = False
+        Me.DataSet2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'RestrictByService
         '
@@ -385,7 +386,7 @@ Partial Class FormMain
         'DataTableServiceBindingSource
         '
         Me.DataTableServiceBindingSource.DataMember = "DataTableService"
-        Me.DataTableServiceBindingSource.DataSource = Me.DataSet2
+        Me.DataTableServiceBindingSource.DataSource = Me.DataSet2DataSet
         '
         'Label10
         '
@@ -412,7 +413,7 @@ Partial Class FormMain
         'DataTableDomainsBindingSource
         '
         Me.DataTableDomainsBindingSource.DataMember = "DataTableDomains"
-        Me.DataTableDomainsBindingSource.DataSource = Me.DataSet2
+        Me.DataTableDomainsBindingSource.DataSource = Me.DataSet2DataSet
         '
         'Label9
         '
@@ -489,7 +490,7 @@ Partial Class FormMain
         '
         Me.BindingSourceTargetLang.AllowNew = False
         Me.BindingSourceTargetLang.DataMember = "DataTableTargetLang"
-        Me.BindingSourceTargetLang.DataSource = Me.DataSet2
+        Me.BindingSourceTargetLang.DataSource = Me.DataSet2DataSet
         '
         'Label1
         '
@@ -517,7 +518,7 @@ Partial Class FormMain
         '
         Me.BindingSourceSourceLang.AllowNew = False
         Me.BindingSourceSourceLang.DataMember = "DataTableSourceLang"
-        Me.BindingSourceSourceLang.DataSource = Me.DataSet2
+        Me.BindingSourceSourceLang.DataSource = Me.DataSet2DataSet
         '
         'DataGridView1
         '
@@ -527,14 +528,14 @@ Partial Class FormMain
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.NAMEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.RATEDataGridViewTextBoxColumn, Me.CURRENCYDataGridViewTextBoxColumn, Me.COUNTRYDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn, Me.APPROVALDataGridViewTextBoxColumn, Me.EmailButton})
         Me.DataGridView1.DataSource = Me.BindingSourceFreelancers
@@ -649,7 +650,7 @@ Partial Class FormMain
         '
         Me.BindingSourceFreelancers.AllowNew = False
         Me.BindingSourceFreelancers.DataMember = "DataTableFreelancers"
-        Me.BindingSourceFreelancers.DataSource = Me.DataSet2
+        Me.BindingSourceFreelancers.DataSource = Me.DataSet2DataSet
         '
         'TabDetails
         '
@@ -725,7 +726,7 @@ Partial Class FormMain
         'DTFreelancerInfoBindingSource
         '
         Me.DTFreelancerInfoBindingSource.DataMember = "DTFreelancerInfo"
-        Me.DTFreelancerInfoBindingSource.DataSource = Me.DataSet2
+        Me.DTFreelancerInfoBindingSource.DataSource = Me.DataSet2DataSet
         '
         'TextBox4
         '
@@ -859,12 +860,13 @@ Partial Class FormMain
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(335, 94)
         Me.RichTextBox1.TabIndex = 5
+        Me.RichTextBox1.Text = ""
         '
         'BindingSourceCatTools
         '
         Me.BindingSourceCatTools.AllowNew = False
         Me.BindingSourceCatTools.DataMember = "CatTools"
-        Me.BindingSourceCatTools.DataSource = Me.DataSet2
+        Me.BindingSourceCatTools.DataSource = Me.DataSet2DataSet
         '
         'TextBox8
         '
@@ -1029,29 +1031,30 @@ Partial Class FormMain
         'DTDetailsBindingSource
         '
         Me.DTDetailsBindingSource.DataMember = "DTDetails"
-        Me.DTDetailsBindingSource.DataSource = Me.DataSet2
+        Me.DTDetailsBindingSource.DataSource = Me.DataSet2DataSet
         '
         'TabEmail
         '
         Me.TabEmail.Controls.Add(Me.TableLayoutPanel4)
         Me.TabEmail.Location = New System.Drawing.Point(4, 24)
         Me.TabEmail.Name = "TabEmail"
-        Me.TabEmail.Size = New System.Drawing.Size(1048, 505)
+        Me.TabEmail.Size = New System.Drawing.Size(960, 505)
         Me.TabEmail.TabIndex = 3
         Me.TabEmail.Text = "Email"
         Me.TabEmail.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel4
         '
+        Me.TableLayoutPanel4.AutoSize = True
         Me.TableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.TableLayoutPanel4.ColumnCount = 2
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel4.Controls.Add(Me.Label22, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label22a, 0, 1)
         Me.TableLayoutPanel4.Controls.Add(Me.EmailBody, 1, 2)
         Me.TableLayoutPanel4.Controls.Add(Me.Label23, 0, 2)
         Me.TableLayoutPanel4.Controls.Add(Me.EmailSubject, 1, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label30, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label30a, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.TableLayoutPanel5, 1, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(0, 0)
@@ -1060,29 +1063,29 @@ Partial Class FormMain
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(1048, 505)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(960, 505)
         Me.TableLayoutPanel4.TabIndex = 9
         '
-        'Label22
+        'Label22a
         '
-        Me.Label22.AutoSize = True
-        Me.Label22.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label22.Location = New System.Drawing.Point(3, 46)
-        Me.Label22.Margin = New System.Windows.Forms.Padding(3)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(62, 21)
-        Me.Label22.TabIndex = 4
-        Me.Label22.Text = "Subject:"
-        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label22a.AutoSize = True
+        Me.Label22a.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label22a.Location = New System.Drawing.Point(3, 36)
+        Me.Label22a.Margin = New System.Windows.Forms.Padding(3)
+        Me.Label22a.Name = "Label22a"
+        Me.Label22a.Size = New System.Drawing.Size(62, 21)
+        Me.Label22a.TabIndex = 4
+        Me.Label22a.Text = "Subject:"
+        Me.Label22a.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'EmailBody
         '
         Me.EmailBody.BorderStyle = TXTextControl.BorderStyle.FixedSingle
         Me.EmailBody.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmailBody.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.EmailBody.Location = New System.Drawing.Point(71, 73)
+        Me.EmailBody.Location = New System.Drawing.Point(71, 63)
         Me.EmailBody.Name = "EmailBody"
-        Me.EmailBody.Size = New System.Drawing.Size(981, 466)
+        Me.EmailBody.Size = New System.Drawing.Size(886, 439)
         Me.EmailBody.TabIndex = 8
         Me.EmailBody.Text = "Write the body here"
         Me.EmailBody.ViewMode = TXTextControl.ViewMode.SimpleControl
@@ -1091,10 +1094,10 @@ Partial Class FormMain
         '
         Me.Label23.AutoSize = True
         Me.Label23.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label23.Location = New System.Drawing.Point(3, 73)
+        Me.Label23.Location = New System.Drawing.Point(3, 63)
         Me.Label23.Margin = New System.Windows.Forms.Padding(3)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(62, 466)
+        Me.Label23.Size = New System.Drawing.Size(62, 439)
         Me.Label23.TabIndex = 5
         Me.Label23.Text = "Body:"
         Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1104,92 +1107,31 @@ Partial Class FormMain
         Me.EmailSubject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.EmailSubject.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSubject", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSubject.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmailSubject.Location = New System.Drawing.Point(71, 46)
+        Me.EmailSubject.Location = New System.Drawing.Point(71, 36)
         Me.EmailSubject.Name = "EmailSubject"
-        Me.EmailSubject.Size = New System.Drawing.Size(981, 21)
+        Me.EmailSubject.Size = New System.Drawing.Size(886, 21)
         Me.EmailSubject.TabIndex = 7
         Me.EmailSubject.Text = Global.Mayflower.My.MySettings.Default.EmailSubject
         '
-        'Label30
+        'Label30a
         '
-        Me.Label30.AutoSize = True
-        Me.Label30.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label30.Location = New System.Drawing.Point(3, 0)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(62, 43)
-        Me.Label30.TabIndex = 9
-        Me.Label30.Text = "Template:"
-        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'TableLayoutPanel5
-        '
-        Me.TableLayoutPanel5.AutoSize = True
-        Me.TableLayoutPanel5.ColumnCount = 3
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel5.Controls.Add(Me.ButtonTemplateAdd, 0, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Button2, 1, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.ComboBox1, 2, 0)
-        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(71, 3)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        Me.TableLayoutPanel5.RowCount = 1
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(981, 37)
-        Me.TableLayoutPanel5.TabIndex = 10
-        '
-        'ButtonTemplateAdd
-        '
-        Me.ButtonTemplateAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonTemplateAdd.ImageKey = "Button Add.png"
-        Me.ButtonTemplateAdd.ImageList = Me.ImageList1
-        Me.ButtonTemplateAdd.Location = New System.Drawing.Point(3, 3)
-        Me.ButtonTemplateAdd.Name = "ButtonTemplateAdd"
-        Me.ButtonTemplateAdd.Size = New System.Drawing.Size(93, 31)
-        Me.ButtonTemplateAdd.TabIndex = 0
-        Me.ButtonTemplateAdd.Text = "Add New"
-        Me.ButtonTemplateAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ButtonTemplateAdd.UseVisualStyleBackColor = True
-        '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "Button Add.png")
-        Me.ImageList1.Images.SetKeyName(1, "Button Remove.png")
-        '
-        'Button2
-        '
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.ImageKey = "Button Remove.png"
-        Me.Button2.ImageList = Me.ImageList1
-        Me.Button2.Location = New System.Drawing.Point(102, 3)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(93, 31)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Delete"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(201, 7)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(777, 23)
-        Me.ComboBox1.TabIndex = 2
+        Me.Label30a.AutoSize = True
+        Me.Label30a.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label30a.Location = New System.Drawing.Point(3, 0)
+        Me.Label30a.Name = "Label30a"
+        Me.Label30a.Size = New System.Drawing.Size(62, 33)
+        Me.Label30a.TabIndex = 9
+        Me.Label30a.Text = "Template:"
+        Me.Label30a.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'TabSettings
         '
         Me.TabSettings.BackColor = System.Drawing.Color.Transparent
         Me.TabSettings.Controls.Add(Me.SplitContainer2)
-        Me.TabSettings.Location = New System.Drawing.Point(4, 22)
+        Me.TabSettings.Location = New System.Drawing.Point(4, 24)
         Me.TabSettings.Name = "TabSettings"
         Me.TabSettings.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabSettings.Size = New System.Drawing.Size(1048, 507)
+        Me.TabSettings.Size = New System.Drawing.Size(1048, 505)
         Me.TabSettings.TabIndex = 1
         Me.TabSettings.Text = "Settings"
         '
@@ -1206,7 +1148,7 @@ Partial Class FormMain
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1042, 501)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1042, 499)
         Me.SplitContainer2.SplitterDistance = 442
         Me.SplitContainer2.SplitterWidth = 5
         Me.SplitContainer2.TabIndex = 3
@@ -1556,10 +1498,18 @@ Partial Class FormMain
         Me.StatusLed.Name = "StatusLed"
         Me.StatusLed.Size = New System.Drawing.Size(25, 25)
         '
-        'DataSet21
+        'ImageList1
         '
-        Me.DataSet21.EnforceConstraints = False
-        Me.DataSet21.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "Button Add.png")
+        Me.ImageList1.Images.SetKeyName(1, "Button Remove.png")
+        '
+        'DataSet2DataSet1
+        '
+        Me.DataSet2DataSet1.DataSetName = "DataSet2DataSet"
+        Me.DataSet2DataSet1.EnforceConstraints = False
+        Me.DataSet2DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FbConnection1
         '
@@ -1606,11 +1556,69 @@ Partial Class FormMain
         '
         Me.COUNTRIESTableAdapter.ClearBeforeFill = True
         '
+        'TableLayoutPanel5
+        '
+        Me.TableLayoutPanel5.AutoSize = True
+        Me.TableLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel5.ColumnCount = 3
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.Controls.Add(Me.TemplatesButtonAdd, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.TemplatesButtonRemove, 1, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.TemplatesCombo, 2, 0)
+        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(68, 0)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 1
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(892, 33)
+        Me.TableLayoutPanel5.TabIndex = 10
+        '
+        'TemplatesButtonAdd
+        '
+        Me.TemplatesButtonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.TemplatesButtonAdd.ImageKey = "Button Add.png"
+        Me.TemplatesButtonAdd.ImageList = Me.ImageList1
+        Me.TemplatesButtonAdd.Location = New System.Drawing.Point(3, 3)
+        Me.TemplatesButtonAdd.Name = "TemplatesButtonAdd"
+        Me.TemplatesButtonAdd.Size = New System.Drawing.Size(88, 27)
+        Me.TemplatesButtonAdd.TabIndex = 0
+        Me.TemplatesButtonAdd.Text = "Add New"
+        Me.TemplatesButtonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.TemplatesButtonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.TemplatesButtonAdd.UseVisualStyleBackColor = True
+        '
+        'TemplatesButtonRemove
+        '
+        Me.TemplatesButtonRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.TemplatesButtonRemove.ImageKey = "Button Remove.png"
+        Me.TemplatesButtonRemove.ImageList = Me.ImageList1
+        Me.TemplatesButtonRemove.Location = New System.Drawing.Point(97, 3)
+        Me.TemplatesButtonRemove.Name = "TemplatesButtonRemove"
+        Me.TemplatesButtonRemove.Size = New System.Drawing.Size(88, 27)
+        Me.TemplatesButtonRemove.TabIndex = 1
+        Me.TemplatesButtonRemove.Text = "Remove"
+        Me.TemplatesButtonRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.TemplatesButtonRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.TemplatesButtonRemove.UseVisualStyleBackColor = True
+        '
+        'TemplatesCombo
+        '
+        Me.TemplatesCombo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TemplatesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TemplatesCombo.FormattingEnabled = True
+        Me.TemplatesCombo.Location = New System.Drawing.Point(191, 5)
+        Me.TemplatesCombo.Name = "TemplatesCombo"
+        Me.TemplatesCombo.Size = New System.Drawing.Size(698, 23)
+        Me.TemplatesCombo.TabIndex = 2
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1056, 533)
+        Me.ClientSize = New System.Drawing.Size(968, 533)
         Me.Controls.Add(Me.TabControl1)
         Me.DataBindings.Add(New System.Windows.Forms.Binding("Location", Global.Mayflower.My.MySettings.Default, "MFLocation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1628,7 +1636,7 @@ Partial Class FormMain
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.COUNTRIESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet2DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1650,9 +1658,9 @@ Partial Class FormMain
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTDetailsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabEmail.ResumeLayout(False)
+        Me.TabEmail.PerformLayout()
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
-        Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TabSettings.ResumeLayout(False)
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
@@ -1663,7 +1671,8 @@ Partial Class FormMain
         Me.TableLayoutPanel3.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet2DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1686,15 +1695,15 @@ Partial Class FormMain
     Friend WithEvents RichTextBoxConnectionString As System.Windows.Forms.RichTextBox
     Friend WithEvents ButtonTestDBSettings As System.Windows.Forms.Button
     Friend WithEvents DataTablePeopleBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DataSet2 As Mayflower.DataSet2
+    Friend WithEvents DataSet2DataSet As Mayflower.DataSet2DataSet
     Friend WithEvents DataTableFreelancersBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents FreelancersTableAdapter As Mayflower.DataSet2TableAdapters.FreelancersTableAdapter
+    Friend WithEvents FreelancersTableAdapter As Mayflower.DataSet2DataSetTableAdapters.FreelancersTableAdapter
     Friend WithEvents DataTableSourceLangBindingSource1 As System.Windows.Forms.BindingSource
-    Friend WithEvents SourceLangTableAdapter As Mayflower.DataSet2TableAdapters.SourceLangTableAdapter
+    Friend WithEvents SourceLangTableAdapter As Mayflower.DataSet2DataSetTableAdapters.SourceLangTableAdapter
     Friend WithEvents BindingSourceFreelancers As System.Windows.Forms.BindingSource
     Friend WithEvents BindingSourceSourceLang As System.Windows.Forms.BindingSource
     Friend WithEvents BindingSourceTargetLang As System.Windows.Forms.BindingSource
-    Friend WithEvents TargetLangTableAdapter As Mayflower.DataSet2TableAdapters.TargetLangTableAdapter
+    Friend WithEvents TargetLangTableAdapter As Mayflower.DataSet2DataSetTableAdapters.TargetLangTableAdapter
     Friend WithEvents FbConnection1 As FirebirdSql.Data.FirebirdClient.FbConnection
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
@@ -1707,7 +1716,7 @@ Partial Class FormMain
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewImageColumn1 As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents BindingSourceCatTools As System.Windows.Forms.BindingSource
-    Friend WithEvents CatToolsTableAdapter As Mayflower.DataSet2TableAdapters.CatToolsTableAdapter
+    Friend WithEvents CatToolsTableAdapter As Mayflower.DataSet2DataSetTableAdapters.CatToolsTableAdapter
     Friend WithEvents RESIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RESNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RESCODEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1716,14 +1725,14 @@ Partial Class FormMain
     Friend WithEvents COUNNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents COUNFLAGDataGridViewImageColumn As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents DataTableDomainsBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DomainsTableAdapter As Mayflower.DataSet2TableAdapters.DomainsTableAdapter
+    Friend WithEvents DomainsTableAdapter As Mayflower.DataSet2DataSetTableAdapters.DomainsTableAdapter
     Friend WithEvents DataTableServiceBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents ServiceTableAdapter As Mayflower.DataSet2TableAdapters.ServiceTableAdapter
+    Friend WithEvents ServiceTableAdapter As Mayflower.DataSet2DataSetTableAdapters.ServiceTableAdapter
     Friend WithEvents FbCommand1 As FirebirdSql.Data.FirebirdClient.FbCommand
     Friend WithEvents TabDetails As System.Windows.Forms.TabPage
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents DTDetailsBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents TADetails As Mayflower.DataSet2TableAdapters.TADetails
+    Friend WithEvents TADetails As Mayflower.DataSet2DataSetTableAdapters.TADetails
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
@@ -1732,8 +1741,8 @@ Partial Class FormMain
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DTFreelancerInfoBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DataSet21 As Mayflower.DataSet2
-    Friend WithEvents FreelancerInfoTableAdapter As Mayflower.DataSet2TableAdapters.FreelancerInfoTableAdapter
+    Friend WithEvents DataSet2DataSet1 As Mayflower.DataSet2DataSet
+    Friend WithEvents FreelancerInfoTableAdapter As Mayflower.DataSet2DataSetTableAdapters.FreelancerInfoTableAdapter
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
@@ -1751,7 +1760,7 @@ Partial Class FormMain
     Friend WithEvents TabEmail As System.Windows.Forms.TabPage
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents EmailSubject As System.Windows.Forms.TextBox
-    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label22a As System.Windows.Forms.Label
     Friend WithEvents ButtonSendEmail As System.Windows.Forms.Button
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents RestrictByService As System.Windows.Forms.CheckBox
@@ -1807,7 +1816,7 @@ Partial Class FormMain
     Friend WithEvents Label29 As System.Windows.Forms.Label
     Friend WithEvents ComboBoxCountry As System.Windows.Forms.ComboBox
     Friend WithEvents COUNTRIESBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents COUNTRIESTableAdapter As Mayflower.DataSet2TableAdapters.COUNTRIESTableAdapter
+    Friend WithEvents COUNTRIESTableAdapter As Mayflower.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter
     Friend WithEvents RJOB_ASSIGNED As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ISCOMPLETED As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PROJ_CODE As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1818,11 +1827,11 @@ Partial Class FormMain
     Friend WithEvents RJOB_PRICE As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RJOB_FEE_KIND As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label30 As System.Windows.Forms.Label
-    Friend WithEvents TableLayoutPanel5 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents ButtonTemplateAdd As System.Windows.Forms.Button
+    Friend WithEvents Label30a As System.Windows.Forms.Label
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents TableLayoutPanel5 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents TemplatesButtonAdd As System.Windows.Forms.Button
+    Friend WithEvents TemplatesButtonRemove As System.Windows.Forms.Button
+    Friend WithEvents TemplatesCombo As System.Windows.Forms.ComboBox
 
 End Class

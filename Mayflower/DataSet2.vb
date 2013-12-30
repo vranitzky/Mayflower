@@ -1,10 +1,10 @@
 ﻿
 
-Partial Class DataSet2
+Partial Class DataSet2DataSet
 End Class
 
-Namespace DataSet2TableAdapters
-    
+Namespace DataSet2DataSetTableAdapters
+
     Partial Public Class DetailsTableAdapter
     End Class
 End Namespace

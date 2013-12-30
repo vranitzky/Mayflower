@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DataSet2" targetNamespace="http://tempuri.org/DataSet2.xsd" xmlns:mstns="http://tempuri.org/DataSet2.xsd" xmlns="http://tempuri.org/DataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="DataSet2DataSet" targetNamespace="http://tempuri.org/DataSet2DataSet.xsd" xmlns:mstns="http://tempuri.org/DataSet2DataSet.xsd" xmlns="http://tempuri.org/DataSet2DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -392,7 +392,7 @@ ORDER BY COUNTRY
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="false" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet2" msprop:Generator_UserDSName="DataSet2">
+  <xs:element name="DataSet2DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="false" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet2DataSet" msprop:Generator_UserDSName="DataSet2DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="DataTableSourceLang" msprop:Generator_TableClassName="DataTableSourceLangDataTable" msprop:Generator_TableVarName="tableDataTableSourceLang" msprop:Generator_RowChangedName="DataTableSourceLangRowChanged" msprop:Generator_TablePropName="DataTableSourceLang" msprop:Generator_RowDeletingName="DataTableSourceLangRowDeleting" msprop:Generator_RowChangingName="DataTableSourceLangRowChanging" msprop:Generator_RowEvHandlerName="DataTableSourceLangRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableSourceLangRowDeleted" msprop:Generator_RowClassName="DataTableSourceLangRow" msprop:Generator_UserTableName="DataTableSourceLang" msprop:Generator_RowEvArgName="DataTableSourceLangRowChangeEvent">

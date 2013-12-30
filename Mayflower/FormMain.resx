@@ -117,99 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="COUNTRIESBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 214</value>
-  </metadata>
-  <metadata name="DataTableServiceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 136</value>
-  </metadata>
-  <metadata name="DataTableDomainsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>559, 97</value>
-  </metadata>
-  <metadata name="BindingSourceTargetLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 97</value>
-  </metadata>
-  <metadata name="BindingSourceSourceLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>205, 58</value>
-  </metadata>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="EmailButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="BindingSourceFreelancers.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>307, 19</value>
-  </metadata>
-  <metadata name="COUNTRIESBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 214</value>
-  </metadata>
-  <metadata name="DataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>24, 15</value>
-  </metadata>
-  <metadata name="DataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>24, 15</value>
-  </metadata>
-  <metadata name="DataTableServiceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 136</value>
-  </metadata>
-  <metadata name="DataTableDomainsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>559, 97</value>
-  </metadata>
-  <metadata name="BindingSourceTargetLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 97</value>
-  </metadata>
-  <metadata name="BindingSourceSourceLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>205, 58</value>
-  </metadata>
-  <metadata name="RJOB_ASSIGNED.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ISCOMPLETED.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PROJ_CODE.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RJOB_PRICE.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RJOB_FEE_KIND.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DTDetailsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>577, 136</value>
-  </metadata>
-  <metadata name="DTFreelancerInfoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>227, 175</value>
-  </metadata>
-  <metadata name="DTFreelancerInfoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>227, 175</value>
-  </metadata>
-  <metadata name="BindingSourceCatTools.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>209, 97</value>
-  </metadata>
-  <metadata name="BindingSourceCatTools.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>209, 97</value>
-  </metadata>
-  <metadata name="RJOB_ASSIGNED.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ISCOMPLETED.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PROJ_CODE.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RJOB_PRICE.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RJOB_FEE_KIND.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DTDetailsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>577, 136</value>
-  </metadata>
   <metadata name="ImageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>633, 19</value>
   </metadata>
@@ -217,8 +124,8 @@
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACQ
-        CgAAAk1TRnQBSQFMAgEBAgEAAQgBAAEIAQABFAEAARQBAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACO
+        CgAAAk1TRnQBSQFMAgEBAgEAASgBAAEoAQABFAEAARQBAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABUAMAARQDAAEBAQABCAUAAUABBhgAAYACAAGAAwACgAEAAYADAAGAAQABgAEAAoACAAPAAQABwAHc
         AcABAAHwAcoBpgEAATMFAAEzAQABMwEAATMBAAIzAgADFgEAAxwBAAMiAQADKQEAA1UBAANNAQADQgEA
         AzkBAAGAAXwB/wEAAlAB/wEAAZMBAAHWAQAB/wHsAcwBAAHGAdYB7wEAAdYC5wEAAZABqQGtAgAB/wEz
@@ -247,26 +154,119 @@
         ATMBAAHMAf8BZgEAAv8BmQEAAv8BzAEAAmYB/wEAAWYB/wFmAQABZgL/AQAB/wJmAQAB/wFmAf8BAAL/
         AWYBAAEhAQABpQEAA18BAAN3AQADhgEAA5YBAAPLAQADsgEAA9cBAAPdAQAD4wEAA+oBAAPxAQAD+AEA
         AfAB+wH/AQABpAKgAQADgAMAAf8CAAH/AwAC/wEAAf8DAAH/AQAB/wEAAv8CAAP/BQAE/wT0BP8IAAT/
-        BPQE/zAAAf8B9AHwAe8BUQFQAS8BUAEcAbwB8wL/BwAB/wH0AfABkwFLAUUBJAFFAXQB7gHzAv8vAAH/
-        AZkIVwF4AfQB/wcAAf8BkwFGBkwBRgFvAfQB/y4AAfYBeApXAVABGwYAAfUBbwNMBEYDTAFFAfItAAH/
+        BPQE/zAAAf8B9AHwAe8BUQFQAS8BUAEcAbwB8wL/BwAB/wH0AfABkwFLAUUBJAFFAXQBvAHzAv8vAAH/
+        AZkIVwF4AfQB/wcAAf8BkwFGBkwBRgFvAfQB/y4AAfYBeApXAVABGwYAAf8BbwNMBEYDTAFFAfItAAH/
         AVELVwFYAVAB9AQAAf8BSwJMCEYCTAFFAfQsAAEbBlcDVgVXAXgB/wMAAfIOTAF0Af8qAAH/AXgBWARX
         ATUBoAHlBVcBWAFXAfQCAAH/AW8PTAH0KgAB8wFXAXkEVwE1AaAB5QdXAZkCAAHzAUYBbw5MAZkqAAEI
-        AnkBeAJXAlgBoAHlAXkCWAFXAXgCeQF4AgAB7gFvAXQBbwhMAW8BTAJvAXQBbyoAAZkFeQegAVcDeQFQ
+        AnkBeAJXAlgBoAHlAXkCWAFXAXgCeQF4AgABvAFvAXQBbwhMAW8BTAJvAXQBbyoAAZkFeQegAVcDeQFQ
         AgABkwF1AXQCbwF1BpQBmgFMAW8BdAF1AUUqAAGZAZ8DeQGZAsMDoALDAVcCeQGfAVECAAGTAZQBdQJ0
         AZQHGgFMAXQBdQGUAUUqAAHwAZkBnwF+AXkDVwKgAXkCVwJ5AX4BnwEcAgABGgGTAZQCdQhMAW8CdQGU
         AXQqAAH0AXgCnwF+AnkBVwHDAaADeQF+A58B8QIAAfQBbwGaAZQKdQKUAZoB8CsAAZkBwwOfAX4BeQKf
-        AXkBfgOfAcMBmQH2AwABkwKaApQGdQKUApoBdAH1KwAB9gGZAcMBoAifAqABGgEIBAAB9QGTARoCmgaU
-        BJoB7iwAAf8BCAGZAcMIoAHDARsBeAH/BAAB/wEHAZMBGgiaAhoBdAH/LgABCAGZA8MCoAPDARoBcwH/
-        BwABBwGTAxoDmgMaAW4B/y8AAf8B9gGZAXgCGwH2ARsBmQF4ARsB/wgAAf8B9QGTAW8BGgIbARoBkwFv
-        AfIB/zMAAfYBGwKZAQgB9AH/DQAB9QEaAQcBkwHuAfQB/34AAUIBTQE+BwABPgMAASgDAAFQAwABFAMA
-        AQEBAAEBBQAB8BcAA/8BAAHwAQAB/wEAAQ8HAAHwAQABfwEAAQcHAAHwAQABfwEAAQcHAAHgAQABfgEA
-        AQcHAAHAAQABPAEAAQMHAAHAAQABHAEAAQEHAAGAAQABGAEAAQEHAAGAAQABGAEAAQEHAAGAAQABGAEA
-        AQEHAAGAAQABGAEAAQEHAAGAAQABGAEAAQEHAAGAAQABGAEAAQEHAAGAAQABGAEAAQEHAAHAAQABHAEA
-        AQEHAAHAAQABPAEAAQMHAAHAAQABPAEAAQMHAAHwAQABfwEAAQcHAAHwAQAB/wEAAQ8HAAH+AQMB/wHg
-        AT8HAAX/BwAL
+        AXkBfgOfAcMBmQH2AwABkwKaApQGdQKUApoBdAH/KwAB9gGZAcMBoAifAqABGgEIBAAB/wGTARoCmgaU
+        BJoBvCwAAf8BCAGZAcMIoAHDARsBeAH/BAAB/wEHAZMBGgiaAhoBdAH/LgABCAGZA8MCoAPDARoBcwH/
+        BwABBwGTAxoDmgMaAW4B/y8AAf8B9gGZAXgCGwH2ARsBmQF4ARsB/wgAAv8BkwFvARoCGwEaAZMBbwHy
+        Af8zAAH2ARsCmQEIAfQB/w0AAf8BGgEHAZMBvAH0Af9+AAFCAU0BPgcAAT4DAAEoAwABUAMAARQDAAEB
+        AQABAQUAAfAXAAP/AQAB8AEAAf8BAAEPBwAB8AEAAX8BAAEHBwAB8AEAAX8BAAEHBwAB4AEAAX4BAAEH
+        BwABwAEAATwBAAEDBwABwAEAARwBAAEBBwABgAEAARgBAAEBBwABgAEAARgBAAEBBwABgAEAARgBAAEB
+        BwABgAEAARgBAAEBBwABgAEAARgBAAEBBwABgAEAARgBAAEBBwABgAEAARgBAAEBBwABwAEAARwBAAEB
+        BwABwAEAATwBAAEDBwABwAEAATwBAAEDBwAB8AEAAX8BAAEHBwAB8AEAAf8BAAEPBwAB/gEDAf8B4AE/
+        BwAF/wcACw==
 </value>
   </data>
-  <metadata name="DataSet21.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="COUNTRIESBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 214</value>
+  </metadata>
+  <metadata name="DataTableServiceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>190, 136</value>
+  </metadata>
+  <metadata name="DataTableDomainsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>559, 97</value>
+  </metadata>
+  <metadata name="BindingSourceTargetLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 97</value>
+  </metadata>
+  <metadata name="BindingSourceSourceLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>205, 58</value>
+  </metadata>
+  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="EmailButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="BindingSourceFreelancers.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>307, 19</value>
+  </metadata>
+  <metadata name="COUNTRIESBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 214</value>
+  </metadata>
+  <metadata name="DataSet2DataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>24, 15</value>
+  </metadata>
+  <metadata name="DataSet2DataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>24, 15</value>
+  </metadata>
+  <metadata name="DataTableServiceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>190, 136</value>
+  </metadata>
+  <metadata name="DataTableDomainsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>559, 97</value>
+  </metadata>
+  <metadata name="BindingSourceTargetLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 97</value>
+  </metadata>
+  <metadata name="BindingSourceSourceLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>205, 58</value>
+  </metadata>
+  <metadata name="RJOB_ASSIGNED.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ISCOMPLETED.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PROJ_CODE.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RJOB_PRICE.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RJOB_FEE_KIND.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DTDetailsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>577, 136</value>
+  </metadata>
+  <metadata name="DTFreelancerInfoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>227, 175</value>
+  </metadata>
+  <metadata name="DTFreelancerInfoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>227, 175</value>
+  </metadata>
+  <metadata name="BindingSourceCatTools.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>209, 97</value>
+  </metadata>
+  <metadata name="BindingSourceCatTools.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>209, 97</value>
+  </metadata>
+  <metadata name="RJOB_ASSIGNED.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ISCOMPLETED.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PROJ_CODE.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RJOB_PRICE.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RJOB_FEE_KIND.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DTDetailsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>577, 136</value>
+  </metadata>
+  <metadata name="DataSet2DataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>120, 175</value>
   </metadata>
   <metadata name="FbConnection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

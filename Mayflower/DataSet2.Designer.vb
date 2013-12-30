@@ -20,9 +20,9 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("DataSet2"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("DataSet2DataSet"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class DataSet2
+Partial Public Class DataSet2DataSet
     Inherits Global.System.Data.DataSet
     
     Private tableDataTableSourceLang As DataTableSourceLangDataTable
@@ -263,7 +263,7 @@ Partial Public Class DataSet2
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As DataSet2 = CType(MyBase.Clone,DataSet2)
+        Dim cln As DataSet2DataSet = CType(MyBase.Clone,DataSet2DataSet)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -415,9 +415,9 @@ Partial Public Class DataSet2
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "DataSet2"
+        Me.DataSetName = "DataSet2DataSet"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/DataSet2.xsd"
+        Me.Namespace = "http://tempuri.org/DataSet2DataSet.xsd"
         Me.EnforceConstraints = false
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableDataTableSourceLang = New DataTableSourceLangDataTable()
@@ -513,7 +513,7 @@ Partial Public Class DataSet2
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As DataSet2 = New DataSet2()
+        Dim ds As DataSet2DataSet = New DataSet2DataSet()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -781,7 +781,7 @@ Partial Public Class DataSet2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet2 = New DataSet2()
+            Dim ds As DataSet2DataSet = New DataSet2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -1034,7 +1034,7 @@ Partial Public Class DataSet2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet2 = New DataSet2()
+            Dim ds As DataSet2DataSet = New DataSet2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -1451,7 +1451,7 @@ Partial Public Class DataSet2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet2 = New DataSet2()
+            Dim ds As DataSet2DataSet = New DataSet2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -1704,7 +1704,7 @@ Partial Public Class DataSet2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet2 = New DataSet2()
+            Dim ds As DataSet2DataSet = New DataSet2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -1957,7 +1957,7 @@ Partial Public Class DataSet2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet2 = New DataSet2()
+            Dim ds As DataSet2DataSet = New DataSet2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -2210,7 +2210,7 @@ Partial Public Class DataSet2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet2 = New DataSet2()
+            Dim ds As DataSet2DataSet = New DataSet2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -2664,7 +2664,7 @@ Partial Public Class DataSet2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet2 = New DataSet2()
+            Dim ds As DataSet2DataSet = New DataSet2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -3307,7 +3307,7 @@ Partial Public Class DataSet2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet2 = New DataSet2()
+            Dim ds As DataSet2DataSet = New DataSet2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -3605,7 +3605,7 @@ Partial Public Class DataSet2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet2 = New DataSet2()
+            Dim ds As DataSet2DataSet = New DataSet2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -3874,7 +3874,7 @@ Partial Public Class DataSet2
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DataSet2 = New DataSet2()
+            Dim ds As DataSet2DataSet = New DataSet2DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -5593,7 +5593,7 @@ Partial Public Class DataSet2
     End Class
 End Class
 
-Namespace DataSet2TableAdapters
+Namespace DataSet2DataSetTableAdapters
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -5749,7 +5749,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.DataTableSourceLangDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2DataSet.DataTableSourceLangDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -5762,9 +5762,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DataSet2.DataTableSourceLangDataTable
+        Public Overloads Overridable Function GetData() As DataSet2DataSet.DataTableSourceLangDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet2.DataTableSourceLangDataTable = New DataSet2.DataTableSourceLangDataTable()
+            Dim dataTable As DataSet2DataSet.DataTableSourceLangDataTable = New DataSet2DataSet.DataTableSourceLangDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -5940,7 +5940,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.DataTableTargetLangDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2DataSet.DataTableTargetLangDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -5953,9 +5953,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DataSet2.DataTableTargetLangDataTable
+        Public Overloads Overridable Function GetData() As DataSet2DataSet.DataTableTargetLangDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet2.DataTableTargetLangDataTable = New DataSet2.DataTableTargetLangDataTable()
+            Dim dataTable As DataSet2DataSet.DataTableTargetLangDataTable = New DataSet2DataSet.DataTableTargetLangDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -5964,7 +5964,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBySourceLanguage(ByVal dataTable As DataSet2.DataTableTargetLangDataTable, ByVal sourcel As String) As Integer
+        Public Overloads Overridable Function FillBySourceLanguage(ByVal dataTable As DataSet2DataSet.DataTableTargetLangDataTable, ByVal sourcel As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (sourcel Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
@@ -5982,14 +5982,14 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBySourceLanguage(ByVal sourcel As String) As DataSet2.DataTableTargetLangDataTable
+        Public Overloads Overridable Function GetDataBySourceLanguage(ByVal sourcel As String) As DataSet2DataSet.DataTableTargetLangDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (sourcel Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(sourcel,String)
             End If
-            Dim dataTable As DataSet2.DataTableTargetLangDataTable = New DataSet2.DataTableTargetLangDataTable()
+            Dim dataTable As DataSet2DataSet.DataTableTargetLangDataTable = New DataSet2DataSet.DataTableTargetLangDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -6185,7 +6185,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.DataTableFreelancersDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2DataSet.DataTableFreelancersDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -6198,9 +6198,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DataSet2.DataTableFreelancersDataTable
+        Public Overloads Overridable Function GetData() As DataSet2DataSet.DataTableFreelancersDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
+            Dim dataTable As DataSet2DataSet.DataTableFreelancersDataTable = New DataSet2DataSet.DataTableFreelancersDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -6209,7 +6209,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByRESID(ByVal dataTable As DataSet2.DataTableFreelancersDataTable, ByVal resid As Integer) As Integer
+        Public Overloads Overridable Function FillByRESID(ByVal dataTable As DataSet2DataSet.DataTableFreelancersDataTable, ByVal resid As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
             If (Me.ClearBeforeFill = true) Then
@@ -6223,10 +6223,10 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByRESID(ByVal resid As Integer) As DataSet2.DataTableFreelancersDataTable
+        Public Overloads Overridable Function GetDataByRESID(ByVal resid As Integer) As DataSet2DataSet.DataTableFreelancersDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
-            Dim dataTable As DataSet2.DataTableFreelancersDataTable = New DataSet2.DataTableFreelancersDataTable()
+            Dim dataTable As DataSet2DataSet.DataTableFreelancersDataTable = New DataSet2DataSet.DataTableFreelancersDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -6397,7 +6397,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.CatToolsDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2DataSet.CatToolsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -6410,9 +6410,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DataSet2.CatToolsDataTable
+        Public Overloads Overridable Function GetData() As DataSet2DataSet.CatToolsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet2.CatToolsDataTable = New DataSet2.CatToolsDataTable()
+            Dim dataTable As DataSet2DataSet.CatToolsDataTable = New DataSet2DataSet.CatToolsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -6421,7 +6421,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByResID(ByVal dataTable As DataSet2.CatToolsDataTable, ByVal resid As Object) As Integer
+        Public Overloads Overridable Function FillByResID(ByVal dataTable As DataSet2DataSet.CatToolsDataTable, ByVal resid As Object) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (resid Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("resid")
@@ -6439,14 +6439,14 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByResID(ByVal resid As Object) As DataSet2.CatToolsDataTable
+        Public Overloads Overridable Function GetDataByResID(ByVal resid As Object) As DataSet2DataSet.CatToolsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (resid Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("resid")
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Object)
             End If
-            Dim dataTable As DataSet2.CatToolsDataTable = New DataSet2.CatToolsDataTable()
+            Dim dataTable As DataSet2DataSet.CatToolsDataTable = New DataSet2DataSet.CatToolsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -6609,7 +6609,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.DataTableDomainsDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2DataSet.DataTableDomainsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -6622,9 +6622,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DataSet2.DataTableDomainsDataTable
+        Public Overloads Overridable Function GetData() As DataSet2DataSet.DataTableDomainsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet2.DataTableDomainsDataTable = New DataSet2.DataTableDomainsDataTable()
+            Dim dataTable As DataSet2DataSet.DataTableDomainsDataTable = New DataSet2DataSet.DataTableDomainsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -6784,7 +6784,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.DataTableServiceDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2DataSet.DataTableServiceDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -6797,9 +6797,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DataSet2.DataTableServiceDataTable
+        Public Overloads Overridable Function GetData() As DataSet2DataSet.DataTableServiceDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet2.DataTableServiceDataTable = New DataSet2.DataTableServiceDataTable()
+            Dim dataTable As DataSet2DataSet.DataTableServiceDataTable = New DataSet2DataSet.DataTableServiceDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -6990,7 +6990,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.DTDetailsDataTable, ByVal resid As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2DataSet.DTDetailsDataTable, ByVal resid As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (resid.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid.Value,Integer)
@@ -7008,14 +7008,14 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal resid As Global.System.Nullable(Of Integer)) As DataSet2.DTDetailsDataTable
+        Public Overloads Overridable Function GetData(ByVal resid As Global.System.Nullable(Of Integer)) As DataSet2DataSet.DTDetailsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (resid.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid.Value,Integer)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Dim dataTable As DataSet2.DTDetailsDataTable = New DataSet2.DTDetailsDataTable()
+            Dim dataTable As DataSet2DataSet.DTDetailsDataTable = New DataSet2DataSet.DTDetailsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -7230,7 +7230,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function FillByResid(ByVal dataTable As DataSet2.DTFreelancerInfoDataTable, ByVal resid As Integer) As Integer
+        Public Overloads Overridable Function FillByResid(ByVal dataTable As DataSet2DataSet.DTFreelancerInfoDataTable, ByVal resid As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
             If (Me.ClearBeforeFill = true) Then
@@ -7244,10 +7244,10 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetDataByResid(ByVal resid As Integer) As DataSet2.DTFreelancerInfoDataTable
+        Public Overloads Overridable Function GetDataByResid(ByVal resid As Integer) As DataSet2DataSet.DTFreelancerInfoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(resid,Integer)
-            Dim dataTable As DataSet2.DTFreelancerInfoDataTable = New DataSet2.DTFreelancerInfoDataTable()
+            Dim dataTable As DataSet2DataSet.DTFreelancerInfoDataTable = New DataSet2DataSet.DTFreelancerInfoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -7256,7 +7256,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.DTFreelancerInfoDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2DataSet.DTFreelancerInfoDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -7269,9 +7269,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetData() As DataSet2.DTFreelancerInfoDataTable
+        Public Overloads Overridable Function GetData() As DataSet2DataSet.DTFreelancerInfoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            Dim dataTable As DataSet2.DTFreelancerInfoDataTable = New DataSet2.DTFreelancerInfoDataTable()
+            Dim dataTable As DataSet2DataSet.DTFreelancerInfoDataTable = New DataSet2DataSet.DTFreelancerInfoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -7454,7 +7454,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function FillByDates(ByVal dataTable As DataSet2.DataTable1DataTable, ByVal startdate As Date, ByVal enddate As Date) As Integer
+        Public Overloads Overridable Function FillByDates(ByVal dataTable As DataSet2DataSet.DataTable1DataTable, ByVal startdate As Date, ByVal enddate As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(startdate,Date)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(enddate,Date)
@@ -7469,11 +7469,11 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetDataByDates(ByVal startdate As Date, ByVal enddate As Date) As DataSet2.DataTable1DataTable
+        Public Overloads Overridable Function GetDataByDates(ByVal startdate As Date, ByVal enddate As Date) As DataSet2DataSet.DataTable1DataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(startdate,Date)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(enddate,Date)
-            Dim dataTable As DataSet2.DataTable1DataTable = New DataSet2.DataTable1DataTable()
+            Dim dataTable As DataSet2DataSet.DataTable1DataTable = New DataSet2DataSet.DataTable1DataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -7635,7 +7635,7 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2.COUNTRIESDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DataSet2DataSet.COUNTRIESDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -7648,9 +7648,9 @@ Namespace DataSet2TableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DataSet2.COUNTRIESDataTable
+        Public Overloads Overridable Function GetData() As DataSet2DataSet.COUNTRIESDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DataSet2.COUNTRIESDataTable = New DataSet2.COUNTRIESDataTable()
+            Dim dataTable As DataSet2DataSet.COUNTRIESDataTable = New DataSet2DataSet.COUNTRIESDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -7725,7 +7725,7 @@ Namespace DataSet2TableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Function UpdateUpdatedRows(ByVal dataSet As DataSet2, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateUpdatedRows(ByVal dataSet As DataSet2DataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -7735,7 +7735,7 @@ Namespace DataSet2TableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Function UpdateInsertedRows(ByVal dataSet As DataSet2, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateInsertedRows(ByVal dataSet As DataSet2DataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -7745,7 +7745,7 @@ Namespace DataSet2TableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Function UpdateDeletedRows(ByVal dataSet As DataSet2, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateDeletedRows(ByVal dataSet As DataSet2DataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -7781,7 +7781,7 @@ Namespace DataSet2TableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overridable Function UpdateAll(ByVal dataSet As DataSet2) As Integer
+        Public Overridable Function UpdateAll(ByVal dataSet As DataSet2DataSet) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If
