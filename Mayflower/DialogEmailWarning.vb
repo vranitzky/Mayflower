@@ -23,4 +23,10 @@ Public Class DialogEmailWarning
         EmailBody.Parent = c
 
     End Sub
+
+    Private Sub Attach_Click(sender As System.Object, e As System.EventArgs) Handles Attach1.Click
+        Dim b As System.Windows.Forms.Button = CType(sender, Button)
+
+        MsgBox("Hello")
+    End Sub
 End Class

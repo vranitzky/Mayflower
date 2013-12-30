@@ -22,20 +22,24 @@ Partial Class DialogEmailWarning
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DialogEmailWarning))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
+        Me.OK_Button = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.LabelYouAreSending = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.EmailBody = New TXTextControl.TextControl()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.CheckBoxRemindMe = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Attach1 = New System.Windows.Forms.Button()
+        Me.Icons = New System.Windows.Forms.ImageList(Me.components)
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -44,23 +48,14 @@ Partial Class DialogEmailWarning
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(555, 367)
+        Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(590, 456)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(146, 29)
         Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'OK_Button
-        '
-        Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(3, 3)
-        Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(67, 23)
-        Me.OK_Button.TabIndex = 0
-        Me.OK_Button.Text = "OK"
         '
         'Cancel_Button
         '
@@ -72,23 +67,38 @@ Partial Class DialogEmailWarning
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancel"
         '
+        'OK_Button
+        '
+        Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.OK_Button.Location = New System.Drawing.Point(3, 3)
+        Me.OK_Button.Name = "OK_Button"
+        Me.OK_Button.Size = New System.Drawing.Size(67, 23)
+        Me.OK_Button.TabIndex = 0
+        Me.OK_Button.Text = "OK"
+        '
         'TableLayoutPanel2
         '
-        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnCount = 3
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.LabelYouAreSending, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label2, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Label3, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.EmailBody, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.TextBox1, 1, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.CheckBoxRemindMe, 1, 4)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.Attach1, 1, 3)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(12, 12)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 3
+        Me.TableLayoutPanel2.RowCount = 5
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(689, 349)
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(724, 438)
         Me.TableLayoutPanel2.TabIndex = 1
         '
         'LabelYouAreSending
@@ -148,25 +158,56 @@ Partial Class DialogEmailWarning
         Me.TextBox1.TabIndex = 3
         Me.TextBox1.Text = Global.Mayflower.My.MySettings.Default.EmailSubject
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.CheckBoxRemindMe)
-        Me.Panel1.Location = New System.Drawing.Point(12, 367)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(537, 29)
-        Me.Panel1.TabIndex = 2
-        '
         'CheckBoxRemindMe
         '
         Me.CheckBoxRemindMe.AutoSize = True
         Me.CheckBoxRemindMe.Checked = True
         Me.CheckBoxRemindMe.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBoxRemindMe.Location = New System.Drawing.Point(7, 7)
+        Me.CheckBoxRemindMe.Location = New System.Drawing.Point(55, 396)
         Me.CheckBoxRemindMe.Name = "CheckBoxRemindMe"
         Me.CheckBoxRemindMe.Size = New System.Drawing.Size(151, 17)
         Me.CheckBoxRemindMe.TabIndex = 0
         Me.CheckBoxRemindMe.Text = "Remind me for this session"
         Me.CheckBoxRemindMe.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Location = New System.Drawing.Point(3, 349)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(46, 44)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Attach:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Attach1
+        '
+        Me.Attach1.AutoSize = True
+        Me.Attach1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Attach1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Attach1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Attach1.ImageIndex = 0
+        Me.Attach1.ImageList = Me.Icons
+        Me.Attach1.Location = New System.Drawing.Point(55, 352)
+        Me.Attach1.Name = "Attach1"
+        Me.Attach1.Size = New System.Drawing.Size(119, 38)
+        Me.Attach1.TabIndex = 6
+        Me.Attach1.Text = "Add"
+        Me.Attach1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Attach1.UseVisualStyleBackColor = False
+        '
+        'Icons
+        '
+        Me.Icons.ImageStream = CType(resources.GetObject("Icons.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.Icons.TransparentColor = System.Drawing.Color.Transparent
+        Me.Icons.Images.SetKeyName(0, "Document 1 Add.png")
+        Me.Icons.Images.SetKeyName(1, "Document 1 Remove.png")
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.Title = "Select Attachment"
         '
         'DialogEmailWarning
         '
@@ -174,8 +215,7 @@ Partial Class DialogEmailWarning
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(713, 408)
-        Me.Controls.Add(Me.Panel1)
+        Me.ClientSize = New System.Drawing.Size(748, 497)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -188,8 +228,6 @@ Partial Class DialogEmailWarning
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -202,7 +240,10 @@ Partial Class DialogEmailWarning
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents EmailBody As TXTextControl.TextControl
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents CheckBoxRemindMe As System.Windows.Forms.CheckBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents Icons As System.Windows.Forms.ImageList
+    Friend WithEvents Attach1 As System.Windows.Forms.Button
 
 End Class

@@ -96,6 +96,9 @@ Public Class FormMain
         If RestrictByTools.Checked And TextBoxTools.Text <> "" And TextBoxTools.Text <> "-ALL-" Then
             sql &= "AND (UPPER(RESOURCES.""AIT$CUSTOMF00067"") LIKE UPPER('%" & TextBoxTools.Text & "%')) "
         End If
+        If RestrictByCountry.Checked And ComboBoxCountry.SelectedValue.ToString <> "-1" Then
+            sql &= "AND (RESOURCES.COUN_ID = '" & ComboBoxCountry.SelectedValue.ToString & "') "
+        End If
 
         command.Connection = FreelancersTableAdapter.Connection
         command.CommandText = sql
@@ -170,7 +173,13 @@ Public Class FormMain
         End If
     End Sub
 
-    Private Sub RestrictByCheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTools.CheckedChanged, RestrictByTargetLang.CheckedChanged, RestrictBySourceLang.CheckedChanged, RestrictByService.CheckedChanged, RestrictByDomain.CheckedChanged
+    Private Sub ComboBoxCountry_SelectionChangeCommitted(sender As System.Object, e As System.EventArgs) Handles ComboBoxCountry.SelectionChangeCommitted
+        If RestrictByCountry.Checked Then
+            FillFreelancersTable()
+        End If
+    End Sub
+
+    Private Sub RestrictByCheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTools.CheckedChanged, RestrictByTargetLang.CheckedChanged, RestrictBySourceLang.CheckedChanged, RestrictByService.CheckedChanged, RestrictByDomain.CheckedChanged, RestrictByCountry.CheckedChanged
         FillFreelancersTable()
     End Sub
 
@@ -370,6 +379,8 @@ Public Class FormMain
     End Sub
 
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DataSet2.COUNTRIES' table. You can move, or remove it, as needed.
+        Me.COUNTRIESTableAdapter.Fill(Me.DataSet2.COUNTRIES)
         'Dim t As ada
         Me.Loaded = True
 
@@ -643,4 +654,5 @@ Public Class FormMain
     Private Sub EmailBody_Enter(sender As System.Object, e As System.EventArgs) Handles EmailBody.Enter
         'EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
     End Sub
+
 End Class
