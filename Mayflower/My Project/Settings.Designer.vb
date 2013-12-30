@@ -310,6 +310,28 @@ Namespace My
                 Me("AttachmentOpenFileDir") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property EmailTemplatesBodies() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("EmailTemplatesBodies"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("EmailTemplatesBodies") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property EmailTemplatesSubjects() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("EmailTemplatesSubjects"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("EmailTemplatesSubjects") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

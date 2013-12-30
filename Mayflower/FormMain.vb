@@ -56,6 +56,7 @@ Public Class FormMain
 
         'Dim f As function
 
+        ' TODO: parametrise this!
         'Build SQL query:
         sql = "SELECT RESOURCES.RES_ID AS ID, " &
                 "RESOURCES.RES_NAME AS Name, " &
@@ -391,6 +392,15 @@ Public Class FormMain
         RestrictBySourceLang.Enabled = True
         RestrictByTargetLang.Enabled = True
 
+        'fill the templates list
+        If My.Settings.EmailTemplatesBodies Is Nothing Then 'no saved templates - load a default one
+            My.Settings.EmailTemplatesBodies = New System.Collections.Specialized.StringCollection
+            My.Settings.EmailTemplatesSubjects = New System.Collections.Specialized.StringCollection
+            My.Settings.EmailTemplatesBodies.Insert(0, My.Settings.EmailBody)
+            My.Settings.EmailTemplatesSubjects.Insert(0, My.Settings.EmailSubject)
+        End If
+        'MsgBox(My.Settings.EmailTemplatesSubjects.)
+
         Try
             FbConnection1.ConnectionString = My.Settings.ProjetexDB
             FreelancersTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
@@ -516,7 +526,7 @@ Public Class FormMain
         End If
 
         Dim Recipients As New List(Of String)
-        Dim FromEmailAddress As String = EmailSettingsEmail.Text
+        Dim FromEmailAddress As String = EmailSettingsName.Text + "<" + EmailSettingsEmail.Text + ">"
         Dim Subject As String = EmailSubject.Text
         Dim Body As String = ""
         Dim UserName As String = EmailSettingsEmail.Text
@@ -656,4 +666,7 @@ Public Class FormMain
         'EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
     End Sub
 
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles ButtonTemplateAdd.Click
+
+    End Sub
 End Class
