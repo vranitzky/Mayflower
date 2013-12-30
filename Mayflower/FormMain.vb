@@ -461,8 +461,15 @@ Public Class FormMain
     Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         Dim colName As String = DataGridView1.Columns(e.ColumnIndex).Name
         Dim a As String = DataGridView1.CurrentRow.Cells(1).Value.ToString
+        Dim recipient As String
+
         If colName = "EmailButton" Then
-            If ShowEmailPreviewWarning(DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString) Then SendEmail(DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString)
+            recipient = DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString
+            If String.IsNullOrWhiteSpace(recipient) Then
+                MsgBox("There is no email address to send to!", MsgBoxStyle.Information, "Email error")
+            Else
+                If ShowEmailPreviewWarning(recipient) Then SendEmail(recipient)
+            End If
         End If
 
     End Sub

@@ -12,7 +12,7 @@
 
         'Application title
         If My.Application.Info.Title <> "" Then
-            ApplicationTitle.Text = ProductName & ProductVersion
+            ApplicationTitle.Text = ProductName & "-" & ProductVersion
         Else
             'If the application title is missing, use the application name, without the extension
             ApplicationTitle.Text = System.IO.Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
