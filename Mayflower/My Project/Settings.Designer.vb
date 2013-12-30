@@ -298,6 +298,18 @@ Namespace My
                 Me("EmailTestMode") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property AttachmentOpenFileDir() As String
+            Get
+                Return CType(Me("AttachmentOpenFileDir"),String)
+            End Get
+            Set
+                Me("AttachmentOpenFileDir") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

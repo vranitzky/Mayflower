@@ -3,6 +3,7 @@
 Public Class FormMain
 
     Private Loaded As Boolean = False
+    Public Attachments As New Dictionary(Of String, String) ' = New Dictionary(Of String, String)
 
     Private Sub GetCatTools()
         Dim t As Mayflower.DataSet2.CatToolsDataTable
@@ -438,9 +439,7 @@ Public Class FormMain
     End Sub
 
     Private Sub CheckBox3_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles CheckBox3.CheckedChanged
-
         TextBoxPassword.UseSystemPasswordChar = Not CheckBox3.Checked
-
     End Sub
 
     Private Sub DataGridView2_RowPostPaint(sender As System.Object, e As System.Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles DataGridView2.RowPostPaint
@@ -524,7 +523,7 @@ Public Class FormMain
         Dim Password As String = EmailSettingsPassword.Text
         Dim Port As Integer = CInt(EmailSettingsPort.Text)
         Dim Server As String = EmailSettingsServer.Text
-        Dim Attachments As New List(Of String)
+        Dim AttachmentsList As New List(Of String)
         Try
             '            System.Diagnostics.Process.Start("mailto:" &
             '                                            address &
@@ -544,10 +543,12 @@ Public Class FormMain
             Else
                 Recipients.Add(address)
             End If
+            'now the attachments. they come from the DialogEmailWarning
+            AttachmentsList = Attachments.Values.ToList
             'in any case, send a copy to yourself
             Recipients.Add(EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">")
             EmailBody.Save(Body, TXTextControl.StringStreamType.HTMLFormat)
-            result = SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, Attachments)
+            result = SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, AttachmentsList)
             If result Is Nothing Then
                 MsgBox("Success!", MsgBoxStyle.Information, "Email result")
             Else
