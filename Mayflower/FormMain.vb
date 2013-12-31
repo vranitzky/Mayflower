@@ -4,6 +4,7 @@ Public Class FormMain
 
     Private Loaded As Boolean = False
     Public Attachments As New Dictionary(Of String, String) ' = New Dictionary(Of String, String)
+    Private IsInAddTemplateMode As Boolean = False
 
     Private Sub GetCatTools()
         Dim t As Mayflower.DataSet2DataSet.CatToolsDataTable
@@ -260,6 +261,7 @@ Public Class FormMain
             DomainsTableAdapter.Connection.ConnectionString = connstr
             TADetails.Connection.ConnectionString = connstr
             FreelancerInfoTableAdapter.Connection.ConnectionString = connstr
+            COUNTRIESTableAdapter.Connection.ConnectionString = connstr
 
             SourceLangTableAdapter.Fill(DataSet2DataSet.DataTableSourceLang)
             TargetLangTableAdapter.Fill(DataSet2DataSet.DataTableTargetLang)
@@ -267,6 +269,7 @@ Public Class FormMain
             'TODO: This line of code loads data into the 'DataSet2DataSet.DataTableDomains' table. You can move, or remove it, as needed.
             Me.DomainsTableAdapter.Fill(Me.DataSet2DataSet.DataTableDomains)
             CatToolsTableAdapter.Fill(Me.DataSet2DataSet.CatTools)
+            COUNTRIESTableAdapter.Fill(Me.DataSet2DataSet.COUNTRIES)
 
             'FreelancersTableAdapter.Fill(DataSet2DataSet.DataTableFreelancers)
 
@@ -381,8 +384,6 @@ Public Class FormMain
     End Sub
 
     Private Sub FormMain_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DataSet2DataSet.COUNTRIES' table. You can move, or remove it, as needed.
-        Me.COUNTRIESTableAdapter.Fill(Me.DataSet2DataSet.COUNTRIES)
         'Dim t As ada
         Me.Loaded = True
 
@@ -395,22 +396,23 @@ Public Class FormMain
         'fill the templates list
         If My.Settings.EmailTemplatesNames Is Nothing Then 'no saved templates - load a default one
             My.Settings.EmailTemplatesNames = New System.Collections.Specialized.StringCollection
-            My.Settings.EmailTemplatesNames.Insert(0, TemplatesCombo.Items(0).ToString)
+            My.Settings.EmailTemplatesNames.Insert(0, "Default") 'TemplatesCombo.Items(0).ToString)
         End If
         If My.Settings.EmailTemplatesBodies Is Nothing Then 'no saved templates - load a default one
             My.Settings.EmailTemplatesBodies = New System.Collections.Specialized.StringCollection
-            My.Settings.EmailTemplatesBodies = New System.Collections.Specialized.StringCollection
+            My.Settings.EmailTemplatesBodies.Insert(0, My.Settings.EmailBody)
         End If
         If My.Settings.EmailTemplatesSubjects Is Nothing Then 'no saved templates - load a default one
-            My.Settings.EmailTemplatesSubjects.Insert(0, My.Settings.EmailBody)
+            My.Settings.EmailTemplatesSubjects = New System.Collections.Specialized.StringCollection
             My.Settings.EmailTemplatesSubjects.Insert(0, My.Settings.EmailSubject)
         End If
         ' fill the dropbox
         For Each body In My.Settings.EmailTemplatesBodies
 
         Next
-        For i = 1 To My.Settings.EmailTemplatesNames.Count - 1
+        For i = 0 To My.Settings.EmailTemplatesNames.Count - 1
             TemplatesCombo.Items.Insert(i, My.Settings.EmailTemplatesNames.Item(i))
+            'DialogEmailWarning.ComboTemplates.Items.Insert(i, My.Settings.EmailTemplatesNames.Item(i))
         Next
         TemplatesCombo.SelectedIndex = 0
         'MsgBox(My.Settings.EmailTemplatesSubjects.)
@@ -425,6 +427,10 @@ Public Class FormMain
             DomainsTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
             TADetails.Connection.ConnectionString = My.Settings.ProjetexDB
             FreelancerInfoTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+            COUNTRIESTableAdapter.Connection.ConnectionString = My.Settings.ProjetexDB
+
+            'TODO: This line of code loads data into the 'DataSet2DataSet.COUNTRIES' table. You can move, or remove it, as needed.
+            Me.COUNTRIESTableAdapter.Fill(Me.DataSet2DataSet.COUNTRIES)
 
             'TODO: This line of code loads data into the 'DataSet2DataSet.DataTableTargetLang' table. You can move, or remove it, as needed.
             Me.TargetLangTableAdapter.Fill(Me.DataSet2DataSet.DataTableTargetLang)
@@ -479,13 +485,14 @@ Public Class FormMain
 
     End Sub
 
-    Private Function ShowEmailPreviewWarning(recipient As String) As Boolean
+    Private Function ShowEmailPreviewWarning(recipient As String, template As Integer) As Boolean
         Dim result As Boolean = True
 
         If DialogEmailWarning.CheckBoxRemindMe.Checked Then
             DialogEmailWarning.LabelYouAreSending.Text = String.Format(
                 DialogEmailWarning.LabelYouAreSending.Text, recipient)
 
+            DialogEmailWarning.Tag = template
             DialogEmailWarning.ShowDialog()
             result = (DialogEmailWarning.DialogResult = Windows.Forms.DialogResult.OK)
         End If
@@ -502,7 +509,7 @@ Public Class FormMain
             If String.IsNullOrWhiteSpace(recipient) Then
                 MsgBox("There is no email address to send to!", MsgBoxStyle.Information, "Email error")
             Else
-                If ShowEmailPreviewWarning(recipient) Then SendEmail(recipient)
+                If ShowEmailPreviewWarning(recipient, TemplatesCombo.SelectedIndex) Then SendEmail(recipient)
             End If
         End If
 
@@ -514,7 +521,7 @@ Public Class FormMain
         If String.IsNullOrWhiteSpace(TextBoxEmailAddress.Text) Then
             MsgBox("There is no email address to send to!", MsgBoxStyle.Information, "Email error")
         Else
-            If ShowEmailPreviewWarning(TextBoxEmailAddress.Text) Then
+            If ShowEmailPreviewWarning(TextBoxEmailAddress.Text, TemplatesCombo.SelectedIndex) Then
                 SendEmail(TextBoxEmailAddress.Text)
             End If
         End If
@@ -597,6 +604,7 @@ Public Class FormMain
     ''' <param name="FromAddress">The List(of string) of recipients.</param>
     ''' <param name="Subject">The List(of string) of recipients.</param>
     ''' <remarks></remarks>
+
     Function SendEmail(ByVal Recipients As List(Of String), _
                   ByVal FromAddress As String, _
                   ByVal Subject As String, _
@@ -643,6 +651,7 @@ Public Class FormMain
         End Try
         Return Nothing
     End Function
+
     Private Sub EmailTestButton_Click(sender As Object, e As EventArgs) Handles EmailButtonTest.Click
         Dim Recipients As New List(Of String)
         Recipients.Add(EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">")
@@ -669,11 +678,16 @@ Public Class FormMain
     End Sub
 
     Private Sub EmailBody_Leave(sender As System.Object, e As System.EventArgs) Handles EmailBody.Leave
-        'My.Settings.EmailBody = 
-        'Dim str As String = New String
-        EmailBody.Save(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
+        'now we have templates!
+        'EmailBody.Save(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
+        If Not IsInAddTemplateMode Then ' simple changes to the body
+            EmailBody.Save(My.Settings.EmailTemplatesBodies(TemplatesCombo.SelectedIndex), TXTextControl.StringStreamType.HTMLFormat)
+        Else 'we are adding a new template. Don't save until the user presses the OK button
+            'do nothing
+        End If
 
-        'My.Settings.EmailBody = str
+
+
     End Sub
 
     Private Sub EmailBody_Enter(sender As System.Object, e As System.EventArgs) Handles EmailBody.Enter
@@ -681,10 +695,123 @@ Public Class FormMain
     End Sub
 
     Private Sub TemplatesButtonAdd_Click(sender As System.Object, e As System.EventArgs) Handles TemplatesButtonAdd.Click
+        Dim title As String
+        Dim subject, body As String
+        Static Dim tip As System.Windows.Forms.IWin32Window
+        Dim newindex As Integer = 0
 
+        If Not tip Is Nothing Then 'a tooltip is being displayed. hide it
+            ToolTip1.Hide(tip)
+            tip = Nothing
+        End If
+
+        If IsInAddTemplateMode Then ' this is the OK button
+            title = TemplatesCombo.Text
+            If title = "" Then 'missing title
+                'ToolTip1.IsBalloon = True
+                ToolTip1.Show("Please give a title to the new template", TemplatesCombo)
+                tip = TemplatesCombo
+                Return
+            End If
+            subject = EmailSubject.Text
+            If subject = "" Then 'missing subject
+                'ToolTip1.IsBalloon = True
+                ToolTip1.Show("Please enter a subject", EmailSubject)
+                tip = EmailSubject
+                Return
+            End If
+            body = EmailBody.Text
+            If body = "" Then 'missing body
+                'ToolTip1.IsBalloon = True
+                ToolTip1.Show("Please enter a body", EmailBody)
+                tip = EmailBody
+                Return
+            End If
+
+            TemplatesButtonAdd.Text = "Add New" 'change it back to 'Add New'
+            TemplatesButtonRemove.Text = "Remove" 'change it back to 'Remove'
+            TemplatesCombo.DropDownStyle = ComboBoxStyle.DropDownList
+            'TODO: all ok, add into templates list
+            MsgBox("here I would save the template:" & Environment.NewLine &
+                    subject & Environment.NewLine &
+                    title & Environment.NewLine &
+                    body,
+                   MsgBoxStyle.Exclamation)
+            ' using new index:
+            newindex = TemplatesCombo.Items.Count
+            title = newindex.ToString & "-" & title
+
+            TemplatesCombo.Items.Insert(newindex, title)
+
+            EmailBody.Save(body, TXTextControl.StringStreamType.HTMLFormat) 'get the HTML
+
+            My.Settings.EmailTemplatesNames.Insert(newindex, title)
+            My.Settings.EmailTemplatesSubjects.Insert(newindex, subject)
+            My.Settings.EmailTemplatesBodies.Insert(newindex, body)
+
+            TemplatesCombo.SelectedIndex = newindex
+            IsInAddTemplateMode = False
+        Else 'this is the Add button: user wants to add new template
+            TemplatesButtonAdd.Text = "OK" 'change it to OK
+            TemplatesButtonRemove.Text = "Cancel" 'change it to Cancel
+            TemplatesButtonRemove.Enabled = True
+            TemplatesCombo.DropDownStyle = ComboBoxStyle.Simple
+            TemplatesCombo.Text = ""
+            IsInAddTemplateMode = True
+        End If
     End Sub
 
     Private Sub TemplatesButtonRemove_Click(sender As System.Object, e As System.EventArgs) Handles TemplatesButtonRemove.Click
+        If IsInAddTemplateMode Then ' this button is the Cancel button
+            TemplatesButtonAdd.Text = "Add New"
+            TemplatesButtonRemove.Text = "Remove"
+            TemplatesCombo.DropDownStyle = ComboBoxStyle.DropDownList
+            'TemplatesButtonRemove.Enabled = False ' because we go to default profile (non erasable)
+            ' actually, ^^^ should not be needed - selectedindexchasnge should trigger
+            TemplatesCombo.SelectedIndex = 0
+            IsInAddTemplateMode = False
+        Else 'this is the Remove button
+            'TODO: delete template
+            Dim index As Integer = TemplatesCombo.SelectedIndex
+            TemplatesCombo.SelectedIndex = 0
+            TemplatesCombo.Items.RemoveAt(index)
+            My.Settings.EmailTemplatesBodies.RemoveAt(index)
+            My.Settings.EmailTemplatesNames.RemoveAt(index)
+            My.Settings.EmailTemplatesSubjects.RemoveAt(index)
+        End If
+    End Sub
 
+    Private Sub TemplatesCombo_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles TemplatesCombo.SelectedIndexChanged
+        Dim index As Integer = CType(sender, ComboBox).SelectedIndex
+
+        EmailSubject.Text = My.Settings.EmailTemplatesSubjects(index)
+
+        'braindead TXControl must be loaded manually first time. I just do it every time and piss off!
+        If Not EmailBody.IsHandleCreated Then
+            Dim c As Control = EmailBody.Parent
+            EmailBody.Parent = Nothing
+            EmailBody.CreateControl()
+            ''TXTextControl.StreamType.HTMLFormat)
+            EmailBody.Parent = c
+        End If
+        EmailBody.Load(My.Settings.EmailTemplatesBodies(index), TXTextControl.StringStreamType.HTMLFormat)
+
+        If index = 0 Then
+            TemplatesButtonRemove.Enabled = False 'don't delete default profile
+        Else
+            TemplatesButtonRemove.Enabled = True
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        'For Each s In My.Settings.
+        Dim response = MsgBox("Are you sure?" & Environment.NewLine &
+               "This will remove all preferences and templates!",
+               MsgBoxStyle.YesNo Or MsgBoxStyle.DefaultButton2 Or MsgBoxStyle.Exclamation,
+               "Reset Settings to Default")
+        If response = MsgBoxResult.Yes Then
+            My.Settings.Reset()
+            Application.Restart()
+        End If
     End Sub
 End Class

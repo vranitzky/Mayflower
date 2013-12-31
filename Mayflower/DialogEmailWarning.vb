@@ -14,14 +14,22 @@ Public Class DialogEmailWarning
     End Sub
 
     Private Sub DialogEmailWarning_Shown(sender As System.Object, e As System.EventArgs) Handles MyBase.Shown
-        Dim c As Control = EmailBody.Parent
-        EmailBody.Parent = Nothing
-        If Not EmailBody.IsHandleCreated Then
-            EmailBody.CreateControl()
-        End If
-        EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
+        'load 
+        'Dim c As Control = EmailBody.Parent
+        'EmailBody.Parent = Nothing
+        'If Not EmailBody.IsHandleCreated Then
+        'EmailBody.CreateControl()
+        'End If
+        '        EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
 
-        EmailBody.Parent = c
+        'EmailBody.Parent = c
+
+        ComboTemplates.Items.Clear()
+        For i = 0 To My.Settings.EmailTemplatesNames.Count - 1
+            'FormMain.TemplatesCombo.Items.Insert(i, My.Settings.EmailTemplatesNames.Item(i))
+            ComboTemplates.Items.Insert(i, My.Settings.EmailTemplatesNames.Item(i))
+        Next
+        ComboTemplates.SelectedIndex = 0
 
     End Sub
 
@@ -44,5 +52,21 @@ Public Class DialogEmailWarning
                 b.Text = "Remove " + OpenFileDialog1.SafeFileName
             End If
         End If
+    End Sub
+
+    Private Sub ComboTemplates_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboTemplates.SelectedIndexChanged
+        Dim index As Integer = CType(sender, ComboBox).SelectedIndex
+
+        EmailSubject.Text = My.Settings.EmailTemplatesSubjects(index)
+
+        'braindead TXControl must be loaded manually first time. I just do it every time and piss off!
+        If Not EmailBody.IsHandleCreated Then
+            Dim c As Control = EmailBody.Parent
+            EmailBody.Parent = Nothing
+            EmailBody.CreateControl()
+            ''TXTextControl.StreamType.HTMLFormat)
+            EmailBody.Parent = c
+        End If
+        EmailBody.Load(My.Settings.EmailTemplatesBodies(index), TXTextControl.StringStreamType.HTMLFormat)
     End Sub
 End Class

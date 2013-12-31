@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="ImageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>633, 19</value>
+    <value>17, 54</value>
   </metadata>
   <data name="ImageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACO
-        CgAAAk1TRnQBSQFMAgEBAgEAATABAAEwAQABFAEAARQBAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        CgAAAk1TRnQBSQFMAgEBAgEAAUgBAAFIAQABFAEAARQBAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABUAMAARQDAAEBAQABCAUAAUABBhgAAYACAAGAAwACgAEAAYADAAGAAQABgAEAAoACAAPAAQABwAHc
         AcABAAHwAcoBpgEAATMFAAEzAQABMwEAATMBAAIzAgADFgEAAxwBAAMiAQADKQEAA1UBAANNAQADQgEA
         AzkBAAGAAXwB/wEAAlAB/wEAAZMBAAHWAQAB/wHsAcwBAAHGAdYB7wEAAdYC5wEAAZABqQGtAgAB/wEz
@@ -174,19 +174,19 @@
 </value>
   </data>
   <metadata name="COUNTRIESBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 214</value>
+    <value>219, 210</value>
   </metadata>
   <metadata name="DataTableServiceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 136</value>
+    <value>423, 132</value>
   </metadata>
   <metadata name="DataTableDomainsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>559, 97</value>
+    <value>17, 132</value>
   </metadata>
   <metadata name="BindingSourceTargetLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 97</value>
+    <value>203, 93</value>
   </metadata>
   <metadata name="BindingSourceSourceLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>205, 58</value>
+    <value>315, 54</value>
   </metadata>
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -195,10 +195,10 @@
     <value>True</value>
   </metadata>
   <metadata name="BindingSourceFreelancers.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>307, 19</value>
+    <value>452, 15</value>
   </metadata>
   <metadata name="COUNTRIESBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 214</value>
+    <value>219, 210</value>
   </metadata>
   <metadata name="DataSet2DataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>24, 15</value>
@@ -207,16 +207,16 @@
     <value>24, 15</value>
   </metadata>
   <metadata name="DataTableServiceBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>190, 136</value>
+    <value>423, 132</value>
   </metadata>
   <metadata name="DataTableDomainsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>559, 97</value>
+    <value>17, 132</value>
   </metadata>
   <metadata name="BindingSourceTargetLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 97</value>
+    <value>203, 93</value>
   </metadata>
   <metadata name="BindingSourceSourceLang.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>205, 58</value>
+    <value>315, 54</value>
   </metadata>
   <metadata name="RJOB_ASSIGNED.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -234,19 +234,19 @@
     <value>True</value>
   </metadata>
   <metadata name="DTDetailsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>577, 136</value>
+    <value>17, 171</value>
   </metadata>
   <metadata name="DTFreelancerInfoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>227, 175</value>
+    <value>452, 171</value>
   </metadata>
   <metadata name="DTFreelancerInfoBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>227, 175</value>
+    <value>452, 171</value>
   </metadata>
   <metadata name="BindingSourceCatTools.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>209, 97</value>
+    <value>395, 93</value>
   </metadata>
   <metadata name="BindingSourceCatTools.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>209, 97</value>
+    <value>395, 93</value>
   </metadata>
   <metadata name="RJOB_ASSIGNED.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -264,46 +264,49 @@
     <value>True</value>
   </metadata>
   <metadata name="DTDetailsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>577, 136</value>
+    <value>17, 171</value>
   </metadata>
   <metadata name="DataSet2DataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>120, 175</value>
+    <value>302, 171</value>
   </metadata>
   <metadata name="FbConnection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>499, 19</value>
+    <value>644, 15</value>
   </metadata>
   <data name="FbConnection1.ConnectionString" xml:space="preserve">
     <value>User=ODBC;Password=pwww;Database=c:\projetex9\projetex server\database\projetex.fdb;DataSource=192.168.56.101;Port=3050;Dialect=3;Charset=UTF8;Role=PROJETEX_ODBC;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192</value>
   </data>
   <metadata name="FreelancersTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>121, 19</value>
+    <value>266, 15</value>
   </metadata>
   <metadata name="SourceLangTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 58</value>
+    <value>127, 54</value>
   </metadata>
   <metadata name="TargetLangTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>527, 58</value>
+    <value>17, 93</value>
   </metadata>
   <metadata name="CatToolsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>387, 97</value>
+    <value>573, 93</value>
   </metadata>
   <metadata name="DomainsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 136</value>
+    <value>250, 132</value>
   </metadata>
   <metadata name="ServiceTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>414, 136</value>
+    <value>647, 132</value>
   </metadata>
   <metadata name="FbCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>399, 58</value>
+    <value>509, 54</value>
   </metadata>
   <metadata name="TADetails.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 175</value>
+    <value>199, 171</value>
   </metadata>
   <metadata name="FreelancerInfoTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>450, 175</value>
+    <value>17, 210</value>
   </metadata>
   <metadata name="COUNTRIESTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>212, 214</value>
+    <value>414, 210</value>
+  </metadata>
+  <metadata name="ToolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>167, 15</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>46</value>

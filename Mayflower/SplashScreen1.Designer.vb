@@ -33,13 +33,13 @@ Partial Class SplashScreen1
         '
         Me.ApplicationTitle.BackColor = System.Drawing.Color.Transparent
         Me.ApplicationTitle.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ApplicationTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ApplicationTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ApplicationTitle.Location = New System.Drawing.Point(3, 218)
         Me.ApplicationTitle.Name = "ApplicationTitle"
         Me.ApplicationTitle.Size = New System.Drawing.Size(395, 85)
         Me.ApplicationTitle.TabIndex = 0
         Me.ApplicationTitle.Text = "Application Title"
-        Me.ApplicationTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ApplicationTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Copyright
         '
