@@ -393,14 +393,26 @@ Public Class FormMain
         RestrictByTargetLang.Enabled = True
 
         'fill the templates list
+        If My.Settings.EmailTemplatesNames Is Nothing Then 'no saved templates - load a default one
+            My.Settings.EmailTemplatesNames = New System.Collections.Specialized.StringCollection
+            My.Settings.EmailTemplatesNames.Insert(0, TemplatesCombo.Items(0).ToString)
+        End If
         If My.Settings.EmailTemplatesBodies Is Nothing Then 'no saved templates - load a default one
             My.Settings.EmailTemplatesBodies = New System.Collections.Specialized.StringCollection
-            My.Settings.EmailTemplatesSubjects = New System.Collections.Specialized.StringCollection
-            My.Settings.EmailTemplatesBodies.Insert(0, My.Settings.EmailBody)
+            My.Settings.EmailTemplatesBodies = New System.Collections.Specialized.StringCollection
+        End If
+        If My.Settings.EmailTemplatesSubjects Is Nothing Then 'no saved templates - load a default one
+            My.Settings.EmailTemplatesSubjects.Insert(0, My.Settings.EmailBody)
             My.Settings.EmailTemplatesSubjects.Insert(0, My.Settings.EmailSubject)
         End If
         ' fill the dropbox
-        'Email()
+        For Each body In My.Settings.EmailTemplatesBodies
+
+        Next
+        For i = 1 To My.Settings.EmailTemplatesNames.Count - 1
+            TemplatesCombo.Items.Insert(i, My.Settings.EmailTemplatesNames.Item(i))
+        Next
+        TemplatesCombo.SelectedIndex = 0
         'MsgBox(My.Settings.EmailTemplatesSubjects.)
 
         Try
@@ -666,14 +678,6 @@ Public Class FormMain
 
     Private Sub EmailBody_Enter(sender As System.Object, e As System.EventArgs) Handles EmailBody.Enter
         'EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
-    End Sub
-
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs)
-
-    End Sub
-
-    Private Sub TableLayoutPanel5_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs)
-
     End Sub
 
     Private Sub TemplatesButtonAdd_Click(sender As System.Object, e As System.EventArgs) Handles TemplatesButtonAdd.Click

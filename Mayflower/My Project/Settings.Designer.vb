@@ -332,6 +332,17 @@ Namespace My
                 Me("EmailTemplatesSubjects") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property EmailTemplatesNames() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("EmailTemplatesNames"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("EmailTemplatesNames") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

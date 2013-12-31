@@ -23,7 +23,7 @@ Partial Class FormMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabFreelancers = New System.Windows.Forms.TabPage()
@@ -110,9 +110,13 @@ Partial Class FormMain
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label22a = New System.Windows.Forms.Label()
         Me.EmailBody = New TXTextControl.TextControl()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.EmailSubject = New System.Windows.Forms.TextBox()
         Me.Label30a = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TemplatesButtonAdd = New System.Windows.Forms.Button()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.TemplatesButtonRemove = New System.Windows.Forms.Button()
+        Me.TemplatesCombo = New System.Windows.Forms.ComboBox()
         Me.TabSettings = New System.Windows.Forms.TabPage()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.EmailSettingsGroupBox = New System.Windows.Forms.GroupBox()
@@ -145,7 +149,6 @@ Partial Class FormMain
         Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.StatusLed = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.DataSet2DataSet1 = New Mayflower.DataSet2DataSet()
         Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
         Me.FreelancersTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.FreelancersTableAdapter()
@@ -158,10 +161,6 @@ Partial Class FormMain
         Me.TADetails = New Mayflower.DataSet2DataSetTableAdapters.TADetails()
         Me.FreelancerInfoTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.FreelancerInfoTableAdapter()
         Me.COUNTRIESTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TemplatesButtonAdd = New System.Windows.Forms.Button()
-        Me.TemplatesButtonRemove = New System.Windows.Forms.Button()
-        Me.TemplatesCombo = New System.Windows.Forms.ComboBox()
         Me.TabControl1.SuspendLayout()
         Me.TabFreelancers.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -189,6 +188,7 @@ Partial Class FormMain
         CType(Me.DTDetailsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabEmail.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
+        Me.TableLayoutPanel5.SuspendLayout()
         Me.TabSettings.SuspendLayout()
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer2.Panel1.SuspendLayout()
@@ -198,7 +198,6 @@ Partial Class FormMain
         Me.TableLayoutPanel3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataSet2DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -220,7 +219,7 @@ Partial Class FormMain
         Me.TabFreelancers.Location = New System.Drawing.Point(4, 24)
         Me.TabFreelancers.Name = "TabFreelancers"
         Me.TabFreelancers.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabFreelancers.Size = New System.Drawing.Size(1048, 505)
+        Me.TabFreelancers.Size = New System.Drawing.Size(960, 505)
         Me.TabFreelancers.TabIndex = 0
         Me.TabFreelancers.Text = "Freelancers"
         Me.TabFreelancers.UseVisualStyleBackColor = True
@@ -260,7 +259,7 @@ Partial Class FormMain
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1042, 499)
+        Me.SplitContainer1.Size = New System.Drawing.Size(954, 499)
         Me.SplitContainer1.SplitterDistance = 121
         Me.SplitContainer1.SplitterWidth = 5
         Me.SplitContainer1.TabIndex = 0
@@ -528,14 +527,14 @@ Partial Class FormMain
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.NAMEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.RATEDataGridViewTextBoxColumn, Me.CURRENCYDataGridViewTextBoxColumn, Me.COUNTRYDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn, Me.APPROVALDataGridViewTextBoxColumn, Me.EmailButton})
         Me.DataGridView1.DataSource = Me.BindingSourceFreelancers
@@ -545,7 +544,7 @@ Partial Class FormMain
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(1042, 373)
+        Me.DataGridView1.Size = New System.Drawing.Size(954, 373)
         Me.DataGridView1.TabIndex = 25
         '
         'ID
@@ -658,7 +657,7 @@ Partial Class FormMain
         Me.TabDetails.Location = New System.Drawing.Point(4, 24)
         Me.TabDetails.Name = "TabDetails"
         Me.TabDetails.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabDetails.Size = New System.Drawing.Size(1048, 505)
+        Me.TabDetails.Size = New System.Drawing.Size(960, 505)
         Me.TabDetails.TabIndex = 2
         Me.TabDetails.Text = "Details"
         Me.TabDetails.UseVisualStyleBackColor = True
@@ -680,7 +679,7 @@ Partial Class FormMain
         'SplitContainer3.Panel2
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.DataGridView2)
-        Me.SplitContainer3.Size = New System.Drawing.Size(1042, 499)
+        Me.SplitContainer3.Size = New System.Drawing.Size(954, 499)
         Me.SplitContainer3.SplitterDistance = 184
         Me.SplitContainer3.SplitterWidth = 5
         Me.SplitContainer3.TabIndex = 4
@@ -954,7 +953,7 @@ Partial Class FormMain
         Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.Size = New System.Drawing.Size(1042, 310)
+        Me.DataGridView2.Size = New System.Drawing.Size(954, 310)
         Me.DataGridView2.TabIndex = 1
         '
         'RJOB_ASSIGNED
@@ -1052,7 +1051,6 @@ Partial Class FormMain
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel4.Controls.Add(Me.Label22a, 0, 1)
         Me.TableLayoutPanel4.Controls.Add(Me.EmailBody, 1, 2)
-        Me.TableLayoutPanel4.Controls.Add(Me.Label23, 0, 2)
         Me.TableLayoutPanel4.Controls.Add(Me.EmailSubject, 1, 1)
         Me.TableLayoutPanel4.Controls.Add(Me.Label30a, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.TableLayoutPanel5, 1, 0)
@@ -1080,6 +1078,8 @@ Partial Class FormMain
         '
         'EmailBody
         '
+        Me.EmailBody.AutoControlSize.AutoExpand = TXTextControl.AutoSizeDirection.Both
+        Me.EmailBody.AutoControlSize.AutoShrink = TXTextControl.AutoSizeDirection.Both
         Me.EmailBody.BorderStyle = TXTextControl.BorderStyle.FixedSingle
         Me.EmailBody.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmailBody.Font = New System.Drawing.Font("Arial", 10.0!)
@@ -1089,18 +1089,6 @@ Partial Class FormMain
         Me.EmailBody.TabIndex = 8
         Me.EmailBody.Text = "Write the body here"
         Me.EmailBody.ViewMode = TXTextControl.ViewMode.SimpleControl
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label23.Location = New System.Drawing.Point(3, 63)
-        Me.Label23.Margin = New System.Windows.Forms.Padding(3)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(62, 439)
-        Me.Label23.TabIndex = 5
-        Me.Label23.Text = "Body:"
-        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'EmailSubject
         '
@@ -1124,6 +1112,72 @@ Partial Class FormMain
         Me.Label30a.Text = "Template:"
         Me.Label30a.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'TableLayoutPanel5
+        '
+        Me.TableLayoutPanel5.AutoSize = True
+        Me.TableLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel5.ColumnCount = 3
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel5.Controls.Add(Me.TemplatesButtonAdd, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.TemplatesButtonRemove, 1, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.TemplatesCombo, 2, 0)
+        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(68, 0)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 1
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(892, 33)
+        Me.TableLayoutPanel5.TabIndex = 10
+        '
+        'TemplatesButtonAdd
+        '
+        Me.TemplatesButtonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.TemplatesButtonAdd.ImageKey = "Button Add.png"
+        Me.TemplatesButtonAdd.ImageList = Me.ImageList1
+        Me.TemplatesButtonAdd.Location = New System.Drawing.Point(3, 3)
+        Me.TemplatesButtonAdd.Name = "TemplatesButtonAdd"
+        Me.TemplatesButtonAdd.Size = New System.Drawing.Size(88, 27)
+        Me.TemplatesButtonAdd.TabIndex = 0
+        Me.TemplatesButtonAdd.Text = "Add New"
+        Me.TemplatesButtonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.TemplatesButtonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.TemplatesButtonAdd.UseVisualStyleBackColor = True
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "Button Add.png")
+        Me.ImageList1.Images.SetKeyName(1, "Button Remove.png")
+        '
+        'TemplatesButtonRemove
+        '
+        Me.TemplatesButtonRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.TemplatesButtonRemove.ImageKey = "Button Remove.png"
+        Me.TemplatesButtonRemove.ImageList = Me.ImageList1
+        Me.TemplatesButtonRemove.Location = New System.Drawing.Point(97, 3)
+        Me.TemplatesButtonRemove.Name = "TemplatesButtonRemove"
+        Me.TemplatesButtonRemove.Size = New System.Drawing.Size(88, 27)
+        Me.TemplatesButtonRemove.TabIndex = 1
+        Me.TemplatesButtonRemove.Text = "Remove"
+        Me.TemplatesButtonRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.TemplatesButtonRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.TemplatesButtonRemove.UseVisualStyleBackColor = True
+        '
+        'TemplatesCombo
+        '
+        Me.TemplatesCombo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TemplatesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TemplatesCombo.FormattingEnabled = True
+        Me.TemplatesCombo.Items.AddRange(New Object() {"Default"})
+        Me.TemplatesCombo.Location = New System.Drawing.Point(191, 6)
+        Me.TemplatesCombo.Name = "TemplatesCombo"
+        Me.TemplatesCombo.Size = New System.Drawing.Size(698, 23)
+        Me.TemplatesCombo.TabIndex = 2
+        '
         'TabSettings
         '
         Me.TabSettings.BackColor = System.Drawing.Color.Transparent
@@ -1131,7 +1185,7 @@ Partial Class FormMain
         Me.TabSettings.Location = New System.Drawing.Point(4, 24)
         Me.TabSettings.Name = "TabSettings"
         Me.TabSettings.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabSettings.Size = New System.Drawing.Size(1048, 505)
+        Me.TabSettings.Size = New System.Drawing.Size(960, 505)
         Me.TabSettings.TabIndex = 1
         Me.TabSettings.Text = "Settings"
         '
@@ -1148,8 +1202,8 @@ Partial Class FormMain
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1042, 499)
-        Me.SplitContainer2.SplitterDistance = 442
+        Me.SplitContainer2.Size = New System.Drawing.Size(954, 499)
+        Me.SplitContainer2.SplitterDistance = 404
         Me.SplitContainer2.SplitterWidth = 5
         Me.SplitContainer2.TabIndex = 3
         '
@@ -1159,7 +1213,7 @@ Partial Class FormMain
         Me.EmailSettingsGroupBox.Dock = System.Windows.Forms.DockStyle.Top
         Me.EmailSettingsGroupBox.Location = New System.Drawing.Point(0, 0)
         Me.EmailSettingsGroupBox.Name = "EmailSettingsGroupBox"
-        Me.EmailSettingsGroupBox.Size = New System.Drawing.Size(442, 234)
+        Me.EmailSettingsGroupBox.Size = New System.Drawing.Size(404, 234)
         Me.EmailSettingsGroupBox.TabIndex = 0
         Me.EmailSettingsGroupBox.TabStop = False
         Me.EmailSettingsGroupBox.Text = "Email Settings"
@@ -1192,12 +1246,12 @@ Partial Class FormMain
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(436, 214)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(398, 214)
         Me.TableLayoutPanel3.TabIndex = 0
         '
         'EmailButtonTest
         '
-        Me.EmailButtonTest.Location = New System.Drawing.Point(121, 163)
+        Me.EmailButtonTest.Location = New System.Drawing.Point(110, 163)
         Me.EmailButtonTest.Name = "EmailButtonTest"
         Me.EmailButtonTest.Size = New System.Drawing.Size(87, 27)
         Me.EmailButtonTest.TabIndex = 0
@@ -1210,7 +1264,7 @@ Partial Class FormMain
         Me.Label27.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label27.Location = New System.Drawing.Point(3, 81)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(112, 27)
+        Me.Label27.Size = New System.Drawing.Size(101, 27)
         Me.Label27.TabIndex = 14
         Me.Label27.Text = "Email Password:"
         Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1221,7 +1275,7 @@ Partial Class FormMain
         Me.Label24.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label24.Location = New System.Drawing.Point(3, 0)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(112, 27)
+        Me.Label24.Size = New System.Drawing.Size(101, 27)
         Me.Label24.TabIndex = 0
         Me.Label24.Text = "Your Name:"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1232,7 +1286,7 @@ Partial Class FormMain
         Me.Label25.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label25.Location = New System.Drawing.Point(3, 27)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(112, 27)
+        Me.Label25.Size = New System.Drawing.Size(101, 27)
         Me.Label25.TabIndex = 1
         Me.Label25.Text = "Your Email:"
         Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1243,7 +1297,7 @@ Partial Class FormMain
         Me.Label26.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label26.Location = New System.Drawing.Point(3, 54)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(112, 27)
+        Me.Label26.Size = New System.Drawing.Size(101, 27)
         Me.Label26.TabIndex = 2
         Me.Label26.Text = "Email Server:"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1254,7 +1308,7 @@ Partial Class FormMain
         Me.Label28.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label28.Location = New System.Drawing.Point(3, 108)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(112, 27)
+        Me.Label28.Size = New System.Drawing.Size(101, 27)
         Me.Label28.TabIndex = 4
         Me.Label28.Text = "Port:"
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1263,9 +1317,9 @@ Partial Class FormMain
         '
         Me.EmailSettingsName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsName", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSettingsName.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmailSettingsName.Location = New System.Drawing.Point(121, 3)
+        Me.EmailSettingsName.Location = New System.Drawing.Point(110, 3)
         Me.EmailSettingsName.Name = "EmailSettingsName"
-        Me.EmailSettingsName.Size = New System.Drawing.Size(312, 21)
+        Me.EmailSettingsName.Size = New System.Drawing.Size(285, 21)
         Me.EmailSettingsName.TabIndex = 6
         Me.EmailSettingsName.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsName
         '
@@ -1273,9 +1327,9 @@ Partial Class FormMain
         '
         Me.EmailSettingsEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsEmail", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSettingsEmail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmailSettingsEmail.Location = New System.Drawing.Point(121, 30)
+        Me.EmailSettingsEmail.Location = New System.Drawing.Point(110, 30)
         Me.EmailSettingsEmail.Name = "EmailSettingsEmail"
-        Me.EmailSettingsEmail.Size = New System.Drawing.Size(312, 21)
+        Me.EmailSettingsEmail.Size = New System.Drawing.Size(285, 21)
         Me.EmailSettingsEmail.TabIndex = 7
         Me.EmailSettingsEmail.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsEmail
         '
@@ -1283,9 +1337,9 @@ Partial Class FormMain
         '
         Me.EmailSettingsServer.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsServer", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSettingsServer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmailSettingsServer.Location = New System.Drawing.Point(121, 57)
+        Me.EmailSettingsServer.Location = New System.Drawing.Point(110, 57)
         Me.EmailSettingsServer.Name = "EmailSettingsServer"
-        Me.EmailSettingsServer.Size = New System.Drawing.Size(312, 21)
+        Me.EmailSettingsServer.Size = New System.Drawing.Size(285, 21)
         Me.EmailSettingsServer.TabIndex = 8
         Me.EmailSettingsServer.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsServer
         '
@@ -1293,9 +1347,9 @@ Partial Class FormMain
         '
         Me.EmailSettingsPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSettingsPassword.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmailSettingsPassword.Location = New System.Drawing.Point(121, 84)
+        Me.EmailSettingsPassword.Location = New System.Drawing.Point(110, 84)
         Me.EmailSettingsPassword.Name = "EmailSettingsPassword"
-        Me.EmailSettingsPassword.Size = New System.Drawing.Size(312, 21)
+        Me.EmailSettingsPassword.Size = New System.Drawing.Size(285, 21)
         Me.EmailSettingsPassword.TabIndex = 9
         Me.EmailSettingsPassword.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsPassword
         Me.EmailSettingsPassword.UseSystemPasswordChar = True
@@ -1304,9 +1358,9 @@ Partial Class FormMain
         '
         Me.EmailSettingsPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSettingsPort.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmailSettingsPort.Location = New System.Drawing.Point(121, 111)
+        Me.EmailSettingsPort.Location = New System.Drawing.Point(110, 111)
         Me.EmailSettingsPort.Name = "EmailSettingsPort"
-        Me.EmailSettingsPort.Size = New System.Drawing.Size(312, 21)
+        Me.EmailSettingsPort.Size = New System.Drawing.Size(285, 21)
         Me.EmailSettingsPort.TabIndex = 10
         Me.EmailSettingsPort.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsPort
         '
@@ -1317,7 +1371,7 @@ Partial Class FormMain
         Me.EmailTestModeCheckBox.CheckState = System.Windows.Forms.CheckState.Checked
         Me.EmailTestModeCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.Mayflower.My.MySettings.Default, "EmailTestMode", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailTestModeCheckBox.Dock = System.Windows.Forms.DockStyle.Left
-        Me.EmailTestModeCheckBox.Location = New System.Drawing.Point(121, 138)
+        Me.EmailTestModeCheckBox.Location = New System.Drawing.Point(110, 138)
         Me.EmailTestModeCheckBox.Name = "EmailTestModeCheckBox"
         Me.EmailTestModeCheckBox.Size = New System.Drawing.Size(227, 19)
         Me.EmailTestModeCheckBox.TabIndex = 15
@@ -1346,7 +1400,7 @@ Partial Class FormMain
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.MinimumSize = New System.Drawing.Size(535, 302)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(595, 302)
+        Me.GroupBox1.Size = New System.Drawing.Size(545, 302)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Database - HIC SUNT LEONES!"
@@ -1486,7 +1540,7 @@ Partial Class FormMain
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
         Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.StatusLed})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(589, 282)
+        Me.ShapeContainer1.Size = New System.Drawing.Size(539, 282)
         Me.ShapeContainer1.TabIndex = 20
         Me.ShapeContainer1.TabStop = False
         '
@@ -1497,13 +1551,6 @@ Partial Class FormMain
         Me.StatusLed.Location = New System.Drawing.Point(92, 104)
         Me.StatusLed.Name = "StatusLed"
         Me.StatusLed.Size = New System.Drawing.Size(25, 25)
-        '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "Button Add.png")
-        Me.ImageList1.Images.SetKeyName(1, "Button Remove.png")
         '
         'DataSet2DataSet1
         '
@@ -1556,64 +1603,6 @@ Partial Class FormMain
         '
         Me.COUNTRIESTableAdapter.ClearBeforeFill = True
         '
-        'TableLayoutPanel5
-        '
-        Me.TableLayoutPanel5.AutoSize = True
-        Me.TableLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel5.ColumnCount = 3
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel5.Controls.Add(Me.TemplatesButtonAdd, 0, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.TemplatesButtonRemove, 1, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.TemplatesCombo, 2, 0)
-        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(68, 0)
-        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        Me.TableLayoutPanel5.RowCount = 1
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(892, 33)
-        Me.TableLayoutPanel5.TabIndex = 10
-        '
-        'TemplatesButtonAdd
-        '
-        Me.TemplatesButtonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.TemplatesButtonAdd.ImageKey = "Button Add.png"
-        Me.TemplatesButtonAdd.ImageList = Me.ImageList1
-        Me.TemplatesButtonAdd.Location = New System.Drawing.Point(3, 3)
-        Me.TemplatesButtonAdd.Name = "TemplatesButtonAdd"
-        Me.TemplatesButtonAdd.Size = New System.Drawing.Size(88, 27)
-        Me.TemplatesButtonAdd.TabIndex = 0
-        Me.TemplatesButtonAdd.Text = "Add New"
-        Me.TemplatesButtonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.TemplatesButtonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.TemplatesButtonAdd.UseVisualStyleBackColor = True
-        '
-        'TemplatesButtonRemove
-        '
-        Me.TemplatesButtonRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.TemplatesButtonRemove.ImageKey = "Button Remove.png"
-        Me.TemplatesButtonRemove.ImageList = Me.ImageList1
-        Me.TemplatesButtonRemove.Location = New System.Drawing.Point(97, 3)
-        Me.TemplatesButtonRemove.Name = "TemplatesButtonRemove"
-        Me.TemplatesButtonRemove.Size = New System.Drawing.Size(88, 27)
-        Me.TemplatesButtonRemove.TabIndex = 1
-        Me.TemplatesButtonRemove.Text = "Remove"
-        Me.TemplatesButtonRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.TemplatesButtonRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.TemplatesButtonRemove.UseVisualStyleBackColor = True
-        '
-        'TemplatesCombo
-        '
-        Me.TemplatesCombo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TemplatesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.TemplatesCombo.FormattingEnabled = True
-        Me.TemplatesCombo.Location = New System.Drawing.Point(191, 5)
-        Me.TemplatesCombo.Name = "TemplatesCombo"
-        Me.TemplatesCombo.Size = New System.Drawing.Size(698, 23)
-        Me.TemplatesCombo.TabIndex = 2
-        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1661,6 +1650,7 @@ Partial Class FormMain
         Me.TabEmail.PerformLayout()
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
+        Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TabSettings.ResumeLayout(False)
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
@@ -1672,7 +1662,6 @@ Partial Class FormMain
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DataSet2DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanel5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1758,7 +1747,6 @@ Partial Class FormMain
     Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents TabEmail As System.Windows.Forms.TabPage
-    Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents EmailSubject As System.Windows.Forms.TextBox
     Friend WithEvents Label22a As System.Windows.Forms.Label
     Friend WithEvents ButtonSendEmail As System.Windows.Forms.Button
