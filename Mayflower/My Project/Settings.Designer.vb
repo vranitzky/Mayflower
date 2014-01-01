@@ -104,8 +104,9 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=192.168.56.101;initial catalog=""C:\Projetex9\Proje"& _ 
-            "tex Server\Database\Projetex.fdb"";user id=ODBC;password=pwww;role=PROJETEX_ODBC")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("character set=UTF8;data source=192.168.0.56;initial catalog=""E:\Program Files (x8"& _ 
+            "6)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb"";user id=ODBC;password=p"& _ 
+            "assword;role=PROJETEX_ODBC")>  _
         Public Property ProjetexDB() As String
             Get
                 Return CType(Me("ProjetexDB"),String)

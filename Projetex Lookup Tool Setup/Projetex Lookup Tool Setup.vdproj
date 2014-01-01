@@ -39,6 +39,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6A38136BC3DA4563A87805DE22FB872F"
+        "OwnerKey" = "8:_02B55F837DBC4EC09D9DE5F8B75B920D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_EA0CDC6B3324CFB59185FEA5198056E6"
         "OwnerKey" = "8:_02B55F837DBC4EC09D9DE5F8B75B920D"
         "MsmSig" = "8:_UNDEFINED"
@@ -46,7 +52,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0B8475B291FF67E3C85F2BAC0B2DEE63"
+        "OwnerKey" = "8:_02B55F837DBC4EC09D9DE5F8B75B920D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6A38136BC3DA4563A87805DE22FB872F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -58,7 +70,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_02B55F837DBC4EC09D9DE5F8B75B920D"
+        "OwnerKey" = "8:_0B8475B291FF67E3C85F2BAC0B2DEE63"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -86,6 +98,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
         "Release"
@@ -110,6 +135,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -147,6 +185,11 @@
             "AssemblyAsmDisplayName" = "8:FirebirdSql.Data.FirebirdClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_0B8475B291FF67E3C85F2BAC0B2DEE63"
+                    {
+                    "Name" = "8:FirebirdSql.Data.FirebirdClient.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:FirebirdSql.Data.FirebirdClient.dll"
             "TargetName" = "8:"
@@ -213,6 +256,11 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_EA0CDC6B3324CFB59185FEA5198056E6"
+                    {
+                    "Name" = "8:Microsoft.VisualBasic.PowerPacks.Vs.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Microsoft.VisualBasic.PowerPacks.Vs.dll"
             "TargetName" = "8:"
@@ -299,15 +347,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Projetex Lookup Tool"
-        "ProductCode" = "8:{1D037A77-AB0D-47FD-A610-2C89E79451FA}"
-        "PackageCode" = "8:{D83D21A2-034E-49B7-9DDB-7E85A409B3AD}"
+        "ProductCode" = "8:{75EFD542-9F31-45CA-B635-57479761FB09}"
+        "PackageCode" = "8:{B028613C-AAD0-41C7-8A53-6889C263B5DB}"
         "UpgradeCode" = "8:{14A7FBF6-8A4E-4689-AACF-BFED189CEB00}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.2.0"
+        "ProductVersion" = "8:1.4.040"
         "Manufacturer" = "8:Mayflower Language Services"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -858,12 +906,107 @@
         }
         "MergeModule"
         {
+            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_6A38136BC3DA4563A87805DE22FB872F"
+            {
+            "UseDynamicProperties" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "SourcePath" = "8:txtextcontrol_winforms_express_20.0.msm"
+                "Properties"
+                {
+                    "_454175E13A80D38F3D27797B9552497B.650EB10FFF2346E296074A98A1372661"
+                    {
+                    "Name" = "8:_454175E13A80D38F3D27797B9552497B.650EB10FFF2346E296074A98A1372661"
+                    "DisplayName" = "8:"
+                    "Description" = "8:"
+                    "Type" = "3:2"
+                    "ContextData" = "8:InstallToGAC=;IsolateToManifest=_CF0D956DAFEA4D8CB00047286B2892E7.650EB10FFF2346E296074A98A1372661"
+                    "Attributes" = "3:0"
+                    "Setting" = "3:2"
+                    "Value" = "8:_CF0D956DAFEA4D8CB00047286B2892E7.650EB10FFF2346E296074A98A1372661"
+                    "DefaultValue" = "8:_CF0D956DAFEA4D8CB00047286B2892E7.650EB10FFF2346E296074A98A1372661"
+                    "ParentName" = "8:_E87470F16C6F4AA0B8A30C3DE93C6AB3.650EB10FFF2346E296074A98A1372661"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                    "_57F4C332DD38934FF031597C673EF4CC.650EB10FFF2346E296074A98A1372661"
+                    {
+                    "Name" = "8:_57F4C332DD38934FF031597C673EF4CC.650EB10FFF2346E296074A98A1372661"
+                    "DisplayName" = "8:"
+                    "Description" = "8:"
+                    "Type" = "3:2"
+                    "ContextData" = "8:InstallToGAC=;IsolateToManifest=_361121919369461CB0A316F421E153DF.650EB10FFF2346E296074A98A1372661"
+                    "Attributes" = "3:0"
+                    "Setting" = "3:2"
+                    "Value" = "8:_361121919369461CB0A316F421E153DF.650EB10FFF2346E296074A98A1372661"
+                    "DefaultValue" = "8:_361121919369461CB0A316F421E153DF.650EB10FFF2346E296074A98A1372661"
+                    "ParentName" = "8:_E87470F16C6F4AA0B8A30C3DE93C6AB3.650EB10FFF2346E296074A98A1372661"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                    "_993D39DB49B6BE9CBF655EB6148C454E.650EB10FFF2346E296074A98A1372661"
+                    {
+                    "Name" = "8:_993D39DB49B6BE9CBF655EB6148C454E.650EB10FFF2346E296074A98A1372661"
+                    "DisplayName" = "8:"
+                    "Description" = "8:"
+                    "Type" = "3:2"
+                    "ContextData" = "8:InstallToGAC=;IsolateToManifest=_BB5D71BE4A7B4C869BFD8501E2143D1C.650EB10FFF2346E296074A98A1372661"
+                    "Attributes" = "3:0"
+                    "Setting" = "3:2"
+                    "Value" = "8:_BB5D71BE4A7B4C869BFD8501E2143D1C.650EB10FFF2346E296074A98A1372661"
+                    "DefaultValue" = "8:_BB5D71BE4A7B4C869BFD8501E2143D1C.650EB10FFF2346E296074A98A1372661"
+                    "ParentName" = "8:_E87470F16C6F4AA0B8A30C3DE93C6AB3.650EB10FFF2346E296074A98A1372661"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                    "_E6612E7DEA77B88E00A8E10235702F7E.650EB10FFF2346E296074A98A1372661"
+                    {
+                    "Name" = "8:_E6612E7DEA77B88E00A8E10235702F7E.650EB10FFF2346E296074A98A1372661"
+                    "DisplayName" = "8:"
+                    "Description" = "8:"
+                    "Type" = "3:2"
+                    "ContextData" = "8:InstallToGAC=;IsolateToManifest=_325816CDE2024FBC8AF0363A939044B5.650EB10FFF2346E296074A98A1372661"
+                    "Attributes" = "3:0"
+                    "Setting" = "3:2"
+                    "Value" = "8:_325816CDE2024FBC8AF0363A939044B5.650EB10FFF2346E296074A98A1372661"
+                    "DefaultValue" = "8:_325816CDE2024FBC8AF0363A939044B5.650EB10FFF2346E296074A98A1372661"
+                    "ParentName" = "8:_E87470F16C6F4AA0B8A30C3DE93C6AB3.650EB10FFF2346E296074A98A1372661"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                    "_E6DD3D7AB3DEA5CA818E014CDF10AFE8.650EB10FFF2346E296074A98A1372661"
+                    {
+                    "Name" = "8:_E6DD3D7AB3DEA5CA818E014CDF10AFE8.650EB10FFF2346E296074A98A1372661"
+                    "DisplayName" = "8:"
+                    "Description" = "8:"
+                    "Type" = "3:2"
+                    "ContextData" = "8:InstallToGAC=;IsolateToManifest=_A8EAC055E7134380B3B5DC0DE4F9C5B4.650EB10FFF2346E296074A98A1372661"
+                    "Attributes" = "3:0"
+                    "Setting" = "3:2"
+                    "Value" = "8:_A8EAC055E7134380B3B5DC0DE4F9C5B4.650EB10FFF2346E296074A98A1372661"
+                    "DefaultValue" = "8:_A8EAC055E7134380B3B5DC0DE4F9C5B4.650EB10FFF2346E296074A98A1372661"
+                    "ParentName" = "8:_E87470F16C6F4AA0B8A30C3DE93C6AB3.650EB10FFF2346E296074A98A1372661"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                    "_E87470F16C6F4AA0B8A30C3DE93C6AB3.650EB10FFF2346E296074A98A1372661"
+                    {
+                    "Name" = "8:_E87470F16C6F4AA0B8A30C3DE93C6AB3.650EB10FFF2346E296074A98A1372661"
+                    "DisplayName" = "8:Module Retargetable Folder"
+                    "Description" = "8:"
+                    "Type" = "3:32769"
+                    "ContextData" = "8:_RetargetableFolder"
+                    "Attributes" = "3:6"
+                    "Setting" = "3:1"
+                    "UsePlugInResources" = "11:FALSE"
+                    }
+                }
+            "LanguageId" = "3:1033"
+            "Exclude" = "11:FALSE"
+            "Folder" = "8:"
+            "Feature" = "8:"
+            "IsolateTo" = "8:"
+            }
         }
         "ProjectOutput"
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_02B55F837DBC4EC09D9DE5F8B75B920D"
             {
-            "SourcePath" = "8:..\\Mayflower\\obj\\x86\\Release\\Mayflower.exe"
+            "SourcePath" = "8:..\\Mayflower\\obj\\x86\\Debug\\Mayflower.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_6511615BD5F14D9D8F96CEF4318F6134"

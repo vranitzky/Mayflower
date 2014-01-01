@@ -42,9 +42,9 @@ Partial Class DialogEmailWarning
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ComboTemplates = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -307,12 +307,6 @@ Partial Class DialogEmailWarning
         Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button5.UseVisualStyleBackColor = False
         '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        Me.OpenFileDialog1.InitialDirectory = Global.Mayflower.My.MySettings.Default.AttachmentOpenFileDir
-        Me.OpenFileDialog1.Title = "Select Attachment"
-        '
         'ComboTemplates
         '
         Me.ComboTemplates.Dock = System.Windows.Forms.DockStyle.Fill
@@ -333,6 +327,12 @@ Partial Class DialogEmailWarning
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Template:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.InitialDirectory = Global.Mayflower.My.MySettings.Default.AttachmentOpenFileDir
+        Me.OpenFileDialog1.Title = "Select Attachment"
         '
         'DialogEmailWarning
         '
