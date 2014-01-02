@@ -208,24 +208,6 @@ Public Class FormMain
                             )
         End Try
         Me.Cursor = Me.DefaultCursor
-        ' DataSet2DataSet.DTFreelancerInfo = FreelancerInfoTableAdapter.GetDataByResid(ID)
-        'a = DTFreelancerInfoBindingSource.ToString()
-        'TabDetails.Show() ' = True
-        'TabDetails.Show()
-
-        'Me.FreelancersTableAdapter.
-        'Me.DetailsTableAdapter.FillByRES_ID('22')
-        'Me.DetailsTableAdapter.FillByRES_ID(Me.DataSet2DataSet.DataTableDetails, CInt(Me.Tag))
-
-
-
-        'DialogDetails.Tag = DataGridView1.CurrentRow.Cells(0).Value
-        'DialogDetails.ShowDialog()
-
-        'FormDetails.TADetails.Fill(FormDetails.DTDetailsBindingSource.
-
-
-
     End Sub
 
     Private Sub ButtonApplyDBSettings_Click(sender As System.Object, e As System.EventArgs) Handles ButtonApplyDBSettings.Click
@@ -489,8 +471,7 @@ Public Class FormMain
         Dim result As Boolean = True
 
         If DialogEmailWarning.CheckBoxRemindMe.Checked Then
-            DialogEmailWarning.LabelYouAreSending.Text = String.Format(
-                DialogEmailWarning.LabelYouAreSending.Text, recipient)
+            DialogEmailWarning.LabelYouAreSending.Text = String.Format("Email to {0}", recipient)
 
             DialogEmailWarning.Tag = template
             DialogEmailWarning.ShowDialog()
@@ -501,11 +482,16 @@ Public Class FormMain
 
     Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         Dim colName As String = DataGridView1.Columns(e.ColumnIndex).Name
-        Dim a As String = DataGridView1.CurrentRow.Cells(1).Value.ToString
-        Dim recipient As String
+        'Dim a As String = DataGridView1.CurrentRow.Cells(1).Value.ToString
+        Dim recipient, recName As String
 
         If colName = "EmailButton" Then
             recipient = DataGridView1.CurrentRow.Cells(e.ColumnIndex).Value.ToString
+            recName = DataGridView1.CurrentRow.Cells(1).Value.ToString
+
+            If Not String.IsNullOrWhiteSpace(recName) Then
+                recipient = """" & recName & """ <" & recipient & ">"
+            End If
             If String.IsNullOrWhiteSpace(recipient) Then
                 MsgBox("There is no email address to send to!", MsgBoxStyle.Information, "Email error")
             Else
@@ -517,12 +503,16 @@ Public Class FormMain
 
     Private Sub ButtonSendEmail_Click(sender As System.Object, e As System.EventArgs) Handles ButtonSendEmail.Click
         Dim result As Boolean = True
+        Dim naam As String = TextBoxEmailAddress.Text
 
-        If String.IsNullOrWhiteSpace(TextBoxEmailAddress.Text) Then
+        If String.IsNullOrWhiteSpace(naam) Then
             MsgBox("There is no email address to send to!", MsgBoxStyle.Information, "Email error")
         Else
-            If ShowEmailPreviewWarning(TextBoxEmailAddress.Text, TemplatesCombo.SelectedIndex) Then
-                SendEmail(TextBoxEmailAddress.Text)
+            If Not String.IsNullOrWhiteSpace(DetailsBoxName.Text) Then
+                naam = """" + DetailsBoxName.Text + """ <" + naam + ">"
+            End If
+            If ShowEmailPreviewWarning(naam, TemplatesCombo.SelectedIndex) Then
+                SendEmail(naam)
             End If
         End If
     End Sub
@@ -547,7 +537,7 @@ Public Class FormMain
         End If
 
         Dim Recipients As New List(Of String)
-        Dim FromEmailAddress As String = EmailSettingsName.Text + "<" + EmailSettingsEmail.Text + ">"
+        Dim FromEmailAddress As String = """" + EmailSettingsName.Text + """ <" + EmailSettingsEmail.Text + ">"
         Dim Subject As String = EmailSubject.Text
         Dim Body As String = ""
         Dim UserName As String = EmailSettingsEmail.Text
@@ -563,8 +553,8 @@ Public Class FormMain
             '                                         )
             'if testmode is on, alert, otherwise add recipient to recipients list
             If My.Settings.EmailTestMode Then
-                MessageBox.Show("Please note that in this test version, email is sent to yourself:" & Environment.NewLine & Environment.NewLine &
-                        EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">" & Environment.NewLine & Environment.NewLine &
+                MessageBox.Show("Please note that in this test version, email is sent to yourself ONLY:" & Environment.NewLine & Environment.NewLine &
+                        """" & EmailSettingsName.Text & """ <" & EmailSettingsEmail.Text & ">" & Environment.NewLine & Environment.NewLine &
                         "NOT:" & Environment.NewLine & Environment.NewLine &
                         address,
                                 "Testing email mode",
@@ -578,7 +568,10 @@ Public Class FormMain
             AttachmentsList = Attachments.Values.ToList
             'in any case, send a copy to yourself
             Recipients.Add(EmailSettingsName.Text & " <" & EmailSettingsEmail.Text & ">")
-            EmailBody.Save(Body, TXTextControl.StringStreamType.HTMLFormat)
+            'EmailBody.Save(Body, TXTextControl.StringStreamType.HTMLFormat)
+            'DialogEmailWarning.EmailBody.Save(Body, TXTextControl.StringStreamType.HTMLFormat)
+            Body = DialogEmailWarning.SubmittedBody
+            Subject = DialogEmailWarning.SubmittedSubject
             result = SendEmail(Recipients, FromEmailAddress, Subject, Body, UserName, Password, Server, Port, AttachmentsList)
             If result Is Nothing Then
                 MsgBox("Success!", MsgBoxStyle.Information, "Email result")
@@ -685,9 +678,6 @@ Public Class FormMain
         Else 'we are adding a new template. Don't save until the user presses the OK button
             'do nothing
         End If
-
-
-
     End Sub
 
     Private Sub EmailBody_Enter(sender As System.Object, e As System.EventArgs) Handles EmailBody.Enter

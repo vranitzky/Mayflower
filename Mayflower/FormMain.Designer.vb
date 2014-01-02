@@ -23,7 +23,7 @@ Partial Class FormMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabFreelancers = New System.Windows.Forms.TabPage()
@@ -82,7 +82,7 @@ Partial Class FormMain
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.DetailsBoxName = New System.Windows.Forms.TextBox()
         Me.ButtonSendEmail = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
@@ -134,6 +134,7 @@ Partial Class FormMain
         Me.EmailSettingsPort = New System.Windows.Forms.TextBox()
         Me.EmailTestModeCheckBox = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
         Me.RichTextBoxConnectionString = New System.Windows.Forms.RichTextBox()
@@ -162,7 +163,6 @@ Partial Class FormMain
         Me.FreelancerInfoTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.FreelancerInfoTableAdapter()
         Me.COUNTRIESTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabFreelancers.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -529,14 +529,14 @@ Partial Class FormMain
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.NAMEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.RATEDataGridViewTextBoxColumn, Me.CURRENCYDataGridViewTextBoxColumn, Me.COUNTRYDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn, Me.APPROVALDataGridViewTextBoxColumn, Me.EmailButton})
         Me.DataGridView1.DataSource = Me.BindingSourceFreelancers
@@ -701,7 +701,7 @@ Partial Class FormMain
         Me.TableLayoutPanel1.Controls.Add(Me.Label15, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.Label16, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.Label17, 0, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.TextBox1, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DetailsBoxName, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ButtonSendEmail, 1, 5)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -811,14 +811,14 @@ Partial Class FormMain
         Me.Label17.Text = "Country"
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'TextBox1
+        'DetailsBoxName
         '
-        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTFreelancerInfoBindingSource, "RES_NAME", True))
-        Me.TextBox1.Location = New System.Drawing.Point(103, 3)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(339, 21)
-        Me.TextBox1.TabIndex = 5
+        Me.DetailsBoxName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTFreelancerInfoBindingSource, "RES_NAME", True))
+        Me.DetailsBoxName.Location = New System.Drawing.Point(103, 3)
+        Me.DetailsBoxName.Name = "DetailsBoxName"
+        Me.DetailsBoxName.ReadOnly = True
+        Me.DetailsBoxName.Size = New System.Drawing.Size(339, 21)
+        Me.DetailsBoxName.TabIndex = 5
         '
         'ButtonSendEmail
         '
@@ -1405,6 +1405,15 @@ Partial Class FormMain
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Database - HIC SUNT LEONES!"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(112, 292)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(180, 23)
+        Me.Button1.TabIndex = 21
+        Me.Button1.Text = "Clear Saved Prefs"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -1603,15 +1612,6 @@ Partial Class FormMain
         '
         Me.COUNTRIESTableAdapter.ClearBeforeFill = True
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(112, 292)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(180, 23)
-        Me.Button1.TabIndex = 21
-        Me.Button1.Text = "Clear Saved Prefs"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1704,8 +1704,6 @@ Partial Class FormMain
     Friend WithEvents TargetLangTableAdapter As Mayflower.DataSet2DataSetTableAdapters.TargetLangTableAdapter
     Friend WithEvents FbConnection1 As FirebirdSql.Data.FirebirdClient.FbConnection
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents StatusLed As Microsoft.VisualBasic.PowerPacks.OvalShape
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1745,7 +1743,7 @@ Partial Class FormMain
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxEmailAddress As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents DetailsBoxName As System.Windows.Forms.TextBox
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
@@ -1832,5 +1830,7 @@ Partial Class FormMain
     Friend WithEvents TemplatesCombo As System.Windows.Forms.ComboBox
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Private WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Private WithEvents StatusLed As Microsoft.VisualBasic.PowerPacks.OvalShape
 
 End Class

@@ -1,23 +1,48 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mayflower", "Mayflower\Mayflower.vbproj", "{5539DF28-529E-4927-BB77-8740B9E016C4}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Projetex Lookup Tool Setup", "Projetex Lookup Tool Setup\Projetex Lookup Tool Setup.vdproj", "{D5E5C25B-2A7F-43D7-8354-572142788325}"
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Projetex Lookup Tool-Setup", "Projetex Lookup Tool-Setup\Projetex Lookup Tool-Setup.isproj", "{3574C791-95B5-47B6-AFEC-CAB876DB43C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|x86 = CD_ROM|x86
 		Debug|x86 = Debug|x86
+		DVD-5|x86 = DVD-5|x86
 		Release|x86 = Release|x86
+		SingleImage|x86 = SingleImage|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5539DF28-529E-4927-BB77-8740B9E016C4}.CD_ROM|x86.ActiveCfg = Release|x86
+		{5539DF28-529E-4927-BB77-8740B9E016C4}.CD_ROM|x86.Build.0 = Release|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Debug|x86.ActiveCfg = Debug|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Debug|x86.Build.0 = Debug|x86
+		{5539DF28-529E-4927-BB77-8740B9E016C4}.DVD-5|x86.ActiveCfg = Debug|x86
+		{5539DF28-529E-4927-BB77-8740B9E016C4}.DVD-5|x86.Build.0 = Debug|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Release|x86.ActiveCfg = Release|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Release|x86.Build.0 = Release|x86
+		{5539DF28-529E-4927-BB77-8740B9E016C4}.SingleImage|x86.ActiveCfg = Release|x86
+		{5539DF28-529E-4927-BB77-8740B9E016C4}.SingleImage|x86.Build.0 = Release|x86
+		{D5E5C25B-2A7F-43D7-8354-572142788325}.CD_ROM|x86.ActiveCfg = Release
 		{D5E5C25B-2A7F-43D7-8354-572142788325}.Debug|x86.ActiveCfg = Debug
+		{D5E5C25B-2A7F-43D7-8354-572142788325}.DVD-5|x86.ActiveCfg = Debug
 		{D5E5C25B-2A7F-43D7-8354-572142788325}.Release|x86.ActiveCfg = Release
 		{D5E5C25B-2A7F-43D7-8354-572142788325}.Release|x86.Build.0 = Release
+		{D5E5C25B-2A7F-43D7-8354-572142788325}.SingleImage|x86.ActiveCfg = Release
+		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.CD_ROM|x86.ActiveCfg = CD_ROM
+		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.CD_ROM|x86.Build.0 = CD_ROM
+		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.Debug|x86.ActiveCfg = SingleImage
+		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.DVD-5|x86.ActiveCfg = DVD-5
+		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.DVD-5|x86.Build.0 = DVD-5
+		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.Release|x86.ActiveCfg = SingleImage
+		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.Release|x86.Build.0 = SingleImage
+		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.SingleImage|x86.ActiveCfg = SingleImage
+		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.SingleImage|x86.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

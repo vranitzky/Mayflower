@@ -2,9 +2,13 @@
 
 Public Class DialogEmailWarning
     'Private Attachments As Dictionary(Of String, String) = New Dictionary(Of String, String)
+    Public Property SubmittedSubject As String = ""
+    Public Property SubmittedBody As String = ""
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
+        SubmittedSubject = EmailSubject.Text
+        EmailBody.Save(SubmittedBody, TXTextControl.StringStreamType.HTMLFormat)
         Me.Close()
     End Sub
 
