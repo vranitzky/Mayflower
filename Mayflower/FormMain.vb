@@ -11,7 +11,7 @@ Public Class FormMain
         Dim r As DataRow
         Dim a, s As String
         Dim arr As String()
-        Dim i As Integer = 0
+        Dim i As Integer = 0 'hello
         Dim collection As SearchableStringCollection = New SearchableStringCollection
         Dim strlist As List(Of String) = New List(Of String)
         Dim charSeparators() As String = {vbCrLf, ",", "•", "", ""} 'rubbish characters in the Database
