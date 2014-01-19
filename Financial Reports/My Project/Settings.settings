@@ -1,0 +1,28 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="DBAddress" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.0.56</Value>
+    </Setting>
+    <Setting Name="DBPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3050</Value>
+    </Setting>
+    <Setting Name="DBFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb</Value>
+    </Setting>
+    <Setting Name="DBPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">password</Value>
+    </Setting>
+    <Setting Name="ProjetexDB" Type="System.String" Scope="User">
+      <Value Profile="(Default)">character set=UTF8;data source=192.168.0.56;initial catalog="E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb";user id=ODBC;password=password;role=PROJETEX_ODBC</Value>
+    </Setting>
+    <Setting Name="ProjetexDB2" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;character set=UTF8;initial catalog="E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb";data source=192.168.0.56;user id=ODBC;password=password;role=PROJETEX_ODBC&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">character set=UTF8;initial catalog="E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb";data source=192.168.0.56;user id=ODBC;password=password;role=PROJETEX_ODBC</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

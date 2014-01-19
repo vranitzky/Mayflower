@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject>Projetex Lookup Tool</subject>
+		<subject>##ID_STRING6##</subject>
 		<author>##ID_STRING2##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
@@ -341,9 +341,8 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
+		<row><td>Freelancer_Lookup_Tool.Primary_output</td><td>{018507E4-EE2F-42B3-9CF8-43FB8781ED58}</td><td>INSTALLDIR</td><td>2</td><td/><td>freelancer_lookup_tool.prima</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{8076D56A-45F4-46E0-BD07-B7488BBC66EE}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Mayflower.Content_Files</td><td>{8E4EBACA-AE14-428F-B71A-7CE6C19DE383}</td><td>INSTALLDIR</td><td>2</td><td/><td>mayflower.content_files</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Mayflower.Primary_output</td><td>{61D075D2-814D-4959-B651-9B46A692E1C8}</td><td>INSTALLDIR</td><td>2</td><td/><td>mayflower.primary_output</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1141,10 +1140,11 @@
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
+		<row><td>FREELANCER_LOOKUP_TOOL</td><td>MAYFLOWER_LANGUAGE_SERVICES</td><td>FREELA~1|Freelancer Lookup Tool</td><td/><td>0</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
-		<row><td>INSTALLDIR</td><td>PROJETEX_LOOKUP_TOOL</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>INSTALLDIR</td><td>FREELANCER_LOOKUP_TOOL</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
@@ -1868,9 +1868,8 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>AlwaysInstall</td><td>Freelancer_Lookup_Tool.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
-		<row><td>AlwaysInstall</td><td>Mayflower.Content_Files</td></row>
-		<row><td>AlwaysInstall</td><td>Mayflower.Primary_output</td></row>
 	</table>
 
 	<table name="File">
@@ -1885,8 +1884,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>mayflower.content_files</td><td>Mayflower.Content_Files</td><td>Mayflower.Content Files</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Mayflower&gt;|ContentFiles</td><td>3</td><td/></row>
-		<row><td>mayflower.primary_output</td><td>Mayflower.Primary_output</td><td>Mayflower.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Mayflower&gt;|Built</td><td>3</td><td/></row>
+		<row><td>freelancer_lookup_tool.prima</td><td>Freelancer_Lookup_Tool.Primary_output</td><td>Freelancer Lookup Tool.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Freelancer Lookup Tool&gt;|Built</td><td>3</td><td/></row>
 		<row><td>projetextlookuptool_userguid</td><td>ISX_DEFAULTCOMPONENT</td><td>PROJET~1.PDF|ProjetextLookupTool UserGuide.pdf</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Michael\Documents\Mayflower\ProjetextLookupTool UserGuide.pdf</td><td>1</td><td/></row>
 	</table>
 
@@ -2031,9 +2029,8 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
+		<row><td>Freelancer_Lookup_Tool.Primary_output</td><td/><td/><td>_9E6D75CF_5EC4_48F9_BDD5_3DA939CEAFE7_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_4CADA44C_A992_418C_BD4F_23D9E5E9EB27_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Mayflower.Content_Files</td><td/><td/><td>_70EE10DA_D09E_4C3B_AFD3_FA7B7D93F612_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Mayflower.Primary_output</td><td/><td/><td>_12552826_097F_47BF_A96A_D18C391E0FE1_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2335,6 +2332,8 @@
 		<col def="S255">TestValue</col>
 		<col def="i4">Type</col>
 		<row><td>CommonFilesFolder</td><td/><td/><td>1</td></row>
+		<row><td>Financial Reports</td><td>Financial Reports\Financial Reports.vbproj</td><td/><td>2</td></row>
+		<row><td>Freelancer Lookup Tool</td><td>Mayflower\Freelancer Lookup Tool.vbproj</td><td/><td>2</td></row>
 		<row><td>ISPROJECTDIR</td><td/><td/><td>1</td></row>
 		<row><td>ISProductFolder</td><td/><td/><td>1</td></row>
 		<row><td>ISProjectDataFolder</td><td/><td/><td>1</td></row>
@@ -2652,7 +2651,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>Mayflower Language Services</td><td>0</td><td/><td>279090668</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Mayflower Language Services</td><td>0</td><td/><td>-1734200372</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>279086572</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>279086572</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40CLIENT</td><td>1033</td><td>Microsoft .NET Framework 4.0 Client Package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>279072300</td></row>
@@ -3466,7 +3465,8 @@
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>279086572</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>279086572</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>Projetex Lookup Tool</td><td>0</td><td/><td>279084652</td></row>
-		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>User Guide</td><td>0</td><td/><td>279060108</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>FREELA~1|Freelancer Lookup Tool-User Guide</td><td>0</td><td/><td>-1734195476</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>MAYFLO~1|Mayflower Financial Reports</td><td>0</td><td/><td>-2002594515</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>279086572</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>279086572</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>279086572</td></row>
@@ -3755,10 +3755,15 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>279086572</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>279086572</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>279086572</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.MayflowerLanguageServices.com</td><td>0</td><td/><td>279090668</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>Mayflower Language Services</td><td>0</td><td/><td>279090668</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.MayflowerLanguageServices.com</td><td>0</td><td/><td>-1734200372</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>Mayflower Language Services</td><td>0</td><td/><td>-1734200372</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>279074412</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>User Guide</td><td>0</td><td/><td>279062156</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-2002648051</td></row>
+		<row><td>ID_STRING6</td><td>1033</td><td>Freelancer Lookup Tool</td><td>0</td><td/><td>-1734152404</td></row>
+		<row><td>ID_STRING7</td><td>1033</td><td>FREELA~1|Freelancers Lookup Tool</td><td>0</td><td/><td>-2002594643</td></row>
+		<row><td>ID_STRING8</td><td>1033</td><td>FREELA~1|Freelancer Lookup Tool</td><td>0</td><td/><td>-2002633395</td></row>
+		<row><td>ID_STRING9</td><td>1033</td><td>FREELA~1|Freelancer Lookup Tool</td><td>0</td><td/><td>-1734167604</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>279086572</td></row>
 	</table>
 
@@ -3867,10 +3872,18 @@
 		<col def="V0">Data</col>
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
-		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Mayflower\Mayflower.ico</td><td>0</td></row>
+		<row><td>ARPPRODUCTICON.exe</td><td/><td>C:\Users\Michael\Documents\Mayflower\Mayflower icon.ico</td><td>0</td></row>
+		<row><td>NewShortcut21_19D10E4CD48C48F9A4026552035280CF.exe</td><td/><td>C:\Users\Michael\Documents\Mayflower\Mayflower icon.ico</td><td>0</td></row>
+		<row><td>NewShortcut2_D90E621A3FE94ACAB89AD7981B9ED9F7.exe</td><td/><td>C:\Users\Michael\Documents\Mayflower\Mayflower icon.ico</td><td>0</td></row>
 		<row><td>ProjetextLookupToo_996B300FF93A4625A502420C6DC9BBD4.exe</td><td/><td>&lt;ProgramFilesFolder&gt;\Adobe\Acrobat 11.0\Acrobat\AcroRd32.exe</td><td>0</td></row>
 		<row><td>ProjetextLookupToo_C2BDF37B33EC45B0AEF059D030F17C3B.exe</td><td/><td>&lt;ProgramFilesFolder&gt;\Adobe\Acrobat 11.0\Acrobat\AcroRd32.exe</td><td>0</td></row>
+		<row><td>_1DB41B7419124A989B2F80644A6D0872.exe</td><td/><td>C:\Users\Michael\Documents\Visual Studio 2010\Projects\Mayflower\Financial Reports\bin\Debug\Financial Reports.exe</td><td>0</td></row>
+		<row><td>_424A533379154EA5B2EE84D087B1CC17.exe</td><td/><td>C:\Users\Michael\Documents\Visual Studio 2010\Projects\Mayflower\Mayflower\bin\Debug\Mayflower.exe</td><td>0</td></row>
+		<row><td>_657B5DF319D3464B827655E6B671662A.exe</td><td/><td>C:\Users\Michael\Documents\Visual Studio 2010\Projects\Mayflower\Mayflower\bin\Debug\Mayflower.exe</td><td>0</td></row>
+		<row><td>_96D6570786264AF2BCA6CAEB6EED74F7.exe</td><td/><td>C:\Users\Michael\Documents\Visual Studio 2010\Projects\Mayflower\Financial Reports\bin\Debug\Financial Reports.exe</td><td>0</td></row>
 		<row><td>_Built1_DCC0DD3EEBA246BBB868FC380E1B0E01.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Mayflower\Mayflower.ico</td><td>0</td></row>
+		<row><td>_Built21_7FFA70EBB66F4819AA2806584D6F45AC.exe</td><td/><td>C:\Users\Michael\Documents\Mayflower\Mayflower icon.ico</td><td>0</td></row>
+		<row><td>_Built2_4451AB64B1EE46B69C91DE3E55968309.exe</td><td/><td>C:\Users\Michael\Documents\Mayflower\Mayflower icon.ico</td><td>0</td></row>
 		<row><td>_Built_040BCDB491654BA59C599C1E6168CA40.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Mayflower\Mayflower.ico</td><td>0</td></row>
 	</table>
 
@@ -4019,6 +4032,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>SccPath</td><td/></row>
 		<row><td>SchemaVersion</td><td>774</td></row>
 		<row><td>Type</td><td>MSIE</td></row>
+		<row><td>VSSccAuxPath</td><td/></row>
+		<row><td>VSSccLocalPath</td><td/></row>
+		<row><td>VSSccProvider</td><td/></row>
 	</table>
 
 	<table name="InstallUISequence">
@@ -4356,7 +4372,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>InstallChoice</td><td>AR</td><td/></row>
 		<row><td>LAUNCHPROGRAMCOMPCODE</td><td>{61D075D2-814D-4959-B651-9B46A692E1C8}</td><td/></row>
 		<row><td>LAUNCHPROGRAMFILEKEY</td><td>mayflower.primary_output</td><td/></row>
-		<row><td>MSIFASTINSTALL</td><td>1</td><td/></row>
+		<row><td>MSIFASTINSTALL</td><td>3</td><td/></row>
 		<row><td>Manufacturer</td><td>##COMPANY_NAME##</td><td/></row>
 		<row><td>PIDKEY</td><td/><td/></row>
 		<row><td>PIDTemplate</td><td>12345&lt;###-%%%%%%%&gt;@@@@@</td><td/></row>
@@ -4386,7 +4402,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]Mayflower.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{D44824DF-E485-47F8-94EA-CF0CC70BAA99}</td><td/></row>
 		<row><td>ProductName</td><td>Projetex Lookup Tool</td><td/></row>
-		<row><td>ProductVersion</td><td>1.05</td><td/></row>
+		<row><td>ProductVersion</td><td>1.5</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4464,10 +4480,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>FileKey1</td><td>Mayflower.Primary_output</td><td/><td>mayflo_1_mayflower_language_services</td><td>2</td></row>
-		<row><td>FileKey2</td><td>Mayflower.Primary_output</td><td/><td>projet_1_projetex_lookup_tool</td><td>2</td></row>
+		<row><td>NewShortcut21</td><td>Freelancer_Lookup_Tool.Primary_output</td><td/><td>projet_1_projetex_lookup_tool</td><td>2</td></row>
 		<row><td>ProjetextLookupTool_UserGuide.pdf</td><td>ISX_DEFAULTCOMPONENT</td><td/><td>projet_1_projetex_lookup_tool</td><td>2</td></row>
-		<row><td>_Built</td><td>Mayflower.Primary_output</td><td/><td>projet_1_projetex_lookup_tool</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4553,10 +4567,10 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>NewShortcut2</td><td>DesktopFolder</td><td>##ID_STRING8##</td><td>Freelancer_Lookup_Tool.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>NewShortcut2_D90E621A3FE94ACAB89AD7981B9ED9F7.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut21</td><td>projet_1_projetex_lookup_tool</td><td>##ID_STRING8##</td><td>Freelancer_Lookup_Tool.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>NewShortcut21_19D10E4CD48C48F9A4026552035280CF.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>ProjetextLookupTool_UserGuide.pdf</td><td>projet_1_projetex_lookup_tool</td><td>##IDS_SHORTCUT_DISPLAY_NAME2##</td><td>ISX_DEFAULTCOMPONENT</td><td>[INSTALLDIR]ProjetextLookupTool UserGuide.pdf</td><td/><td/><td/><td>ProjetextLookupToo_996B300FF93A4625A502420C6DC9BBD4.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>ProjetextLookupTool_UserGuide.pdf1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME2##</td><td>ISX_DEFAULTCOMPONENT</td><td>[INSTALLDIR]ProjetextLookupTool UserGuide.pdf</td><td/><td/><td/><td>ProjetextLookupToo_C2BDF37B33EC45B0AEF059D030F17C3B.exe</td><td>1</td><td>1</td><td>INSTALLDIR</td><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>_Built</td><td>projet_1_projetex_lookup_tool</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>Mayflower.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built_040BCDB491654BA59C599C1E6168CA40.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>Mayflower.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built1_DCC0DD3EEBA246BBB868FC380E1B0E01.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

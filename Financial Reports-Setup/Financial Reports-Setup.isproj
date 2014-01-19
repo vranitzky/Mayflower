@@ -29,9 +29,9 @@
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
 	<ItemGroup>
-		<ProjectReference Include="..\Mayflower\Mayflower.vbproj">
-			<Name>Mayflower</Name>
-			<Project>{5539DF28-529E-4927-BB77-8740B9E016C4}</Project>
+		<ProjectReference Include="..\Financial Reports\Financial Reports.vbproj">
+			<Name>Financial Reports</Name>
+			<Project>{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}</Project>
 		</ProjectReference>
 	</ItemGroup>
 </Project>
