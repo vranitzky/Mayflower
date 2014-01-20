@@ -1172,7 +1172,7 @@ Partial Class FormMain
         Me.TemplatesCombo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TemplatesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.TemplatesCombo.FormattingEnabled = True
-        Me.TemplatesCombo.Location = New System.Drawing.Point(191, 5)
+        Me.TemplatesCombo.Location = New System.Drawing.Point(191, 6)
         Me.TemplatesCombo.Name = "TemplatesCombo"
         Me.TemplatesCombo.Size = New System.Drawing.Size(698, 23)
         Me.TemplatesCombo.TabIndex = 2

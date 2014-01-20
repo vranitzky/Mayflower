@@ -344,6 +344,17 @@ Namespace My
                 Me("EmailTemplatesNames") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("character set=UTF8;initial catalog=""C:\Projetex9\Projetex Server\Database\Projete"& _ 
+            "x.fdb"";user id=ODBC;password=pwww;data source=192.168.56.101;role=PROJETEX_ODBC")>  _
+        Public ReadOnly Property VirtualBox() As String
+            Get
+                Return CType(Me("VirtualBox"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

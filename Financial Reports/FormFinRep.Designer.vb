@@ -23,39 +23,19 @@ Partial Class FormFinRep
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormFinRep))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabReport1 = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.ButtonR1Export = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DateTimePickerFrom = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DateTimePickerTo = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridViewReport1 = New System.Windows.Forms.DataGridView()
-        Me.DTReport1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet2 = New Financial_Reports.DataSet2()
-        Me.TabReport2 = New System.Windows.Forms.TabPage()
-        Me.TabReport3 = New System.Windows.Forms.TabPage()
-        Me.TabSettings = New System.Windows.Forms.TabPage()
-        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
-        Me.RichTextBoxConnectionString = New System.Windows.Forms.RichTextBox()
-        Me.ButtonApplyDBSettings = New System.Windows.Forms.Button()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBoxPassword = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBoxDatabase = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBoxServerPort = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
-        Me.DTReport1TA = New Financial_Reports.DataSet2TableAdapters.DTReport1TA()
         Me.PROJIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PROJFULLDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AITUSERREALNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -65,8 +45,30 @@ Partial Class FormFinRep
         Me.ProfitDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PCProfitDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InvNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ButtonR1Export = New System.Windows.Forms.Button()
+        Me.DTReport1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet2 = New Financial_Reports.DataSet2()
+        Me.TabReport2 = New System.Windows.Forms.TabPage()
+        Me.TabReport3 = New System.Windows.Forms.TabPage()
+        Me.TabSettings = New System.Windows.Forms.TabPage()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LabelDBStatus = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
+        Me.RichTextBoxConnectionString = New System.Windows.Forms.RichTextBox()
+        Me.ButtonApplyDBSettings = New System.Windows.Forms.Button()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
+        Me.DTReport1TA = New Financial_Reports.DataSet2TableAdapters.DTReport1TA()
+        Me.TextBoxPassword = New System.Windows.Forms.TextBox()
+        Me.TextBoxDatabase = New System.Windows.Forms.TextBox()
+        Me.TextBoxServerPort = New System.Windows.Forms.TextBox()
+        Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabReport1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,9 +79,6 @@ Partial Class FormFinRep
         CType(Me.DTReport1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabSettings.SuspendLayout()
-        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer2.Panel2.SuspendLayout()
-        Me.SplitContainer2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -130,6 +129,15 @@ Partial Class FormFinRep
         Me.SplitContainer1.Size = New System.Drawing.Size(1129, 477)
         Me.SplitContainer1.SplitterDistance = 28
         Me.SplitContainer1.TabIndex = 0
+        '
+        'ButtonR1Export
+        '
+        Me.ButtonR1Export.Location = New System.Drawing.Point(593, 2)
+        Me.ButtonR1Export.Name = "ButtonR1Export"
+        Me.ButtonR1Export.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonR1Export.TabIndex = 9
+        Me.ButtonR1Export.Text = "Export"
+        Me.ButtonR1Export.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -194,6 +202,75 @@ Partial Class FormFinRep
         Me.DataGridViewReport1.Size = New System.Drawing.Size(1129, 445)
         Me.DataGridViewReport1.TabIndex = 0
         '
+        'PROJIDDataGridViewTextBoxColumn
+        '
+        Me.PROJIDDataGridViewTextBoxColumn.DataPropertyName = "PROJ_ID"
+        Me.PROJIDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.PROJIDDataGridViewTextBoxColumn.Name = "PROJIDDataGridViewTextBoxColumn"
+        Me.PROJIDDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PROJFULLDataGridViewTextBoxColumn
+        '
+        Me.PROJFULLDataGridViewTextBoxColumn.DataPropertyName = "PROJ_FULL"
+        Me.PROJFULLDataGridViewTextBoxColumn.HeaderText = "Project"
+        Me.PROJFULLDataGridViewTextBoxColumn.Name = "PROJFULLDataGridViewTextBoxColumn"
+        Me.PROJFULLDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'AITUSERREALNAMEDataGridViewTextBoxColumn
+        '
+        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.DataPropertyName = "AIT$USER_REALNAME"
+        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.HeaderText = "User"
+        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.Name = "AITUSERREALNAMEDataGridViewTextBoxColumn"
+        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CJOBSDataGridViewTextBoxColumn
+        '
+        Me.CJOBSDataGridViewTextBoxColumn.DataPropertyName = "CJOBS"
+        Me.CJOBSDataGridViewTextBoxColumn.HeaderText = "CJOBS"
+        Me.CJOBSDataGridViewTextBoxColumn.Name = "CJOBSDataGridViewTextBoxColumn"
+        Me.CJOBSDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'RJOBSDataGridViewTextBoxColumn
+        '
+        Me.RJOBSDataGridViewTextBoxColumn.DataPropertyName = "RJOBS"
+        Me.RJOBSDataGridViewTextBoxColumn.HeaderText = "RJOBS"
+        Me.RJOBSDataGridViewTextBoxColumn.Name = "RJOBSDataGridViewTextBoxColumn"
+        Me.RJOBSDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CCONNAMEDataGridViewTextBoxColumn
+        '
+        Me.CCONNAMEDataGridViewTextBoxColumn.DataPropertyName = "CCON_NAME"
+        Me.CCONNAMEDataGridViewTextBoxColumn.HeaderText = "Client"
+        Me.CCONNAMEDataGridViewTextBoxColumn.Name = "CCONNAMEDataGridViewTextBoxColumn"
+        Me.CCONNAMEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ProfitDataGridViewTextBoxColumn
+        '
+        Me.ProfitDataGridViewTextBoxColumn.DataPropertyName = "Profit"
+        DataGridViewCellStyle1.Format = "C2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.ProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        Me.ProfitDataGridViewTextBoxColumn.HeaderText = "Profit"
+        Me.ProfitDataGridViewTextBoxColumn.Name = "ProfitDataGridViewTextBoxColumn"
+        Me.ProfitDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PCProfitDataGridViewTextBoxColumn
+        '
+        Me.PCProfitDataGridViewTextBoxColumn.DataPropertyName = "PCProfit"
+        DataGridViewCellStyle2.Format = "p2"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.PCProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        Me.PCProfitDataGridViewTextBoxColumn.HeaderText = "%Profit"
+        Me.PCProfitDataGridViewTextBoxColumn.Name = "PCProfitDataGridViewTextBoxColumn"
+        Me.PCProfitDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'InvNoDataGridViewTextBoxColumn
+        '
+        Me.InvNoDataGridViewTextBoxColumn.DataPropertyName = "InvNo"
+        Me.InvNoDataGridViewTextBoxColumn.HeaderText = "InvNo"
+        Me.InvNoDataGridViewTextBoxColumn.Name = "InvNoDataGridViewTextBoxColumn"
+        Me.InvNoDataGridViewTextBoxColumn.ReadOnly = True
+        '
         'DTReport1BindingSource
         '
         Me.DTReport1BindingSource.DataMember = "DTReport1"
@@ -226,7 +303,7 @@ Partial Class FormFinRep
         'TabSettings
         '
         Me.TabSettings.BackColor = System.Drawing.Color.Transparent
-        Me.TabSettings.Controls.Add(Me.SplitContainer2)
+        Me.TabSettings.Controls.Add(Me.GroupBox1)
         Me.TabSettings.Location = New System.Drawing.Point(4, 22)
         Me.TabSettings.Name = "TabSettings"
         Me.TabSettings.Padding = New System.Windows.Forms.Padding(3)
@@ -234,24 +311,11 @@ Partial Class FormFinRep
         Me.TabSettings.TabIndex = 1
         Me.TabSettings.Text = "Settings"
         '
-        'SplitContainer2
-        '
-        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer2.Location = New System.Drawing.Point(3, 3)
-        Me.SplitContainer2.Name = "SplitContainer2"
-        '
-        'SplitContainer2.Panel2
-        '
-        Me.SplitContainer2.Panel2.Controls.Add(Me.GroupBox1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1129, 477)
-        Me.SplitContainer2.SplitterDistance = 478
-        Me.SplitContainer2.SplitterWidth = 5
-        Me.SplitContainer2.TabIndex = 3
-        '
         'GroupBox1
         '
         Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox1.BackColor = System.Drawing.Color.IndianRed
+        Me.GroupBox1.Controls.Add(Me.LabelDBStatus)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.ButtonTestDBSettings)
@@ -266,14 +330,23 @@ Partial Class FormFinRep
         Me.GroupBox1.Controls.Add(Me.TextBoxServerPort)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.TextBoxServerAddress)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
-        Me.GroupBox1.MinimumSize = New System.Drawing.Size(535, 302)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox1.MinimumSize = New System.Drawing.Size(535, 329)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(646, 315)
+        Me.GroupBox1.Size = New System.Drawing.Size(1129, 477)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Database - HIC SUNT LEONES!"
+        '
+        'LabelDBStatus
+        '
+        Me.LabelDBStatus.AutoSize = True
+        Me.LabelDBStatus.Location = New System.Drawing.Point(108, 148)
+        Me.LabelDBStatus.Name = "LabelDBStatus"
+        Me.LabelDBStatus.Size = New System.Drawing.Size(39, 13)
+        Me.LabelDBStatus.TabIndex = 22
+        Me.LabelDBStatus.Text = "Label4"
         '
         'Button1
         '
@@ -341,14 +414,6 @@ Partial Class FormFinRep
         Me.Label7.TabIndex = 10
         Me.Label7.Text = "Password"
         '
-        'TextBoxPassword
-        '
-        Me.TextBoxPassword.Location = New System.Drawing.Point(111, 112)
-        Me.TextBoxPassword.Name = "TextBoxPassword"
-        Me.TextBoxPassword.Size = New System.Drawing.Size(350, 20)
-        Me.TextBoxPassword.TabIndex = 9
-        Me.TextBoxPassword.UseSystemPasswordChar = True
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -357,16 +422,6 @@ Partial Class FormFinRep
         Me.Label6.Size = New System.Drawing.Size(53, 13)
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "Database"
-        '
-        'TextBoxDatabase
-        '
-        Me.TextBoxDatabase.AutoCompleteCustomSource.AddRange(New String() {"E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb", "C:\Projetex9\Projetex Server\Database\projetex.fdb"})
-        Me.TextBoxDatabase.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.TextBoxDatabase.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxDatabase.Location = New System.Drawing.Point(111, 82)
-        Me.TextBoxDatabase.Name = "TextBoxDatabase"
-        Me.TextBoxDatabase.Size = New System.Drawing.Size(350, 20)
-        Me.TextBoxDatabase.TabIndex = 7
         '
         'Label5
         '
@@ -377,15 +432,6 @@ Partial Class FormFinRep
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Server Port"
         '
-        'TextBoxServerPort
-        '
-        Me.TextBoxServerPort.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.TextBoxServerPort.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxServerPort.Location = New System.Drawing.Point(111, 52)
-        Me.TextBoxServerPort.Name = "TextBoxServerPort"
-        Me.TextBoxServerPort.Size = New System.Drawing.Size(350, 20)
-        Me.TextBoxServerPort.TabIndex = 5
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -395,102 +441,63 @@ Partial Class FormFinRep
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Server Address"
         '
-        'TextBoxServerAddress
+        'SaveFileDialog1
         '
-        Me.TextBoxServerAddress.AutoCompleteCustomSource.AddRange(New String() {"192.168.0.56", "192.168.56.101"})
-        Me.TextBoxServerAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.TextBoxServerAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxServerAddress.Location = New System.Drawing.Point(111, 22)
-        Me.TextBoxServerAddress.Name = "TextBoxServerAddress"
-        Me.TextBoxServerAddress.Size = New System.Drawing.Size(350, 20)
-        Me.TextBoxServerAddress.TabIndex = 2
+        Me.SaveFileDialog1.Filter = "Excel Sheet|*.xlsx"
+        Me.SaveFileDialog1.Title = "Select file to export to"
+        '
+        'FbConnection1
+        '
+        Me.FbConnection1.ConnectionString = resources.GetString("FbConnection1.ConnectionString")
         '
         'DTReport1TA
         '
         Me.DTReport1TA.ClearBeforeFill = True
         '
-        'PROJIDDataGridViewTextBoxColumn
+        'TextBoxPassword
         '
-        Me.PROJIDDataGridViewTextBoxColumn.DataPropertyName = "PROJ_ID"
-        Me.PROJIDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.PROJIDDataGridViewTextBoxColumn.Name = "PROJIDDataGridViewTextBoxColumn"
-        Me.PROJIDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxPassword.Location = New System.Drawing.Point(111, 112)
+        Me.TextBoxPassword.Name = "TextBoxPassword"
+        Me.TextBoxPassword.Size = New System.Drawing.Size(350, 20)
+        Me.TextBoxPassword.TabIndex = 9
+        Me.TextBoxPassword.Text = Global.Financial_Reports.My.MySettings.Default.DBPassword
+        Me.TextBoxPassword.UseSystemPasswordChar = True
         '
-        'PROJFULLDataGridViewTextBoxColumn
+        'TextBoxDatabase
         '
-        Me.PROJFULLDataGridViewTextBoxColumn.DataPropertyName = "PROJ_FULL"
-        Me.PROJFULLDataGridViewTextBoxColumn.HeaderText = "Project"
-        Me.PROJFULLDataGridViewTextBoxColumn.Name = "PROJFULLDataGridViewTextBoxColumn"
-        Me.PROJFULLDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TextBoxDatabase.AutoCompleteCustomSource.AddRange(New String() {"E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb", "C:\Projetex9\Projetex Server\Database\projetex.fdb"})
+        Me.TextBoxDatabase.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.TextBoxDatabase.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.TextBoxDatabase.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBFile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxDatabase.Location = New System.Drawing.Point(111, 82)
+        Me.TextBoxDatabase.Name = "TextBoxDatabase"
+        Me.TextBoxDatabase.Size = New System.Drawing.Size(350, 20)
+        Me.TextBoxDatabase.TabIndex = 7
+        Me.TextBoxDatabase.Text = Global.Financial_Reports.My.MySettings.Default.DBFile
         '
-        'AITUSERREALNAMEDataGridViewTextBoxColumn
+        'TextBoxServerPort
         '
-        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.DataPropertyName = "AIT$USER_REALNAME"
-        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.HeaderText = "User"
-        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.Name = "AITUSERREALNAMEDataGridViewTextBoxColumn"
-        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TextBoxServerPort.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.TextBoxServerPort.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.TextBoxServerPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxServerPort.Location = New System.Drawing.Point(111, 52)
+        Me.TextBoxServerPort.Name = "TextBoxServerPort"
+        Me.TextBoxServerPort.Size = New System.Drawing.Size(350, 20)
+        Me.TextBoxServerPort.TabIndex = 5
+        Me.TextBoxServerPort.Text = Global.Financial_Reports.My.MySettings.Default.DBPort
         '
-        'CJOBSDataGridViewTextBoxColumn
+        'TextBoxServerAddress
         '
-        Me.CJOBSDataGridViewTextBoxColumn.DataPropertyName = "CJOBS"
-        Me.CJOBSDataGridViewTextBoxColumn.HeaderText = "CJOBS"
-        Me.CJOBSDataGridViewTextBoxColumn.Name = "CJOBSDataGridViewTextBoxColumn"
-        Me.CJOBSDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'RJOBSDataGridViewTextBoxColumn
-        '
-        Me.RJOBSDataGridViewTextBoxColumn.DataPropertyName = "RJOBS"
-        Me.RJOBSDataGridViewTextBoxColumn.HeaderText = "RJOBS"
-        Me.RJOBSDataGridViewTextBoxColumn.Name = "RJOBSDataGridViewTextBoxColumn"
-        Me.RJOBSDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CCONNAMEDataGridViewTextBoxColumn
-        '
-        Me.CCONNAMEDataGridViewTextBoxColumn.DataPropertyName = "CCON_NAME"
-        Me.CCONNAMEDataGridViewTextBoxColumn.HeaderText = "Client"
-        Me.CCONNAMEDataGridViewTextBoxColumn.Name = "CCONNAMEDataGridViewTextBoxColumn"
-        Me.CCONNAMEDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ProfitDataGridViewTextBoxColumn
-        '
-        Me.ProfitDataGridViewTextBoxColumn.DataPropertyName = "Profit"
-        DataGridViewCellStyle5.Format = "C2"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.ProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle5
-        Me.ProfitDataGridViewTextBoxColumn.HeaderText = "Profit"
-        Me.ProfitDataGridViewTextBoxColumn.Name = "ProfitDataGridViewTextBoxColumn"
-        Me.ProfitDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'PCProfitDataGridViewTextBoxColumn
-        '
-        Me.PCProfitDataGridViewTextBoxColumn.DataPropertyName = "PCProfit"
-        DataGridViewCellStyle6.Format = "p2"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.PCProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle6
-        Me.PCProfitDataGridViewTextBoxColumn.HeaderText = "%Profit"
-        Me.PCProfitDataGridViewTextBoxColumn.Name = "PCProfitDataGridViewTextBoxColumn"
-        Me.PCProfitDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'InvNoDataGridViewTextBoxColumn
-        '
-        Me.InvNoDataGridViewTextBoxColumn.DataPropertyName = "InvNo"
-        Me.InvNoDataGridViewTextBoxColumn.HeaderText = "InvNo"
-        Me.InvNoDataGridViewTextBoxColumn.Name = "InvNoDataGridViewTextBoxColumn"
-        Me.InvNoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ButtonR1Export
-        '
-        Me.ButtonR1Export.Location = New System.Drawing.Point(593, 2)
-        Me.ButtonR1Export.Name = "ButtonR1Export"
-        Me.ButtonR1Export.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonR1Export.TabIndex = 9
-        Me.ButtonR1Export.Text = "Export"
-        Me.ButtonR1Export.UseVisualStyleBackColor = True
-        '
-        'SaveFileDialog1
-        '
-        Me.SaveFileDialog1.Filter = "Comma Separated Values|*.csv|Excel Sheet|*.xlsx"
-        Me.SaveFileDialog1.Title = "Select file to export to"
+        Me.TextBoxServerAddress.AutoCompleteCustomSource.AddRange(New String() {"192.168.0.56", "192.168.56.101"})
+        Me.TextBoxServerAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.TextBoxServerAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.TextBoxServerAddress.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBAddress", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxServerAddress.Location = New System.Drawing.Point(111, 22)
+        Me.TextBoxServerAddress.Name = "TextBoxServerAddress"
+        Me.TextBoxServerAddress.Size = New System.Drawing.Size(350, 20)
+        Me.TextBoxServerAddress.TabIndex = 2
+        Me.TextBoxServerAddress.Text = Global.Financial_Reports.My.MySettings.Default.DBAddress
         '
         'FormFinRep
         '
@@ -498,6 +505,7 @@ Partial Class FormFinRep
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1143, 509)
         Me.Controls.Add(Me.TabControl1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormFinRep"
         Me.Text = "Financial Reports"
         Me.TabControl1.ResumeLayout(False)
@@ -511,9 +519,6 @@ Partial Class FormFinRep
         CType(Me.DTReport1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabSettings.ResumeLayout(False)
-        Me.SplitContainer2.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -524,7 +529,6 @@ Partial Class FormFinRep
     Friend WithEvents TabReport2 As System.Windows.Forms.TabPage
     Friend WithEvents TabReport3 As System.Windows.Forms.TabPage
     Friend WithEvents TabSettings As System.Windows.Forms.TabPage
-    Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
@@ -561,4 +565,6 @@ Partial Class FormFinRep
     Friend WithEvents InvNoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ButtonR1Export As System.Windows.Forms.Button
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents LabelDBStatus As System.Windows.Forms.Label
+    Friend WithEvents FbConnection1 As FirebirdSql.Data.FirebirdClient.FbConnection
 End Class
