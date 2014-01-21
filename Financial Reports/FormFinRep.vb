@@ -47,12 +47,9 @@ Public Class FormFinRep
     End Sub
 
     Private Sub ButtonR1Export_Click(sender As Object, e As EventArgs) Handles ButtonR1Export.Click
-
-        Dim cols As Integer
         Dim path As String
 
         Try
-
             SaveFileDialog1.FileName = DateTimePickerFrom.Value.ToShortDateString.Replace("/", "") +
                                         "-" +
                                         DateTimePickerTo.Value.ToShortDateString.Replace("/", "")
@@ -92,43 +89,9 @@ Public Class FormFinRep
 
             p.Save()
 
-            Return
-
-
-
-
-
-            Dim wr As StreamWriter = New StreamWriter(path, False, Encoding.UTF8)
-            'StreamWriter wr = new StreamWriter("GB STOCK.csv", false, Encoding.UTF8);
-
-            ' determine the number of columns and write columns to file 
-            cols = DataGridViewReport1.ColumnCount
-
-            For i = 0 To cols - 1
-                wr.Write(DataGridViewReport1.Columns(i).HeaderText + vbTab)
-            Next
-            wr.WriteLine()
-
-            '    //write rows to excel file
-            For r = 0 To DataGridViewReport1.Rows.Count - 1
-                For c = 0 To DataGridViewReport1.Columns.Count - 1
-                    wr.Write(DataGridViewReport1.Rows(r).Cells(c).Value.ToString + vbTab)
-                Next
-                wr.WriteLine()
-            Next
-
-            wr.Close()
         Catch ex As Exception
             MsgBox("There was an error:" + vbNewLine + ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
-        '                            if (dgvStock.Rows[i].Cells[j].Value != null)
-        '                               {
-        '                                  wr.Write(dgvStock.Rows[i].Cells[j].Value + ",");
-        '                             }
-        '            Else
-        '                           {
-        '                              wr.Write(",");
-        '                         }
     End Sub
 
     Private Sub ButtonTestDBSettings_Click(sender As Object, e As EventArgs) Handles ButtonTestDBSettings.Click
@@ -189,7 +152,7 @@ Public Class FormFinRep
     End Sub
 
     Private Sub ButtonApplyDBSettings_Click(sender As Object, e As EventArgs) Handles ButtonApplyDBSettings.Click
-        Dim connstr, text As String
+        Dim connstr As String
         'Dim conn As New 
         Dim OK As Boolean = True
         'Dim FbConnection1 As

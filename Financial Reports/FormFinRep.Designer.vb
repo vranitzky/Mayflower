@@ -23,9 +23,11 @@ Partial Class FormFinRep
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormFinRep))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormFinRep))
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabReport1 = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -36,15 +38,6 @@ Partial Class FormFinRep
         Me.DateTimePickerTo = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridViewReport1 = New System.Windows.Forms.DataGridView()
-        Me.PROJIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PROJFULLDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AITUSERREALNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CJOBSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RJOBSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CCONNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProfitDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PCProfitDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.InvNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DTReport1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet2 = New Financial_Reports.DataSet2()
         Me.TabReport2 = New System.Windows.Forms.TabPage()
@@ -59,16 +52,25 @@ Partial Class FormFinRep
         Me.ButtonApplyDBSettings = New System.Windows.Forms.Button()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBoxPassword = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.TextBoxDatabase = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBoxServerPort = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
         Me.DTReport1TA = New Financial_Reports.DataSet2TableAdapters.DTReport1TA()
-        Me.TextBoxPassword = New System.Windows.Forms.TextBox()
-        Me.TextBoxDatabase = New System.Windows.Forms.TextBox()
-        Me.TextBoxServerPort = New System.Windows.Forms.TextBox()
-        Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
+        Me.PROJIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PROJFULLDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CCONNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CJOBSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RJOBSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AITUSERREALNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProfitDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PCProfitDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.InvNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabReport1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -189,9 +191,9 @@ Partial Class FormFinRep
         Me.DataGridViewReport1.AllowUserToDeleteRows = False
         Me.DataGridViewReport1.AllowUserToOrderColumns = True
         Me.DataGridViewReport1.AutoGenerateColumns = False
-        Me.DataGridViewReport1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DataGridViewReport1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.DataGridViewReport1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewReport1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PROJIDDataGridViewTextBoxColumn, Me.PROJFULLDataGridViewTextBoxColumn, Me.AITUSERREALNAMEDataGridViewTextBoxColumn, Me.CJOBSDataGridViewTextBoxColumn, Me.RJOBSDataGridViewTextBoxColumn, Me.CCONNAMEDataGridViewTextBoxColumn, Me.ProfitDataGridViewTextBoxColumn, Me.PCProfitDataGridViewTextBoxColumn, Me.InvNoDataGridViewTextBoxColumn})
+        Me.DataGridViewReport1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PROJIDDataGridViewTextBoxColumn, Me.PROJFULLDataGridViewTextBoxColumn, Me.CCONNAMEDataGridViewTextBoxColumn, Me.CJOBSDataGridViewTextBoxColumn, Me.RJOBSDataGridViewTextBoxColumn, Me.AITUSERREALNAMEDataGridViewTextBoxColumn, Me.ProfitDataGridViewTextBoxColumn, Me.PCProfitDataGridViewTextBoxColumn, Me.InvNoDataGridViewTextBoxColumn})
         Me.DataGridViewReport1.DataSource = Me.DTReport1BindingSource
         Me.DataGridViewReport1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridViewReport1.Location = New System.Drawing.Point(0, 0)
@@ -201,75 +203,6 @@ Partial Class FormFinRep
         Me.DataGridViewReport1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewReport1.Size = New System.Drawing.Size(1129, 445)
         Me.DataGridViewReport1.TabIndex = 0
-        '
-        'PROJIDDataGridViewTextBoxColumn
-        '
-        Me.PROJIDDataGridViewTextBoxColumn.DataPropertyName = "PROJ_ID"
-        Me.PROJIDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.PROJIDDataGridViewTextBoxColumn.Name = "PROJIDDataGridViewTextBoxColumn"
-        Me.PROJIDDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'PROJFULLDataGridViewTextBoxColumn
-        '
-        Me.PROJFULLDataGridViewTextBoxColumn.DataPropertyName = "PROJ_FULL"
-        Me.PROJFULLDataGridViewTextBoxColumn.HeaderText = "Project"
-        Me.PROJFULLDataGridViewTextBoxColumn.Name = "PROJFULLDataGridViewTextBoxColumn"
-        Me.PROJFULLDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'AITUSERREALNAMEDataGridViewTextBoxColumn
-        '
-        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.DataPropertyName = "AIT$USER_REALNAME"
-        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.HeaderText = "User"
-        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.Name = "AITUSERREALNAMEDataGridViewTextBoxColumn"
-        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CJOBSDataGridViewTextBoxColumn
-        '
-        Me.CJOBSDataGridViewTextBoxColumn.DataPropertyName = "CJOBS"
-        Me.CJOBSDataGridViewTextBoxColumn.HeaderText = "CJOBS"
-        Me.CJOBSDataGridViewTextBoxColumn.Name = "CJOBSDataGridViewTextBoxColumn"
-        Me.CJOBSDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'RJOBSDataGridViewTextBoxColumn
-        '
-        Me.RJOBSDataGridViewTextBoxColumn.DataPropertyName = "RJOBS"
-        Me.RJOBSDataGridViewTextBoxColumn.HeaderText = "RJOBS"
-        Me.RJOBSDataGridViewTextBoxColumn.Name = "RJOBSDataGridViewTextBoxColumn"
-        Me.RJOBSDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CCONNAMEDataGridViewTextBoxColumn
-        '
-        Me.CCONNAMEDataGridViewTextBoxColumn.DataPropertyName = "CCON_NAME"
-        Me.CCONNAMEDataGridViewTextBoxColumn.HeaderText = "Client"
-        Me.CCONNAMEDataGridViewTextBoxColumn.Name = "CCONNAMEDataGridViewTextBoxColumn"
-        Me.CCONNAMEDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ProfitDataGridViewTextBoxColumn
-        '
-        Me.ProfitDataGridViewTextBoxColumn.DataPropertyName = "Profit"
-        DataGridViewCellStyle1.Format = "C2"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.ProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
-        Me.ProfitDataGridViewTextBoxColumn.HeaderText = "Profit"
-        Me.ProfitDataGridViewTextBoxColumn.Name = "ProfitDataGridViewTextBoxColumn"
-        Me.ProfitDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'PCProfitDataGridViewTextBoxColumn
-        '
-        Me.PCProfitDataGridViewTextBoxColumn.DataPropertyName = "PCProfit"
-        DataGridViewCellStyle2.Format = "p2"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.PCProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
-        Me.PCProfitDataGridViewTextBoxColumn.HeaderText = "%Profit"
-        Me.PCProfitDataGridViewTextBoxColumn.Name = "PCProfitDataGridViewTextBoxColumn"
-        Me.PCProfitDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'InvNoDataGridViewTextBoxColumn
-        '
-        Me.InvNoDataGridViewTextBoxColumn.DataPropertyName = "InvNo"
-        Me.InvNoDataGridViewTextBoxColumn.HeaderText = "InvNo"
-        Me.InvNoDataGridViewTextBoxColumn.Name = "InvNoDataGridViewTextBoxColumn"
-        Me.InvNoDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DTReport1BindingSource
         '
@@ -414,6 +347,16 @@ Partial Class FormFinRep
         Me.Label7.TabIndex = 10
         Me.Label7.Text = "Password"
         '
+        'TextBoxPassword
+        '
+        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxPassword.Location = New System.Drawing.Point(111, 112)
+        Me.TextBoxPassword.Name = "TextBoxPassword"
+        Me.TextBoxPassword.Size = New System.Drawing.Size(350, 20)
+        Me.TextBoxPassword.TabIndex = 9
+        Me.TextBoxPassword.Text = Global.Financial_Reports.My.MySettings.Default.DBPassword
+        Me.TextBoxPassword.UseSystemPasswordChar = True
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -422,6 +365,18 @@ Partial Class FormFinRep
         Me.Label6.Size = New System.Drawing.Size(53, 13)
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "Database"
+        '
+        'TextBoxDatabase
+        '
+        Me.TextBoxDatabase.AutoCompleteCustomSource.AddRange(New String() {"E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb", "C:\Projetex9\Projetex Server\Database\projetex.fdb"})
+        Me.TextBoxDatabase.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.TextBoxDatabase.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.TextBoxDatabase.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBFile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxDatabase.Location = New System.Drawing.Point(111, 82)
+        Me.TextBoxDatabase.Name = "TextBoxDatabase"
+        Me.TextBoxDatabase.Size = New System.Drawing.Size(350, 20)
+        Me.TextBoxDatabase.TabIndex = 7
+        Me.TextBoxDatabase.Text = Global.Financial_Reports.My.MySettings.Default.DBFile
         '
         'Label5
         '
@@ -432,6 +387,17 @@ Partial Class FormFinRep
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Server Port"
         '
+        'TextBoxServerPort
+        '
+        Me.TextBoxServerPort.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.TextBoxServerPort.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.TextBoxServerPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxServerPort.Location = New System.Drawing.Point(111, 52)
+        Me.TextBoxServerPort.Name = "TextBoxServerPort"
+        Me.TextBoxServerPort.Size = New System.Drawing.Size(350, 20)
+        Me.TextBoxServerPort.TabIndex = 5
+        Me.TextBoxServerPort.Text = Global.Financial_Reports.My.MySettings.Default.DBPort
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -440,6 +406,18 @@ Partial Class FormFinRep
         Me.Label3.Size = New System.Drawing.Size(79, 13)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Server Address"
+        '
+        'TextBoxServerAddress
+        '
+        Me.TextBoxServerAddress.AutoCompleteCustomSource.AddRange(New String() {"192.168.0.56", "192.168.56.101"})
+        Me.TextBoxServerAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.TextBoxServerAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.TextBoxServerAddress.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBAddress", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxServerAddress.Location = New System.Drawing.Point(111, 22)
+        Me.TextBoxServerAddress.Name = "TextBoxServerAddress"
+        Me.TextBoxServerAddress.Size = New System.Drawing.Size(350, 20)
+        Me.TextBoxServerAddress.TabIndex = 2
+        Me.TextBoxServerAddress.Text = Global.Financial_Reports.My.MySettings.Default.DBAddress
         '
         'SaveFileDialog1
         '
@@ -454,50 +432,93 @@ Partial Class FormFinRep
         '
         Me.DTReport1TA.ClearBeforeFill = True
         '
-        'TextBoxPassword
+        'PROJIDDataGridViewTextBoxColumn
         '
-        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxPassword.Location = New System.Drawing.Point(111, 112)
-        Me.TextBoxPassword.Name = "TextBoxPassword"
-        Me.TextBoxPassword.Size = New System.Drawing.Size(350, 20)
-        Me.TextBoxPassword.TabIndex = 9
-        Me.TextBoxPassword.Text = Global.Financial_Reports.My.MySettings.Default.DBPassword
-        Me.TextBoxPassword.UseSystemPasswordChar = True
+        Me.PROJIDDataGridViewTextBoxColumn.DataPropertyName = "PROJ_ID"
+        Me.PROJIDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.PROJIDDataGridViewTextBoxColumn.Name = "PROJIDDataGridViewTextBoxColumn"
+        Me.PROJIDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PROJIDDataGridViewTextBoxColumn.Width = 43
         '
-        'TextBoxDatabase
+        'PROJFULLDataGridViewTextBoxColumn
         '
-        Me.TextBoxDatabase.AutoCompleteCustomSource.AddRange(New String() {"E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb", "C:\Projetex9\Projetex Server\Database\projetex.fdb"})
-        Me.TextBoxDatabase.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.TextBoxDatabase.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxDatabase.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBFile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxDatabase.Location = New System.Drawing.Point(111, 82)
-        Me.TextBoxDatabase.Name = "TextBoxDatabase"
-        Me.TextBoxDatabase.Size = New System.Drawing.Size(350, 20)
-        Me.TextBoxDatabase.TabIndex = 7
-        Me.TextBoxDatabase.Text = Global.Financial_Reports.My.MySettings.Default.DBFile
+        Me.PROJFULLDataGridViewTextBoxColumn.DataPropertyName = "PROJ_FULL"
+        Me.PROJFULLDataGridViewTextBoxColumn.HeaderText = "Project"
+        Me.PROJFULLDataGridViewTextBoxColumn.Name = "PROJFULLDataGridViewTextBoxColumn"
+        Me.PROJFULLDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PROJFULLDataGridViewTextBoxColumn.Width = 65
         '
-        'TextBoxServerPort
+        'CCONNAMEDataGridViewTextBoxColumn
         '
-        Me.TextBoxServerPort.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.TextBoxServerPort.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxServerPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxServerPort.Location = New System.Drawing.Point(111, 52)
-        Me.TextBoxServerPort.Name = "TextBoxServerPort"
-        Me.TextBoxServerPort.Size = New System.Drawing.Size(350, 20)
-        Me.TextBoxServerPort.TabIndex = 5
-        Me.TextBoxServerPort.Text = Global.Financial_Reports.My.MySettings.Default.DBPort
+        Me.CCONNAMEDataGridViewTextBoxColumn.DataPropertyName = "CCON_NAME"
+        Me.CCONNAMEDataGridViewTextBoxColumn.HeaderText = "Client Account"
+        Me.CCONNAMEDataGridViewTextBoxColumn.Name = "CCONNAMEDataGridViewTextBoxColumn"
+        Me.CCONNAMEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CCONNAMEDataGridViewTextBoxColumn.Width = 101
         '
-        'TextBoxServerAddress
+        'CJOBSDataGridViewTextBoxColumn
         '
-        Me.TextBoxServerAddress.AutoCompleteCustomSource.AddRange(New String() {"192.168.0.56", "192.168.56.101"})
-        Me.TextBoxServerAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.TextBoxServerAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxServerAddress.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Financial_Reports.My.MySettings.Default, "DBAddress", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBoxServerAddress.Location = New System.Drawing.Point(111, 22)
-        Me.TextBoxServerAddress.Name = "TextBoxServerAddress"
-        Me.TextBoxServerAddress.Size = New System.Drawing.Size(350, 20)
-        Me.TextBoxServerAddress.TabIndex = 2
-        Me.TextBoxServerAddress.Text = Global.Financial_Reports.My.MySettings.Default.DBAddress
+        Me.CJOBSDataGridViewTextBoxColumn.DataPropertyName = "CJOBS"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.Format = "C2"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.CJOBSDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        Me.CJOBSDataGridViewTextBoxColumn.HeaderText = "Client Jobs"
+        Me.CJOBSDataGridViewTextBoxColumn.Name = "CJOBSDataGridViewTextBoxColumn"
+        Me.CJOBSDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CJOBSDataGridViewTextBoxColumn.Width = 83
+        '
+        'RJOBSDataGridViewTextBoxColumn
+        '
+        Me.RJOBSDataGridViewTextBoxColumn.DataPropertyName = "RJOBS"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "C2"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.RJOBSDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        Me.RJOBSDataGridViewTextBoxColumn.HeaderText = "Freelance Jobs"
+        Me.RJOBSDataGridViewTextBoxColumn.Name = "RJOBSDataGridViewTextBoxColumn"
+        Me.RJOBSDataGridViewTextBoxColumn.ReadOnly = True
+        Me.RJOBSDataGridViewTextBoxColumn.Width = 96
+        '
+        'AITUSERREALNAMEDataGridViewTextBoxColumn
+        '
+        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.DataPropertyName = "AIT$USER_REALNAME"
+        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.HeaderText = "Manager"
+        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.Name = "AITUSERREALNAMEDataGridViewTextBoxColumn"
+        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.Width = 74
+        '
+        'ProfitDataGridViewTextBoxColumn
+        '
+        Me.ProfitDataGridViewTextBoxColumn.DataPropertyName = "Profit"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "C2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.ProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        Me.ProfitDataGridViewTextBoxColumn.HeaderText = "Profit"
+        Me.ProfitDataGridViewTextBoxColumn.Name = "ProfitDataGridViewTextBoxColumn"
+        Me.ProfitDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ProfitDataGridViewTextBoxColumn.Width = 56
+        '
+        'PCProfitDataGridViewTextBoxColumn
+        '
+        Me.PCProfitDataGridViewTextBoxColumn.DataPropertyName = "PCProfit"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "p2"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.PCProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
+        Me.PCProfitDataGridViewTextBoxColumn.HeaderText = "%Profit"
+        Me.PCProfitDataGridViewTextBoxColumn.Name = "PCProfitDataGridViewTextBoxColumn"
+        Me.PCProfitDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PCProfitDataGridViewTextBoxColumn.Width = 64
+        '
+        'InvNoDataGridViewTextBoxColumn
+        '
+        Me.InvNoDataGridViewTextBoxColumn.DataPropertyName = "InvNo"
+        Me.InvNoDataGridViewTextBoxColumn.HeaderText = "InvNo"
+        Me.InvNoDataGridViewTextBoxColumn.Name = "InvNoDataGridViewTextBoxColumn"
+        Me.InvNoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.InvNoDataGridViewTextBoxColumn.Width = 61
         '
         'FormFinRep
         '
@@ -554,17 +575,17 @@ Partial Class FormFinRep
     Friend WithEvents DTReport1BindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DataSet2 As Financial_Reports.DataSet2
     Friend WithEvents DTReport1TA As Financial_Reports.DataSet2TableAdapters.DTReport1TA
-    Friend WithEvents PROJIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PROJFULLDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents AITUSERREALNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CJOBSDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RJOBSDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CCONNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ProfitDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PCProfitDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents InvNoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ButtonR1Export As System.Windows.Forms.Button
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents LabelDBStatus As System.Windows.Forms.Label
     Friend WithEvents FbConnection1 As FirebirdSql.Data.FirebirdClient.FbConnection
+    Friend WithEvents PROJIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PROJFULLDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CCONNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CJOBSDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RJOBSDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents AITUSERREALNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ProfitDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PCProfitDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents InvNoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
