@@ -8,9 +8,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{5539DF28-529E-4927-BB77-8740B9E016C4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Mayflower.My.MyApplication</StartupObject>
-    <RootNamespace>Mayflower</RootNamespace>
-    <AssemblyName>Mayflower</AssemblyName>
+    <StartupObject>Freelancers_Lookup.My.MyApplication</StartupObject>
+    <RootNamespace>Freelancers_Lookup</RootNamespace>
+    <AssemblyName>Freelancers Lookup</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -31,8 +31,8 @@
     <SuiteName>Projetex Interface</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>40</ApplicationRevision>
-    <ApplicationVersion>1.4.0.%2a</ApplicationVersion>
+    <ApplicationRevision>41</ApplicationRevision>
+    <ApplicationVersion>1.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -45,7 +45,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Mayflower.xml</DocumentationFile>
+    <DocumentationFile>Freelancers Lookup.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -59,7 +59,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Mayflower.xml</DocumentationFile>
+    <DocumentationFile>Freelancers Lookup.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>

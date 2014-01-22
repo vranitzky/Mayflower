@@ -32,7 +32,7 @@ Partial Class FormMain
         Me.Label29 = New System.Windows.Forms.Label()
         Me.ComboBoxCountry = New System.Windows.Forms.ComboBox()
         Me.COUNTRIESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet2DataSet = New Mayflower.DataSet2DataSet()
+        Me.DataSet2DataSet = New Freelancers_Lookup.DataSet2DataSet()
         Me.RestrictByService = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.RestrictByDomain = New System.Windows.Forms.CheckBox()
@@ -137,7 +137,6 @@ Partial Class FormMain
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
-        Me.RichTextBoxConnectionString = New System.Windows.Forms.RichTextBox()
         Me.ButtonApplyDBSettings = New System.Windows.Forms.Button()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -150,18 +149,18 @@ Partial Class FormMain
         Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.StatusLed = New Microsoft.VisualBasic.PowerPacks.OvalShape()
-        Me.DataSet2DataSet1 = New Mayflower.DataSet2DataSet()
+        Me.DataSet2DataSet1 = New Freelancers_Lookup.DataSet2DataSet()
         Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
-        Me.FreelancersTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.FreelancersTableAdapter()
-        Me.SourceLangTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.SourceLangTableAdapter()
-        Me.TargetLangTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.TargetLangTableAdapter()
-        Me.CatToolsTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.CatToolsTableAdapter()
-        Me.DomainsTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.DomainsTableAdapter()
-        Me.ServiceTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.ServiceTableAdapter()
+        Me.FreelancersTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.FreelancersTableAdapter()
+        Me.SourceLangTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.SourceLangTableAdapter()
+        Me.TargetLangTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.TargetLangTableAdapter()
+        Me.CatToolsTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.CatToolsTableAdapter()
+        Me.DomainsTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.DomainsTableAdapter()
+        Me.ServiceTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.ServiceTableAdapter()
         Me.FbCommand1 = New FirebirdSql.Data.FirebirdClient.FbCommand()
-        Me.TADetails = New Mayflower.DataSet2DataSetTableAdapters.TADetails()
-        Me.FreelancerInfoTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.FreelancerInfoTableAdapter()
-        Me.COUNTRIESTableAdapter = New Mayflower.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter()
+        Me.TADetails = New Freelancers_Lookup.DataSet2DataSetTableAdapters.TADetails()
+        Me.FreelancerInfoTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.FreelancerInfoTableAdapter()
+        Me.COUNTRIESTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TabControl1.SuspendLayout()
         Me.TabFreelancers.SuspendLayout()
@@ -880,7 +879,7 @@ Partial Class FormMain
         '
         'TextBox9
         '
-        Me.TextBox9.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTFreelancerInfoBindingSource, "RES_EMAIL1", True))
+        Me.TextBox9.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTFreelancerInfoBindingSource, "FUZZYRATE", True))
         Me.TextBox9.Location = New System.Drawing.Point(102, 30)
         Me.TextBox9.Name = "TextBox9"
         Me.TextBox9.ReadOnly = True
@@ -895,7 +894,7 @@ Partial Class FormMain
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(93, 27)
         Me.Label18.TabIndex = 0
-        Me.Label18.Text = "Name"
+        Me.Label18.Text = "TM-RepsRate"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label19
@@ -906,7 +905,7 @@ Partial Class FormMain
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(93, 27)
         Me.Label19.TabIndex = 1
-        Me.Label19.Text = "Email"
+        Me.Label19.Text = "TM-FuzzyRate"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label20
@@ -933,7 +932,7 @@ Partial Class FormMain
         '
         'TextBox10
         '
-        Me.TextBox10.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTFreelancerInfoBindingSource, "RES_NAME", True))
+        Me.TextBox10.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTFreelancerInfoBindingSource, "REPSRATE", True))
         Me.TextBox10.Location = New System.Drawing.Point(102, 3)
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.ReadOnly = True
@@ -1093,13 +1092,13 @@ Partial Class FormMain
         'EmailSubject
         '
         Me.EmailSubject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.EmailSubject.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSubject", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EmailSubject.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "EmailSubject", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSubject.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmailSubject.Location = New System.Drawing.Point(71, 36)
         Me.EmailSubject.Name = "EmailSubject"
         Me.EmailSubject.Size = New System.Drawing.Size(886, 21)
         Me.EmailSubject.TabIndex = 7
-        Me.EmailSubject.Text = Global.Mayflower.My.MySettings.Default.EmailSubject
+        Me.EmailSubject.Text = Global.Freelancers_Lookup.My.MySettings.Default.EmailSubject
         '
         'Label30a
         '
@@ -1314,61 +1313,61 @@ Partial Class FormMain
         '
         'EmailSettingsName
         '
-        Me.EmailSettingsName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsName", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EmailSettingsName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "EmailSettingsName", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSettingsName.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmailSettingsName.Location = New System.Drawing.Point(110, 3)
         Me.EmailSettingsName.Name = "EmailSettingsName"
         Me.EmailSettingsName.Size = New System.Drawing.Size(285, 21)
         Me.EmailSettingsName.TabIndex = 6
-        Me.EmailSettingsName.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsName
+        Me.EmailSettingsName.Text = Global.Freelancers_Lookup.My.MySettings.Default.EmailSettingsName
         '
         'EmailSettingsEmail
         '
-        Me.EmailSettingsEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsEmail", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EmailSettingsEmail.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "EmailSettingsEmail", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSettingsEmail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmailSettingsEmail.Location = New System.Drawing.Point(110, 30)
         Me.EmailSettingsEmail.Name = "EmailSettingsEmail"
         Me.EmailSettingsEmail.Size = New System.Drawing.Size(285, 21)
         Me.EmailSettingsEmail.TabIndex = 7
-        Me.EmailSettingsEmail.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsEmail
+        Me.EmailSettingsEmail.Text = Global.Freelancers_Lookup.My.MySettings.Default.EmailSettingsEmail
         '
         'EmailSettingsServer
         '
-        Me.EmailSettingsServer.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsServer", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EmailSettingsServer.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "EmailSettingsServer", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSettingsServer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmailSettingsServer.Location = New System.Drawing.Point(110, 57)
         Me.EmailSettingsServer.Name = "EmailSettingsServer"
         Me.EmailSettingsServer.Size = New System.Drawing.Size(285, 21)
         Me.EmailSettingsServer.TabIndex = 8
-        Me.EmailSettingsServer.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsServer
+        Me.EmailSettingsServer.Text = Global.Freelancers_Lookup.My.MySettings.Default.EmailSettingsServer
         '
         'EmailSettingsPassword
         '
-        Me.EmailSettingsPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EmailSettingsPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "EmailSettingsPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSettingsPassword.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmailSettingsPassword.Location = New System.Drawing.Point(110, 84)
         Me.EmailSettingsPassword.Name = "EmailSettingsPassword"
         Me.EmailSettingsPassword.Size = New System.Drawing.Size(285, 21)
         Me.EmailSettingsPassword.TabIndex = 9
-        Me.EmailSettingsPassword.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsPassword
+        Me.EmailSettingsPassword.Text = Global.Freelancers_Lookup.My.MySettings.Default.EmailSettingsPassword
         Me.EmailSettingsPassword.UseSystemPasswordChar = True
         '
         'EmailSettingsPort
         '
-        Me.EmailSettingsPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSettingsPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EmailSettingsPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "EmailSettingsPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSettingsPort.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmailSettingsPort.Location = New System.Drawing.Point(110, 111)
         Me.EmailSettingsPort.Name = "EmailSettingsPort"
         Me.EmailSettingsPort.Size = New System.Drawing.Size(285, 21)
         Me.EmailSettingsPort.TabIndex = 10
-        Me.EmailSettingsPort.Text = Global.Mayflower.My.MySettings.Default.EmailSettingsPort
+        Me.EmailSettingsPort.Text = Global.Freelancers_Lookup.My.MySettings.Default.EmailSettingsPort
         '
         'EmailTestModeCheckBox
         '
         Me.EmailTestModeCheckBox.AutoSize = True
-        Me.EmailTestModeCheckBox.Checked = Global.Mayflower.My.MySettings.Default.EmailTestMode
+        Me.EmailTestModeCheckBox.Checked = Global.Freelancers_Lookup.My.MySettings.Default.EmailTestMode
         Me.EmailTestModeCheckBox.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.EmailTestModeCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.Mayflower.My.MySettings.Default, "EmailTestMode", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EmailTestModeCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.Freelancers_Lookup.My.MySettings.Default, "EmailTestMode", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailTestModeCheckBox.Dock = System.Windows.Forms.DockStyle.Left
         Me.EmailTestModeCheckBox.Location = New System.Drawing.Point(110, 138)
         Me.EmailTestModeCheckBox.Name = "EmailTestModeCheckBox"
@@ -1384,7 +1383,6 @@ Partial Class FormMain
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.ButtonTestDBSettings)
-        Me.GroupBox1.Controls.Add(Me.RichTextBoxConnectionString)
         Me.GroupBox1.Controls.Add(Me.ButtonApplyDBSettings)
         Me.GroupBox1.Controls.Add(Me.CheckBox3)
         Me.GroupBox1.Controls.Add(Me.Label7)
@@ -1407,9 +1405,9 @@ Partial Class FormMain
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(112, 292)
+        Me.Button1.Location = New System.Drawing.Point(111, 205)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(180, 23)
+        Me.Button1.Size = New System.Drawing.Size(181, 23)
         Me.Button1.TabIndex = 21
         Me.Button1.Text = "Clear Saved Prefs"
         Me.Button1.UseVisualStyleBackColor = True
@@ -1431,16 +1429,6 @@ Partial Class FormMain
         Me.ButtonTestDBSettings.TabIndex = 18
         Me.ButtonTestDBSettings.Text = "Test"
         Me.ButtonTestDBSettings.UseVisualStyleBackColor = True
-        '
-        'RichTextBoxConnectionString
-        '
-        Me.RichTextBoxConnectionString.Location = New System.Drawing.Point(111, 207)
-        Me.RichTextBoxConnectionString.Name = "RichTextBoxConnectionString"
-        Me.RichTextBoxConnectionString.ReadOnly = True
-        Me.RichTextBoxConnectionString.Size = New System.Drawing.Size(350, 78)
-        Me.RichTextBoxConnectionString.TabIndex = 16
-        Me.RichTextBoxConnectionString.Text = "character set=UTF8;data source=192.168.56.101;initial catalog=""C:\Projetex9\Proje" & _
-    "tex Server\Database\Projetex.fdb"";user id=ODBC;password=pwww;role=PROJETEX_ODBC"
         '
         'ButtonApplyDBSettings
         '
@@ -1473,12 +1461,12 @@ Partial Class FormMain
         '
         'TextBoxPassword
         '
-        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxPassword.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "DBPassword", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxPassword.Location = New System.Drawing.Point(111, 112)
         Me.TextBoxPassword.Name = "TextBoxPassword"
         Me.TextBoxPassword.Size = New System.Drawing.Size(350, 21)
         Me.TextBoxPassword.TabIndex = 9
-        Me.TextBoxPassword.Text = Global.Mayflower.My.MySettings.Default.DBPassword
+        Me.TextBoxPassword.Text = Global.Freelancers_Lookup.My.MySettings.Default.DBPassword
         Me.TextBoxPassword.UseSystemPasswordChar = True
         '
         'Label6
@@ -1495,12 +1483,12 @@ Partial Class FormMain
         Me.TextBoxDatabase.AutoCompleteCustomSource.AddRange(New String() {"E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb", "C:\Projetex9\Projetex Server\Database\projetex.fdb"})
         Me.TextBoxDatabase.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.TextBoxDatabase.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxDatabase.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBFile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxDatabase.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "DBFile", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxDatabase.Location = New System.Drawing.Point(111, 82)
         Me.TextBoxDatabase.Name = "TextBoxDatabase"
         Me.TextBoxDatabase.Size = New System.Drawing.Size(350, 21)
         Me.TextBoxDatabase.TabIndex = 7
-        Me.TextBoxDatabase.Text = Global.Mayflower.My.MySettings.Default.DBFile
+        Me.TextBoxDatabase.Text = Global.Freelancers_Lookup.My.MySettings.Default.DBFile
         '
         'Label5
         '
@@ -1515,12 +1503,12 @@ Partial Class FormMain
         '
         Me.TextBoxServerPort.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.TextBoxServerPort.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxServerPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxServerPort.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "DBPort", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxServerPort.Location = New System.Drawing.Point(111, 52)
         Me.TextBoxServerPort.Name = "TextBoxServerPort"
         Me.TextBoxServerPort.Size = New System.Drawing.Size(350, 21)
         Me.TextBoxServerPort.TabIndex = 5
-        Me.TextBoxServerPort.Text = Global.Mayflower.My.MySettings.Default.DBPort
+        Me.TextBoxServerPort.Text = Global.Freelancers_Lookup.My.MySettings.Default.DBPort
         '
         'Label3
         '
@@ -1536,12 +1524,12 @@ Partial Class FormMain
         Me.TextBoxServerAddress.AutoCompleteCustomSource.AddRange(New String() {"192.168.0.56", "192.168.56.101"})
         Me.TextBoxServerAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.TextBoxServerAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxServerAddress.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "DBAddress", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBoxServerAddress.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "DBAddress", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TextBoxServerAddress.Location = New System.Drawing.Point(111, 22)
         Me.TextBoxServerAddress.Name = "TextBoxServerAddress"
         Me.TextBoxServerAddress.Size = New System.Drawing.Size(350, 21)
         Me.TextBoxServerAddress.TabIndex = 2
-        Me.TextBoxServerAddress.Text = Global.Mayflower.My.MySettings.Default.DBAddress
+        Me.TextBoxServerAddress.Text = Global.Freelancers_Lookup.My.MySettings.Default.DBAddress
         '
         'ShapeContainer1
         '
@@ -1618,10 +1606,10 @@ Partial Class FormMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(968, 533)
         Me.Controls.Add(Me.TabControl1)
-        Me.DataBindings.Add(New System.Windows.Forms.Binding("Location", Global.Mayflower.My.MySettings.Default, "MFLocation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DataBindings.Add(New System.Windows.Forms.Binding("Location", Global.Freelancers_Lookup.My.MySettings.Default, "MFLocation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = Global.Mayflower.My.MySettings.Default.MFLocation
+        Me.Location = Global.Freelancers_Lookup.My.MySettings.Default.MFLocation
         Me.MinimumSize = New System.Drawing.Size(984, 363)
         Me.Name = "FormMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
@@ -1690,18 +1678,17 @@ Partial Class FormMain
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents TextBoxServerPort As System.Windows.Forms.TextBox
     Friend WithEvents ButtonApplyDBSettings As System.Windows.Forms.Button
-    Friend WithEvents RichTextBoxConnectionString As System.Windows.Forms.RichTextBox
     Friend WithEvents ButtonTestDBSettings As System.Windows.Forms.Button
     Friend WithEvents DataTablePeopleBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DataSet2DataSet As Mayflower.DataSet2DataSet
+    Friend WithEvents DataSet2DataSet As Freelancers_Lookup.DataSet2DataSet
     Friend WithEvents DataTableFreelancersBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents FreelancersTableAdapter As Mayflower.DataSet2DataSetTableAdapters.FreelancersTableAdapter
+    Friend WithEvents FreelancersTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.FreelancersTableAdapter
     Friend WithEvents DataTableSourceLangBindingSource1 As System.Windows.Forms.BindingSource
-    Friend WithEvents SourceLangTableAdapter As Mayflower.DataSet2DataSetTableAdapters.SourceLangTableAdapter
+    Friend WithEvents SourceLangTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.SourceLangTableAdapter
     Friend WithEvents BindingSourceFreelancers As System.Windows.Forms.BindingSource
     Friend WithEvents BindingSourceSourceLang As System.Windows.Forms.BindingSource
     Friend WithEvents BindingSourceTargetLang As System.Windows.Forms.BindingSource
-    Friend WithEvents TargetLangTableAdapter As Mayflower.DataSet2DataSetTableAdapters.TargetLangTableAdapter
+    Friend WithEvents TargetLangTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.TargetLangTableAdapter
     Friend WithEvents FbConnection1 As FirebirdSql.Data.FirebirdClient.FbConnection
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1712,7 +1699,7 @@ Partial Class FormMain
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewImageColumn1 As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents BindingSourceCatTools As System.Windows.Forms.BindingSource
-    Friend WithEvents CatToolsTableAdapter As Mayflower.DataSet2DataSetTableAdapters.CatToolsTableAdapter
+    Friend WithEvents CatToolsTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.CatToolsTableAdapter
     Friend WithEvents RESIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RESNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RESCODEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1721,14 +1708,14 @@ Partial Class FormMain
     Friend WithEvents COUNNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents COUNFLAGDataGridViewImageColumn As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents DataTableDomainsBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DomainsTableAdapter As Mayflower.DataSet2DataSetTableAdapters.DomainsTableAdapter
+    Friend WithEvents DomainsTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.DomainsTableAdapter
     Friend WithEvents DataTableServiceBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents ServiceTableAdapter As Mayflower.DataSet2DataSetTableAdapters.ServiceTableAdapter
+    Friend WithEvents ServiceTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.ServiceTableAdapter
     Friend WithEvents FbCommand1 As FirebirdSql.Data.FirebirdClient.FbCommand
     Friend WithEvents TabDetails As System.Windows.Forms.TabPage
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents DTDetailsBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents TADetails As Mayflower.DataSet2DataSetTableAdapters.TADetails
+    Friend WithEvents TADetails As Freelancers_Lookup.DataSet2DataSetTableAdapters.TADetails
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
@@ -1737,8 +1724,8 @@ Partial Class FormMain
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DTFreelancerInfoBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DataSet2DataSet1 As Mayflower.DataSet2DataSet
-    Friend WithEvents FreelancerInfoTableAdapter As Mayflower.DataSet2DataSetTableAdapters.FreelancerInfoTableAdapter
+    Friend WithEvents DataSet2DataSet1 As Freelancers_Lookup.DataSet2DataSet
+    Friend WithEvents FreelancerInfoTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.FreelancerInfoTableAdapter
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
@@ -1811,7 +1798,7 @@ Partial Class FormMain
     Friend WithEvents Label29 As System.Windows.Forms.Label
     Friend WithEvents ComboBoxCountry As System.Windows.Forms.ComboBox
     Friend WithEvents COUNTRIESBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents COUNTRIESTableAdapter As Mayflower.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter
+    Friend WithEvents COUNTRIESTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter
     Friend WithEvents RJOB_ASSIGNED As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ISCOMPLETED As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PROJ_CODE As System.Windows.Forms.DataGridViewTextBoxColumn

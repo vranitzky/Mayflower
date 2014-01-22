@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ProjetexDB2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ProjetexDB2 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Mayflower.My.MySettings.GlobalReference.Default.ProjetexDB2" Provider="FirebirdSql.Data.FirebirdClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ProjetexDB2" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ProjetexDB2 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Freelancers_Lookup.My.MySettings.GlobalReference.Default.ProjetexDB2" Provider="FirebirdSql.Data.FirebirdClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SourceLangTableAdapter" GeneratorDataComponentClassName="SourceLangTableAdapter" Name="DataTableSourceLang" UserDataComponentName="SourceLangTableAdapter">
@@ -274,7 +274,7 @@ ORDER BY RJOBS.RJOB_ID DESC</CommandText>
                          RESOURCES.RES_STREET2, RESOURCES.RES_CITY, RESOURCES.RES_STATE, RESOURCES.RES_ZIP, RESOURCES.RES_EMAIL1, RESOURCES.RES_EMAIL2, RESOURCES.RES_PHONE1, 
                          RESOURCES.RES_PHONE2, RESOURCES.RES_FAX, RESOURCES.RES_WWW, RESOURCES.RES_VATNUM, RESOURCES.RES_MINFEE, RESOURCES.RES_PHONE3, RESOURCES.RES_PHONE4, 
                          RESOURCES."AIT$CUSTOMF00016" AS Skype, RESOURCES."AIT$CUSTOMF00017" AS DOB, RESOURCES."AIT$CUSTOMF00067" AS Tools, RESOURCES."AIT$CUSTOMF00068" AS Source, 
-                         RESOURCES."AIT$CUSTOMF00069" AS Target1
+                         RESOURCES."AIT$CUSTOMF00069" AS Target1, RESOURCES."AIT$CUSTOMF00148" AS RepsRate, RESOURCES."AIT$CUSTOMF00149" AS FuzzyRate
 FROM            RESOURCES INNER JOIN
                          CURR ON RESOURCES.CURR_ID = CURR.CURR_ID INNER JOIN
                          COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID
@@ -313,6 +313,8 @@ WHERE        (RESOURCES.RES_ID = @resid)</CommandText>
               <Mapping SourceColumn="TOOLS" DataSetColumn="TOOLS" />
               <Mapping SourceColumn="SOURCE" DataSetColumn="SOURCE" />
               <Mapping SourceColumn="TARGET1" DataSetColumn="TARGET1" />
+              <Mapping SourceColumn="REPSRATE" DataSetColumn="REPSRATE" />
+              <Mapping SourceColumn="FUZZYRATE" DataSetColumn="FUZZYRATE" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -392,7 +394,7 @@ ORDER BY COUNTRY
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSet2DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="false" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet2DataSet" msprop:Generator_UserDSName="DataSet2DataSet">
+  <xs:element name="DataSet2DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="False" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet2DataSet" msprop:Generator_UserDSName="DataSet2DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="DataTableSourceLang" msprop:Generator_TableClassName="DataTableSourceLangDataTable" msprop:Generator_TableVarName="tableDataTableSourceLang" msprop:Generator_RowChangedName="DataTableSourceLangRowChanged" msprop:Generator_TablePropName="DataTableSourceLang" msprop:Generator_RowDeletingName="DataTableSourceLangRowDeleting" msprop:Generator_RowChangingName="DataTableSourceLangRowChanging" msprop:Generator_RowEvHandlerName="DataTableSourceLangRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableSourceLangRowDeleted" msprop:Generator_RowClassName="DataTableSourceLangRow" msprop:Generator_UserTableName="DataTableSourceLang" msprop:Generator_RowEvArgName="DataTableSourceLangRowChangeEvent">
@@ -780,6 +782,8 @@ ORDER BY COUNTRY
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="REPSRATE" msprop:Generator_ColumnVarNameInTable="columnREPSRATE" msprop:Generator_ColumnPropNameInRow="REPSRATE" msprop:Generator_ColumnPropNameInTable="REPSRATEColumn" msprop:Generator_UserColumnName="REPSRATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FUZZYRATE" msprop:Generator_ColumnVarNameInTable="columnFUZZYRATE" msprop:Generator_ColumnPropNameInRow="FUZZYRATE" msprop:Generator_ColumnPropNameInTable="FUZZYRATEColumn" msprop:Generator_UserColumnName="FUZZYRATE" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

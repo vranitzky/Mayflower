@@ -169,13 +169,13 @@ Partial Class DialogEmailWarning
         'EmailSubject
         '
         Me.EmailSubject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.EmailSubject.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Mayflower.My.MySettings.Default, "EmailSubject", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EmailSubject.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "EmailSubject", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EmailSubject.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmailSubject.Location = New System.Drawing.Point(63, 50)
         Me.EmailSubject.Name = "EmailSubject"
         Me.EmailSubject.Size = New System.Drawing.Size(542, 20)
         Me.EmailSubject.TabIndex = 3
-        Me.EmailSubject.Text = Global.Mayflower.My.MySettings.Default.EmailSubject
+        Me.EmailSubject.Text = Global.Freelancers_Lookup.My.MySettings.Default.EmailSubject
         '
         'Label1
         '
@@ -331,7 +331,7 @@ Partial Class DialogEmailWarning
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        Me.OpenFileDialog1.InitialDirectory = Global.Mayflower.My.MySettings.Default.AttachmentOpenFileDir
+        Me.OpenFileDialog1.InitialDirectory = Global.Freelancers_Lookup.My.MySettings.Default.AttachmentOpenFileDir
         Me.OpenFileDialog1.Title = "Select Attachment"
         '
         'DialogEmailWarning

@@ -4,10 +4,14 @@ Imports System.Text
 Imports OfficeOpenXml
 Imports FirebirdSql
 Imports System.Configuration
+
 'remember to UPDATE ButtonApplyDBSettings_Click EVERY TIME you add a TableAdapter!!!!!
 
 Public Class FormFinRep
-    Private TableAdapters As DataTable
+
+    Private Sub updateTableAdapters(connstr As String)
+        DTReport1TA.Connection.ConnectionString = connstr
+    End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Cursor = Cursors.WaitCursor
         Try
@@ -50,9 +54,9 @@ Public Class FormFinRep
         Dim path As String
 
         Try
-            SaveFileDialog1.FileName = DateTimePickerFrom.Value.ToShortDateString.Replace("/", "") +
+            SaveFileDialog1.FileName = "Profit Report " + DateTimePickerFrom.Value.ToShortDateString.Replace("/", "") +
                                         "-" +
-                                        DateTimePickerTo.Value.ToShortDateString.Replace("/", "")
+                                        DateTimePickerTo.Value.ToShortDateString.Replace("/", "") + ".xlsx"
             If SaveFileDialog1.ShowDialog() Then
                 path = SaveFileDialog1.FileName
             Else
@@ -76,7 +80,29 @@ Public Class FormFinRep
 
             For r = 0 To DataGridViewReport1.Rows.Count - 1
                 For c = 0 To DataGridViewReport1.Columns.Count - 1
-                    ws.SetValue(r + 2, c + 1, DataGridViewReport1.Rows(r).Cells(c).Value)
+                    'ws.SetValue(r + 2, c + 1, DataGridViewReport1.Rows(r).Cells(c).Value)
+                    'Dim format As OfficeOpenXml.Style.ExcelNumberFormat
+                    'format = ws.Cells(r + 2, c + 1).Style.Numberformat
+                    Try
+                        If IsDBNull(DataGridViewReport1.Rows(r).Cells(c).Value) Then
+                            Continue For
+                        End If
+                        If DataGridViewReport1.Columns(c).DefaultCellStyle.Format.StartsWith("C") Then 'currency
+                            ws.SetValue(r + 2, c + 1, Double.Parse(DataGridViewReport1.Rows(r).Cells(c).Value.ToString))
+                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "[$INR]\ #,##0.00;[Red]\-[$INR]\ #,##0.00"
+                        ElseIf DataGridViewReport1.Columns(c).DefaultCellStyle.Format.StartsWith("p") Then 'percentage
+                            ws.SetValue(r + 2, c + 1, Double.Parse(DataGridViewReport1.Rows(r).Cells(c).Value.ToString) / 100)
+                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "0.00%"
+                        ElseIf DataGridViewReport1.Columns(c).DefaultCellStyle.Format.StartsWith("N") Then 'number
+                            ws.SetValue(r + 2, c + 1, Integer.Parse(DataGridViewReport1.Rows(r).Cells(c).Value.ToString))
+                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "0"
+                        Else
+                            ws.SetValue(r + 2, c + 1, DataGridViewReport1.Rows(r).Cells(c).Value)
+                        End If
+                    Catch ex As Exception
+                        MsgBox("r=" + r.ToString + " c=" + c.ToString + vbNewLine + ex.Message)
+                    End Try
+
                     'wr.Write(DataGridViewReport1.Rows(r).Cells(c).Value.ToString + vbTab)
                 Next
                 'wr.WriteLine()
@@ -88,6 +114,7 @@ Public Class FormFinRep
             'wr1.Close()
 
             p.Save()
+            System.Diagnostics.Process.Start(f.FullName)
 
         Catch ex As Exception
             MsgBox("There was an error:" + vbNewLine + ex.Message, MsgBoxStyle.Critical, "Error")
@@ -124,7 +151,7 @@ Public Class FormFinRep
             "Packet Size=8192;" +
             "ServerType=0"
         FbConnection1.ConnectionString = connstr
-        RichTextBoxConnectionString.Text = connstr
+        'RichTextBoxConnectionString.Text = connstr
 
         Try
             FbConnection1.Open()
@@ -152,6 +179,84 @@ Public Class FormFinRep
     End Sub
 
     Private Sub ButtonApplyDBSettings_Click(sender As Object, e As EventArgs) Handles ButtonApplyDBSettings.Click
+        applyDBSettings()
+    End Sub
+
+    Public Sub updateConfigConnection(conn As String)
+        Dim XmlDoc As Xml.XmlDocument = New Xml.XmlDocument()
+        Dim att As Xml.XmlAttributeCollection
+        Dim n1, n2, n3 As Xml.XmlNode
+
+        XmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile)
+        For Each XElement As Xml.XmlElement In XmlDoc.DocumentElement
+            If XElement.Name = "connectionStrings" Then
+                att = XElement.FirstChild.Attributes
+                'nodes = att.GetNamedItem
+                n1 = att.Item(0)
+                n2 = att.Item(1)
+                n3 = att.Item(2)
+                XElement.FirstChild.Attributes.Item(1).Value = conn
+                n1 = att.Item(0)
+                n2 = att.Item(1)
+                n3 = att.Item(2)
+
+            End If
+        Next
+        Try
+            'XmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile)
+        Catch ex As Exception
+            MsgBox("xmldoc.save: " + ex.Message)
+        End Try
+
+        ' Get the roaming configuration 
+        ' that applies to the current user.
+        Dim roamingConfig As Configuration = _
+        ConfigurationManager.OpenExeConfiguration( _
+            ConfigurationUserLevel.PerUserRoaming)
+
+        ' Map the roaming configuration file. This
+        ' enables the application to access 
+        ' the configuration file using the
+        ' System.Configuration.Configuration class
+        Dim configFileMap As New ExeConfigurationFileMap()
+        configFileMap.ExeConfigFilename = _
+            roamingConfig.FilePath
+
+        ' Get the mapped configuration file.
+        Dim config As Configuration = _
+            ConfigurationManager.OpenMappedExeConfiguration( _
+                configFileMap, ConfigurationUserLevel.None)
+
+        ' Synchronize the application configuration
+        ' if needed. The following two steps seem
+        ' to solve some out of synch issues 
+        ' between roaming and default
+        ' configuration.
+        Try
+            config.Save(ConfigurationSaveMode.Modified)
+        Catch ex As Exception
+            MsgBox("config.save: " + ex.Message)
+        End Try
+
+        ' Force a reload of the changed section, 
+        ' if needed. This makes the new values available 
+        ' for reading.
+        ConfigurationManager.RefreshSection("connectionStrings")
+
+        Try
+            My.Settings("ProjetexDB2") = conn
+            My.Settings.Save()
+            'My.Settings.Upgrade()
+            'My.Settings.Reload()
+            conn = My.Settings.ProjetexDB2
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        updateTableAdapters(conn)
+
+    End Sub
+
+    Private Sub applyDBSettings()
         Dim connstr As String
         'Dim conn As New 
         Dim OK As Boolean = True
@@ -184,70 +289,10 @@ Public Class FormFinRep
         'RichTextBoxConnectionString.Text = connstr
         updateConfigConnection(connstr)
 
-        DTReport1TA.Connection.ConnectionString = connstr
-
         Me.Cursor = Me.DefaultCursor
     End Sub
 
-    Public Sub updateConfigConnection(conn As String)
-        Dim XmlDoc As Xml.XmlDocument = New Xml.XmlDocument()
-        Dim att As Xml.XmlAttributeCollection
-        Dim n1, n2, n3 As Xml.XmlNode
-
-        XmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile)
-        For Each XElement As Xml.XmlElement In XmlDoc.DocumentElement
-            If XElement.Name = "connectionStrings" Then
-                att = XElement.FirstChild.Attributes
-                'nodes = att.GetNamedItem
-                n1 = att.Item(0)
-                n2 = att.Item(1)
-                n3 = att.Item(2)
-                XElement.FirstChild.Attributes.Item(1).Value = conn
-                n1 = att.Item(0)
-                n2 = att.Item(1)
-                n3 = att.Item(2)
-
-            End If
-        Next
-        XmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile)
-
-        ' Get the roaming configuration 
-        ' that applies to the current user.
-        Dim roamingConfig As Configuration = _
-        ConfigurationManager.OpenExeConfiguration( _
-            ConfigurationUserLevel.PerUserRoaming)
-
-        ' Map the roaming configuration file. This
-        ' enables the application to access 
-        ' the configuration file using the
-        ' System.Configuration.Configuration class
-        Dim configFileMap As New ExeConfigurationFileMap()
-        configFileMap.ExeConfigFilename = _
-            roamingConfig.FilePath
-
-        ' Get the mapped configuration file.
-        Dim config As Configuration = _
-            ConfigurationManager.OpenMappedExeConfiguration( _
-                configFileMap, ConfigurationUserLevel.None)
-
-        ' Synchronize the application configuration
-        ' if needed. The following two steps seem
-        ' to solve some out of synch issues 
-        ' between roaming and default
-        ' configuration.
-        config.Save(ConfigurationSaveMode.Modified)
-
-        ' Force a reload of the changed section, 
-        ' if needed. This makes the new values available 
-        ' for reading.
-        ConfigurationManager.RefreshSection("connectionStrings")
-
-        My.Settings("ProjetexDB2") = conn
-        My.Settings.Save()
-        'My.Settings.Upgrade()
-        'My.Settings.Reload()
-        conn = My.Settings.ProjetexDB2
+    Private Sub FormFinRep_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        applyDBSettings()
     End Sub
-
-
 End Class

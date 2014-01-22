@@ -32,17 +32,12 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
-            Try
-                Me.MainForm = Global.Mayflower.FormMain
-            Catch ex As Exception
-
-            End Try
-
+            Me.MainForm = Global.Freelancers_Lookup.FormMain
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
+
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateSplashScreen()
-            Me.SplashScreen = Global.Mayflower.SplashScreen1
+            Me.SplashScreen = Global.Freelancers_Lookup.SplashScreen1
         End Sub
     End Class
 End Namespace

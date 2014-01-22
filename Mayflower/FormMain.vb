@@ -7,7 +7,7 @@ Public Class FormMain
     Private IsInAddTemplateMode As Boolean = False
 
     Private Sub GetCatTools()
-        Dim t As Mayflower.DataSet2DataSet.CatToolsDataTable
+        Dim t As Freelancers_Lookup.DataSet2DataSet.CatToolsDataTable
         Dim r As DataRow
         Dim a, s As String
         Dim arr As String()
@@ -230,7 +230,7 @@ Public Class FormMain
             "MaxPoolSize=50;" +
             "Packet Size=8192;" +
             "ServerType=0"
-        RichTextBoxConnectionString.Text = connstr
+        'RichTextBoxConnectionString.Text = connstr
 
         Try
             'DataSet2DataSet.Clear()
@@ -310,7 +310,7 @@ Public Class FormMain
             "Packet Size=8192;" +
             "ServerType=0"
         FbConnection1.ConnectionString = connstr
-        RichTextBoxConnectionString.Text = connstr
+        'RichTextBoxConnectionString.Text = connstr
 
         Try
             FbConnection1.Open()

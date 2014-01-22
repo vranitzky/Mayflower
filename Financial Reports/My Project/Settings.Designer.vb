@@ -123,6 +123,30 @@ Namespace My
                 Return CType(Me("ProjetexDB2"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2013-01-01")>  _
+        Public Property R1DateFrom() As Date
+            Get
+                Return CType(Me("R1DateFrom"),Date)
+            End Get
+            Set
+                Me("R1DateFrom") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2013-12-31")>  _
+        Public Property R1DateTo() As Date
+            Get
+                Return CType(Me("R1DateTo"),Date)
+            End Get
+            Set
+                Me("R1DateTo") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

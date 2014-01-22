@@ -29,4 +29,10 @@
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
 	<ItemGroup/>
+	<ItemGroup>
+		<ProjectReference Include="..\Financial Reports\Financial Reports.vbproj">
+			<Name>Financial Reports</Name>
+			<Project>{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}</Project>
+		</ProjectReference>
+	</ItemGroup>
 </Project>

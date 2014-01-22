@@ -366,9 +366,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.Mayflower.My.MySettings
+        Friend ReadOnly Property Settings() As Global.Freelancers_Lookup.My.MySettings
             Get
-                Return Global.Mayflower.My.MySettings.Default
+                Return Global.Freelancers_Lookup.My.MySettings.Default
             End Get
         End Property
     End Module
