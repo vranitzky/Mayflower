@@ -35,6 +35,8 @@ Public Class FormFinRep
     End Sub
 
     Private Sub FormFinRep_Load(sender As Object, e As EventArgs) Handles Me.Load
+        'TODO: This line of code loads data into the 'DataSet2.DTReport2' table. You can move, or remove it, as needed.
+        Me.DTReport2TA.Fill(Me.DataSet2.DTReport2)
         Try
             FbConnection1.ConnectionString = My.Settings.ProjetexDB
             DTReport1TA.Connection.ConnectionString = My.Settings.ProjetexDB
