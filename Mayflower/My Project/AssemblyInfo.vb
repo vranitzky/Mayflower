@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("Mayflower Language Services")> 
 <Assembly: AssemblyProduct("Mayflower Projetex Lookup Tool")> 
-<Assembly: AssemblyCopyright("© Mayflower 2014")> 
+<Assembly: AssemblyCopyright("©2014 Mayflower Language Services")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

@@ -5247,9 +5247,8 @@ ORDER BY  p3.proj_id
               <DbSource ConnectionRef="192.168.0.56 (projetex)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        CCONTACTS.CCON_NAME, c1.CINV_DATE, c1.CINV_GNUMB, CLIENTS.CLIENT_NAME, c1.CINV_TOTAL, c1.CINV_RATE, cu.CURR_NAME,
-            c1.CINV_PLAN_SETTL_DATE, c1.CINV_TOTAL - PAYMENTS.PAYMENT AS BALANCE, 
-                         datediff(day, CURRENT_DATE, c1.CINV_PLAN_SETTL_DATE) AS Overdue
+                    <CommandText>SELECT        CCONTACTS.CCON_NAME, c1.CINV_DATE, c1.CINV_GNUMB, CLIENTS.CLIENT_NAME, c1.CINV_TOTAL, c1.CINV_RATE, cu.CURR_NAME, c1.CINV_PLAN_SETTL_DATE, 
+                         c1.CINV_TOTAL - PAYMENTS.PAYMENT AS BALANCE, datediff(day, CURRENT_DATE, c1.CINV_PLAN_SETTL_DATE) AS Overdue, "AIT$USERS"."AIT$USER_REALNAME" as SaleOwner
 FROM            CCONTACTS INNER JOIN
                          CINVOICES c1 ON CCONTACTS.CCON_ID = c1.CCON_ID INNER JOIN
                          CFINLINKS ON c1.CINV_ID = CFINLINKS.CINV_ID INNER JOIN
@@ -5259,7 +5258,9 @@ FROM            CCONTACTS INNER JOIN
                              (SELECT        cf.CINV_ID, SUM(cf.LINK_SUM) AS PAYMENT
                                FROM            CFINLINKS cf INNER JOIN
                                                          CINVOICES ci ON cf.CINV_ID = ci.CINV_ID
-                               GROUP BY cf.CINV_ID) PAYMENTS ON PAYMENTS.CINV_ID = c1.CINV_ID
+                               GROUP BY cf.CINV_ID) PAYMENTS ON PAYMENTS.CINV_ID = c1.CINV_ID INNER JOIN
+                         CACCMANAGERS ON CLIENTS.CLIENT_ID = CACCMANAGERS.CLIENT_ID INNER JOIN
+                         "AIT$USERS" ON CACCMANAGERS."AIT$USER_ID" = "AIT$USERS"."AIT$USER_ID"
 WHERE        (c1.CINV_TOTAL - PAYMENTS.PAYMENT &gt; 0.00)
 ORDER BY Overdue</CommandText>
                     <Parameters />
@@ -5277,7 +5278,34 @@ ORDER BY Overdue</CommandText>
               <Mapping SourceColumn="CINV_PLAN_SETTL_DATE" DataSetColumn="CINV_PLAN_SETTL_DATE" />
               <Mapping SourceColumn="BALANCE" DataSetColumn="BALANCE" />
               <Mapping SourceColumn="CURR_NAME" DataSetColumn="CURR_NAME" />
+              <Mapping SourceColumn="SALEOWNER" DataSetColumn="SALEOWNER" />
               <Mapping SourceColumn="OVERDUE" DataSetColumn="OVERDUE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="192.168.0.56 (projetex)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CACCOUNTS.CACC_NAME, CLIENTS.CLIENT_NAME, CLIENTS.CLIENT_ID, "AIT$USERS"."AIT$USER_ID", "AIT$USERS"."AIT$USER_REALNAME", CLIENTS.CLIENT_CODE
+FROM            CACCMANAGERS INNER JOIN
+                         "AIT$USERS" ON CACCMANAGERS."AIT$USER_ID" = "AIT$USERS"."AIT$USER_ID" INNER JOIN
+                         CLIENTS ON CACCMANAGERS.CLIENT_ID = CLIENTS.CLIENT_ID INNER JOIN
+                         CACCOUNTS ON CACCMANAGERS.CACC_ID = CACCOUNTS.CACC_ID AND CLIENTS.CLIENT_ID = CACCOUNTS.CLIENT_ID
+ORDER BY CLIENTS.CLIENT_NAME</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CACC_NAME" DataSetColumn="CACC_NAME" />
+              <Mapping SourceColumn="CLIENT_NAME" DataSetColumn="CLIENT_NAME" />
+              <Mapping SourceColumn="CLIENT_ID" DataSetColumn="CLIENT_ID" />
+              <Mapping SourceColumn="AIT$USER_ID" DataSetColumn="AIT$USER_ID" />
+              <Mapping SourceColumn="AIT$USER_REALNAME" DataSetColumn="AIT$USER_REALNAME" />
+              <Mapping SourceColumn="CLIENT_CODE" DataSetColumn="CLIENT_CODE" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -7836,6 +7864,49 @@ ORDER BY Overdue</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="OVERDUE" msprop:Generator_ColumnVarNameInTable="columnOVERDUE" msprop:Generator_ColumnPropNameInRow="OVERDUE" msprop:Generator_ColumnPropNameInTable="OVERDUEColumn" msprop:Generator_UserColumnName="OVERDUE" type="xs:int" minOccurs="0" />
+              <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CACC_NAME" msprop:Generator_ColumnVarNameInTable="columnCACC_NAME" msprop:Generator_ColumnPropNameInRow="CACC_NAME" msprop:Generator_ColumnPropNameInTable="CACC_NAMEColumn" msprop:Generator_UserColumnName="CACC_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CLIENT_NAME" msprop:Generator_ColumnVarNameInTable="columnCLIENT_NAME" msprop:Generator_ColumnPropNameInRow="CLIENT_NAME" msprop:Generator_ColumnPropNameInTable="CLIENT_NAMEColumn" msprop:Generator_UserColumnName="CLIENT_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CLIENT_ID" msprop:Generator_ColumnVarNameInTable="columnCLIENT_ID" msprop:Generator_ColumnPropNameInRow="CLIENT_ID" msprop:Generator_ColumnPropNameInTable="CLIENT_IDColumn" msprop:Generator_UserColumnName="CLIENT_ID" type="xs:int" />
+              <xs:element name="AIT_x0024_USER_ID" msprop:Generator_ColumnVarNameInTable="_columnAIT_USER_ID" msprop:Generator_ColumnPropNameInRow="_AIT_USER_ID" msprop:Generator_ColumnPropNameInTable="_AIT_USER_IDColumn" msprop:Generator_UserColumnName="AIT$USER_ID" type="xs:int" />
+              <xs:element name="AIT_x0024_USER_REALNAME" msprop:Generator_ColumnVarNameInTable="_columnAIT_USER_REALNAME" msprop:Generator_ColumnPropNameInRow="_AIT_USER_REALNAME" msprop:Generator_ColumnPropNameInTable="_AIT_USER_REALNAMEColumn" msprop:Generator_UserColumnName="AIT$USER_REALNAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CLIENT_CODE" msprop:Generator_ColumnVarNameInTable="columnCLIENT_CODE" msprop:Generator_ColumnPropNameInRow="CLIENT_CODE" msprop:Generator_ColumnPropNameInTable="CLIENT_CODEColumn" msprop:Generator_UserColumnName="CLIENT_CODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

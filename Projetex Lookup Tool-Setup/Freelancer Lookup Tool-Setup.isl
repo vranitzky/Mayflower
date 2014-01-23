@@ -62,7 +62,7 @@
 		<lastprinted/>
 		<createdtm>06/21/1999 18:30</createdtm>
 		<lastsavedtm>07/14/2000 22:20</lastsavedtm>
-		<pagecount>301</pagecount>
+		<pagecount>405</pagecount>
 		<wordcount>0</wordcount>
 		<charcount/>
 		<appname>InstallShield Express</appname>
@@ -4331,8 +4331,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<row><td>ALLUSERS</td><td>2</td><td/></row>
 		<row><td>ARPINSTALLLOCATION</td><td/><td/></row>
-		<row><td>ARPNOREMOVE</td><td>1</td><td/></row>
-		<row><td>ARPNOREPAIR</td><td>1</td><td/></row>
+		<row><td>ARPNOMODIFY</td><td>1</td><td/></row>
 		<row><td>ARPPRODUCTICON</td><td>ARPPRODUCTICON.exe</td><td/></row>
 		<row><td>ARPSIZE</td><td/><td/></row>
 		<row><td>ARPURLINFOABOUT</td><td>##ID_STRING1##</td><td/></row>

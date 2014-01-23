@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("Mayflower Language Services")> 
 <Assembly: AssemblyProduct("Financial Reports")> 
-<Assembly: AssemblyCopyright("Copyright ©  2014")> 
+<Assembly: AssemblyCopyright("©2014 Mayflower Language Services")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.1.2.0")> 
-<Assembly: AssemblyFileVersion("0.1.2.0")> 
+<Assembly: AssemblyVersion("0.2.0.0")> 
+<Assembly: AssemblyFileVersion("0.2.0.0")> 
