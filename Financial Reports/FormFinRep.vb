@@ -53,12 +53,15 @@ Public Class FormFinRep
     End Sub
 
     Private Sub ButtonR1Export_Click(sender As Object, e As EventArgs) Handles ButtonR1Export.Click
+        exportToXLSX(DataGridViewReport1, "Profit Report " + DateTimePickerFrom.Value.ToShortDateString.Replace("/", "-") +
+                                        "-" + DateTimePickerTo.Value.ToShortDateString.Replace("/", "-"))
+    End Sub
+
+    Private Sub exportToXLSX(grid As DataGridView, filename As String)
         Dim path As String
 
         Try
-            SaveFileDialog1.FileName = "Profit Report " + DateTimePickerFrom.Value.ToShortDateString.Replace("/", "") +
-                                        "-" +
-                                        DateTimePickerTo.Value.ToShortDateString.Replace("/", "") + ".xlsx"
+            SaveFileDialog1.FileName = filename + ".xlsx"
             If SaveFileDialog1.ShowDialog() Then
                 path = SaveFileDialog1.FileName
             Else
@@ -70,36 +73,45 @@ Public Class FormFinRep
 
             Dim p = New OfficeOpenXml.ExcelPackage(f)
 
-            Dim ws = p.Workbook.Worksheets.Add("Report1")
+            Dim ws = p.Workbook.Worksheets.Add(name)
 
             Dim i As Integer = 1
-            For Each c As DataGridViewColumn In DataGridViewReport1.Columns
+            For Each c As DataGridViewColumn In grid.Columns
                 ws.SetValue(1, i, c.HeaderText)
                 i = i + 1
             Next
             ws.Cells("1:1").Style.Font.Bold = True
             ws.Cells("1:1").Style.Border.Bottom.Style = Style.ExcelBorderStyle.Medium
 
-            For r = 0 To DataGridViewReport1.Rows.Count - 1
-                For c = 0 To DataGridViewReport1.Columns.Count - 1
+            For r = 0 To grid.Rows.Count - 1
+                For c = 0 To grid.Columns.Count - 1
                     'ws.SetValue(r + 2, c + 1, DataGridViewReport1.Rows(r).Cells(c).Value)
                     'Dim format As OfficeOpenXml.Style.ExcelNumberFormat
                     'format = ws.Cells(r + 2, c + 1).Style.Numberformat
                     Try
-                        If IsDBNull(DataGridViewReport1.Rows(r).Cells(c).Value) Then
+                        If IsDBNull(grid.Rows(r).Cells(c).Value) Then
                             Continue For
                         End If
-                        If DataGridViewReport1.Columns(c).DefaultCellStyle.Format.StartsWith("C") Then 'currency
-                            ws.SetValue(r + 2, c + 1, Double.Parse(DataGridViewReport1.Rows(r).Cells(c).Value.ToString))
-                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "[$INR]\ #,##0.00;[Red]\-[$INR]\ #,##0.00"
-                        ElseIf DataGridViewReport1.Columns(c).DefaultCellStyle.Format.StartsWith("p") Then 'percentage
-                            ws.SetValue(r + 2, c + 1, Double.Parse(DataGridViewReport1.Rows(r).Cells(c).Value.ToString) / 100)
+                        If grid.Columns(c).DefaultCellStyle.Format.StartsWith("C") Then 'currency
+                            ws.SetValue(r + 2, c + 1, Double.Parse(grid.Rows(r).Cells(c).Value.ToString))
+                            'ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "[$INR]\ #,##0.00;[Red]\-[$INR]\ #,##0.00"
+                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "#,##0.00;[Red]\-#,##0.00"
+                        ElseIf grid.Columns(c).DefaultCellStyle.Format.StartsWith("p") Then 'percentage
+                            ws.SetValue(r + 2, c + 1, Double.Parse(grid.Rows(r).Cells(c).Value.ToString) / 100)
                             ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "0.00%"
-                        ElseIf DataGridViewReport1.Columns(c).DefaultCellStyle.Format.StartsWith("N") Then 'number
-                            ws.SetValue(r + 2, c + 1, Integer.Parse(DataGridViewReport1.Rows(r).Cells(c).Value.ToString))
-                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "0"
+                        ElseIf grid.Columns(c).DefaultCellStyle.Format.StartsWith("N") Then 'number
+                            If grid.Columns(c).DefaultCellStyle.Format.StartsWith("N0") Then
+                                ws.SetValue(r + 2, c + 1, Integer.Parse(grid.Rows(r).Cells(c).Value.ToString))
+                                ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "0"
+                            Else
+                                ws.SetValue(r + 2, c + 1, Double.Parse(grid.Rows(r).Cells(c).Value.ToString))
+                                ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "#,##0.00;[Red]\-#,##0.00"
+                            End If
+                        ElseIf grid.Columns(c).DefaultCellStyle.Format.StartsWith("d") Then 'date
+                            ws.SetValue(r + 2, c + 1, grid.Rows(r).Cells(c).Value)
+                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "dd/mm/yyyy"
                         Else
-                            ws.SetValue(r + 2, c + 1, DataGridViewReport1.Rows(r).Cells(c).Value)
+                            ws.SetValue(r + 2, c + 1, grid.Rows(r).Cells(c).Value)
                         End If
                     Catch ex As Exception
                         MsgBox("r=" + r.ToString + " c=" + c.ToString + vbNewLine + ex.Message)
@@ -296,5 +308,9 @@ Public Class FormFinRep
 
     Private Sub FormFinRep_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         applyDBSettings()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        exportToXLSX(DataGridViewReport2, "Payment Tracker " + Today.ToShortDateString.Replace("/", "-"))
     End Sub
 End Class
