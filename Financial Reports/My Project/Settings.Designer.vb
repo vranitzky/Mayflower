@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("192.168.0.56")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("192.168.56.101")>  _
         Public Property DBAddress() As String
             Get
                 Return CType(Me("DBAddress"),String)
@@ -80,7 +80,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("C:\Projetex9\Projetex Server\Database\projetex.fdb")>  _
         Public Property DBFile() As String
             Get
                 Return CType(Me("DBFile"),String)
@@ -92,7 +92,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("password")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("pwww")>  _
         Public Property DBPassword() As String
             Get
                 Return CType(Me("DBPassword"),String)
@@ -146,6 +146,17 @@ Namespace My
             Set
                 Me("R1DateTo") = value
             End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("character set=UTF8;initial catalog=""C:\Projetex9\Projetex Server\Database\Projete"& _ 
+            "x.fdb"";user id=ODBC;password=pwww;data source=192.168.56.101;role=PROJETEX_ODBC")>  _
+        Public ReadOnly Property VirtualBoxDB() As String
+            Get
+                Return CType(Me("VirtualBoxDB"),String)
+            End Get
         End Property
     End Class
 End Namespace

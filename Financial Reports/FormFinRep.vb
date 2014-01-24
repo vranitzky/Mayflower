@@ -4,13 +4,17 @@ Imports System.Text
 Imports OfficeOpenXml
 Imports FirebirdSql
 Imports System.Configuration
+Imports System.Globalization
 
 'remember to UPDATE ButtonApplyDBSettings_Click EVERY TIME you add a TableAdapter!!!!!
 
 Public Class FormFinRep
+    Private Loaded As Boolean = False
 
     Private Sub updateTableAdapters(connstr As String)
         DTReport1TA.Connection.ConnectionString = connstr
+        DTReport2TA.Connection.ConnectionString = connstr
+
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Cursor = Cursors.WaitCursor
@@ -36,10 +40,13 @@ Public Class FormFinRep
 
     Private Sub FormFinRep_Load(sender As Object, e As EventArgs) Handles Me.Load
         'TODO: This line of code loads data into the 'DataSet2.DTReport2' table. You can move, or remove it, as needed.
-        Me.DTReport2TA.Fill(Me.DataSet2.DTReport2)
+        'Me.DTReport2TA.Fill(Me.DataSet2.DTReport2)
+        DateTimePickerR2.Value = Today
         Try
-            FbConnection1.ConnectionString = My.Settings.ProjetexDB
-            DTReport1TA.Connection.ConnectionString = My.Settings.ProjetexDB
+            updateTableAdapters(My.Settings.ProjetexDB)
+            Me.Loaded = True
+            'FbConnection1.ConnectionString = My.Settings.ProjetexDB
+            'DTReport1TA.Connection.ConnectionString = My.Settings.ProjetexDB
         Catch ex As Exception
             MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine &
                             """" & ex.Message & """" & Environment.NewLine & Environment.NewLine &
@@ -312,5 +319,16 @@ Public Class FormFinRep
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         exportToXLSX(DataGridViewReport2, "Payment Tracker " + Today.ToShortDateString.Replace("/", "-"))
+    End Sub
+
+    Private Sub DateTimePickerR2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePickerR2.ValueChanged
+        If Not Me.Loaded Then Return
+        Try
+            'MsgBox(DataSet2.DTReport2.
+
+            DTReport2TA.FillWhen(DataSet2.DTReport2, DateTimePickerR2.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString)
+        End Try
     End Sub
 End Class
