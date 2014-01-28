@@ -19,7 +19,7 @@ Public Class FormFinRep
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Cursor = Cursors.WaitCursor
         Try
-            DTReport1TA.Fill(DataSet2.DTReport1, DateTimePickerFrom.Value, DateTimePickerTo.Value)
+            DTReport1TA.Fill(DataSetFR.DTReport1, DateTimePickerFrom.Value, DateTimePickerTo.Value)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
@@ -39,8 +39,8 @@ Public Class FormFinRep
     End Sub
 
     Private Sub FormFinRep_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'TODO: This line of code loads data into the 'DataSet2.DTReport2' table. You can move, or remove it, as needed.
-        'Me.DTReport2TA.Fill(Me.DataSet2.DTReport2)
+        'TODO: This line of code loads data into the 'DataSetFR.DTReport2' table. You can move, or remove it, as needed.
+        'Me.DTReport2TA.Fill(Me.DataSetFR.DTReport2)
         DateTimePickerR2.Value = Today
         Try
             updateTableAdapters(My.Settings.ProjetexDB)
@@ -324,9 +324,9 @@ Public Class FormFinRep
     Private Sub DateTimePickerR2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePickerR2.ValueChanged
         If Not Me.Loaded Then Return
         Try
-            'MsgBox(DataSet2.DTReport2.
+            'MsgBox(DataSetFR.DTReport2.
 
-            DTReport2TA.Fill(DataSet2.DTReport2, DateTimePickerR2.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
+            DTReport2TA.Fill(DataSetFR.DTReport2, DateTimePickerR2.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
         Catch ex As Exception
             MsgBox(ex.Message.ToString)
         End Try

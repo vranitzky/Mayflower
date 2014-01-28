@@ -129,13 +129,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="DataSet21.Designer.vb">
+    <Compile Include="DataSetFR.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
+      <DependentUpon>DataSetFR.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSet2.vb">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
+    <Compile Include="DataSetFR.vb">
+      <DependentUpon>DataSetFR.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormFinRep.Designer.vb">
       <DependentUpon>FormFinRep.vb</DependentUpon>
@@ -174,16 +174,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="DataSet2.xsc">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
+    <None Include="DataSetFR.xsc">
+      <DependentUpon>DataSetFR.xsd</DependentUpon>
     </None>
-    <None Include="DataSet2.xsd">
+    <None Include="DataSetFR.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>DataSet2.Designer.vb</LastGenOutput>
+      <LastGenOutput>DataSetFR.Designer.vb</LastGenOutput>
     </None>
-    <None Include="DataSet2.xss">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
+    <None Include="DataSetFR.xss">
+      <DependentUpon>DataSetFR.xsd</DependentUpon>
     </None>
     <None Include="Financial Reports_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest" />

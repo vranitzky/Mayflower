@@ -28,6 +28,12 @@ Partial Class FormFinRep
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormFinRep))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabReport1 = New System.Windows.Forms.TabPage()
@@ -49,13 +55,23 @@ Partial Class FormFinRep
         Me.PCProfitDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InvNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DTReport1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet2 = New Financial_Reports.DataSet2()
+        Me.DataSetFR = New Financial_Reports.DataSetFR()
         Me.TabReport2 = New System.Windows.Forms.TabPage()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.DateTimePickerR2 = New System.Windows.Forms.DateTimePicker()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.DataGridViewReport2 = New System.Windows.Forms.DataGridView()
-        Me.DataTable1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SALEOWNERDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CONTACTNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INVOICEDATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INVOICENUMBERDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PARTYNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PENDINGAMOUNTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ACTUALLYPAIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DUEDATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OVERDUEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DTReport2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabReport3 = New System.Windows.Forms.TabPage()
         Me.TabSettings = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -73,21 +89,10 @@ Partial Class FormFinRep
         Me.TextBoxServerPort = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBoxServerAddress = New System.Windows.Forms.TextBox()
-        Me.DTReport2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.FbConnection1 = New FirebirdSql.Data.FirebirdClient.FbConnection()
-        Me.DTReport1TA = New Financial_Reports.DataSet2TableAdapters.DTReport1TA()
-        Me.DTReport2TA = New Financial_Reports.DataSet2TableAdapters.DTReport2TA()
-        Me.SALEOWNERDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CONTACTNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.INVOICEDATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.INVOICENUMBERDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PARTYNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PENDINGAMOUNTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ACTUALLYPAIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DUEDATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OVERDUEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DTReport1TA = New Financial_Reports.DataSetFRTableAdapters.DTReport1TA()
+        Me.DTReport2TA = New Financial_Reports.DataSetFRTableAdapters.DTReport2TA()
         Me.TabControl1.SuspendLayout()
         Me.TabReport1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,17 +101,16 @@ Partial Class FormFinRep
         Me.SplitContainer1.SuspendLayout()
         CType(Me.DataGridViewReport1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTReport1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSetFR, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabReport2.SuspendLayout()
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer2.Panel1.SuspendLayout()
         Me.SplitContainer2.Panel2.SuspendLayout()
         Me.SplitContainer2.SuspendLayout()
         CType(Me.DataGridViewReport2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DTReport2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabSettings.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.DTReport2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -222,7 +226,7 @@ Partial Class FormFinRep
         Me.DataGridViewReport1.AllowUserToDeleteRows = False
         Me.DataGridViewReport1.AllowUserToOrderColumns = True
         Me.DataGridViewReport1.AutoGenerateColumns = False
-        Me.DataGridViewReport1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridViewReport1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridViewReport1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewReport1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PROJIDDataGridViewTextBoxColumn, Me.PROJFULLDataGridViewTextBoxColumn, Me.CCONNAMEDataGridViewTextBoxColumn, Me.CJOBSDataGridViewTextBoxColumn, Me.RJOBSDataGridViewTextBoxColumn, Me.AITUSERREALNAMEDataGridViewTextBoxColumn, Me.ProfitDataGridViewTextBoxColumn, Me.PCProfitDataGridViewTextBoxColumn, Me.InvNoDataGridViewTextBoxColumn})
         Me.DataGridViewReport1.DataSource = Me.DTReport1BindingSource
@@ -231,6 +235,7 @@ Partial Class FormFinRep
         Me.DataGridViewReport1.Name = "DataGridViewReport1"
         Me.DataGridViewReport1.ReadOnly = True
         Me.DataGridViewReport1.RowHeadersVisible = False
+        Me.DataGridViewReport1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DataGridViewReport1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewReport1.Size = New System.Drawing.Size(1129, 445)
         Me.DataGridViewReport1.TabIndex = 0
@@ -241,7 +246,6 @@ Partial Class FormFinRep
         Me.PROJIDDataGridViewTextBoxColumn.HeaderText = "ID"
         Me.PROJIDDataGridViewTextBoxColumn.Name = "PROJIDDataGridViewTextBoxColumn"
         Me.PROJIDDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PROJIDDataGridViewTextBoxColumn.Width = 43
         '
         'PROJFULLDataGridViewTextBoxColumn
         '
@@ -249,7 +253,6 @@ Partial Class FormFinRep
         Me.PROJFULLDataGridViewTextBoxColumn.HeaderText = "Project"
         Me.PROJFULLDataGridViewTextBoxColumn.Name = "PROJFULLDataGridViewTextBoxColumn"
         Me.PROJFULLDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PROJFULLDataGridViewTextBoxColumn.Width = 65
         '
         'CCONNAMEDataGridViewTextBoxColumn
         '
@@ -257,7 +260,6 @@ Partial Class FormFinRep
         Me.CCONNAMEDataGridViewTextBoxColumn.HeaderText = "Client Account"
         Me.CCONNAMEDataGridViewTextBoxColumn.Name = "CCONNAMEDataGridViewTextBoxColumn"
         Me.CCONNAMEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CCONNAMEDataGridViewTextBoxColumn.Width = 93
         '
         'CJOBSDataGridViewTextBoxColumn
         '
@@ -269,7 +271,6 @@ Partial Class FormFinRep
         Me.CJOBSDataGridViewTextBoxColumn.HeaderText = "Client Jobs"
         Me.CJOBSDataGridViewTextBoxColumn.Name = "CJOBSDataGridViewTextBoxColumn"
         Me.CJOBSDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CJOBSDataGridViewTextBoxColumn.Width = 77
         '
         'RJOBSDataGridViewTextBoxColumn
         '
@@ -281,7 +282,6 @@ Partial Class FormFinRep
         Me.RJOBSDataGridViewTextBoxColumn.HeaderText = "Freelance Jobs"
         Me.RJOBSDataGridViewTextBoxColumn.Name = "RJOBSDataGridViewTextBoxColumn"
         Me.RJOBSDataGridViewTextBoxColumn.ReadOnly = True
-        Me.RJOBSDataGridViewTextBoxColumn.Width = 96
         '
         'AITUSERREALNAMEDataGridViewTextBoxColumn
         '
@@ -289,7 +289,6 @@ Partial Class FormFinRep
         Me.AITUSERREALNAMEDataGridViewTextBoxColumn.HeaderText = "Sale Owner"
         Me.AITUSERREALNAMEDataGridViewTextBoxColumn.Name = "AITUSERREALNAMEDataGridViewTextBoxColumn"
         Me.AITUSERREALNAMEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.AITUSERREALNAMEDataGridViewTextBoxColumn.Width = 80
         '
         'ProfitDataGridViewTextBoxColumn
         '
@@ -301,7 +300,6 @@ Partial Class FormFinRep
         Me.ProfitDataGridViewTextBoxColumn.HeaderText = "Profit"
         Me.ProfitDataGridViewTextBoxColumn.Name = "ProfitDataGridViewTextBoxColumn"
         Me.ProfitDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ProfitDataGridViewTextBoxColumn.Width = 56
         '
         'PCProfitDataGridViewTextBoxColumn
         '
@@ -313,7 +311,6 @@ Partial Class FormFinRep
         Me.PCProfitDataGridViewTextBoxColumn.HeaderText = "%Profit"
         Me.PCProfitDataGridViewTextBoxColumn.Name = "PCProfitDataGridViewTextBoxColumn"
         Me.PCProfitDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PCProfitDataGridViewTextBoxColumn.Width = 64
         '
         'InvNoDataGridViewTextBoxColumn
         '
@@ -324,17 +321,16 @@ Partial Class FormFinRep
         Me.InvNoDataGridViewTextBoxColumn.HeaderText = "InvNo"
         Me.InvNoDataGridViewTextBoxColumn.Name = "InvNoDataGridViewTextBoxColumn"
         Me.InvNoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.InvNoDataGridViewTextBoxColumn.Width = 61
         '
         'DTReport1BindingSource
         '
         Me.DTReport1BindingSource.DataMember = "DTReport1"
-        Me.DTReport1BindingSource.DataSource = Me.DataSet2
+        Me.DTReport1BindingSource.DataSource = Me.DataSetFR
         '
-        'DataSet2
+        'DataSetFR
         '
-        Me.DataSet2.DataSetName = "DataSet2"
-        Me.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.DataSetFR.DataSetName = "DataSetFR"
+        Me.DataSetFR.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'TabReport2
         '
@@ -391,7 +387,7 @@ Partial Class FormFinRep
         Me.DataGridViewReport2.AllowUserToDeleteRows = False
         Me.DataGridViewReport2.AllowUserToOrderColumns = True
         Me.DataGridViewReport2.AutoGenerateColumns = False
-        Me.DataGridViewReport2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.DataGridViewReport2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridViewReport2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewReport2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SALEOWNERDataGridViewTextBoxColumn, Me.CONTACTNAMEDataGridViewTextBoxColumn, Me.INVOICEDATEDataGridViewTextBoxColumn, Me.INVOICENUMBERDataGridViewTextBoxColumn, Me.PARTYNAMEDataGridViewTextBoxColumn, Me.TOTALAMOUNTDataGridViewTextBoxColumn, Me.PENDINGAMOUNTDataGridViewTextBoxColumn, Me.ACTUALLYPAIDDataGridViewTextBoxColumn, Me.DUEDATEDataGridViewTextBoxColumn, Me.OVERDUEDataGridViewTextBoxColumn})
         Me.DataGridViewReport2.DataSource = Me.DTReport2BindingSource
@@ -400,14 +396,99 @@ Partial Class FormFinRep
         Me.DataGridViewReport2.Name = "DataGridViewReport2"
         Me.DataGridViewReport2.ReadOnly = True
         Me.DataGridViewReport2.RowHeadersVisible = False
+        Me.DataGridViewReport2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DataGridViewReport2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridViewReport2.Size = New System.Drawing.Size(1129, 448)
         Me.DataGridViewReport2.TabIndex = 0
         '
-        'DataTable1BindingSource
+        'SALEOWNERDataGridViewTextBoxColumn
         '
-        Me.DataTable1BindingSource.DataMember = "DataTable1"
-        Me.DataTable1BindingSource.DataSource = Me.DataSet2
+        Me.SALEOWNERDataGridViewTextBoxColumn.DataPropertyName = "SALEOWNER"
+        Me.SALEOWNERDataGridViewTextBoxColumn.HeaderText = "SALEOWNER"
+        Me.SALEOWNERDataGridViewTextBoxColumn.Name = "SALEOWNERDataGridViewTextBoxColumn"
+        Me.SALEOWNERDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CONTACTNAMEDataGridViewTextBoxColumn
+        '
+        Me.CONTACTNAMEDataGridViewTextBoxColumn.DataPropertyName = "CONTACTNAME"
+        Me.CONTACTNAMEDataGridViewTextBoxColumn.HeaderText = "CONTACTNAME"
+        Me.CONTACTNAMEDataGridViewTextBoxColumn.Name = "CONTACTNAMEDataGridViewTextBoxColumn"
+        Me.CONTACTNAMEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'INVOICEDATEDataGridViewTextBoxColumn
+        '
+        Me.INVOICEDATEDataGridViewTextBoxColumn.DataPropertyName = "INVOICEDATE"
+        DataGridViewCellStyle6.Format = "d"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.INVOICEDATEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle6
+        Me.INVOICEDATEDataGridViewTextBoxColumn.HeaderText = "INVOICEDATE"
+        Me.INVOICEDATEDataGridViewTextBoxColumn.Name = "INVOICEDATEDataGridViewTextBoxColumn"
+        Me.INVOICEDATEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'INVOICENUMBERDataGridViewTextBoxColumn
+        '
+        Me.INVOICENUMBERDataGridViewTextBoxColumn.DataPropertyName = "INVOICENUMBER"
+        Me.INVOICENUMBERDataGridViewTextBoxColumn.HeaderText = "INVOICENUMBER"
+        Me.INVOICENUMBERDataGridViewTextBoxColumn.Name = "INVOICENUMBERDataGridViewTextBoxColumn"
+        Me.INVOICENUMBERDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PARTYNAMEDataGridViewTextBoxColumn
+        '
+        Me.PARTYNAMEDataGridViewTextBoxColumn.DataPropertyName = "PARTYNAME"
+        Me.PARTYNAMEDataGridViewTextBoxColumn.HeaderText = "PARTYNAME"
+        Me.PARTYNAMEDataGridViewTextBoxColumn.Name = "PARTYNAMEDataGridViewTextBoxColumn"
+        Me.PARTYNAMEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TOTALAMOUNTDataGridViewTextBoxColumn
+        '
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn.DataPropertyName = "TOTALAMOUNT"
+        DataGridViewCellStyle7.Format = "C2"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle7
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn.HeaderText = "TOTALAMOUNT"
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn.Name = "TOTALAMOUNTDataGridViewTextBoxColumn"
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PENDINGAMOUNTDataGridViewTextBoxColumn
+        '
+        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.DataPropertyName = "PENDINGAMOUNT"
+        DataGridViewCellStyle8.Format = "C2"
+        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle8
+        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.HeaderText = "PENDINGAMOUNT"
+        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.Name = "PENDINGAMOUNTDataGridViewTextBoxColumn"
+        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ACTUALLYPAIDDataGridViewTextBoxColumn
+        '
+        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.DataPropertyName = "ACTUALLYPAID"
+        DataGridViewCellStyle9.Format = "C2"
+        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle9
+        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.HeaderText = "ACTUALLYPAID"
+        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.Name = "ACTUALLYPAIDDataGridViewTextBoxColumn"
+        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DUEDATEDataGridViewTextBoxColumn
+        '
+        Me.DUEDATEDataGridViewTextBoxColumn.DataPropertyName = "DUEDATE"
+        DataGridViewCellStyle10.Format = "d"
+        Me.DUEDATEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle10
+        Me.DUEDATEDataGridViewTextBoxColumn.HeaderText = "DUEDATE"
+        Me.DUEDATEDataGridViewTextBoxColumn.Name = "DUEDATEDataGridViewTextBoxColumn"
+        Me.DUEDATEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'OVERDUEDataGridViewTextBoxColumn
+        '
+        Me.OVERDUEDataGridViewTextBoxColumn.DataPropertyName = "OVERDUE"
+        DataGridViewCellStyle11.Format = "N0"
+        Me.OVERDUEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle11
+        Me.OVERDUEDataGridViewTextBoxColumn.HeaderText = "OVERDUE"
+        Me.OVERDUEDataGridViewTextBoxColumn.Name = "OVERDUEDataGridViewTextBoxColumn"
+        Me.OVERDUEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DTReport2BindingSource
+        '
+        Me.DTReport2BindingSource.DataMember = "DTReport2"
+        Me.DTReport2BindingSource.DataSource = Me.DataSetFR
         '
         'TabReport3
         '
@@ -593,11 +674,6 @@ Partial Class FormFinRep
         Me.TextBoxServerAddress.TabIndex = 2
         Me.TextBoxServerAddress.Text = Global.Financial_Reports.My.MySettings.Default.DBAddress
         '
-        'DTReport2BindingSource
-        '
-        Me.DTReport2BindingSource.DataMember = "DTReport2"
-        Me.DTReport2BindingSource.DataSource = Me.DataSet2
-        '
         'SaveFileDialog1
         '
         Me.SaveFileDialog1.Filter = "Excel Sheet|*.xlsx"
@@ -614,86 +690,6 @@ Partial Class FormFinRep
         'DTReport2TA
         '
         Me.DTReport2TA.ClearBeforeFill = True
-        '
-        'SALEOWNERDataGridViewTextBoxColumn
-        '
-        Me.SALEOWNERDataGridViewTextBoxColumn.DataPropertyName = "SALEOWNER"
-        Me.SALEOWNERDataGridViewTextBoxColumn.HeaderText = "SALEOWNER"
-        Me.SALEOWNERDataGridViewTextBoxColumn.Name = "SALEOWNERDataGridViewTextBoxColumn"
-        Me.SALEOWNERDataGridViewTextBoxColumn.ReadOnly = True
-        Me.SALEOWNERDataGridViewTextBoxColumn.Width = 101
-        '
-        'CONTACTNAMEDataGridViewTextBoxColumn
-        '
-        Me.CONTACTNAMEDataGridViewTextBoxColumn.DataPropertyName = "CONTACTNAME"
-        Me.CONTACTNAMEDataGridViewTextBoxColumn.HeaderText = "CONTACTNAME"
-        Me.CONTACTNAMEDataGridViewTextBoxColumn.Name = "CONTACTNAMEDataGridViewTextBoxColumn"
-        Me.CONTACTNAMEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CONTACTNAMEDataGridViewTextBoxColumn.Width = 114
-        '
-        'INVOICEDATEDataGridViewTextBoxColumn
-        '
-        Me.INVOICEDATEDataGridViewTextBoxColumn.DataPropertyName = "INVOICEDATE"
-        Me.INVOICEDATEDataGridViewTextBoxColumn.HeaderText = "INVOICEDATE"
-        Me.INVOICEDATEDataGridViewTextBoxColumn.Name = "INVOICEDATEDataGridViewTextBoxColumn"
-        Me.INVOICEDATEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.INVOICEDATEDataGridViewTextBoxColumn.Width = 104
-        '
-        'INVOICENUMBERDataGridViewTextBoxColumn
-        '
-        Me.INVOICENUMBERDataGridViewTextBoxColumn.DataPropertyName = "INVOICENUMBER"
-        Me.INVOICENUMBERDataGridViewTextBoxColumn.HeaderText = "INVOICENUMBER"
-        Me.INVOICENUMBERDataGridViewTextBoxColumn.Name = "INVOICENUMBERDataGridViewTextBoxColumn"
-        Me.INVOICENUMBERDataGridViewTextBoxColumn.ReadOnly = True
-        Me.INVOICENUMBERDataGridViewTextBoxColumn.Width = 122
-        '
-        'PARTYNAMEDataGridViewTextBoxColumn
-        '
-        Me.PARTYNAMEDataGridViewTextBoxColumn.DataPropertyName = "PARTYNAME"
-        Me.PARTYNAMEDataGridViewTextBoxColumn.HeaderText = "PARTYNAME"
-        Me.PARTYNAMEDataGridViewTextBoxColumn.Name = "PARTYNAMEDataGridViewTextBoxColumn"
-        Me.PARTYNAMEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PARTYNAMEDataGridViewTextBoxColumn.Width = 99
-        '
-        'TOTALAMOUNTDataGridViewTextBoxColumn
-        '
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn.DataPropertyName = "TOTALAMOUNT"
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn.HeaderText = "TOTALAMOUNT"
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn.Name = "TOTALAMOUNTDataGridViewTextBoxColumn"
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn.ReadOnly = True
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn.Width = 114
-        '
-        'PENDINGAMOUNTDataGridViewTextBoxColumn
-        '
-        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.DataPropertyName = "PENDINGAMOUNT"
-        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.HeaderText = "PENDINGAMOUNT"
-        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.Name = "PENDINGAMOUNTDataGridViewTextBoxColumn"
-        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.Width = 128
-        '
-        'ACTUALLYPAIDDataGridViewTextBoxColumn
-        '
-        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.DataPropertyName = "ACTUALLYPAID"
-        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.HeaderText = "ACTUALLYPAID"
-        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.Name = "ACTUALLYPAIDDataGridViewTextBoxColumn"
-        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.Width = 112
-        '
-        'DUEDATEDataGridViewTextBoxColumn
-        '
-        Me.DUEDATEDataGridViewTextBoxColumn.DataPropertyName = "DUEDATE"
-        Me.DUEDATEDataGridViewTextBoxColumn.HeaderText = "DUEDATE"
-        Me.DUEDATEDataGridViewTextBoxColumn.Name = "DUEDATEDataGridViewTextBoxColumn"
-        Me.DUEDATEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DUEDATEDataGridViewTextBoxColumn.Width = 84
-        '
-        'OVERDUEDataGridViewTextBoxColumn
-        '
-        Me.OVERDUEDataGridViewTextBoxColumn.DataPropertyName = "OVERDUE"
-        Me.OVERDUEDataGridViewTextBoxColumn.HeaderText = "OVERDUE"
-        Me.OVERDUEDataGridViewTextBoxColumn.Name = "OVERDUEDataGridViewTextBoxColumn"
-        Me.OVERDUEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.OVERDUEDataGridViewTextBoxColumn.Width = 85
         '
         'FormFinRep
         '
@@ -713,17 +709,17 @@ Partial Class FormFinRep
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.DataGridViewReport1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTReport1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSetFR, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabReport2.ResumeLayout(False)
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer2.ResumeLayout(False)
         CType(Me.DataGridViewReport2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DTReport2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabSettings.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.DTReport2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -754,8 +750,8 @@ Partial Class FormFinRep
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewReport1 As System.Windows.Forms.DataGridView
     Friend WithEvents DTReport1BindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DataSet2 As Financial_Reports.DataSet2
-    Friend WithEvents DTReport1TA As Financial_Reports.DataSet2TableAdapters.DTReport1TA
+    Friend WithEvents DataSetFR As Financial_Reports.DataSetFR
+    Friend WithEvents DTReport1TA As Financial_Reports.DataSetFRTableAdapters.DTReport1TA
     Friend WithEvents ButtonR1Export As System.Windows.Forms.Button
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents LabelDBStatus As System.Windows.Forms.Label
@@ -764,7 +760,7 @@ Partial Class FormFinRep
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents DataGridViewReport2 As System.Windows.Forms.DataGridView
     Friend WithEvents DTReport2BindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DTReport2TA As Financial_Reports.DataSet2TableAdapters.DTReport2TA
+    Friend WithEvents DTReport2TA As Financial_Reports.DataSetFRTableAdapters.DTReport2TA
     Friend WithEvents DataColumn1DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataColumn2DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataColumn3DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -783,7 +779,6 @@ Partial Class FormFinRep
     Friend WithEvents PCProfitDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents InvNoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DateTimePickerR2 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents DataTable1BindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents SALEOWNERDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CONTACTNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents INVOICEDATEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
