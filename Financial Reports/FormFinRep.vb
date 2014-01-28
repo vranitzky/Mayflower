@@ -318,7 +318,7 @@ Public Class FormFinRep
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        exportToXLSX(DataGridViewReport2, "Payment Tracker " + Today.ToShortDateString.Replace("/", "-"))
+        exportToXLSX(DataGridViewReport2, "Payment Tracker " + DateTimePickerR2.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
     End Sub
 
     Private Sub DateTimePickerR2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePickerR2.ValueChanged
