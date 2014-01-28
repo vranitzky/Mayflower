@@ -129,12 +129,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="DataSet2.vb">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSet21.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet2.vb">
       <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormFinRep.Designer.vb">
@@ -180,7 +180,7 @@
     <None Include="DataSet2.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>DataSet21.Designer.vb</LastGenOutput>
+      <LastGenOutput>DataSet2.Designer.vb</LastGenOutput>
     </None>
     <None Include="DataSet2.xss">
       <DependentUpon>DataSet2.xsd</DependentUpon>

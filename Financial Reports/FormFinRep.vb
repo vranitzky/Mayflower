@@ -6,7 +6,7 @@ Imports FirebirdSql
 Imports System.Configuration
 Imports System.Globalization
 
-'remember to UPDATE ButtonApplyDBSettings_Click EVERY TIME you add a TableAdapter!!!!!
+'remember to UPDATE updateTableAdapters EVERY TIME you add a TableAdapter!!!!!
 
 Public Class FormFinRep
     Private Loaded As Boolean = False
@@ -326,7 +326,7 @@ Public Class FormFinRep
         Try
             'MsgBox(DataSet2.DTReport2.
 
-            DTReport2TA.FillWhen(DataSet2.DTReport2, DateTimePickerR2.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
+            DTReport2TA.Fill(DataSet2.DTReport2, DateTimePickerR2.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
         Catch ex As Exception
             MsgBox(ex.Message.ToString)
         End Try
