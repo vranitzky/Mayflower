@@ -29,6 +29,8 @@ Partial Public Class DataSetFR
 
     Private tableDTReport2 As DTReport2DataTable
 
+    Private tableDTReport3 As DTReport3DataTable
+
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -64,6 +66,9 @@ Partial Public Class DataSetFR
             If (Not (ds.Tables("DTReport2")) Is Nothing) Then
                 MyBase.Tables.Add(New DTReport2DataTable(ds.Tables("DTReport2")))
             End If
+            If (Not (ds.Tables("DTReport3")) Is Nothing) Then
+                MyBase.Tables.Add(New DTReport3DataTable(ds.Tables("DTReport3")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -98,6 +103,16 @@ Partial Public Class DataSetFR
     Public ReadOnly Property DTReport2() As DTReport2DataTable
         Get
             Return Me.tableDTReport2
+        End Get
+    End Property
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+     Global.System.ComponentModel.Browsable(False), _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)> _
+    Public ReadOnly Property DTReport3() As DTReport3DataTable
+        Get
+            Return Me.tableDTReport3
         End Get
     End Property
 
@@ -174,6 +189,9 @@ Partial Public Class DataSetFR
             If (Not (ds.Tables("DTReport2")) Is Nothing) Then
                 MyBase.Tables.Add(New DTReport2DataTable(ds.Tables("DTReport2")))
             End If
+            If (Not (ds.Tables("DTReport3")) Is Nothing) Then
+                MyBase.Tables.Add(New DTReport3DataTable(ds.Tables("DTReport3")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -218,6 +236,12 @@ Partial Public Class DataSetFR
                 Me.tableDTReport2.InitVars()
             End If
         End If
+        Me.tableDTReport3 = CType(MyBase.Tables("DTReport3"), DTReport3DataTable)
+        If (initTable = True) Then
+            If (Not (Me.tableDTReport3) Is Nothing) Then
+                Me.tableDTReport3.InitVars()
+            End If
+        End If
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -232,6 +256,8 @@ Partial Public Class DataSetFR
         MyBase.Tables.Add(Me.tableDTReport1)
         Me.tableDTReport2 = New DTReport2DataTable()
         MyBase.Tables.Add(Me.tableDTReport2)
+        Me.tableDTReport3 = New DTReport3DataTable()
+        MyBase.Tables.Add(Me.tableDTReport3)
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -243,6 +269,12 @@ Partial Public Class DataSetFR
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Private Function ShouldSerializeDTReport2() As Boolean
+        Return False
+    End Function
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Private Function ShouldSerializeDTReport3() As Boolean
         Return False
     End Function
 
@@ -309,6 +341,9 @@ Partial Public Class DataSetFR
 
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Public Delegate Sub DTReport2RowChangeEventHandler(ByVal sender As Object, ByVal e As DTReport2RowChangeEvent)
+
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Public Delegate Sub DTReport3RowChangeEventHandler(ByVal sender As Object, ByVal e As DTReport3RowChangeEvent)
 
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -1062,6 +1097,423 @@ Partial Public Class DataSetFR
     End Class
 
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(), _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")> _
+    Partial Public Class DTReport3DataTable
+        Inherits Global.System.Data.TypedTableBase(Of DTReport3Row)
+
+        Private columnSALEOWNER As Global.System.Data.DataColumn
+
+        Private columnCONTACTNAME As Global.System.Data.DataColumn
+
+        Private columnINVOICEDATE As Global.System.Data.DataColumn
+
+        Private columnINVOICENUMBER As Global.System.Data.DataColumn
+
+        Private columnPARTYNAME As Global.System.Data.DataColumn
+
+        Private columnTOTALAMOUNT As Global.System.Data.DataColumn
+
+        Private columnPENDINGAMOUNT As Global.System.Data.DataColumn
+
+        Private columnACTUALLYPAID As Global.System.Data.DataColumn
+
+        Private columnDUEDATE As Global.System.Data.DataColumn
+
+        Private columnOVERDUE As Global.System.Data.DataColumn
+
+        Private columnCURRENCY As Global.System.Data.DataColumn
+
+        Private columnLASTPAYMENTDATE As Global.System.Data.DataColumn
+
+        Private columnLASTPAYMENTAMOUNT As Global.System.Data.DataColumn
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New()
+            MyBase.New()
+            Me.TableName = "DTReport3"
+            Me.BeginInit()
+            Me.InitClass()
+            Me.EndInit()
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New()
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars()
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property SALEOWNERColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSALEOWNER
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property CONTACTNAMEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCONTACTNAME
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property INVOICEDATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINVOICEDATE
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property INVOICENUMBERColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnINVOICENUMBER
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property PARTYNAMEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPARTYNAME
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property TOTALAMOUNTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTOTALAMOUNT
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property PENDINGAMOUNTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPENDINGAMOUNT
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property ACTUALLYPAIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnACTUALLYPAID
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property DUEDATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDUEDATE
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property OVERDUEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOVERDUE
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property CURRENCYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCURRENCY
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property LASTPAYMENTDATEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLASTPAYMENTDATE
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property LASTPAYMENTAMOUNTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnLASTPAYMENTAMOUNT
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Browsable(False)> _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Default Public ReadOnly Property Item(ByVal index As Integer) As DTReport3Row
+            Get
+                Return CType(Me.Rows(index), DTReport3Row)
+            End Get
+        End Property
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event DTReport3RowChanging As DTReport3RowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event DTReport3RowChanged As DTReport3RowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event DTReport3RowDeleting As DTReport3RowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event DTReport3RowDeleted As DTReport3RowChangeEventHandler
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Sub AddDTReport3Row(ByVal row As DTReport3Row)
+            Me.Rows.Add(row)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Function AddDTReport3Row(ByVal SALEOWNER As String, ByVal CONTACTNAME As String, ByVal INVOICEDATE As Date, ByVal INVOICENUMBER As Integer, ByVal PARTYNAME As String, ByVal TOTALAMOUNT As Decimal, ByVal PENDINGAMOUNT As Decimal, ByVal ACTUALLYPAID As Decimal, ByVal DUEDATE As Date, ByVal OVERDUE As Long, ByVal CURRENCY As String, ByVal LASTPAYMENTDATE As Date, ByVal LASTPAYMENTAMOUNT As Decimal) As DTReport3Row
+            Dim rowDTReport3Row As DTReport3Row = CType(Me.NewRow, DTReport3Row)
+            Dim columnValuesArray() As Object = New Object() {SALEOWNER, CONTACTNAME, INVOICEDATE, INVOICENUMBER, PARTYNAME, TOTALAMOUNT, PENDINGAMOUNT, ACTUALLYPAID, DUEDATE, OVERDUE, CURRENCY, LASTPAYMENTDATE, LASTPAYMENTAMOUNT}
+            rowDTReport3Row.ItemArray = columnValuesArray
+            Me.Rows.Add(rowDTReport3Row)
+            Return rowDTReport3Row
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As DTReport3DataTable = CType(MyBase.Clone, DTReport3DataTable)
+            cln.InitVars()
+            Return cln
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New DTReport3DataTable()
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub InitVars()
+            Me.columnSALEOWNER = MyBase.Columns("SALEOWNER")
+            Me.columnCONTACTNAME = MyBase.Columns("CONTACTNAME")
+            Me.columnINVOICEDATE = MyBase.Columns("INVOICEDATE")
+            Me.columnINVOICENUMBER = MyBase.Columns("INVOICENUMBER")
+            Me.columnPARTYNAME = MyBase.Columns("PARTYNAME")
+            Me.columnTOTALAMOUNT = MyBase.Columns("TOTALAMOUNT")
+            Me.columnPENDINGAMOUNT = MyBase.Columns("PENDINGAMOUNT")
+            Me.columnACTUALLYPAID = MyBase.Columns("ACTUALLYPAID")
+            Me.columnDUEDATE = MyBase.Columns("DUEDATE")
+            Me.columnOVERDUE = MyBase.Columns("OVERDUE")
+            Me.columnCURRENCY = MyBase.Columns("CURRENCY")
+            Me.columnLASTPAYMENTDATE = MyBase.Columns("LASTPAYMENTDATE")
+            Me.columnLASTPAYMENTAMOUNT = MyBase.Columns("LASTPAYMENTAMOUNT")
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitClass()
+            Me.columnSALEOWNER = New Global.System.Data.DataColumn("SALEOWNER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSALEOWNER)
+            Me.columnCONTACTNAME = New Global.System.Data.DataColumn("CONTACTNAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCONTACTNAME)
+            Me.columnINVOICEDATE = New Global.System.Data.DataColumn("INVOICEDATE", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINVOICEDATE)
+            Me.columnINVOICENUMBER = New Global.System.Data.DataColumn("INVOICENUMBER", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnINVOICENUMBER)
+            Me.columnPARTYNAME = New Global.System.Data.DataColumn("PARTYNAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPARTYNAME)
+            Me.columnTOTALAMOUNT = New Global.System.Data.DataColumn("TOTALAMOUNT", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTOTALAMOUNT)
+            Me.columnPENDINGAMOUNT = New Global.System.Data.DataColumn("PENDINGAMOUNT", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPENDINGAMOUNT)
+            Me.columnACTUALLYPAID = New Global.System.Data.DataColumn("ACTUALLYPAID", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnACTUALLYPAID)
+            Me.columnDUEDATE = New Global.System.Data.DataColumn("DUEDATE", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDUEDATE)
+            Me.columnOVERDUE = New Global.System.Data.DataColumn("OVERDUE", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOVERDUE)
+            Me.columnCURRENCY = New Global.System.Data.DataColumn("CURRENCY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCURRENCY)
+            Me.columnLASTPAYMENTDATE = New Global.System.Data.DataColumn("LASTPAYMENTDATE", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLASTPAYMENTDATE)
+            Me.columnLASTPAYMENTAMOUNT = New Global.System.Data.DataColumn("LASTPAYMENTAMOUNT", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnLASTPAYMENTAMOUNT)
+            Me.columnSALEOWNER.MaxLength = 100
+            Me.columnCONTACTNAME.MaxLength = 80
+            Me.columnINVOICEDATE.AllowDBNull = False
+            Me.columnPARTYNAME.MaxLength = 150
+            Me.columnTOTALAMOUNT.AllowDBNull = False
+            Me.columnPENDINGAMOUNT.AllowDBNull = False
+            Me.columnACTUALLYPAID.AllowDBNull = False
+            Me.columnCURRENCY.AllowDBNull = False
+            Me.columnCURRENCY.MaxLength = 3
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function NewDTReport3Row() As DTReport3Row
+            Return CType(Me.NewRow, DTReport3Row)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New DTReport3Row(builder)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(DTReport3Row)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.DTReport3RowChangedEvent) Is Nothing) Then
+                RaiseEvent DTReport3RowChanged(Me, New DTReport3RowChangeEvent(CType(e.Row, DTReport3Row), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.DTReport3RowChangingEvent) Is Nothing) Then
+                RaiseEvent DTReport3RowChanging(Me, New DTReport3RowChangeEvent(CType(e.Row, DTReport3Row), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.DTReport3RowDeletedEvent) Is Nothing) Then
+                RaiseEvent DTReport3RowDeleted(Me, New DTReport3RowChangeEvent(CType(e.Row, DTReport3Row), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.DTReport3RowDeletingEvent) Is Nothing) Then
+                RaiseEvent DTReport3RowDeleting(Me, New DTReport3RowChangeEvent(CType(e.Row, DTReport3Row), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub RemoveDTReport3Row(ByVal row As DTReport3Row)
+            Me.Rows.Remove(row)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As DataSetFR = New DataSetFR()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "DTReport3DataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current, Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+
+                            Do While ((s1.Position <> s1.Length) _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+
+
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close()
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close()
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class DTReport1Row
@@ -1554,6 +2006,293 @@ Partial Public Class DataSetFR
     End Class
 
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class DTReport3Row
+        Inherits Global.System.Data.DataRow
+
+        Private tableDTReport3 As DTReport3DataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableDTReport3 = CType(Me.Table, DTReport3DataTable)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property SALEOWNER() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableDTReport3.SALEOWNERColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SALEOWNER' in table 'DTReport3' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableDTReport3.SALEOWNERColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property CONTACTNAME() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableDTReport3.CONTACTNAMEColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CONTACTNAME' in table 'DTReport3' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableDTReport3.CONTACTNAMEColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property INVOICEDATE() As Date
+            Get
+                Return CType(Me(Me.tableDTReport3.INVOICEDATEColumn), Date)
+            End Get
+            Set(value As Date)
+                Me(Me.tableDTReport3.INVOICEDATEColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property INVOICENUMBER() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableDTReport3.INVOICENUMBERColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'INVOICENUMBER' in table 'DTReport3' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableDTReport3.INVOICENUMBERColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PARTYNAME() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableDTReport3.PARTYNAMEColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PARTYNAME' in table 'DTReport3' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableDTReport3.PARTYNAMEColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property TOTALAMOUNT() As Decimal
+            Get
+                Return CType(Me(Me.tableDTReport3.TOTALAMOUNTColumn), Decimal)
+            End Get
+            Set(value As Decimal)
+                Me(Me.tableDTReport3.TOTALAMOUNTColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property PENDINGAMOUNT() As Decimal
+            Get
+                Return CType(Me(Me.tableDTReport3.PENDINGAMOUNTColumn), Decimal)
+            End Get
+            Set(value As Decimal)
+                Me(Me.tableDTReport3.PENDINGAMOUNTColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property ACTUALLYPAID() As Decimal
+            Get
+                Return CType(Me(Me.tableDTReport3.ACTUALLYPAIDColumn), Decimal)
+            End Get
+            Set(value As Decimal)
+                Me(Me.tableDTReport3.ACTUALLYPAIDColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property DUEDATE() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableDTReport3.DUEDATEColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DUEDATE' in table 'DTReport3' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableDTReport3.DUEDATEColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property OVERDUE() As Long
+            Get
+                Try
+                    Return CType(Me(Me.tableDTReport3.OVERDUEColumn), Long)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'OVERDUE' in table 'DTReport3' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Long)
+                Me(Me.tableDTReport3.OVERDUEColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property CURRENCY() As String
+            Get
+                Return CType(Me(Me.tableDTReport3.CURRENCYColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableDTReport3.CURRENCYColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LASTPAYMENTDATE() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableDTReport3.LASTPAYMENTDATEColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LASTPAYMENTDATE' in table 'DTReport3' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableDTReport3.LASTPAYMENTDATEColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property LASTPAYMENTAMOUNT() As Decimal
+            Get
+                Try
+                    Return CType(Me(Me.tableDTReport3.LASTPAYMENTAMOUNTColumn), Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'LASTPAYMENTAMOUNT' in table 'DTReport3' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Decimal)
+                Me(Me.tableDTReport3.LASTPAYMENTAMOUNTColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsSALEOWNERNull() As Boolean
+            Return Me.IsNull(Me.tableDTReport3.SALEOWNERColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetSALEOWNERNull()
+            Me(Me.tableDTReport3.SALEOWNERColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCONTACTNAMENull() As Boolean
+            Return Me.IsNull(Me.tableDTReport3.CONTACTNAMEColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCONTACTNAMENull()
+            Me(Me.tableDTReport3.CONTACTNAMEColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsINVOICENUMBERNull() As Boolean
+            Return Me.IsNull(Me.tableDTReport3.INVOICENUMBERColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetINVOICENUMBERNull()
+            Me(Me.tableDTReport3.INVOICENUMBERColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPARTYNAMENull() As Boolean
+            Return Me.IsNull(Me.tableDTReport3.PARTYNAMEColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPARTYNAMENull()
+            Me(Me.tableDTReport3.PARTYNAMEColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsDUEDATENull() As Boolean
+            Return Me.IsNull(Me.tableDTReport3.DUEDATEColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetDUEDATENull()
+            Me(Me.tableDTReport3.DUEDATEColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsOVERDUENull() As Boolean
+            Return Me.IsNull(Me.tableDTReport3.OVERDUEColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetOVERDUENull()
+            Me(Me.tableDTReport3.OVERDUEColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLASTPAYMENTDATENull() As Boolean
+            Return Me.IsNull(Me.tableDTReport3.LASTPAYMENTDATEColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLASTPAYMENTDATENull()
+            Me(Me.tableDTReport3.LASTPAYMENTDATEColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsLASTPAYMENTAMOUNTNull() As Boolean
+            Return Me.IsNull(Me.tableDTReport3.LASTPAYMENTAMOUNTColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetLASTPAYMENTAMOUNTNull()
+            Me(Me.tableDTReport3.LASTPAYMENTAMOUNTColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -1611,6 +2350,42 @@ Partial Public Class DataSetFR
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public ReadOnly Property Row() As DTReport2Row
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Public Class DTReport3RowChangeEvent
+        Inherits Global.System.EventArgs
+
+        Private eventRow As DTReport3Row
+
+        Private eventAction As Global.System.Data.DataRowAction
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New(ByVal row As DTReport3Row, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New()
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property Row() As DTReport3Row
             Get
                 Return Me.eventRow
             End Get
@@ -2061,6 +2836,219 @@ Namespace DataSetFRTableAdapters
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(_when, String)
             End If
             Dim dataTable As DataSetFR.DTReport2DataTable = New DataSetFR.DTReport2DataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    Partial Public Class DTReport3TA
+        Inherits Global.System.ComponentModel.Component
+
+        Private WithEvents _adapter As Global.FirebirdSql.Data.FirebirdClient.FbDataAdapter
+
+        Private _connection As Global.FirebirdSql.Data.FirebirdClient.FbConnection
+
+        Private _transaction As Global.FirebirdSql.Data.FirebirdClient.FbTransaction
+
+        Private _commandCollection() As Global.FirebirdSql.Data.FirebirdClient.FbCommand
+
+        Private _clearBeforeFill As Boolean
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New()
+            MyBase.New()
+            Me.ClearBeforeFill = True
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Friend ReadOnly Property Adapter() As Global.FirebirdSql.Data.FirebirdClient.FbDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter()
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Property Connection() As Global.FirebirdSql.Data.FirebirdClient.FbConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection()
+                End If
+                Return Me._connection
+            End Get
+            Set(value As Global.FirebirdSql.Data.FirebirdClient.FbConnection)
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i), Global.FirebirdSql.Data.FirebirdClient.FbCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Property Transaction() As Global.FirebirdSql.Data.FirebirdClient.FbTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set(value As Global.FirebirdSql.Data.FirebirdClient.FbTransaction)
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing) _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing) _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing) _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected ReadOnly Property CommandCollection() As Global.FirebirdSql.Data.FirebirdClient.FbCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection()
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set(value As Boolean)
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.FirebirdSql.Data.FirebirdClient.FbDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "DTReport3"
+            tableMapping.ColumnMappings.Add("SALEOWNER", "SALEOWNER")
+            tableMapping.ColumnMappings.Add("CONTACTNAME", "CONTACTNAME")
+            tableMapping.ColumnMappings.Add("INVOICEDATE", "INVOICEDATE")
+            tableMapping.ColumnMappings.Add("INVOICENUMBER", "INVOICENUMBER")
+            tableMapping.ColumnMappings.Add("PARTYNAME", "PARTYNAME")
+            tableMapping.ColumnMappings.Add("TOTALAMOUNT", "TOTALAMOUNT")
+            tableMapping.ColumnMappings.Add("PENDINGAMOUNT", "PENDINGAMOUNT")
+            tableMapping.ColumnMappings.Add("ACTUALLYPAID", "ACTUALLYPAID")
+            tableMapping.ColumnMappings.Add("DUEDATE", "DUEDATE")
+            tableMapping.ColumnMappings.Add("OVERDUE", "OVERDUE")
+            tableMapping.ColumnMappings.Add("CURRENCY", "CURRENCY")
+            tableMapping.ColumnMappings.Add("LASTPAYMENTDATE", "LASTPAYMENTDATE")
+            tableMapping.ColumnMappings.Add("LASTPAYMENTAMOUNT", "LASTPAYMENTAMOUNT")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitConnection()
+            Me._connection = New Global.FirebirdSql.Data.FirebirdClient.FbConnection()
+            Me._connection.ConnectionString = "character set=UTF8;initial catalog=""E:\Program Files (x86)\AIT\Projetex 9\Projete" & _
+                "x Server\Database\projetex.fdb"";data source=192.168.0.56;user id=ODBC;password=p" & _
+                "assword;role=PROJETEX_ODBC"
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.FirebirdSql.Data.FirebirdClient.FbCommand(0) {}
+            Me._commandCollection(0) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT   CACCOUNTS.CACC_NAME as SaleOwner," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        CCONTACTS.CCON_NAME AS Contac" & _
+                "tName," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CINV_DATE as InvoiceDate," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CINV_GNUMB " & _
+                "as InvoiceNumber," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        CLIENTS.CLIENT_NAME AS PartyName," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        CURR.CURR_" & _
+                "NAME as Currency," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CINV_TOTAL AS TotalAmount," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         (INVOIC" & _
+                "ES.CINV_TOTAL-INVOICES.CINV_ASSIGN_TOTAL) AS PendingAmount," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CI" & _
+                "NV_ASSIGN_TOTAL as ActuallyPaid," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CINV_PLAN_SETTL_DATE AS DueDa" & _
+                "te," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        datediff(day, INVOICES.CINV_PLAN_SETTL_DATE, @when) AS Overdue," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
+                "      (SELECT FIRST 1 CPAYMENTS.CPAYM_DATE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                FROM CPAYMENTS INNER" & _
+                " JOIN CFINLINKS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    ON CPAYMENTS.CPAYM_ID=CFINLINKS.CPAYM_ID " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "                    AND CFINLINKS.CINV_ID=INVOICES.CINV_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    " & _
+                "ORDER BY CPAYMENTS.CPAYM_DATE DESC) AS LastPaymentDate," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        (SELECT FIRST 1" & _
+                " CFINLINKS.LINK_SUM" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                FROM CPAYMENTS INNER JOIN CFINLINKS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
+                "              ON CPAYMENTS.CPAYM_ID=CFINLINKS.CPAYM_ID " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    AND" & _
+                " CFINLINKS.CINV_ID=INVOICES.CINV_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    ORDER BY CPAYMENTS.CPAY" & _
+                "M_DATE DESC) AS LastPaymentAmount" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM CINVOICES INVOICES " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    INNER JOIN CURR" & _
+                " ON CURR.CURR_ID=INVOICES.CURR_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CCONTACTS ON INVOICES.CCON_ID=C" & _
+                "CONTACTS.CCON_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CLIENTS ON CLIENTS.CLIENT_ID=INVOICES.CLIENT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CACCOUNTS ON CACCOUNTS.CLIENT_ID=INVOICES.CLIENT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "where INVOIC" & _
+                "ES.CINV_ASSIGN_TOTAL < INVOICES.CINV_TOTAL AND INVOICES.CINV_ASSIGN_TOTAL > 0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "O" & _
+                "RDER BY INVOICES.CINV_PLAN_SETTL_DATE DESC" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
+            param.ParameterName = "@when"
+            param.DbType = Global.System.Data.DbType.[Date]
+            param.Size = 1024
+            param.IsNullable = True
+            Me._commandCollection(0).Parameters.Add(param)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DataSetFR.DTReport3DataTable, ByVal _when As Date) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(_when, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData(ByVal _when As Date) As DataSetFR.DTReport3DataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(_when, Date)
+            Dim dataTable As DataSetFR.DTReport3DataTable = New DataSetFR.DTReport3DataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function

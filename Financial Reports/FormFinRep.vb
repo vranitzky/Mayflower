@@ -6,16 +6,21 @@ Imports FirebirdSql
 Imports System.Configuration
 Imports System.Globalization
 
-'remember to UPDATE updateTableAdapters EVERY TIME you add a TableAdapter!!!!!
+'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+'!!!! remember to UPDATE updateTableAdapters EVERY TIME you add a TableAdapter !!!!!
+'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Public Class FormFinRep
     Private Loaded As Boolean = False
     Private defaultCulture As CultureInfo = Application.CurrentCulture
 
+    '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    '!!!! remember to UPDATE updateTableAdapters EVERY TIME you add a TableAdapter !!!!!
+    '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     Private Sub updateTableAdapters(connstr As String)
         DTReport1TA.Connection.ConnectionString = connstr
         DTReport2TA.Connection.ConnectionString = connstr
-
+        DTReport3TA.Connection.ConnectionString = connstr
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Cursor = Cursors.WaitCursor
@@ -43,6 +48,7 @@ Public Class FormFinRep
         'TODO: This line of code loads data into the 'DataSetFR.DTReport2' table. You can move, or remove it, as needed.
         'Me.DTReport2TA.Fill(Me.DataSetFR.DTReport2)
         DateTimePickerR2.Value = Today
+        DateTimePickerR3.Value = Today
         Try
             updateTableAdapters(My.Settings.ProjetexDB)
             Me.Loaded = True
@@ -87,7 +93,9 @@ Public Class FormFinRep
 
             Dim i As Integer = 1
             For Each c As DataGridViewColumn In grid.Columns
-                ws.SetValue(1, i, c.HeaderText)
+                If c.Visible Then
+                    ws.SetValue(1, i, c.HeaderText)
+                End If
                 i = i + 1
                 If c.DataPropertyName = "CURRENCY" Then
                     currencyColumn = c
@@ -99,11 +107,12 @@ Public Class FormFinRep
             For r = 0 To grid.Rows.Count - 1
                 If Not IsNothing(currencyColumn) Then
                     currency = grid.Rows(r).Cells(currencyColumn.Index).Value.ToString
-                    CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = currency
-                    'Parse(DataGridViewReport2.Rows(e.RowIndex).Cells(OVERDUEDataGridViewTextBoxColumn.Name.ToString).Value
                 End If
                 For c = 0 To grid.Columns.Count - 1
                     Try
+                        If Not grid.Columns(c).Visible Then
+                            Continue For
+                        End If
                         If IsDBNull(grid.Rows(r).Cells(c).Value) Then
                             Continue For
                         End If
@@ -316,7 +325,7 @@ Public Class FormFinRep
         applyDBSettings()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles ButtonExportR2.Click
         exportToXLSX(DataGridViewReport2, "Payment Tracker " + DateTimePickerR2.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
     End Sub
 
@@ -330,19 +339,49 @@ Public Class FormFinRep
     End Sub
 
     Private Sub DataGridViewReport2_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridViewReport2.RowPostPaint
-        If Integer.Parse(DataGridViewReport2.Rows(e.RowIndex).Cells(OVERDUEDataGridViewTextBoxColumn.Index).Value.ToString) > 0 Then
+        If Integer.Parse(DataGridViewReport2.Rows(e.RowIndex).Cells(R2OVERDUEDataGridViewTextBoxColumn.Index).Value.ToString) > 0 Then
             DataGridViewReport2.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
         Else
             DataGridViewReport2.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.LightGreen
         End If
-        'Application.CurrentCulture = defaultCulture
+        Application.CurrentCulture = defaultCulture
     End Sub
 
     Private Sub DataGridViewReport2_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridViewReport2.RowPrePaint
         Dim myCI As New CultureInfo("en-IN", True) 'Globalization.CultureTypes.NeutralCultures, True)
 
-        myCI.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(CURRENCY.Index).Value.ToString
+        myCI.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(R2CURRENCY.Index).Value.ToString
         Application.CurrentCulture = myCI
         'CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(CURRENCY.Index).Value.ToString
+    End Sub
+
+    Private Sub DateTimePickerR3_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePickerR3.ValueChanged
+        If Not Me.Loaded Then Return
+        Try
+            DTReport3TA.Fill(DataSetFR.DTReport3, DateTimePickerR3.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString)
+        End Try
+    End Sub
+
+    Private Sub DataGridViewReport3_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridViewReport3.RowPostPaint
+        If Integer.Parse(DataGridViewReport3.Rows(e.RowIndex).Cells(R3OVERDUEDataGridViewTextBoxColumn.Index).Value.ToString) > 0 Then
+            DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
+        Else
+            DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.LightGreen
+        End If
+        Application.CurrentCulture = defaultCulture
+    End Sub
+
+    Private Sub DataGridViewReport3_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridViewReport3.RowPrePaint
+        Dim myCI As New CultureInfo("en-IN", True) 'Globalization.CultureTypes.NeutralCultures, True)
+
+        myCI.NumberFormat.CurrencySymbol = DataGridViewReport3.Rows(e.RowIndex).Cells(R3CURRENCY.Index).Value.ToString
+        Application.CurrentCulture = myCI
+        'CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(CURRENCY.Index).Value.ToString
+    End Sub
+
+    Private Sub ButtonExportR3_Click(sender As Object, e As EventArgs) Handles ButtonExportR3.Click
+        exportToXLSX(DataGridViewReport3, "Incentive Calc " + DateTimePickerR3.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
     End Sub
 End Class
