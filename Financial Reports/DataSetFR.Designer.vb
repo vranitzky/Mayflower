@@ -700,6 +700,8 @@ Partial Public Class DataSetFR
 
         Private columnOVERDUE As Global.System.Data.DataColumn
 
+        Private columnCURRENCY As Global.System.Data.DataColumn
+
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
@@ -816,6 +818,14 @@ Partial Public Class DataSetFR
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property CURRENCYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCURRENCY
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Browsable(False)> _
         Public ReadOnly Property Count() As Integer
@@ -852,9 +862,9 @@ Partial Public Class DataSetFR
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddDTReport2Row(ByVal SALEOWNER As String, ByVal CONTACTNAME As String, ByVal INVOICEDATE As Date, ByVal INVOICENUMBER As Integer, ByVal PARTYNAME As String, ByVal TOTALAMOUNT As Decimal, ByVal PENDINGAMOUNT As Decimal, ByVal ACTUALLYPAID As Decimal, ByVal DUEDATE As Date, ByVal OVERDUE As Long) As DTReport2Row
+        Public Overloads Function AddDTReport2Row(ByVal SALEOWNER As String, ByVal CONTACTNAME As String, ByVal INVOICEDATE As Date, ByVal INVOICENUMBER As Integer, ByVal PARTYNAME As String, ByVal TOTALAMOUNT As Decimal, ByVal PENDINGAMOUNT As Decimal, ByVal ACTUALLYPAID As Decimal, ByVal DUEDATE As Date, ByVal OVERDUE As Long, ByVal CURRENCY As String) As DTReport2Row
             Dim rowDTReport2Row As DTReport2Row = CType(Me.NewRow, DTReport2Row)
-            Dim columnValuesArray() As Object = New Object() {SALEOWNER, CONTACTNAME, INVOICEDATE, INVOICENUMBER, PARTYNAME, TOTALAMOUNT, PENDINGAMOUNT, ACTUALLYPAID, DUEDATE, OVERDUE}
+            Dim columnValuesArray() As Object = New Object() {SALEOWNER, CONTACTNAME, INVOICEDATE, INVOICENUMBER, PARTYNAME, TOTALAMOUNT, PENDINGAMOUNT, ACTUALLYPAID, DUEDATE, OVERDUE, CURRENCY}
             rowDTReport2Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowDTReport2Row)
             Return rowDTReport2Row
@@ -887,6 +897,7 @@ Partial Public Class DataSetFR
             Me.columnACTUALLYPAID = MyBase.Columns("ACTUALLYPAID")
             Me.columnDUEDATE = MyBase.Columns("DUEDATE")
             Me.columnOVERDUE = MyBase.Columns("OVERDUE")
+            Me.columnCURRENCY = MyBase.Columns("CURRENCY")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -912,11 +923,15 @@ Partial Public Class DataSetFR
             MyBase.Columns.Add(Me.columnDUEDATE)
             Me.columnOVERDUE = New Global.System.Data.DataColumn("OVERDUE", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOVERDUE)
+            Me.columnCURRENCY = New Global.System.Data.DataColumn("CURRENCY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCURRENCY)
             Me.columnSALEOWNER.MaxLength = 100
             Me.columnCONTACTNAME.MaxLength = 80
             Me.columnINVOICEDATE.AllowDBNull = False
             Me.columnPARTYNAME.MaxLength = 150
             Me.columnTOTALAMOUNT.AllowDBNull = False
+            Me.columnCURRENCY.AllowDBNull = False
+            Me.columnCURRENCY.MaxLength = 3
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -1427,6 +1442,17 @@ Partial Public Class DataSetFR
             End Get
             Set(value As Long)
                 Me(Me.tableDTReport2.OVERDUEColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property CURRENCY() As String
+            Get
+                Return CType(Me(Me.tableDTReport2.CURRENCYColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableDTReport2.CURRENCYColumn) = value
             End Set
         End Property
 
@@ -1961,6 +1987,7 @@ Namespace DataSetFRTableAdapters
             tableMapping.ColumnMappings.Add("ACTUALLYPAID", "ACTUALLYPAID")
             tableMapping.ColumnMappings.Add("DUEDATE", "DUEDATE")
             tableMapping.ColumnMappings.Add("OVERDUE", "OVERDUE")
+            tableMapping.ColumnMappings.Add("CURRENCY", "CURRENCY")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
 
@@ -1981,19 +2008,20 @@ Namespace DataSetFRTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT  CACCOUNTS.CACC_NAME as SaleOwner," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        CCONTACTS.CCON_NAME AS Contact" & _
                 "Name," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CINV_DATE as InvoiceDate," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CINV_GNUMB a" & _
-                "s InvoiceNumber," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        CLIENTS.CLIENT_NAME AS PartyName," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CI" & _
-                "NV_TOTAL AS TotalAmount," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        COALESCE(INVOICES.CINV_TOTAL-TOTALPAYMENTS.TOT" & _
-                "ALPAID,INVOICES.CINV_TOTAL) AS PendingAmount," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        TOTALPAYMENTS.TOTALPAID A" & _
-                "S ActuallyPaid," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CINV_PLAN_SETTL_DATE AS DueDate," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        date" & _
-                "diff(day, INVOICES.CINV_PLAN_SETTL_DATE, @when) AS Overdue" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM CINVOICES INVOI" & _
-                "CES " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN   (SELECT  cf.CINV_ID, SUM(cf.LINK_SUM) as TOTALPAID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                  FROM CFINLINKS cf INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                        CINVOICE" & _
-                "S ci ON cf.CINV_ID = ci.CINV_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                        GROUP BY cf.CINV_ID) AS" & _
-                " TOTALPAYMENTS " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                ON TOTALPAYMENTS.CINV_ID=INVOICES.CINV_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    " & _
-                "LEFT JOIN CCONTACTS ON INVOICES.CCON_ID=CCONTACTS.CCON_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CLIENTS" & _
-                " ON CLIENTS.CLIENT_ID=INVOICES.CLIENT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CACCOUNTS ON CACCOUNTS.C" & _
-                "LIENT_ID=INVOICES.CLIENT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE COALESCE(INVOICES.CINV_TOTAL-TOTALPAYMENTS.TO" & _
-                "TALPAID,INVOICES.CINV_TOTAL) > 0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY Overdue"
+                "s InvoiceNumber," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        CLIENTS.CLIENT_NAME AS PartyName," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        CURR.CURR_N" & _
+                "AME as Currency," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CINV_TOTAL AS TotalAmount," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        COALESCE(" & _
+                "INVOICES.CINV_TOTAL-TOTALPAYMENTS.TOTALPAID,INVOICES.CINV_TOTAL) AS PendingAmoun" & _
+                "t," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        TOTALPAYMENTS.TOTALPAID AS ActuallyPaid," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        INVOICES.CINV_PLAN" & _
+                "_SETTL_DATE AS DueDate," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        datediff(day, INVOICES.CINV_PLAN_SETTL_DATE, @w" & _
+                "hen) AS Overdue" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM CINVOICES INVOICES " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    INNER JOIN CURR ON CURR.CURR_ID=I" & _
+                "NVOICES.CURR_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN   (SELECT  cf.CINV_ID, SUM(cf.LINK_SUM) as TOTALP" & _
+                "AID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                        FROM CFINLINKS cf INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
+                "   CINVOICES ci ON cf.CINV_ID = ci.CINV_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                        GROUP BY cf." & _
+                "CINV_ID) AS TOTALPAYMENTS " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                ON TOTALPAYMENTS.CINV_ID=INVOICES.CI" & _
+                "NV_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CCONTACTS ON INVOICES.CCON_ID=CCONTACTS.CCON_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT J" & _
+                "OIN CLIENTS ON CLIENTS.CLIENT_ID=INVOICES.CLIENT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CACCOUNTS ON " & _
+                "CACCOUNTS.CLIENT_ID=INVOICES.CLIENT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE COALESCE(INVOICES.CINV_TOTAL-TOTAL" & _
+                "PAYMENTS.TOTALPAID,INVOICES.CINV_TOTAL) > 0" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY Overdue"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
             param.ParameterName = "@when"

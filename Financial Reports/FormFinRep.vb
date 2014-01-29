@@ -10,6 +10,7 @@ Imports System.Globalization
 
 Public Class FormFinRep
     Private Loaded As Boolean = False
+    Private defaultCulture As CultureInfo = Application.CurrentCulture
 
     Private Sub updateTableAdapters(connstr As String)
         DTReport1TA.Connection.ConnectionString = connstr
@@ -65,8 +66,10 @@ Public Class FormFinRep
     End Sub
 
     Private Sub exportToXLSX(grid As DataGridView, filename As String)
-        Dim path As String
+        Dim path, currency As String
+        Dim currencyColumn As DataGridViewColumn = Nothing
 
+        currency = ""
         Try
             SaveFileDialog1.FileName = filename + ".xlsx"
             If SaveFileDialog1.ShowDialog() Then
@@ -86,23 +89,28 @@ Public Class FormFinRep
             For Each c As DataGridViewColumn In grid.Columns
                 ws.SetValue(1, i, c.HeaderText)
                 i = i + 1
+                If c.DataPropertyName = "CURRENCY" Then
+                    currencyColumn = c
+                End If
             Next
             ws.Cells("1:1").Style.Font.Bold = True
             ws.Cells("1:1").Style.Border.Bottom.Style = Style.ExcelBorderStyle.Medium
 
             For r = 0 To grid.Rows.Count - 1
+                If Not IsNothing(currencyColumn) Then
+                    currency = grid.Rows(r).Cells(currencyColumn.Index).Value.ToString
+                    CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = currency
+                    'Parse(DataGridViewReport2.Rows(e.RowIndex).Cells(OVERDUEDataGridViewTextBoxColumn.Name.ToString).Value
+                End If
                 For c = 0 To grid.Columns.Count - 1
-                    'ws.SetValue(r + 2, c + 1, DataGridViewReport1.Rows(r).Cells(c).Value)
-                    'Dim format As OfficeOpenXml.Style.ExcelNumberFormat
-                    'format = ws.Cells(r + 2, c + 1).Style.Numberformat
                     Try
                         If IsDBNull(grid.Rows(r).Cells(c).Value) Then
                             Continue For
                         End If
                         If grid.Columns(c).DefaultCellStyle.Format.StartsWith("C") Then 'currency
                             ws.SetValue(r + 2, c + 1, Double.Parse(grid.Rows(r).Cells(c).Value.ToString))
-                            'ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "[$INR]\ #,##0.00;[Red]\-[$INR]\ #,##0.00"
-                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "#,##0.00;[Red]\-#,##0.00"
+                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "[$" + currency + "]\ #,##0.00;[Red]\-[$" + currency + "]\ #,##0.00"
+                            'ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "#,##0.00;[Red]\-#,##0.00"
                         ElseIf grid.Columns(c).DefaultCellStyle.Format.StartsWith("p") Then 'percentage
                             ws.SetValue(r + 2, c + 1, Double.Parse(grid.Rows(r).Cells(c).Value.ToString) / 100)
                             ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "0.00%"
@@ -124,19 +132,10 @@ Public Class FormFinRep
                         MsgBox("r=" + r.ToString + " c=" + c.ToString + vbNewLine + ex.Message)
                     End Try
 
-                    'wr.Write(DataGridViewReport1.Rows(r).Cells(c).Value.ToString + vbTab)
                 Next
-                'wr.WriteLine()
             Next
-
-            'Dim wr1 As StreamWriter = New StreamWriter(path, False, Encoding.UTF8)
-            'wr1.Write(p.
-
-            'wr1.Close()
-
             p.Save()
             System.Diagnostics.Process.Start(f.FullName)
-
         Catch ex As Exception
             MsgBox("There was an error:" + vbNewLine + ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -324,11 +323,26 @@ Public Class FormFinRep
     Private Sub DateTimePickerR2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePickerR2.ValueChanged
         If Not Me.Loaded Then Return
         Try
-            'MsgBox(DataSetFR.DTReport2.
-
             DTReport2TA.Fill(DataSetFR.DTReport2, DateTimePickerR2.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
         Catch ex As Exception
             MsgBox(ex.Message.ToString)
         End Try
+    End Sub
+
+    Private Sub DataGridViewReport2_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridViewReport2.RowPostPaint
+        If Integer.Parse(DataGridViewReport2.Rows(e.RowIndex).Cells(OVERDUEDataGridViewTextBoxColumn.Index).Value.ToString) > 0 Then
+            DataGridViewReport2.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
+        Else
+            DataGridViewReport2.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.LightGreen
+        End If
+        'Application.CurrentCulture = defaultCulture
+    End Sub
+
+    Private Sub DataGridViewReport2_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridViewReport2.RowPrePaint
+        Dim myCI As New CultureInfo("en-IN", True) 'Globalization.CultureTypes.NeutralCultures, True)
+
+        myCI.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(CURRENCY.Index).Value.ToString
+        Application.CurrentCulture = myCI
+        'CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(CURRENCY.Index).Value.ToString
     End Sub
 End Class

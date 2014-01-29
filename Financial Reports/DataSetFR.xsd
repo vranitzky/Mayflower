@@ -71,12 +71,14 @@ ORDER BY  p3.proj_id
         INVOICES.CINV_DATE as InvoiceDate,
         INVOICES.CINV_GNUMB as InvoiceNumber,
         CLIENTS.CLIENT_NAME AS PartyName,
+        CURR.CURR_NAME as Currency,
         INVOICES.CINV_TOTAL AS TotalAmount,
         COALESCE(INVOICES.CINV_TOTAL-TOTALPAYMENTS.TOTALPAID,INVOICES.CINV_TOTAL) AS PendingAmount,
         TOTALPAYMENTS.TOTALPAID AS ActuallyPaid,
         INVOICES.CINV_PLAN_SETTL_DATE AS DueDate,
         datediff(day, INVOICES.CINV_PLAN_SETTL_DATE, @when) AS Overdue
 FROM CINVOICES INVOICES 
+    INNER JOIN CURR ON CURR.CURR_ID=INVOICES.CURR_ID
     LEFT JOIN   (SELECT  cf.CINV_ID, SUM(cf.LINK_SUM) as TOTALPAID
                         FROM CFINLINKS cf INNER JOIN
                         CINVOICES ci ON cf.CINV_ID = ci.CINV_ID
@@ -105,6 +107,7 @@ ORDER BY Overdue</CommandText>
               <Mapping SourceColumn="ACTUALLYPAID" DataSetColumn="ACTUALLYPAID" />
               <Mapping SourceColumn="DUEDATE" DataSetColumn="DUEDATE" />
               <Mapping SourceColumn="OVERDUE" DataSetColumn="OVERDUE" />
+              <Mapping SourceColumn="CURRENCY" DataSetColumn="CURRENCY" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -116,7 +119,7 @@ ORDER BY Overdue</CommandText>
   <xs:element name="DataSetFR" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSetFR" msprop:Generator_UserDSName="DataSetFR">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DTReport1" msprop:Generator_TableClassName="DTReport1DataTable" msprop:Generator_TableVarName="tableDTReport1" msprop:Generator_RowChangedName="DTReport1RowChanged" msprop:Generator_TablePropName="DTReport1" msprop:Generator_RowDeletingName="DTReport1RowDeleting" msprop:Generator_RowChangingName="DTReport1RowChanging" msprop:Generator_RowEvHandlerName="DTReport1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport1RowDeleted" msprop:Generator_RowClassName="DTReport1Row" msprop:Generator_UserTableName="DTReport1" msprop:Generator_RowEvArgName="DTReport1RowChangeEvent">
+        <xs:element name="DTReport1" msprop:Generator_TableClassName="DTReport1DataTable" msprop:Generator_TableVarName="tableDTReport1" msprop:Generator_TablePropName="DTReport1" msprop:Generator_RowDeletingName="DTReport1RowDeleting" msprop:Generator_RowChangingName="DTReport1RowChanging" msprop:Generator_RowEvHandlerName="DTReport1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport1RowDeleted" msprop:Generator_UserTableName="DTReport1" msprop:Generator_RowChangedName="DTReport1RowChanged" msprop:Generator_RowEvArgName="DTReport1RowChangeEvent" msprop:Generator_RowClassName="DTReport1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PROJ_ID" msprop:Generator_ColumnVarNameInTable="columnPROJ_ID" msprop:Generator_ColumnPropNameInRow="PROJ_ID" msprop:Generator_ColumnPropNameInTable="PROJ_IDColumn" msprop:Generator_UserColumnName="PROJ_ID" type="xs:int" />
@@ -143,7 +146,7 @@ ORDER BY Overdue</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTReport2" msprop:Generator_TableClassName="DTReport2DataTable" msprop:Generator_TableVarName="tableDTReport2" msprop:Generator_RowChangedName="DTReport2RowChanged" msprop:Generator_TablePropName="DTReport2" msprop:Generator_RowDeletingName="DTReport2RowDeleting" msprop:Generator_RowChangingName="DTReport2RowChanging" msprop:Generator_RowEvHandlerName="DTReport2RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport2RowDeleted" msprop:Generator_RowClassName="DTReport2Row" msprop:Generator_UserTableName="DTReport2" msprop:Generator_RowEvArgName="DTReport2RowChangeEvent">
+        <xs:element name="DTReport2" msprop:Generator_TableClassName="DTReport2DataTable" msprop:Generator_TableVarName="tableDTReport2" msprop:Generator_TablePropName="DTReport2" msprop:Generator_RowDeletingName="DTReport2RowDeleting" msprop:Generator_RowChangingName="DTReport2RowChanging" msprop:Generator_RowEvHandlerName="DTReport2RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport2RowDeleted" msprop:Generator_UserTableName="DTReport2" msprop:Generator_RowChangedName="DTReport2RowChanged" msprop:Generator_RowEvArgName="DTReport2RowChangeEvent" msprop:Generator_RowClassName="DTReport2Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER" minOccurs="0">
@@ -174,6 +177,13 @@ ORDER BY Overdue</CommandText>
               <xs:element name="ACTUALLYPAID" msprop:Generator_ColumnVarNameInTable="columnACTUALLYPAID" msprop:Generator_ColumnPropNameInRow="ACTUALLYPAID" msprop:Generator_ColumnPropNameInTable="ACTUALLYPAIDColumn" msprop:Generator_UserColumnName="ACTUALLYPAID" type="xs:decimal" minOccurs="0" />
               <xs:element name="DUEDATE" msprop:Generator_ColumnVarNameInTable="columnDUEDATE" msprop:Generator_ColumnPropNameInRow="DUEDATE" msprop:Generator_ColumnPropNameInTable="DUEDATEColumn" msprop:Generator_UserColumnName="DUEDATE" type="xs:dateTime" minOccurs="0" />
               <xs:element name="OVERDUE" msprop:Generator_ColumnVarNameInTable="columnOVERDUE" msprop:Generator_ColumnPropNameInRow="OVERDUE" msprop:Generator_ColumnPropNameInTable="OVERDUEColumn" msprop:Generator_UserColumnName="OVERDUE" type="xs:long" minOccurs="0" />
+              <xs:element name="CURRENCY" msprop:Generator_ColumnVarNameInTable="columnCURRENCY" msprop:Generator_ColumnPropNameInRow="CURRENCY" msprop:Generator_ColumnPropNameInTable="CURRENCYColumn" msprop:Generator_UserColumnName="CURRENCY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
