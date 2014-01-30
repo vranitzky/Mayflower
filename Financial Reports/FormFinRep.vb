@@ -20,7 +20,9 @@ Public Class FormFinRep
     Private Sub updateTableAdapters(connstr As String)
         DTReport1TA.Connection.ConnectionString = connstr
         DTReport2TA.Connection.ConnectionString = connstr
-        DTReport3TA.Connection.ConnectionString = connstr
+        'DTReport3TA.Connection.ConnectionString = connstr
+        'DTReportIncentiveTA.Connection.ConnectionString = connstr
+        DataTable1TableAdapter.Connection.ConnectionString = connstr
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Cursor = Cursors.WaitCursor
@@ -45,10 +47,8 @@ Public Class FormFinRep
     End Sub
 
     Private Sub FormFinRep_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'TODO: This line of code loads data into the 'DataSetFR.DTReport2' table. You can move, or remove it, as needed.
-        'Me.DTReport2TA.Fill(Me.DataSetFR.DTReport2)
         DateTimePickerR2.Value = Today
-        DateTimePickerR3.Value = Today
+        'DateTimePickerR3from.Value = 
         Try
             updateTableAdapters(My.Settings.ProjetexDB)
             Me.Loaded = True
@@ -331,11 +331,13 @@ Public Class FormFinRep
 
     Private Sub DateTimePickerR2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePickerR2.ValueChanged
         If Not Me.Loaded Then Return
+        Me.Cursor = Cursors.WaitCursor
         Try
             DTReport2TA.Fill(DataSetFR.DTReport2, DateTimePickerR2.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
         Catch ex As Exception
             MsgBox(ex.Message.ToString)
         End Try
+        Me.Cursor = Me.DefaultCursor
     End Sub
 
     Private Sub DataGridViewReport2_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridViewReport2.RowPostPaint
@@ -355,33 +357,41 @@ Public Class FormFinRep
         'CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(CURRENCY.Index).Value.ToString
     End Sub
 
-    Private Sub DateTimePickerR3_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePickerR3.ValueChanged
-        If Not Me.Loaded Then Return
-        Try
-            DTReport3TA.Fill(DataSetFR.DTReport3, DateTimePickerR3.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
-        Catch ex As Exception
-            MsgBox(ex.Message.ToString)
-        End Try
+    Private Sub DataGridViewReport3_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs)
+        'If Integer.Parse(DataGridViewReport3.Rows(e.RowIndex).Cells(R3OVERDUEDataGridViewTextBoxColumn.Index).Value.ToString) > 0 Then
+        'DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
+        'Else
+        'DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.LightGreen
+        'End If
+        'Application.CurrentCulture = defaultCulture
     End Sub
 
-    Private Sub DataGridViewReport3_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridViewReport3.RowPostPaint
-        If Integer.Parse(DataGridViewReport3.Rows(e.RowIndex).Cells(R3OVERDUEDataGridViewTextBoxColumn.Index).Value.ToString) > 0 Then
-            DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
-        Else
-            DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.LightGreen
-        End If
-        Application.CurrentCulture = defaultCulture
-    End Sub
-
-    Private Sub DataGridViewReport3_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridViewReport3.RowPrePaint
-        Dim myCI As New CultureInfo("en-IN", True) 'Globalization.CultureTypes.NeutralCultures, True)
-
-        myCI.NumberFormat.CurrencySymbol = DataGridViewReport3.Rows(e.RowIndex).Cells(R3CURRENCY.Index).Value.ToString
-        Application.CurrentCulture = myCI
-        'CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(CURRENCY.Index).Value.ToString
+    Private Sub DataGridViewReport3_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs)
+        'Dim myCI As New CultureInfo("en-IN", True) 'Globalization.CultureTypes.NeutralCultures, True)
+        '
+        'myCI.NumberFormat.CurrencySymbol = DataGridViewReport3.Rows(e.RowIndex).Cells(R3CURRENCY.Index).Value.ToString
+        'Application.CurrentCulture = myCI
     End Sub
 
     Private Sub ButtonExportR3_Click(sender As Object, e As EventArgs) Handles ButtonExportR3.Click
-        exportToXLSX(DataGridViewReport3, "Incentive Calc " + DateTimePickerR3.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
+        exportToXLSX(DataGridViewReport3, "Incentive Calc " + DateTimePickerR3from.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
     End Sub
+
+    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Cursor = Cursors.WaitCursor
+        Try
+            ' DTReport3TA.Fill(DataSetFR.DTReport3, DateTimePickerR3from.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
+            DataTable1TableAdapter.Fill(
+                DataSetFR.DataTable1,
+                DateTimePickerR3from.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+            DateTimePickerR3to.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
+            )
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString)
+        End Try
+        Me.Cursor = Me.DefaultCursor
+
+    End Sub
+
+
 End Class
