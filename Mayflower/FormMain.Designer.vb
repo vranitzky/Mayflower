@@ -87,7 +87,6 @@ Partial Class FormMain
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.BindingSourceCatTools = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.TextBox9 = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -134,6 +133,8 @@ Partial Class FormMain
         Me.EmailSettingsPort = New System.Windows.Forms.TextBox()
         Me.EmailTestModeCheckBox = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.FreelancersFolder = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
@@ -637,6 +638,7 @@ Partial Class FormMain
         Me.APPROVALDataGridViewTextBoxColumn.HeaderText = "Approval"
         Me.APPROVALDataGridViewTextBoxColumn.Name = "APPROVALDataGridViewTextBoxColumn"
         Me.APPROVALDataGridViewTextBoxColumn.ReadOnly = True
+        Me.APPROVALDataGridViewTextBoxColumn.Visible = False
         '
         'EmailButton
         '
@@ -834,7 +836,6 @@ Partial Class FormMain
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.48677!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.51323!))
         Me.TableLayoutPanel2.Controls.Add(Me.RichTextBox1, 1, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.TextBox8, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.TextBox9, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Label18, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label19, 0, 1)
@@ -855,7 +856,7 @@ Partial Class FormMain
         'RichTextBox1
         '
         Me.RichTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BindingSourceCatTools, "TOOLS", True))
-        Me.RichTextBox1.Location = New System.Drawing.Point(102, 84)
+        Me.RichTextBox1.Location = New System.Drawing.Point(102, 72)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
         Me.RichTextBox1.Size = New System.Drawing.Size(335, 94)
@@ -867,15 +868,6 @@ Partial Class FormMain
         Me.BindingSourceCatTools.AllowNew = False
         Me.BindingSourceCatTools.DataMember = "CatTools"
         Me.BindingSourceCatTools.DataSource = Me.DataSet2DataSet
-        '
-        'TextBox8
-        '
-        Me.TextBox8.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTFreelancerInfoBindingSource, "SKYPE", True))
-        Me.TextBox8.Location = New System.Drawing.Point(102, 57)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.ReadOnly = True
-        Me.TextBox8.Size = New System.Drawing.Size(335, 21)
-        Me.TextBox8.TabIndex = 7
         '
         'TextBox9
         '
@@ -914,18 +906,18 @@ Partial Class FormMain
         Me.Label20.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label20.Location = New System.Drawing.Point(3, 54)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(93, 27)
+        Me.Label20.Size = New System.Drawing.Size(93, 15)
         Me.Label20.TabIndex = 2
-        Me.Label20.Text = "Skype"
+        Me.Label20.Text = "..."
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label21
         '
         Me.Label21.AutoSize = True
         Me.Label21.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label21.Location = New System.Drawing.Point(3, 81)
+        Me.Label21.Location = New System.Drawing.Point(3, 69)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(93, 116)
+        Me.Label21.Size = New System.Drawing.Size(93, 128)
         Me.Label21.TabIndex = 3
         Me.Label21.Text = "CAT Tools"
         Me.Label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1380,6 +1372,8 @@ Partial Class FormMain
         '
         Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox1.BackColor = System.Drawing.Color.IndianRed
+        Me.GroupBox1.Controls.Add(Me.Label22)
+        Me.GroupBox1.Controls.Add(Me.FreelancersFolder)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.ButtonTestDBSettings)
@@ -1403,9 +1397,28 @@ Partial Class FormMain
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Database - HIC SUNT LEONES!"
         '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(45, 180)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(60, 15)
+        Me.Label22.TabIndex = 23
+        Me.Label22.Text = "CV Folder"
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'FreelancersFolder
+        '
+        Me.FreelancersFolder.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Freelancers_Lookup.My.MySettings.Default, "FreelancersFolder", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.FreelancersFolder.Location = New System.Drawing.Point(111, 177)
+        Me.FreelancersFolder.Name = "FreelancersFolder"
+        Me.FreelancersFolder.Size = New System.Drawing.Size(350, 21)
+        Me.FreelancersFolder.TabIndex = 22
+        Me.FreelancersFolder.Text = Global.Freelancers_Lookup.My.MySettings.Default.FreelancersFolder
+        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(111, 205)
+        Me.Button1.Location = New System.Drawing.Point(111, 279)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(181, 23)
         Me.Button1.TabIndex = 21
@@ -1415,7 +1428,7 @@ Partial Class FormMain
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(12, 148)
+        Me.Label8.Location = New System.Drawing.Point(64, 146)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(41, 15)
         Me.Label8.TabIndex = 19
@@ -1423,7 +1436,7 @@ Partial Class FormMain
         '
         'ButtonTestDBSettings
         '
-        Me.ButtonTestDBSettings.Location = New System.Drawing.Point(111, 172)
+        Me.ButtonTestDBSettings.Location = New System.Drawing.Point(111, 246)
         Me.ButtonTestDBSettings.Name = "ButtonTestDBSettings"
         Me.ButtonTestDBSettings.Size = New System.Drawing.Size(87, 27)
         Me.ButtonTestDBSettings.TabIndex = 18
@@ -1432,7 +1445,7 @@ Partial Class FormMain
         '
         'ButtonApplyDBSettings
         '
-        Me.ButtonApplyDBSettings.Location = New System.Drawing.Point(205, 172)
+        Me.ButtonApplyDBSettings.Location = New System.Drawing.Point(205, 246)
         Me.ButtonApplyDBSettings.Name = "ButtonApplyDBSettings"
         Me.ButtonApplyDBSettings.Size = New System.Drawing.Size(87, 27)
         Me.ButtonApplyDBSettings.TabIndex = 12
@@ -1453,7 +1466,7 @@ Partial Class FormMain
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(12, 115)
+        Me.Label7.Location = New System.Drawing.Point(44, 115)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(61, 15)
         Me.Label7.TabIndex = 10
@@ -1472,7 +1485,7 @@ Partial Class FormMain
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(12, 85)
+        Me.Label6.Location = New System.Drawing.Point(45, 85)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(60, 15)
         Me.Label6.TabIndex = 8
@@ -1493,7 +1506,7 @@ Partial Class FormMain
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 55)
+        Me.Label5.Location = New System.Drawing.Point(38, 55)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(67, 15)
         Me.Label5.TabIndex = 6
@@ -1513,7 +1526,7 @@ Partial Class FormMain
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 25)
+        Me.Label3.Location = New System.Drawing.Point(16, 25)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(89, 15)
         Me.Label3.TabIndex = 3
@@ -1732,11 +1745,9 @@ Partial Class FormMain
     Friend WithEvents TextBoxEmailAddress As System.Windows.Forms.TextBox
     Friend WithEvents DetailsBoxName As System.Windows.Forms.TextBox
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
@@ -1782,18 +1793,6 @@ Partial Class FormMain
     Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents EmailTestModeCheckBox As System.Windows.Forms.CheckBox
-    Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents NAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SOURCELANGDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TARGETLANG1DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TARGETLANG2DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RATEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CURRENCYDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents COUNTRYDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RoleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SERVICEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents APPROVALDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents EmailButton As System.Windows.Forms.DataGridViewButtonColumn
     Friend WithEvents RestrictByCountry As System.Windows.Forms.CheckBox
     Friend WithEvents Label29 As System.Windows.Forms.Label
     Friend WithEvents ComboBoxCountry As System.Windows.Forms.ComboBox
@@ -1819,5 +1818,20 @@ Partial Class FormMain
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Private WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Private WithEvents StatusLed As Microsoft.VisualBasic.PowerPacks.OvalShape
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents NAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SOURCELANGDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TARGETLANG1DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TARGETLANG2DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RATEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CURRENCYDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents COUNTRYDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RoleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SERVICEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents APPROVALDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents EmailButton As System.Windows.Forms.DataGridViewButtonColumn
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents FreelancersFolder As System.Windows.Forms.TextBox
 
 End Class

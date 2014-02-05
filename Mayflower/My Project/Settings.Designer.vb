@@ -355,6 +355,18 @@ Namespace My
                 Return CType(Me("VirtualBox"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("D:\Business\Experts\Freelance\")>  _
+        Public Property FreelancersFolder() As String
+            Get
+                Return CType(Me("FreelancersFolder"),String)
+            End Get
+            Set
+                Me("FreelancersFolder") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

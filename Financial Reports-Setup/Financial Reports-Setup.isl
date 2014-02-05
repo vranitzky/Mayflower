@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject></subject>
+		<subject>##ID_STRING5##</subject>
 		<author>##ID_STRING2##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
@@ -62,7 +62,7 @@
 		<lastprinted/>
 		<createdtm>06/21/1999 18:30</createdtm>
 		<lastsavedtm>07/14/2000 22:20</lastsavedtm>
-		<pagecount>405</pagecount>
+		<pagecount>301</pagecount>
 		<wordcount>0</wordcount>
 		<charcount/>
 		<appname>InstallShield Express</appname>
@@ -3748,6 +3748,7 @@
 		<row><td>ID_STRING2</td><td>1033</td><td>Mayflower Language Services</td><td>0</td><td/><td>-1734202164</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-1734161204</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>FINANC~1|Financial Reports</td><td>0</td><td/><td>-1734162708</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>Financial Reports</td><td>0</td><td/><td>-123567758</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-1734159188</td></row>
 	</table>
 
@@ -4367,7 +4368,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{320DF742-8B7A-4DBD-9C24-6117A279C560}</td><td/></row>
 		<row><td>ProductName</td><td>Financial Reports-Setup</td><td/></row>
-		<row><td>ProductVersion</td><td>0.2.0</td><td/></row>
+		<row><td>ProductVersion</td><td>1.0.0</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>

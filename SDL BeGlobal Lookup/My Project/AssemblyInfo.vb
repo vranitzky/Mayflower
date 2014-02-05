@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Financial Reports")> 
+<Assembly: AssemblyTitle("Mayflower's SDL BeGlobal Test")> 
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("Mayflower Language Services")> 
-<Assembly: AssemblyProduct("Financial Reports")> 
-<Assembly: AssemblyCopyright("©2014 Mayflower Language Services")> 
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("Mayflower's SDL BeGlobal Test")> 
+<Assembly: AssemblyCopyright("Copyright ©  2014")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("a98cd0ae-1df3-4936-ba71-c4672372a994")> 
+<Assembly: Guid("aea19cab-ad63-468b-862c-dee286e12021")> 
 
 ' Version information for an assembly consists of the following four values:
 '
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("0.2.0.0")> 
+<Assembly: AssemblyFileVersion("0.2.0.0")> 

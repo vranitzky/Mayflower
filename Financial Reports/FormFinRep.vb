@@ -366,11 +366,11 @@ Public Class FormFinRep
         'Application.CurrentCulture = defaultCulture
     End Sub
 
-    Private Sub DataGridViewReport3_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs)
-        'Dim myCI As New CultureInfo("en-IN", True) 'Globalization.CultureTypes.NeutralCultures, True)
-        '
-        'myCI.NumberFormat.CurrencySymbol = DataGridViewReport3.Rows(e.RowIndex).Cells(R3CURRENCY.Index).Value.ToString
-        'Application.CurrentCulture = myCI
+    Private Sub DataGridViewReport3_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridViewReport3.RowPrePaint
+        Dim myCI As New CultureInfo("en-IN", True) 'Globalization.CultureTypes.NeutralCultures, True)
+
+        myCI.NumberFormat.CurrencySymbol = DataGridViewReport3.Rows(e.RowIndex).Cells(R3CURRENCY.Index).Value.ToString
+        Application.CurrentCulture = myCI
     End Sub
 
     Private Sub ButtonExportR3_Click(sender As Object, e As EventArgs) Handles ButtonExportR3.Click
@@ -392,6 +392,5 @@ Public Class FormFinRep
         Me.Cursor = Me.DefaultCursor
 
     End Sub
-
 
 End Class

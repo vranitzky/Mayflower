@@ -1,14 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Freelancer Lookup Tool", "Mayflower\Freelancer Lookup Tool.vbproj", "{5539DF28-529E-4927-BB77-8740B9E016C4}"
-EndProject
-Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Freelancer Lookup Tool-Setup", "Projetex Lookup Tool-Setup\Freelancer Lookup Tool-Setup.isproj", "{3574C791-95B5-47B6-AFEC-CAB876DB43C9}"
-	ProjectSection(ProjectDependencies) = postProject
-		{5539DF28-529E-4927-BB77-8740B9E016C4} = {5539DF28-529E-4927-BB77-8740B9E016C4}
-	EndProjectSection
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Financial Reports", "Financial Reports\Financial Reports.vbproj", "{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}"
 EndProject
@@ -17,53 +12,37 @@ Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Financial Reports-Setup", "
 		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F} = {A0E870AB-5DCD-4153-9EC1-88ED118DA02F}
 	EndProjectSection
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SDL BeGlobal Lookup", "SDL BeGlobal Lookup\SDL BeGlobal Lookup.vbproj", "{DCDC77EE-2A5E-4A66-A177-06CE15495BF0}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Freelancers lookup Tool-Setup", "Freelancers lookup Tool-Setup\Freelancers lookup Tool-Setup.isproj", "{2BC530CE-D2C0-4E81-B849-A9F07BCC22EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5539DF28-529E-4927-BB77-8740B9E016C4} = {5539DF28-529E-4927-BB77-8740B9E016C4}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		CD_ROM|x86 = CD_ROM|x86
 		Debug|x86 = Debug|x86
-		DVD-5|x86 = DVD-5|x86
 		Release|x86 = Release|x86
-		SingleImage|x86 = SingleImage|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5539DF28-529E-4927-BB77-8740B9E016C4}.CD_ROM|x86.ActiveCfg = Release|x86
-		{5539DF28-529E-4927-BB77-8740B9E016C4}.CD_ROM|x86.Build.0 = Release|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Debug|x86.ActiveCfg = Debug|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Debug|x86.Build.0 = Debug|x86
-		{5539DF28-529E-4927-BB77-8740B9E016C4}.DVD-5|x86.ActiveCfg = Release|x86
-		{5539DF28-529E-4927-BB77-8740B9E016C4}.DVD-5|x86.Build.0 = Release|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Release|x86.ActiveCfg = Release|x86
 		{5539DF28-529E-4927-BB77-8740B9E016C4}.Release|x86.Build.0 = Release|x86
-		{5539DF28-529E-4927-BB77-8740B9E016C4}.SingleImage|x86.ActiveCfg = Release|x86
-		{5539DF28-529E-4927-BB77-8740B9E016C4}.SingleImage|x86.Build.0 = Release|x86
-		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.CD_ROM|x86.ActiveCfg = CD_ROM
-		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.CD_ROM|x86.Build.0 = CD_ROM
-		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.Debug|x86.ActiveCfg = SingleImage
-		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.DVD-5|x86.ActiveCfg = DVD-5
-		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.DVD-5|x86.Build.0 = DVD-5
-		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.Release|x86.ActiveCfg = SingleImage
-		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.Release|x86.Build.0 = SingleImage
-		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.SingleImage|x86.ActiveCfg = SingleImage
-		{3574C791-95B5-47B6-AFEC-CAB876DB43C9}.SingleImage|x86.Build.0 = SingleImage
-		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}.CD_ROM|x86.ActiveCfg = Release|x86
-		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}.CD_ROM|x86.Build.0 = Release|x86
 		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}.Debug|x86.ActiveCfg = Debug|x86
 		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}.Debug|x86.Build.0 = Debug|x86
-		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}.DVD-5|x86.ActiveCfg = Release|x86
-		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}.DVD-5|x86.Build.0 = Release|x86
 		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}.Release|x86.ActiveCfg = Release|x86
 		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}.Release|x86.Build.0 = Release|x86
-		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}.SingleImage|x86.ActiveCfg = Release|x86
-		{A0E870AB-5DCD-4153-9EC1-88ED118DA02F}.SingleImage|x86.Build.0 = Release|x86
-		{7618334F-FFFE-477C-B997-49C61443A975}.CD_ROM|x86.ActiveCfg = CD_ROM
-		{7618334F-FFFE-477C-B997-49C61443A975}.CD_ROM|x86.Build.0 = CD_ROM
 		{7618334F-FFFE-477C-B997-49C61443A975}.Debug|x86.ActiveCfg = SingleImage
-		{7618334F-FFFE-477C-B997-49C61443A975}.DVD-5|x86.ActiveCfg = DVD-5
-		{7618334F-FFFE-477C-B997-49C61443A975}.DVD-5|x86.Build.0 = DVD-5
 		{7618334F-FFFE-477C-B997-49C61443A975}.Release|x86.ActiveCfg = SingleImage
 		{7618334F-FFFE-477C-B997-49C61443A975}.Release|x86.Build.0 = SingleImage
-		{7618334F-FFFE-477C-B997-49C61443A975}.SingleImage|x86.ActiveCfg = SingleImage
-		{7618334F-FFFE-477C-B997-49C61443A975}.SingleImage|x86.Build.0 = SingleImage
+		{DCDC77EE-2A5E-4A66-A177-06CE15495BF0}.Debug|x86.ActiveCfg = Debug|x86
+		{DCDC77EE-2A5E-4A66-A177-06CE15495BF0}.Debug|x86.Build.0 = Debug|x86
+		{DCDC77EE-2A5E-4A66-A177-06CE15495BF0}.Release|x86.ActiveCfg = Release|x86
+		{DCDC77EE-2A5E-4A66-A177-06CE15495BF0}.Release|x86.Build.0 = Release|x86
+		{2BC530CE-D2C0-4E81-B849-A9F07BCC22EE}.Debug|x86.ActiveCfg = SingleImage
+		{2BC530CE-D2C0-4E81-B849-A9F07BCC22EE}.Release|x86.ActiveCfg = SingleImage
+		{2BC530CE-D2C0-4E81-B849-A9F07BCC22EE}.Release|x86.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
