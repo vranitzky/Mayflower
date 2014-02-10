@@ -135,7 +135,7 @@
         Dim f As New Form()
         With f
             .Width = 600
-            .Height = 400
+            .Height = 600
             .Text = "Retrieving list of languages..."
         End With
         Dim Log As New RichTextBox
@@ -147,7 +147,8 @@
         f.Controls.Add(Log)
         f.Show(Me)
 
-        Log.AppendText("Retrieving list of languages... restricting to Q5 only" + vbNewLine)
+        Log.AppendText("Retrieving list of languages... " + vbNewLine)
+        Log.Refresh()
 
  
         'AllFromLanguagesAvailable = New Collections.Generic.SortedDictionary(Of String, String)

@@ -1,4 +1,5 @@
-﻿Imports System.Net.Mail
+﻿Imports System.Globalization
+Imports System.Net.Mail
 
 Public Class FormMain
 
@@ -65,7 +66,7 @@ Public Class FormMain
                 "RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, " &
                 "RESOURCES.""AIT$CUSTOMF00074"" AS TargetLang2, " &
                 "RESOURCES.""AIT$CUSTOMF00092"" AS Rate, " &
-                "CURR.CURR_DESC AS Currency, COUNTRIES.COUN_NAME AS Country, " &
+                "CURR.CURR_NAME AS Currency, COUNTRIES.COUN_NAME AS Country, " &
                 "RESOURCES.""AIT$CUSTOMF00093"" AS ""Role"", " &
                 "RESOURCES.""AIT$CUSTOMF00094"" AS Service, " &
                 "RESOURCES.RES_EMAIL1 AS Email1, " &
@@ -83,7 +84,8 @@ Public Class FormMain
         '        "INNER JOIN COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID " &
         '        "INNER JOIN CURR ON RESOURCES.CURR_ID = CURR.CURR_ID " &
         '        "WHERE 1=1 "
-
+        'What follows is horrible, I know. Directly using user submitted text into SQL queries? VERY BAD IDEA!
+        'Should change this into @parameters
         If RestrictBySourceLang.Checked And ComboBoxSourceLang.Text <> "-ALL-" Then
             sql &= "AND (RESOURCES.""AIT$CUSTOMF00068"" = '" & ComboBoxSourceLang.Text & "')"
         End If
@@ -101,6 +103,9 @@ Public Class FormMain
         End If
         If RestrictByCountry.Checked And ComboBoxCountry.SelectedValue.ToString <> "-1" Then
             sql &= "AND (RESOURCES.COUN_ID = '" & ComboBoxCountry.SelectedValue.ToString & "') "
+        End If
+        If RestrictByName.Checked And Not String.IsNullOrWhiteSpace(TextBoxName.Text) Then
+            sql &= "AND (RESOURCES.RES_NAME CONTAINING '" & TextBoxName.Text & "') "
         End If
 
         command.Connection = FreelancersTableAdapter.Connection
@@ -182,7 +187,7 @@ Public Class FormMain
         End If
     End Sub
 
-    Private Sub RestrictByCheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTools.CheckedChanged, RestrictByTargetLang.CheckedChanged, RestrictBySourceLang.CheckedChanged, RestrictByService.CheckedChanged, RestrictByDomain.CheckedChanged, RestrictByCountry.CheckedChanged
+    Private Sub RestrictByCheckedChanged(sender As System.Object, e As System.EventArgs) Handles RestrictByTools.CheckedChanged, RestrictByTargetLang.CheckedChanged, RestrictBySourceLang.CheckedChanged, RestrictByService.CheckedChanged, RestrictByDomain.CheckedChanged, RestrictByCountry.CheckedChanged, RestrictByName.CheckedChanged, RestrictByRole.CheckedChanged
         FillFreelancersTable()
     End Sub
 
@@ -460,7 +465,7 @@ Public Class FormMain
         End If
     End Sub
 
-    Private Sub ComboBoxTools_KeyDown(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles TextBoxTools.KeyDown
+    Private Sub ComboBoxTools_KeyDown(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles TextBoxTools.KeyDown, TextBoxName.KeyDown
         If e.KeyCode = Keys.Return Then
             FillFreelancersTable()
         End If
@@ -803,5 +808,19 @@ Public Class FormMain
             My.Settings.Reset()
             Application.Restart()
         End If
+    End Sub
+
+    Private Sub DataGridView1_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridView1.RowPostPaint
+        If DataGridView1.Rows(e.RowIndex).Cells("APPROVALDataGridViewTextBoxColumn").Value.ToString = "Block" Then
+            DataGridView1.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
+        End If
+    End Sub
+
+    Private Sub DataGridView1_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridView1.RowPrePaint
+        Dim myCI As New CultureInfo("en-IN", True) 'Globalization.CultureTypes.NeutralCultures, True)
+
+        myCI.NumberFormat.CurrencySymbol = DataGridView1.Rows(e.RowIndex).Cells(FreelancersCURRENCY.Index).Value.ToString
+        Application.CurrentCulture = myCI
+
     End Sub
 End Class

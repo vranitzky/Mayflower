@@ -54,7 +54,7 @@
 		<title>Installation Database</title>
 		<subject>##ID_STRING4##</subject>
 		<author>##ID_STRING2##</author>
-		<keywords>Installer,MSI,Database</keywords>
+		<keywords>Installer,MSI,Databa</keywords>
 		<comments>Contact:  Your local administrator</comments>
 		<template>Intel;1033</template>
 		<lastauthor>Administrator</lastauthor>
@@ -1069,6 +1069,7 @@
 		<row><td>ISSelfRegisterCosting</td><td>1</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterCosting</td><td/><td/></row>
 		<row><td>ISSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFiles</td><td/><td/></row>
 		<row><td>ISSelfRegisterFinalize</td><td>1</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFinalize</td><td/><td/></row>
+		<row><td>ISSetAllUsers</td><td>257</td><td>SetAllUsers.dll</td><td>SetAllUsers</td><td/><td/></row>
 		<row><td>ISUnSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISUnSelfRegisterFiles</td><td/><td/></row>
 		<row><td>LaunchProgramFileFromSetupCompleteSuccess</td><td>1</td><td>NewBinary19</td><td>LaunchProgram</td><td/><td/></row>
 		<row><td>SetARPINSTALLLOCATION</td><td>51</td><td>ARPINSTALLLOCATION</td><td>[INSTALLDIR]</td><td/><td/></row>
@@ -1141,8 +1142,9 @@
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
+		<row><td>FREELANCERSLOOKUP_TOOL</td><td>MAYFLOWER_LANGUAGE_SERVICES</td><td>FREELA~1|FreelancersLookup Tool</td><td/><td>0</td><td/></row>
 		<row><td>FREELANCERS_ALOOKUP_TOOL</td><td>MAYFLOWER_LANGUAGE_SERVICES</td><td>FREELA~1|Freelancers alookup Tool</td><td/><td>0</td><td/></row>
-		<row><td>FREELANCERS_LOOKUP_TOOL</td><td>MAYFLOWER_LANGUAGE_SERVICES</td><td>FREELA~1|Freelancers lookup Tool</td><td/><td>0</td><td/></row>
+		<row><td>FREELANCERS_LOOKUP_TOOL</td><td>MAYFLOWER_LANGUAGE_SERVICES</td><td>FREELA~1|Freelancers Lookup Tool</td><td/><td>0</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
@@ -1175,7 +1177,7 @@
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
-		<row><td>freela_1_freelancers_lookup_tool_setup</td><td>mayflo_1_mayflower_language_services</td><td>FREELA~1|Freelancers lookup Tool-Setup</td><td/><td>1</td><td/></row>
+		<row><td>freela_1_freelancers_lookup_tool_setup</td><td>mayflo_1_mayflower_language_services</td><td>FREELA~1|Freelancers Lookup Tool</td><td/><td>1</td><td/></row>
 		<row><td>mayflo_1_mayflower_language_services</td><td>ProgramMenuFolder</td><td>MAYFLO~1|Mayflower Language Services</td><td/><td>1</td><td/></row>
 	</table>
 
@@ -3467,7 +3469,7 @@
 		<row><td>IDS_PROGMSG_XML_UPDATE_FILE</td><td>1033</td><td>Updating XML file %s...</td><td>0</td><td/><td>421715243</td></row>
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>421715243</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>421715243</td></row>
-		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>FREELA~1|Freelancers lookup Tool</td><td>0</td><td/><td>421662187</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>FREELA~1|Freelancers Lookup Tool</td><td>0</td><td/><td>1361224112</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>421715243</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>421715243</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>421715243</td></row>
@@ -3760,6 +3762,8 @@
 		<row><td>ID_STRING2</td><td>1033</td><td>Mayflower Language Services</td><td>0</td><td/><td>421717291</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>421682539</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Freelancers Lookup Tool</td><td>0</td><td/><td>421690955</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>USER'S~1|User's Guide</td><td>0</td><td/><td>1361189328</td></row>
+		<row><td>ID_STRING6</td><td>1033</td><td>FREELA~1|Freelancers Lookup Tool-User's Guide</td><td>0</td><td/><td>1361185264</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>421715243</td></row>
 	</table>
 
@@ -3868,6 +3872,8 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Mayflower\Mayflower.ico</td><td>0</td></row>
+		<row><td>NewShortcut11_F8E50C6A9539464B818AF323B9728F79.exe</td><td/><td>&lt;ProgramFilesFolder&gt;\Adobe\Acrobat 11.0\Acrobat\AcroRd32.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_939DA59B2DF14CEA97A1F511DCC8CE49.exe</td><td/><td>&lt;ProgramFilesFolder&gt;\Adobe\Acrobat 11.0\Acrobat\AcroRd32.exe</td><td>0</td></row>
 		<row><td>_Built1_20DF648C159F4B92BDA057D0E732A602.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Mayflower\Mayflower.ico</td><td>0</td></row>
 		<row><td>_Built_4B3823679D2D41F29B59DDEED9D931BE.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Mayflower\Mayflower.ico</td><td>0</td></row>
 	</table>
@@ -3915,6 +3921,7 @@
 		<row><td>ISSelfRegisterCosting</td><td/><td>2201</td><td/><td/></row>
 		<row><td>ISSelfRegisterFiles</td><td/><td>5601</td><td/><td/></row>
 		<row><td>ISSelfRegisterFinalize</td><td/><td>6601</td><td/><td/></row>
+		<row><td>ISSetAllUsers</td><td>Not Installed</td><td>10</td><td/><td/></row>
 		<row><td>ISUnSelfRegisterFiles</td><td/><td>2202</td><td/><td/></row>
 		<row><td>InstallFiles</td><td/><td>4000</td><td>InstallFiles</td><td/></row>
 		<row><td>InstallFinalize</td><td/><td>6600</td><td>InstallFinalize</td><td/></row>
@@ -4002,7 +4009,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{B7BB6F25-B77C-442D-A74F-ED78EF74F3F7}</td></row>
 		<row><td>ISUSSignature</td><td>{2B0A5E59-AA8B-4883-8F20-C9A6D7DC0CC7}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewAppFiles,viewObjects,viewShortcuts,viewUI,viewSystemSearch,viewRelease,viewDependencies</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewAppFiles,viewObjects,viewShortcuts,viewUI,viewSystemSearch,viewRelease,viewDependencies,viewUpgradePaths</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4032,6 +4039,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>FileCost</td><td/><td>900</td><td>FileCost</td><td/></row>
 		<row><td>FindRelatedProducts</td><td/><td>430</td><td>FindRelatedProducts</td><td/></row>
 		<row><td>ISPreventDowngrade</td><td>ISFOUNDNEWERPRODUCTVERSION</td><td>450</td><td>ISPreventDowngrade</td><td/></row>
+		<row><td>ISSetAllUsers</td><td>Not Installed</td><td>10</td><td/><td/></row>
 		<row><td>InstallWelcome</td><td>Not Installed</td><td>1210</td><td>InstallWelcome</td><td/></row>
 		<row><td>IsolateComponents</td><td/><td>950</td><td>IsolateComponents</td><td/></row>
 		<row><td>LaunchConditions</td><td>Not Installed</td><td>410</td><td>LaunchConditions</td><td/></row>
@@ -4309,8 +4317,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<row><td>ALLUSERS</td><td>1</td><td/></row>
 		<row><td>ARPINSTALLLOCATION</td><td/><td/></row>
-		<row><td>ARPNOREMOVE</td><td>1</td><td/></row>
-		<row><td>ARPNOREPAIR</td><td>1</td><td/></row>
+		<row><td>ARPNOMODIFY</td><td>1</td><td/></row>
 		<row><td>ARPPRODUCTICON</td><td>ARPPRODUCTICON.exe</td><td/></row>
 		<row><td>ARPSIZE</td><td/><td/></row>
 		<row><td>ARPURLINFOABOUT</td><td>##ID_STRING1##</td><td/></row>
@@ -4383,7 +4390,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]Freelancer Lookup Tool.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{937D869E-5B3F-4F82-A101-26A6C837FFC5}</td><td/></row>
 		<row><td>ProductName</td><td>Freelancers Lookup Tool-Setup</td><td/></row>
-		<row><td>ProductVersion</td><td>1.07</td><td/></row>
+		<row><td>ProductVersion</td><td>1.09</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4396,7 +4403,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
 		<row><td>SHOWLAUNCHPROGRAM</td><td>-1</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION40CLIENT</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION40CLIENT;ISACTIONPROP2</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
 		<row><td>UpgradeCode</td><td>{508A5463-095A-4C12-A1E5-0EAA1AFBAF5C}</td><td/></row>
@@ -4462,6 +4469,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="i2">InstallMode</col>
 		<row><td>FileKey1</td><td>Freelancer_Lookup_Tool.Primary_output</td><td/><td>mayflo_1_mayflower_language_services</td><td>2</td></row>
 		<row><td>FileKey2</td><td>Freelancer_Lookup_Tool.Primary_output</td><td/><td>freela_1_freelancers_lookup_tool_setup</td><td>2</td></row>
+		<row><td>NewShortcut1</td><td>ISX_DEFAULTCOMPONENT</td><td/><td>freela_1_freelancers_lookup_tool_setup</td><td>2</td></row>
 		<row><td>_Built</td><td>Freelancer_Lookup_Tool.Primary_output</td><td/><td>freela_1_freelancers_lookup_tool_setup</td><td>2</td></row>
 	</table>
 
@@ -4548,6 +4556,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>NewShortcut1</td><td>freela_1_freelancers_lookup_tool_setup</td><td>##ID_STRING5##</td><td>ISX_DEFAULTCOMPONENT</td><td>[INSTALLDIR]FreelancersLookupTool UserGuide.pdf</td><td/><td/><td/><td>NewShortcut1_939DA59B2DF14CEA97A1F511DCC8CE49.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut11</td><td>DesktopFolder</td><td>##ID_STRING6##</td><td>ISX_DEFAULTCOMPONENT</td><td>[INSTALLDIR]FreelancersLookupTool UserGuide.pdf</td><td/><td/><td/><td>NewShortcut11_F8E50C6A9539464B818AF323B9728F79.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built</td><td>freela_1_freelancers_lookup_tool_setup</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>Freelancer_Lookup_Tool.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built_4B3823679D2D41F29B59DDEED9D931BE.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>Freelancer_Lookup_Tool.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built1_20DF648C159F4B92BDA057D0E732A602.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
@@ -4672,6 +4682,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">ActionProperty</col>
 		<col def="S72">ISDisplayName</col>
 		<row><td>{00000000-0000-0000-0000-000000000000}</td><td>***ALL_VERSIONS***</td><td></td><td></td><td>2</td><td/><td>ISFOUNDNEWERPRODUCTVERSION</td><td>ISPreventDowngrade</td></row>
+		<row><td>{508A5463-095A-4C12-A1E5-0EAA1AFBAF5C}</td><td>1.08</td><td>1.08</td><td></td><td>0</td><td/><td>ISACTIONPROP2</td><td>NewUpgradeEntry2</td></row>
 	</table>
 
 	<table name="Verb">

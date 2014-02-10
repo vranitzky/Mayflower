@@ -24,37 +24,46 @@ Partial Class FormMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabFreelancers = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.RestrictByService = New System.Windows.Forms.CheckBox()
         Me.RestrictByCountry = New System.Windows.Forms.CheckBox()
-        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.RestrictByDomain = New System.Windows.Forms.CheckBox()
         Me.ComboBoxCountry = New System.Windows.Forms.ComboBox()
         Me.COUNTRIESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet2DataSet = New Freelancers_Lookup.DataSet2DataSet()
-        Me.RestrictByService = New System.Windows.Forms.CheckBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.RestrictByDomain = New System.Windows.Forms.CheckBox()
         Me.RestrictByTools = New System.Windows.Forms.CheckBox()
+        Me.Label29 = New System.Windows.Forms.Label()
         Me.TextBoxTools = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.ComboBoxServices = New System.Windows.Forms.ComboBox()
-        Me.DataTableServiceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBoxDomains = New System.Windows.Forms.ComboBox()
-        Me.DataTableDomainsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.LabelRecordsFound = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.RestrictByTargetLang = New System.Windows.Forms.CheckBox()
-        Me.RestrictBySourceLang = New System.Windows.Forms.CheckBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBoxTargetLang = New System.Windows.Forms.ComboBox()
         Me.BindingSourceTargetLang = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ComboBoxDomains = New System.Windows.Forms.ComboBox()
+        Me.DataTableDomainsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.ComboBoxServices = New System.Windows.Forms.ComboBox()
+        Me.DataTableServiceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.ComboBoxSourceLang = New System.Windows.Forms.ComboBox()
         Me.BindingSourceSourceLang = New System.Windows.Forms.BindingSource(Me.components)
+        Me.RestrictBySourceLang = New System.Windows.Forms.CheckBox()
+        Me.RestrictByTargetLang = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.TextBoxName = New System.Windows.Forms.TextBox()
+        Me.RestrictByName = New System.Windows.Forms.CheckBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.LabelRecordsFound = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -62,7 +71,7 @@ Partial Class FormMain
         Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TARGETLANG2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CURRENCYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FreelancersCURRENCY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.COUNTRYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RoleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SERVICEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -98,6 +107,7 @@ Partial Class FormMain
         Me.ISCOMPLETED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PROJ_CODE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LASTJOBDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RJOB_VOLUME = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SERVICEDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CLIENTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PROJECTMANAGERDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -163,17 +173,21 @@ Partial Class FormMain
         Me.FreelancerInfoTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.FreelancerInfoTableAdapter()
         Me.COUNTRIESTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.ComboBoxRole = New System.Windows.Forms.ComboBox()
+        Me.RestrictByRole = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
         Me.TabFreelancers.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        Me.TableLayoutPanel6.SuspendLayout()
         CType(Me.COUNTRIESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet2DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -236,55 +250,136 @@ Partial Class FormMain
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.RestrictByCountry)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label29)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxCountry)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.RestrictByService)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label11)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.RestrictByDomain)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.RestrictByTools)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxTools)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label12)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxServices)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label10)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxDomains)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label9)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.TableLayoutPanel6)
         Me.SplitContainer1.Panel1.Controls.Add(Me.LabelRecordsFound)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label4)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.RestrictByTargetLang)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.RestrictBySourceLang)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label2)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxTargetLang)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label1)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBoxSourceLang)
         '
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
         Me.SplitContainer1.Size = New System.Drawing.Size(954, 499)
-        Me.SplitContainer1.SplitterDistance = 121
+        Me.SplitContainer1.SplitterDistance = 120
         Me.SplitContainer1.SplitterWidth = 5
         Me.SplitContainer1.TabIndex = 0
+        '
+        'TableLayoutPanel6
+        '
+        Me.TableLayoutPanel6.ColumnCount = 9
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
+        Me.TableLayoutPanel6.Controls.Add(Me.Label2, 0, 2)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label11, 7, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.RestrictByService, 8, 3)
+        Me.TableLayoutPanel6.Controls.Add(Me.RestrictByCountry, 2, 3)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label1, 0, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.RestrictByDomain, 8, 2)
+        Me.TableLayoutPanel6.Controls.Add(Me.ComboBoxCountry, 1, 3)
+        Me.TableLayoutPanel6.Controls.Add(Me.RestrictByTools, 8, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label29, 0, 3)
+        Me.TableLayoutPanel6.Controls.Add(Me.TextBoxTools, 7, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.ComboBoxTargetLang, 1, 2)
+        Me.TableLayoutPanel6.Controls.Add(Me.ComboBoxDomains, 4, 2)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label10, 3, 2)
+        Me.TableLayoutPanel6.Controls.Add(Me.ComboBoxSourceLang, 1, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.RestrictBySourceLang, 2, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.RestrictByTargetLang, 2, 2)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label4, 1, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label9, 6, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label23, 3, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.TextBoxName, 4, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.RestrictByName, 5, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label30, 4, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.ComboBoxServices, 7, 3)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label12, 6, 3)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label31, 3, 3)
+        Me.TableLayoutPanel6.Controls.Add(Me.ComboBoxRole, 4, 3)
+        Me.TableLayoutPanel6.Controls.Add(Me.RestrictByRole, 5, 3)
+        Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
+        Me.TableLayoutPanel6.RowCount = 4
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(954, 120)
+        Me.TableLayoutPanel6.TabIndex = 60
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label2.Location = New System.Drawing.Point(3, 60)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(124, 30)
+        Me.Label2.TabIndex = 42
+        Me.Label2.Text = "Target Language:"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.TableLayoutPanel6.SetColumnSpan(Me.Label11, 2)
+        Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label11.Location = New System.Drawing.Point(731, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(220, 30)
+        Me.Label11.TabIndex = 55
+        Me.Label11.Text = "Restrict?"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        '
+        'RestrictByService
+        '
+        Me.RestrictByService.AutoSize = True
+        Me.RestrictByService.Checked = True
+        Me.RestrictByService.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByService.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RestrictByService.Location = New System.Drawing.Point(935, 93)
+        Me.RestrictByService.Name = "RestrictByService"
+        Me.RestrictByService.Size = New System.Drawing.Size(16, 24)
+        Me.RestrictByService.TabIndex = 56
+        Me.RestrictByService.UseVisualStyleBackColor = True
         '
         'RestrictByCountry
         '
         Me.RestrictByCountry.AutoSize = True
         Me.RestrictByCountry.Checked = True
         Me.RestrictByCountry.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictByCountry.Location = New System.Drawing.Point(272, 91)
+        Me.RestrictByCountry.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RestrictByCountry.Location = New System.Drawing.Point(337, 93)
         Me.RestrictByCountry.Name = "RestrictByCountry"
-        Me.RestrictByCountry.Size = New System.Drawing.Size(15, 14)
+        Me.RestrictByCountry.Size = New System.Drawing.Size(14, 24)
         Me.RestrictByCountry.TabIndex = 59
         Me.RestrictByCountry.UseVisualStyleBackColor = True
         '
-        'Label29
+        'Label1
         '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(63, 91)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(51, 15)
-        Me.Label29.TabIndex = 58
-        Me.Label29.Text = "Country:"
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Location = New System.Drawing.Point(3, 30)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(124, 30)
+        Me.Label1.TabIndex = 40
+        Me.Label1.Text = "Source Language:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'RestrictByDomain
+        '
+        Me.RestrictByDomain.AutoSize = True
+        Me.RestrictByDomain.Checked = True
+        Me.RestrictByDomain.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByDomain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RestrictByDomain.Location = New System.Drawing.Point(935, 63)
+        Me.RestrictByDomain.Name = "RestrictByDomain"
+        Me.RestrictByDomain.Size = New System.Drawing.Size(16, 24)
+        Me.RestrictByDomain.TabIndex = 54
+        Me.RestrictByDomain.UseVisualStyleBackColor = True
         '
         'ComboBoxCountry
         '
@@ -292,11 +387,12 @@ Partial Class FormMain
         Me.ComboBoxCountry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBoxCountry.DataSource = Me.COUNTRIESBindingSource
         Me.ComboBoxCountry.DisplayMember = "COUNTRY"
+        Me.ComboBoxCountry.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ComboBoxCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxCountry.FormattingEnabled = True
-        Me.ComboBoxCountry.Location = New System.Drawing.Point(120, 88)
+        Me.ComboBoxCountry.Location = New System.Drawing.Point(133, 93)
         Me.ComboBoxCountry.Name = "ComboBoxCountry"
-        Me.ComboBoxCountry.Size = New System.Drawing.Size(144, 23)
+        Me.ComboBoxCountry.Size = New System.Drawing.Size(198, 23)
         Me.ComboBoxCountry.TabIndex = 57
         Me.ComboBoxCountry.ValueMember = "COUN_ID"
         '
@@ -311,104 +407,72 @@ Partial Class FormMain
         Me.DataSet2DataSet.EnforceConstraints = False
         Me.DataSet2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'RestrictByService
-        '
-        Me.RestrictByService.AutoSize = True
-        Me.RestrictByService.Checked = True
-        Me.RestrictByService.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictByService.Location = New System.Drawing.Point(916, 91)
-        Me.RestrictByService.Name = "RestrictByService"
-        Me.RestrictByService.Size = New System.Drawing.Size(15, 14)
-        Me.RestrictByService.TabIndex = 56
-        Me.RestrictByService.UseVisualStyleBackColor = True
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(876, 7)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(55, 15)
-        Me.Label11.TabIndex = 55
-        Me.Label11.Text = "Restrict?"
-        '
-        'RestrictByDomain
-        '
-        Me.RestrictByDomain.AutoSize = True
-        Me.RestrictByDomain.Checked = True
-        Me.RestrictByDomain.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictByDomain.Location = New System.Drawing.Point(916, 60)
-        Me.RestrictByDomain.Name = "RestrictByDomain"
-        Me.RestrictByDomain.Size = New System.Drawing.Size(15, 14)
-        Me.RestrictByDomain.TabIndex = 54
-        Me.RestrictByDomain.UseVisualStyleBackColor = True
-        '
         'RestrictByTools
         '
         Me.RestrictByTools.AutoSize = True
         Me.RestrictByTools.Checked = True
         Me.RestrictByTools.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictByTools.Location = New System.Drawing.Point(916, 29)
+        Me.RestrictByTools.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RestrictByTools.Location = New System.Drawing.Point(935, 33)
         Me.RestrictByTools.Name = "RestrictByTools"
-        Me.RestrictByTools.Size = New System.Drawing.Size(15, 14)
+        Me.RestrictByTools.Size = New System.Drawing.Size(16, 24)
         Me.RestrictByTools.TabIndex = 53
         Me.RestrictByTools.UseVisualStyleBackColor = True
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label29.Location = New System.Drawing.Point(3, 90)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(124, 30)
+        Me.Label29.TabIndex = 58
+        Me.Label29.Text = "Country:"
+        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'TextBoxTools
         '
         Me.TextBoxTools.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.TextBoxTools.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBoxTools.Location = New System.Drawing.Point(391, 25)
+        Me.TextBoxTools.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxTools.Location = New System.Drawing.Point(731, 33)
         Me.TextBoxTools.Name = "TextBoxTools"
-        Me.TextBoxTools.Size = New System.Drawing.Size(517, 21)
+        Me.TextBoxTools.Size = New System.Drawing.Size(198, 21)
         Me.TextBoxTools.TabIndex = 52
         '
-        'Label12
+        'ComboBoxTargetLang
         '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(330, 91)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(50, 15)
-        Me.Label12.TabIndex = 51
-        Me.Label12.Text = "Service:"
+        Me.ComboBoxTargetLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBoxTargetLang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBoxTargetLang.DataSource = Me.BindingSourceTargetLang
+        Me.ComboBoxTargetLang.DisplayMember = "TARGETLANG"
+        Me.ComboBoxTargetLang.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ComboBoxTargetLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxTargetLang.FormattingEnabled = True
+        Me.ComboBoxTargetLang.Location = New System.Drawing.Point(133, 63)
+        Me.ComboBoxTargetLang.Name = "ComboBoxTargetLang"
+        Me.ComboBoxTargetLang.Size = New System.Drawing.Size(198, 23)
+        Me.ComboBoxTargetLang.TabIndex = 41
         '
-        'ComboBoxServices
+        'BindingSourceTargetLang
         '
-        Me.ComboBoxServices.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.ComboBoxServices.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBoxServices.DataSource = Me.DataTableServiceBindingSource
-        Me.ComboBoxServices.DisplayMember = "SERVICE"
-        Me.ComboBoxServices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxServices.FormattingEnabled = True
-        Me.ComboBoxServices.Location = New System.Drawing.Point(391, 88)
-        Me.ComboBoxServices.Name = "ComboBoxServices"
-        Me.ComboBoxServices.Size = New System.Drawing.Size(517, 23)
-        Me.ComboBoxServices.TabIndex = 50
-        '
-        'DataTableServiceBindingSource
-        '
-        Me.DataTableServiceBindingSource.DataMember = "DataTableService"
-        Me.DataTableServiceBindingSource.DataSource = Me.DataSet2DataSet
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(330, 61)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(54, 15)
-        Me.Label10.TabIndex = 49
-        Me.Label10.Text = "Domain:"
+        Me.BindingSourceTargetLang.AllowNew = False
+        Me.BindingSourceTargetLang.DataMember = "DataTableTargetLang"
+        Me.BindingSourceTargetLang.DataSource = Me.DataSet2DataSet
         '
         'ComboBoxDomains
         '
         Me.ComboBoxDomains.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.ComboBoxDomains.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.TableLayoutPanel6.SetColumnSpan(Me.ComboBoxDomains, 4)
         Me.ComboBoxDomains.DataSource = Me.DataTableDomainsBindingSource
         Me.ComboBoxDomains.DisplayMember = "DOMAINS"
+        Me.ComboBoxDomains.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ComboBoxDomains.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxDomains.FormattingEnabled = True
-        Me.ComboBoxDomains.Location = New System.Drawing.Point(391, 57)
+        Me.ComboBoxDomains.Location = New System.Drawing.Point(437, 63)
         Me.ComboBoxDomains.Name = "ComboBoxDomains"
-        Me.ComboBoxDomains.Size = New System.Drawing.Size(517, 23)
+        Me.ComboBoxDomains.Size = New System.Drawing.Size(492, 23)
         Me.ComboBoxDomains.TabIndex = 48
         '
         'DataTableDomainsBindingSource
@@ -416,14 +480,157 @@ Partial Class FormMain
         Me.DataTableDomainsBindingSource.DataMember = "DataTableDomains"
         Me.DataTableDomainsBindingSource.DataSource = Me.DataSet2DataSet
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label10.Location = New System.Drawing.Point(357, 60)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(74, 30)
+        Me.Label10.TabIndex = 49
+        Me.Label10.Text = "Domain:"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'ComboBoxServices
+        '
+        Me.ComboBoxServices.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBoxServices.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBoxServices.DataSource = Me.DataTableServiceBindingSource
+        Me.ComboBoxServices.DisplayMember = "SERVICE"
+        Me.ComboBoxServices.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ComboBoxServices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxServices.FormattingEnabled = True
+        Me.ComboBoxServices.Location = New System.Drawing.Point(731, 93)
+        Me.ComboBoxServices.Name = "ComboBoxServices"
+        Me.ComboBoxServices.Size = New System.Drawing.Size(198, 23)
+        Me.ComboBoxServices.TabIndex = 50
+        '
+        'DataTableServiceBindingSource
+        '
+        Me.DataTableServiceBindingSource.DataMember = "DataTableService"
+        Me.DataTableServiceBindingSource.DataSource = Me.DataSet2DataSet
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label12.Location = New System.Drawing.Point(661, 90)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(64, 30)
+        Me.Label12.TabIndex = 51
+        Me.Label12.Text = "Service:"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'ComboBoxSourceLang
+        '
+        Me.ComboBoxSourceLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBoxSourceLang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBoxSourceLang.DataSource = Me.BindingSourceSourceLang
+        Me.ComboBoxSourceLang.DisplayMember = "SOURCELANG"
+        Me.ComboBoxSourceLang.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ComboBoxSourceLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxSourceLang.FormattingEnabled = True
+        Me.ComboBoxSourceLang.Location = New System.Drawing.Point(133, 33)
+        Me.ComboBoxSourceLang.Name = "ComboBoxSourceLang"
+        Me.ComboBoxSourceLang.Size = New System.Drawing.Size(198, 23)
+        Me.ComboBoxSourceLang.TabIndex = 39
+        '
+        'BindingSourceSourceLang
+        '
+        Me.BindingSourceSourceLang.AllowNew = False
+        Me.BindingSourceSourceLang.DataMember = "DataTableSourceLang"
+        Me.BindingSourceSourceLang.DataSource = Me.DataSet2DataSet
+        '
+        'RestrictBySourceLang
+        '
+        Me.RestrictBySourceLang.AutoSize = True
+        Me.RestrictBySourceLang.Checked = True
+        Me.RestrictBySourceLang.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictBySourceLang.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RestrictBySourceLang.Location = New System.Drawing.Point(337, 33)
+        Me.RestrictBySourceLang.Name = "RestrictBySourceLang"
+        Me.RestrictBySourceLang.Size = New System.Drawing.Size(14, 24)
+        Me.RestrictBySourceLang.TabIndex = 43
+        Me.RestrictBySourceLang.UseVisualStyleBackColor = True
+        '
+        'RestrictByTargetLang
+        '
+        Me.RestrictByTargetLang.AutoSize = True
+        Me.RestrictByTargetLang.Checked = True
+        Me.RestrictByTargetLang.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByTargetLang.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RestrictByTargetLang.Location = New System.Drawing.Point(337, 63)
+        Me.RestrictByTargetLang.Name = "RestrictByTargetLang"
+        Me.RestrictByTargetLang.Size = New System.Drawing.Size(14, 24)
+        Me.RestrictByTargetLang.TabIndex = 44
+        Me.RestrictByTargetLang.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.TableLayoutPanel6.SetColumnSpan(Me.Label4, 2)
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Location = New System.Drawing.Point(133, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(218, 30)
+        Me.Label4.TabIndex = 45
+        Me.Label4.Text = "Restrict?"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(342, 29)
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label9.Location = New System.Drawing.Point(661, 30)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(40, 15)
+        Me.Label9.Size = New System.Drawing.Size(64, 30)
         Me.Label9.TabIndex = 47
         Me.Label9.Text = "Tools:"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label23.Location = New System.Drawing.Point(357, 30)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(74, 30)
+        Me.Label23.TabIndex = 60
+        Me.Label23.Text = "Name:"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'TextBoxName
+        '
+        Me.TextBoxName.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBoxName.Location = New System.Drawing.Point(437, 33)
+        Me.TextBoxName.Name = "TextBoxName"
+        Me.TextBoxName.Size = New System.Drawing.Size(198, 21)
+        Me.TextBoxName.TabIndex = 61
+        '
+        'RestrictByName
+        '
+        Me.RestrictByName.AutoSize = True
+        Me.RestrictByName.Checked = True
+        Me.RestrictByName.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByName.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RestrictByName.Location = New System.Drawing.Point(641, 33)
+        Me.RestrictByName.Name = "RestrictByName"
+        Me.RestrictByName.Size = New System.Drawing.Size(14, 24)
+        Me.RestrictByName.TabIndex = 62
+        Me.RestrictByName.Text = "CheckBox1"
+        Me.RestrictByName.UseVisualStyleBackColor = True
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.TableLayoutPanel6.SetColumnSpan(Me.Label30, 2)
+        Me.Label30.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label30.Location = New System.Drawing.Point(437, 0)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(218, 30)
+        Me.Label30.TabIndex = 63
+        Me.Label30.Text = "Restrict?"
+        Me.Label30.TextAlign = System.Drawing.ContentAlignment.BottomRight
         '
         'LabelRecordsFound
         '
@@ -433,93 +640,6 @@ Partial Class FormMain
         Me.LabelRecordsFound.Size = New System.Drawing.Size(45, 15)
         Me.LabelRecordsFound.TabIndex = 46
         Me.LabelRecordsFound.Text = "Label9"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(232, 7)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(55, 15)
-        Me.Label4.TabIndex = 45
-        Me.Label4.Text = "Restrict?"
-        '
-        'RestrictByTargetLang
-        '
-        Me.RestrictByTargetLang.AutoSize = True
-        Me.RestrictByTargetLang.Checked = True
-        Me.RestrictByTargetLang.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictByTargetLang.Location = New System.Drawing.Point(272, 60)
-        Me.RestrictByTargetLang.Name = "RestrictByTargetLang"
-        Me.RestrictByTargetLang.Size = New System.Drawing.Size(15, 14)
-        Me.RestrictByTargetLang.TabIndex = 44
-        Me.RestrictByTargetLang.UseVisualStyleBackColor = True
-        '
-        'RestrictBySourceLang
-        '
-        Me.RestrictBySourceLang.AutoSize = True
-        Me.RestrictBySourceLang.Checked = True
-        Me.RestrictBySourceLang.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictBySourceLang.Location = New System.Drawing.Point(272, 29)
-        Me.RestrictBySourceLang.Name = "RestrictBySourceLang"
-        Me.RestrictBySourceLang.Size = New System.Drawing.Size(15, 14)
-        Me.RestrictBySourceLang.TabIndex = 43
-        Me.RestrictBySourceLang.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 61)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(104, 15)
-        Me.Label2.TabIndex = 42
-        Me.Label2.Text = "Target Language:"
-        '
-        'ComboBoxTargetLang
-        '
-        Me.ComboBoxTargetLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.ComboBoxTargetLang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBoxTargetLang.DataSource = Me.BindingSourceTargetLang
-        Me.ComboBoxTargetLang.DisplayMember = "TARGETLANG"
-        Me.ComboBoxTargetLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxTargetLang.FormattingEnabled = True
-        Me.ComboBoxTargetLang.Location = New System.Drawing.Point(120, 57)
-        Me.ComboBoxTargetLang.Name = "ComboBoxTargetLang"
-        Me.ComboBoxTargetLang.Size = New System.Drawing.Size(144, 23)
-        Me.ComboBoxTargetLang.TabIndex = 41
-        '
-        'BindingSourceTargetLang
-        '
-        Me.BindingSourceTargetLang.AllowNew = False
-        Me.BindingSourceTargetLang.DataMember = "DataTableTargetLang"
-        Me.BindingSourceTargetLang.DataSource = Me.DataSet2DataSet
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 29)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(108, 15)
-        Me.Label1.TabIndex = 40
-        Me.Label1.Text = "Source Language:"
-        '
-        'ComboBoxSourceLang
-        '
-        Me.ComboBoxSourceLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.ComboBoxSourceLang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBoxSourceLang.DataSource = Me.BindingSourceSourceLang
-        Me.ComboBoxSourceLang.DisplayMember = "SOURCELANG"
-        Me.ComboBoxSourceLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxSourceLang.FormattingEnabled = True
-        Me.ComboBoxSourceLang.Location = New System.Drawing.Point(120, 25)
-        Me.ComboBoxSourceLang.Name = "ComboBoxSourceLang"
-        Me.ComboBoxSourceLang.Size = New System.Drawing.Size(144, 23)
-        Me.ComboBoxSourceLang.TabIndex = 39
-        '
-        'BindingSourceSourceLang
-        '
-        Me.BindingSourceSourceLang.AllowNew = False
-        Me.BindingSourceSourceLang.DataMember = "DataTableSourceLang"
-        Me.BindingSourceSourceLang.DataSource = Me.DataSet2DataSet
         '
         'DataGridView1
         '
@@ -538,15 +658,15 @@ Partial Class FormMain
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.NAMEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.RATEDataGridViewTextBoxColumn, Me.CURRENCYDataGridViewTextBoxColumn, Me.COUNTRYDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn, Me.APPROVALDataGridViewTextBoxColumn, Me.EmailButton})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.NAMEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.RATEDataGridViewTextBoxColumn, Me.FreelancersCURRENCY, Me.COUNTRYDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn, Me.APPROVALDataGridViewTextBoxColumn, Me.EmailButton})
         Me.DataGridView1.DataSource = Me.BindingSourceFreelancers
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(954, 373)
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(954, 374)
         Me.DataGridView1.TabIndex = 25
         '
         'ID
@@ -594,18 +714,22 @@ Partial Class FormMain
         'RATEDataGridViewTextBoxColumn
         '
         Me.RATEDataGridViewTextBoxColumn.DataPropertyName = "RATE"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "C2"
+        Me.RATEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
         Me.RATEDataGridViewTextBoxColumn.FillWeight = 8.842526!
         Me.RATEDataGridViewTextBoxColumn.HeaderText = "Rate"
         Me.RATEDataGridViewTextBoxColumn.Name = "RATEDataGridViewTextBoxColumn"
         Me.RATEDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'CURRENCYDataGridViewTextBoxColumn
+        'FreelancersCURRENCY
         '
-        Me.CURRENCYDataGridViewTextBoxColumn.DataPropertyName = "CURRENCY"
-        Me.CURRENCYDataGridViewTextBoxColumn.FillWeight = 6.631895!
-        Me.CURRENCYDataGridViewTextBoxColumn.HeaderText = "Currency"
-        Me.CURRENCYDataGridViewTextBoxColumn.Name = "CURRENCYDataGridViewTextBoxColumn"
-        Me.CURRENCYDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FreelancersCURRENCY.DataPropertyName = "CURRENCY"
+        Me.FreelancersCURRENCY.FillWeight = 6.631895!
+        Me.FreelancersCURRENCY.HeaderText = "Currency"
+        Me.FreelancersCURRENCY.Name = "FreelancersCURRENCY"
+        Me.FreelancersCURRENCY.ReadOnly = True
+        Me.FreelancersCURRENCY.Visible = False
         '
         'COUNTRYDataGridViewTextBoxColumn
         '
@@ -940,18 +1064,21 @@ Partial Class FormMain
         Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView2.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RJOB_ASSIGNED, Me.ISCOMPLETED, Me.PROJ_CODE, Me.LASTJOBDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn1, Me.CLIENTDataGridViewTextBoxColumn, Me.PROJECTMANAGERDataGridViewTextBoxColumn, Me.RJOB_PRICE, Me.RJOB_FEE_KIND, Me.DataGridViewTextBoxColumn8})
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RJOB_ASSIGNED, Me.ISCOMPLETED, Me.PROJ_CODE, Me.LASTJOBDataGridViewTextBoxColumn, Me.RJOB_VOLUME, Me.SERVICEDataGridViewTextBoxColumn1, Me.CLIENTDataGridViewTextBoxColumn, Me.PROJECTMANAGERDataGridViewTextBoxColumn, Me.RJOB_PRICE, Me.RJOB_FEE_KIND, Me.DataGridViewTextBoxColumn8})
         Me.DataGridView2.DataSource = Me.DTDetailsBindingSource
         Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.Size = New System.Drawing.Size(954, 310)
         Me.DataGridView2.TabIndex = 1
         '
         'RJOB_ASSIGNED
         '
         Me.RJOB_ASSIGNED.DataPropertyName = "RJOB_ASSIGNED"
+        DataGridViewCellStyle3.Format = "d"
+        Me.RJOB_ASSIGNED.DefaultCellStyle = DataGridViewCellStyle3
         Me.RJOB_ASSIGNED.HeaderText = "Date"
         Me.RJOB_ASSIGNED.Name = "RJOB_ASSIGNED"
         Me.RJOB_ASSIGNED.ReadOnly = True
@@ -978,6 +1105,16 @@ Partial Class FormMain
         Me.LASTJOBDataGridViewTextBoxColumn.Name = "LASTJOBDataGridViewTextBoxColumn"
         Me.LASTJOBDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'RJOB_VOLUME
+        '
+        Me.RJOB_VOLUME.DataPropertyName = "RJOB_VOLUME"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N2"
+        Me.RJOB_VOLUME.DefaultCellStyle = DataGridViewCellStyle4
+        Me.RJOB_VOLUME.HeaderText = "Volume"
+        Me.RJOB_VOLUME.Name = "RJOB_VOLUME"
+        Me.RJOB_VOLUME.ReadOnly = True
+        '
         'SERVICEDataGridViewTextBoxColumn1
         '
         Me.SERVICEDataGridViewTextBoxColumn1.DataPropertyName = "SERVICE"
@@ -1002,6 +1139,9 @@ Partial Class FormMain
         'RJOB_PRICE
         '
         Me.RJOB_PRICE.DataPropertyName = "RJOB_PRICE"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.Format = "C2"
+        Me.RJOB_PRICE.DefaultCellStyle = DataGridViewCellStyle5
         Me.RJOB_PRICE.HeaderText = "Price"
         Me.RJOB_PRICE.Name = "RJOB_PRICE"
         Me.RJOB_PRICE.ReadOnly = True
@@ -1613,6 +1753,39 @@ Partial Class FormMain
         '
         Me.COUNTRIESTableAdapter.ClearBeforeFill = True
         '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label31.Location = New System.Drawing.Point(357, 90)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(74, 30)
+        Me.Label31.TabIndex = 64
+        Me.Label31.Text = "Role:"
+        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'ComboBoxRole
+        '
+        Me.ComboBoxRole.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ComboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxRole.FormattingEnabled = True
+        Me.ComboBoxRole.Location = New System.Drawing.Point(437, 93)
+        Me.ComboBoxRole.Name = "ComboBoxRole"
+        Me.ComboBoxRole.Size = New System.Drawing.Size(198, 23)
+        Me.ComboBoxRole.TabIndex = 65
+        '
+        'RestrictByRole
+        '
+        Me.RestrictByRole.AutoSize = True
+        Me.RestrictByRole.Checked = True
+        Me.RestrictByRole.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByRole.Location = New System.Drawing.Point(641, 93)
+        Me.RestrictByRole.Name = "RestrictByRole"
+        Me.RestrictByRole.Size = New System.Drawing.Size(14, 19)
+        Me.RestrictByRole.TabIndex = 66
+        Me.RestrictByRole.Text = "CheckBox1"
+        Me.RestrictByRole.UseVisualStyleBackColor = True
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -1634,11 +1807,13 @@ Partial Class FormMain
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        Me.TableLayoutPanel6.ResumeLayout(False)
+        Me.TableLayoutPanel6.PerformLayout()
         CType(Me.COUNTRIESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet2DataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1798,16 +1973,6 @@ Partial Class FormMain
     Friend WithEvents ComboBoxCountry As System.Windows.Forms.ComboBox
     Friend WithEvents COUNTRIESBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents COUNTRIESTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter
-    Friend WithEvents RJOB_ASSIGNED As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ISCOMPLETED As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PROJ_CODE As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents LASTJOBDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents SERVICEDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CLIENTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PROJECTMANAGERDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RJOB_PRICE As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RJOB_FEE_KIND As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Label30a As System.Windows.Forms.Label
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents TableLayoutPanel5 As System.Windows.Forms.TableLayoutPanel
@@ -1819,19 +1984,38 @@ Partial Class FormMain
     Private WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Private WithEvents StatusLed As Microsoft.VisualBasic.PowerPacks.OvalShape
     Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents FreelancersFolder As System.Windows.Forms.TextBox
+    Friend WithEvents TableLayoutPanel6 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents TextBoxName As System.Windows.Forms.TextBox
+    Friend WithEvents RestrictByName As System.Windows.Forms.CheckBox
+    Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents RJOB_ASSIGNED As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ISCOMPLETED As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PROJ_CODE As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LASTJOBDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RJOB_VOLUME As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SERVICEDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CLIENTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PROJECTMANAGERDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RJOB_PRICE As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RJOB_FEE_KIND As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SOURCELANGDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TARGETLANG1DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TARGETLANG2DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RATEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CURRENCYDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents FreelancersCURRENCY As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents COUNTRYDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RoleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SERVICEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents APPROVALDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents EmailButton As System.Windows.Forms.DataGridViewButtonColumn
-    Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents FreelancersFolder As System.Windows.Forms.TextBox
+    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents ComboBoxRole As System.Windows.Forms.ComboBox
+    Friend WithEvents RestrictByRole As System.Windows.Forms.CheckBox
 
 End Class
