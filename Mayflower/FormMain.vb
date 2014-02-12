@@ -95,6 +95,9 @@ Public Class FormMain
         If RestrictByService.Checked And ComboBoxServices.Text <> "-ALL-" Then
             sql &= "AND (""AIT$CUSTOMF00094"" = '" & ComboBoxServices.Text & "') "
         End If
+        If RestrictByRole.Checked And ComboBoxRole.Text <> "-ALL-" Then
+            sql &= "AND (""AIT$CUSTOMF00093"" = '" & ComboBoxRole.Text & "') "
+        End If
         If RestrictByDomain.Checked And ComboBoxDomains.Text <> "-ALL-" Then
             sql &= "AND ((RESOURCES.""AIT$CUSTOMF00103"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00104"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00105"" CONTAINING '" & ComboBoxDomains.Text & "')) "
         End If
@@ -199,9 +202,10 @@ Public Class FormMain
         Try
             Me.Cursor = Cursors.WaitCursor
             ID = CInt(DataGridView1.CurrentRow.Cells(0).Value) 'this is the ID
-            FreelancerInfoTableAdapter.FillByResid(Me.DataSet2DataSet.DTFreelancerInfo, ID)
+            FreelancerInfoTableAdapter.FillByResid(Me.DataSet2DataSet.DTFreelancerInfo, ID) ', "'" + FreelancersFolder.Text + "'")
             TADetails.Fill(Me.DataSet2DataSet.DTDetails, ID)
             CatToolsTableAdapter.FillByResID(Me.DataSet2DataSet.CatTools, ID)
+            LinkLabelFiles.Text = FreelancersFolder.Text + "\" + LinkLabelFiles.Text + "\CV"
             TabControl1.SelectedTab = TabDetails
         Catch ex As Exception
             MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine &
@@ -429,6 +433,8 @@ Public Class FormMain
             'TODO: This line of code loads data into the 'DataSet2DataSet.DataTableDomains' table. You can move, or remove it, as needed.
             Me.DomainsTableAdapter.Fill(Me.DataSet2DataSet.DataTableDomains)
             'Me.FreelancersTableAdapter.Fill(Me.DataSet2DataSet.DataTableFreelancers)
+            'TODO: This line of code loads data into the 'DataSet2DataSet2.DataTableRole' table. You can move, or remove it, as needed.
+            Me.RoleTableAdapter.Fill(Me.DataSet2DataSet2.DataTableRole)
             'TODO: This line of code loads data into the 'DataSet2DataSet.DataTableService' table. You can move, or remove it, as needed.
             'Me.CatToolsTableAdapter.Fill(Me.DataSet2DataSet.CatTools)
             GetCatTools()
@@ -822,5 +828,20 @@ Public Class FormMain
         myCI.NumberFormat.CurrencySymbol = DataGridView1.Rows(e.RowIndex).Cells(FreelancersCURRENCY.Index).Value.ToString
         Application.CurrentCulture = myCI
 
+    End Sub
+
+    Private Sub ComboBoxRole_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles ComboBoxRole.SelectionChangeCommitted
+        If RestrictByRole.Checked Then
+            FillFreelancersTable()
+        End If
+    End Sub
+
+    
+    Private Sub LinkLabelFiles_Click(sender As Object, e As EventArgs) Handles LinkLabelFiles.Click
+        Try
+            System.Diagnostics.Process.Start(LinkLabelFiles.Text)
+        Catch ex As Exception
+            MsgBox("The person has no folder")
+        End Try
     End Sub
 End Class

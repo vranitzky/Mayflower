@@ -1576,6 +1576,8 @@ Partial Public Class DataSetFR
 
         Private columnLASTPAYMENTDATE As Global.System.Data.DataColumn
 
+        Private columnSTATUS As Global.System.Data.DataColumn
+
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
@@ -1692,6 +1694,14 @@ Partial Public Class DataSetFR
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property STATUSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSTATUS
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Browsable(False)> _
         Public ReadOnly Property Count() As Integer
@@ -1728,9 +1738,9 @@ Partial Public Class DataSetFR
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddDataTable1Row(ByVal SALEOWNER As String, ByVal CONTACTNAME As String, ByVal INVOICEDATE As Date, ByVal INVOICENUMBER As Long, ByVal PARTYNAME As String, ByVal CURRENCY As String, ByVal TOTALAMOUNT As Decimal, ByVal PAIDSOFAR As Decimal, ByVal DUEDATE As Date, ByVal LASTPAYMENTDATE As Date) As DataTable1Row
+        Public Overloads Function AddDataTable1Row(ByVal SALEOWNER As String, ByVal CONTACTNAME As String, ByVal INVOICEDATE As Date, ByVal INVOICENUMBER As Long, ByVal PARTYNAME As String, ByVal CURRENCY As String, ByVal TOTALAMOUNT As Decimal, ByVal PAIDSOFAR As Decimal, ByVal DUEDATE As Date, ByVal LASTPAYMENTDATE As Date, ByVal STATUS As Short) As DataTable1Row
             Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow, DataTable1Row)
-            Dim columnValuesArray() As Object = New Object() {SALEOWNER, CONTACTNAME, INVOICEDATE, INVOICENUMBER, PARTYNAME, CURRENCY, TOTALAMOUNT, PAIDSOFAR, DUEDATE, LASTPAYMENTDATE}
+            Dim columnValuesArray() As Object = New Object() {SALEOWNER, CONTACTNAME, INVOICEDATE, INVOICENUMBER, PARTYNAME, CURRENCY, TOTALAMOUNT, PAIDSOFAR, DUEDATE, LASTPAYMENTDATE, STATUS}
             rowDataTable1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTable1Row)
             Return rowDataTable1Row
@@ -1763,6 +1773,7 @@ Partial Public Class DataSetFR
             Me.columnPAIDSOFAR = MyBase.Columns("PAIDSOFAR")
             Me.columnDUEDATE = MyBase.Columns("DUEDATE")
             Me.columnLASTPAYMENTDATE = MyBase.Columns("LASTPAYMENTDATE")
+            Me.columnSTATUS = MyBase.Columns("STATUS")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -1788,6 +1799,8 @@ Partial Public Class DataSetFR
             MyBase.Columns.Add(Me.columnDUEDATE)
             Me.columnLASTPAYMENTDATE = New Global.System.Data.DataColumn("LASTPAYMENTDATE", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLASTPAYMENTDATE)
+            Me.columnSTATUS = New Global.System.Data.DataColumn("STATUS", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSTATUS)
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -2863,6 +2876,21 @@ Partial Public Class DataSetFR
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property STATUS() As Short
+            Get
+                Try
+                    Return CType(Me(Me.tableDataTable1.STATUSColumn), Short)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'STATUS' in table 'DataTable1' is DBNull.", e)
+                End Try
+            End Get
+            Set(value As Short)
+                Me(Me.tableDataTable1.STATUSColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Function IsSALEOWNERNull() As Boolean
             Return Me.IsNull(Me.tableDataTable1.SALEOWNERColumn)
         End Function
@@ -2979,6 +3007,18 @@ Partial Public Class DataSetFR
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub SetLASTPAYMENTDATENull()
             Me(Me.tableDataTable1.LASTPAYMENTDATEColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsSTATUSNull() As Boolean
+            Return Me.IsNull(Me.tableDataTable1.STATUSColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetSTATUSNull()
+            Me(Me.tableDataTable1.STATUSColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
 
@@ -3917,6 +3957,7 @@ Namespace DataSetFRTableAdapters
             tableMapping.ColumnMappings.Add("PAIDSOFAR", "PAIDSOFAR")
             tableMapping.ColumnMappings.Add("DUEDATE", "DUEDATE")
             tableMapping.ColumnMappings.Add("LASTPAYMENTDATE", "LASTPAYMENTDATE")
+            tableMapping.ColumnMappings.Add("STATUS", "STATUS")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
 
@@ -3943,12 +3984,16 @@ Namespace DataSetFRTableAdapters
                 "e," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        (SELECT FIRST 1 CPAYMENTS.CPAYM_DATE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                FROM CPAYMENTS" & _
                 " INNER JOIN CFINLINKS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    ON CPAYMENTS.CPAYM_ID=CFINLINKS.CPAYM" & _
                 "_ID " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    AND CFINLINKS.CINV_ID=INVOICES.CINV_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
-                "      ORDER BY CPAYMENTS.CPAYM_DATE DESC) AS LastPaymentDate" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM CINVOICES INV" & _
-                "OICES " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    INNER JOIN CURR ON CURR.CURR_ID=INVOICES.CURR_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CCON" & _
-                "TACTS ON INVOICES.CCON_ID=CCONTACTS.CCON_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CLIENTS ON CLIENTS.CL" & _
-                "IENT_ID=INVOICES.CLIENT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CACCOUNTS ON CACCOUNTS.CLIENT_ID=INVOI" & _
-                "CES.CLIENT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE INVOICES.CINV_DATE >= @from AND INVOICES.CINV_DATE <= @to" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
-                "ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE"
+                "      ORDER BY CPAYMENTS.CPAYM_DATE DESC) AS LastPaymentDate," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        datediff(" & _
+                "day, INVOICES.CINV_PLAN_SETTL_DATE, (SELECT FIRST 1 CPAYMENTS.CPAYM_DATE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
+                "          FROM CPAYMENTS INNER JOIN CFINLINKS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    ON CPAYMENTS." & _
+                "CPAYM_ID=CFINLINKS.CPAYM_ID " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    AND CFINLINKS.CINV_ID=INVOICES" & _
+                ".CINV_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    ORDER BY CPAYMENTS.CPAYM_DATE DESC)) AS Status" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FR" & _
+                "OM CINVOICES INVOICES " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    INNER JOIN CURR ON CURR.CURR_ID=INVOICES.CURR_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
+                "  LEFT JOIN CCONTACTS ON INVOICES.CCON_ID=CCONTACTS.CCON_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CLIEN" & _
+                "TS ON CLIENTS.CLIENT_ID=INVOICES.CLIENT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    LEFT JOIN CACCOUNTS ON CACCOUNTS" & _
+                ".CLIENT_ID=INVOICES.CLIENT_ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE INVOICES.CINV_DATE >= @from AND INVOICES.CI" & _
+                "NV_DATE <= @to" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Dim param As Global.FirebirdSql.Data.FirebirdClient.FbParameter = New Global.FirebirdSql.Data.FirebirdClient.FbParameter()
             param.ParameterName = "@from"

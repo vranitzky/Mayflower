@@ -12,7 +12,7 @@
       <Value Profile="(Default)">C:\Projetex9\Projetex Server\Database\projetex.fdb</Value>
     </Setting>
     <Setting Name="DBPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)">pwww</Value>
+      <Value Profile="(Default)">password</Value>
     </Setting>
     <Setting Name="ProjetexDB" Type="System.String" Scope="User">
       <Value Profile="(Default)">character set=UTF8;data source=192.168.56.101;initial catalog="C:\Projetex9\Projetex Server\Database\projetex.fdb";user id=ODBC;password=pwww;role=PROJETEX_ODBC</Value>

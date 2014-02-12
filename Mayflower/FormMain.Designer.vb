@@ -50,9 +50,6 @@ Partial Class FormMain
         Me.ComboBoxDomains = New System.Windows.Forms.ComboBox()
         Me.DataTableDomainsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ComboBoxServices = New System.Windows.Forms.ComboBox()
-        Me.DataTableServiceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.ComboBoxSourceLang = New System.Windows.Forms.ComboBox()
         Me.BindingSourceSourceLang = New System.Windows.Forms.BindingSource(Me.components)
         Me.RestrictBySourceLang = New System.Windows.Forms.CheckBox()
@@ -63,6 +60,14 @@ Partial Class FormMain
         Me.TextBoxName = New System.Windows.Forms.TextBox()
         Me.RestrictByName = New System.Windows.Forms.CheckBox()
         Me.Label30 = New System.Windows.Forms.Label()
+        Me.ComboBoxServices = New System.Windows.Forms.ComboBox()
+        Me.DataTableServiceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.ComboBoxRole = New System.Windows.Forms.ComboBox()
+        Me.DataTableRoleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet2DataSet2 = New Freelancers_Lookup.DataSet2DataSet()
+        Me.RestrictByRole = New System.Windows.Forms.CheckBox()
         Me.LabelRecordsFound = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -102,6 +107,7 @@ Partial Class FormMain
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.LinkLabelFiles = New System.Windows.Forms.LinkLabel()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.RJOB_ASSIGNED = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ISCOMPLETED = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -173,9 +179,7 @@ Partial Class FormMain
         Me.FreelancerInfoTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.FreelancerInfoTableAdapter()
         Me.COUNTRIESTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.ComboBoxRole = New System.Windows.Forms.ComboBox()
-        Me.RestrictByRole = New System.Windows.Forms.CheckBox()
+        Me.RoleTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.RoleTableAdapter()
         Me.TabControl1.SuspendLayout()
         Me.TabFreelancers.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -187,8 +191,10 @@ Partial Class FormMain
         CType(Me.DataSet2DataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataTableRoleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet2DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabDetails.SuspendLayout()
@@ -491,36 +497,6 @@ Partial Class FormMain
         Me.Label10.Text = "Domain:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'ComboBoxServices
-        '
-        Me.ComboBoxServices.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.ComboBoxServices.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBoxServices.DataSource = Me.DataTableServiceBindingSource
-        Me.ComboBoxServices.DisplayMember = "SERVICE"
-        Me.ComboBoxServices.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ComboBoxServices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxServices.FormattingEnabled = True
-        Me.ComboBoxServices.Location = New System.Drawing.Point(731, 93)
-        Me.ComboBoxServices.Name = "ComboBoxServices"
-        Me.ComboBoxServices.Size = New System.Drawing.Size(198, 23)
-        Me.ComboBoxServices.TabIndex = 50
-        '
-        'DataTableServiceBindingSource
-        '
-        Me.DataTableServiceBindingSource.DataMember = "DataTableService"
-        Me.DataTableServiceBindingSource.DataSource = Me.DataSet2DataSet
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label12.Location = New System.Drawing.Point(661, 90)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(64, 30)
-        Me.Label12.TabIndex = 51
-        Me.Label12.Text = "Service:"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'ComboBoxSourceLang
         '
         Me.ComboBoxSourceLang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
@@ -631,6 +607,83 @@ Partial Class FormMain
         Me.Label30.TabIndex = 63
         Me.Label30.Text = "Restrict?"
         Me.Label30.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        '
+        'ComboBoxServices
+        '
+        Me.ComboBoxServices.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ComboBoxServices.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ComboBoxServices.DataSource = Me.DataTableServiceBindingSource
+        Me.ComboBoxServices.DisplayMember = "SERVICE"
+        Me.ComboBoxServices.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ComboBoxServices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxServices.FormattingEnabled = True
+        Me.ComboBoxServices.Location = New System.Drawing.Point(731, 93)
+        Me.ComboBoxServices.Name = "ComboBoxServices"
+        Me.ComboBoxServices.Size = New System.Drawing.Size(198, 23)
+        Me.ComboBoxServices.TabIndex = 50
+        '
+        'DataTableServiceBindingSource
+        '
+        Me.DataTableServiceBindingSource.DataMember = "DataTableService"
+        Me.DataTableServiceBindingSource.DataSource = Me.DataSet2DataSet
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label12.Location = New System.Drawing.Point(661, 90)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(64, 30)
+        Me.Label12.TabIndex = 51
+        Me.Label12.Text = "Service:"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label31.Location = New System.Drawing.Point(357, 90)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(74, 30)
+        Me.Label31.TabIndex = 64
+        Me.Label31.Text = "Role:"
+        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'ComboBoxRole
+        '
+        Me.ComboBoxRole.DataSource = Me.DataTableRoleBindingSource
+        Me.ComboBoxRole.DisplayMember = "Role"
+        Me.ComboBoxRole.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ComboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxRole.FormattingEnabled = True
+        Me.ComboBoxRole.Location = New System.Drawing.Point(437, 93)
+        Me.ComboBoxRole.Name = "ComboBoxRole"
+        Me.ComboBoxRole.Size = New System.Drawing.Size(198, 23)
+        Me.ComboBoxRole.TabIndex = 65
+        Me.ComboBoxRole.ValueMember = "Role"
+        '
+        'DataTableRoleBindingSource
+        '
+        Me.DataTableRoleBindingSource.DataMember = "DataTableRole"
+        Me.DataTableRoleBindingSource.DataSource = Me.DataSet2DataSet2
+        '
+        'DataSet2DataSet2
+        '
+        Me.DataSet2DataSet2.DataSetName = "DataSet2DataSet"
+        Me.DataSet2DataSet2.EnforceConstraints = False
+        Me.DataSet2DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'RestrictByRole
+        '
+        Me.RestrictByRole.AutoSize = True
+        Me.RestrictByRole.Checked = True
+        Me.RestrictByRole.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.RestrictByRole.Location = New System.Drawing.Point(641, 93)
+        Me.RestrictByRole.Name = "RestrictByRole"
+        Me.RestrictByRole.Size = New System.Drawing.Size(14, 19)
+        Me.RestrictByRole.TabIndex = 66
+        Me.RestrictByRole.Text = "CheckBox1"
+        Me.RestrictByRole.UseVisualStyleBackColor = True
         '
         'LabelRecordsFound
         '
@@ -966,6 +1019,7 @@ Partial Class FormMain
         Me.TableLayoutPanel2.Controls.Add(Me.Label20, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Label21, 0, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.TextBox10, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.LinkLabelFiles, 1, 2)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(457, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 4
@@ -1032,7 +1086,7 @@ Partial Class FormMain
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(93, 15)
         Me.Label20.TabIndex = 2
-        Me.Label20.Text = "..."
+        Me.Label20.Text = "Files:"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label21
@@ -1054,6 +1108,17 @@ Partial Class FormMain
         Me.TextBox10.ReadOnly = True
         Me.TextBox10.Size = New System.Drawing.Size(335, 21)
         Me.TextBox10.TabIndex = 5
+        '
+        'LinkLabelFiles
+        '
+        Me.LinkLabelFiles.AutoSize = True
+        Me.LinkLabelFiles.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTFreelancerInfoBindingSource, "RES_CODE", True))
+        Me.LinkLabelFiles.Location = New System.Drawing.Point(102, 54)
+        Me.LinkLabelFiles.Name = "LinkLabelFiles"
+        Me.LinkLabelFiles.Size = New System.Drawing.Size(33, 15)
+        Me.LinkLabelFiles.TabIndex = 7
+        Me.LinkLabelFiles.TabStop = True
+        Me.LinkLabelFiles.Text = "Files"
         '
         'DataGridView2
         '
@@ -1303,7 +1368,7 @@ Partial Class FormMain
         Me.TemplatesCombo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TemplatesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.TemplatesCombo.FormattingEnabled = True
-        Me.TemplatesCombo.Location = New System.Drawing.Point(191, 6)
+        Me.TemplatesCombo.Location = New System.Drawing.Point(191, 5)
         Me.TemplatesCombo.Name = "TemplatesCombo"
         Me.TemplatesCombo.Size = New System.Drawing.Size(698, 23)
         Me.TemplatesCombo.TabIndex = 2
@@ -1753,38 +1818,9 @@ Partial Class FormMain
         '
         Me.COUNTRIESTableAdapter.ClearBeforeFill = True
         '
-        'Label31
+        'RoleTableAdapter
         '
-        Me.Label31.AutoSize = True
-        Me.Label31.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label31.Location = New System.Drawing.Point(357, 90)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(74, 30)
-        Me.Label31.TabIndex = 64
-        Me.Label31.Text = "Role:"
-        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'ComboBoxRole
-        '
-        Me.ComboBoxRole.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ComboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxRole.FormattingEnabled = True
-        Me.ComboBoxRole.Location = New System.Drawing.Point(437, 93)
-        Me.ComboBoxRole.Name = "ComboBoxRole"
-        Me.ComboBoxRole.Size = New System.Drawing.Size(198, 23)
-        Me.ComboBoxRole.TabIndex = 65
-        '
-        'RestrictByRole
-        '
-        Me.RestrictByRole.AutoSize = True
-        Me.RestrictByRole.Checked = True
-        Me.RestrictByRole.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.RestrictByRole.Location = New System.Drawing.Point(641, 93)
-        Me.RestrictByRole.Name = "RestrictByRole"
-        Me.RestrictByRole.Size = New System.Drawing.Size(14, 19)
-        Me.RestrictByRole.TabIndex = 66
-        Me.RestrictByRole.Text = "CheckBox1"
-        Me.RestrictByRole.UseVisualStyleBackColor = True
+        Me.RoleTableAdapter.ClearBeforeFill = True
         '
         'FormMain
         '
@@ -1813,8 +1849,10 @@ Partial Class FormMain
         CType(Me.DataSet2DataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceTargetLang, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTableDomainsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceSourceLang, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataTableRoleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet2DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabDetails.ResumeLayout(False)
@@ -2017,5 +2055,9 @@ Partial Class FormMain
     Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents ComboBoxRole As System.Windows.Forms.ComboBox
     Friend WithEvents RestrictByRole As System.Windows.Forms.CheckBox
+    Friend WithEvents DataSet2DataSet2 As Freelancers_Lookup.DataSet2DataSet
+    Friend WithEvents DataTableRoleBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents RoleTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.RoleTableAdapter
+    Friend WithEvents LinkLabelFiles As System.Windows.Forms.LinkLabel
 
 End Class

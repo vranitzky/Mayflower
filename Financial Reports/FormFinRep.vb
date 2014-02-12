@@ -357,12 +357,23 @@ Public Class FormFinRep
         'CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(CURRENCY.Index).Value.ToString
     End Sub
 
-    Private Sub DataGridViewReport3_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs)
-        'If Integer.Parse(DataGridViewReport3.Rows(e.RowIndex).Cells(R3OVERDUEDataGridViewTextBoxColumn.Index).Value.ToString) > 0 Then
-        'DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
-        'Else
-        'DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.LightGreen
-        'End If
+    Private Sub DataGridViewReport3_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridViewReport3.RowPostPaint
+        Dim status As Integer
+
+        If Not String.IsNullOrEmpty(DataGridViewReport3.Rows(e.RowIndex).Cells(R3STATUS.Index).Value.ToString) Then
+            status = Integer.Parse(DataGridViewReport3.Rows(e.RowIndex).Cells(R3STATUS.Index).Value.ToString)
+            If status > 0 Then 'overdue
+                DataGridViewReport3.Rows(e.RowIndex).Cells(R3StatusText.Index).Value = "Overdue " + status.ToString + " late"
+                DataGridViewReport3.Rows(e.RowIndex).Cells(R3StatusText.Index).Style.ForeColor = Color.Red
+                'DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
+            ElseIf status < 0 Then
+                status = -status
+                DataGridViewReport3.Rows(e.RowIndex).Cells(R3StatusText.Index).Value = "Settled " + status.ToString + " earlier"
+                'DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.LightGreen
+            Else ' 0
+                DataGridViewReport3.Rows(e.RowIndex).Cells(R3StatusText.Index).Value = "Settled properly"
+            End If
+        End If
         'Application.CurrentCulture = defaultCulture
     End Sub
 

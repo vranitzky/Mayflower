@@ -82,7 +82,7 @@
       <Value Profile="(Default)">character set=UTF8;initial catalog="C:\Projetex9\Projetex Server\Database\Projetex.fdb";user id=ODBC;password=pwww;data source=192.168.56.101;role=PROJETEX_ODBC</Value>
     </Setting>
     <Setting Name="FreelancersFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D:\Business\Experts\Freelance\</Value>
+      <Value Profile="(Default)">\\mayblr-02\Freelance</Value>
     </Setting>
   </Settings>
 </SettingsFile>

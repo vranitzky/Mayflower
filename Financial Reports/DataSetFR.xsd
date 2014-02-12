@@ -187,7 +187,12 @@ ORDER BY INVOICES.CINV_PLAN_SETTL_DATE DESC
                 FROM CPAYMENTS INNER JOIN CFINLINKS
                     ON CPAYMENTS.CPAYM_ID=CFINLINKS.CPAYM_ID 
                     AND CFINLINKS.CINV_ID=INVOICES.CINV_ID
-                    ORDER BY CPAYMENTS.CPAYM_DATE DESC) AS LastPaymentDate
+                    ORDER BY CPAYMENTS.CPAYM_DATE DESC) AS LastPaymentDate,
+        datediff(day, INVOICES.CINV_PLAN_SETTL_DATE, (SELECT FIRST 1 CPAYMENTS.CPAYM_DATE
+                FROM CPAYMENTS INNER JOIN CFINLINKS
+                    ON CPAYMENTS.CPAYM_ID=CFINLINKS.CPAYM_ID 
+                    AND CFINLINKS.CINV_ID=INVOICES.CINV_ID
+                    ORDER BY CPAYMENTS.CPAYM_DATE DESC)) AS Status
 FROM CINVOICES INVOICES 
     INNER JOIN CURR ON CURR.CURR_ID=INVOICES.CURR_ID
     LEFT JOIN CCONTACTS ON INVOICES.CCON_ID=CCONTACTS.CCON_ID
@@ -214,6 +219,7 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE</CommandText>
               <Mapping SourceColumn="PAIDSOFAR" DataSetColumn="PAIDSOFAR" />
               <Mapping SourceColumn="DUEDATE" DataSetColumn="DUEDATE" />
               <Mapping SourceColumn="LASTPAYMENTDATE" DataSetColumn="LASTPAYMENTDATE" />
+              <Mapping SourceColumn="STATUS" DataSetColumn="STATUS" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -225,7 +231,7 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE</CommandText>
   <xs:element name="DataSetFR" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSetFR" msprop:Generator_UserDSName="DataSetFR">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DTReport1" msprop:Generator_TableClassName="DTReport1DataTable" msprop:Generator_TableVarName="tableDTReport1" msprop:Generator_RowChangedName="DTReport1RowChanged" msprop:Generator_TablePropName="DTReport1" msprop:Generator_RowDeletingName="DTReport1RowDeleting" msprop:Generator_RowChangingName="DTReport1RowChanging" msprop:Generator_RowEvHandlerName="DTReport1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport1RowDeleted" msprop:Generator_RowClassName="DTReport1Row" msprop:Generator_UserTableName="DTReport1" msprop:Generator_RowEvArgName="DTReport1RowChangeEvent">
+        <xs:element name="DTReport1" msprop:Generator_TableClassName="DTReport1DataTable" msprop:Generator_TableVarName="tableDTReport1" msprop:Generator_TablePropName="DTReport1" msprop:Generator_RowDeletingName="DTReport1RowDeleting" msprop:Generator_RowChangingName="DTReport1RowChanging" msprop:Generator_RowEvHandlerName="DTReport1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport1RowDeleted" msprop:Generator_UserTableName="DTReport1" msprop:Generator_RowChangedName="DTReport1RowChanged" msprop:Generator_RowEvArgName="DTReport1RowChangeEvent" msprop:Generator_RowClassName="DTReport1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PROJ_ID" msprop:Generator_ColumnVarNameInTable="columnPROJ_ID" msprop:Generator_ColumnPropNameInRow="PROJ_ID" msprop:Generator_ColumnPropNameInTable="PROJ_IDColumn" msprop:Generator_UserColumnName="PROJ_ID" type="xs:int" />
@@ -252,7 +258,7 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTReport2" msprop:Generator_TableClassName="DTReport2DataTable" msprop:Generator_TableVarName="tableDTReport2" msprop:Generator_RowChangedName="DTReport2RowChanged" msprop:Generator_TablePropName="DTReport2" msprop:Generator_RowDeletingName="DTReport2RowDeleting" msprop:Generator_RowChangingName="DTReport2RowChanging" msprop:Generator_RowEvHandlerName="DTReport2RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport2RowDeleted" msprop:Generator_RowClassName="DTReport2Row" msprop:Generator_UserTableName="DTReport2" msprop:Generator_RowEvArgName="DTReport2RowChangeEvent">
+        <xs:element name="DTReport2" msprop:Generator_TableClassName="DTReport2DataTable" msprop:Generator_TableVarName="tableDTReport2" msprop:Generator_TablePropName="DTReport2" msprop:Generator_RowDeletingName="DTReport2RowDeleting" msprop:Generator_RowChangingName="DTReport2RowChanging" msprop:Generator_RowEvHandlerName="DTReport2RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport2RowDeleted" msprop:Generator_UserTableName="DTReport2" msprop:Generator_RowChangedName="DTReport2RowChanged" msprop:Generator_RowEvArgName="DTReport2RowChangeEvent" msprop:Generator_RowClassName="DTReport2Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER" minOccurs="0">
@@ -293,7 +299,7 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTReport3" msprop:Generator_TableClassName="DTReport3DataTable" msprop:Generator_TableVarName="tableDTReport3" msprop:Generator_TablePropName="DTReport3" msprop:Generator_RowDeletingName="DTReport3RowDeleting" msprop:Generator_RowChangingName="DTReport3RowChanging" msprop:Generator_RowEvHandlerName="DTReport3RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport3RowDeleted" msprop:Generator_UserTableName="DTReport3" msprop:Generator_RowChangedName="DTReport3RowChanged" msprop:Generator_RowEvArgName="DTReport3RowChangeEvent" msprop:Generator_RowClassName="DTReport3Row">
+        <xs:element name="DTReport3" msprop:Generator_TableClassName="DTReport3DataTable" msprop:Generator_TableVarName="tableDTReport3" msprop:Generator_RowChangedName="DTReport3RowChanged" msprop:Generator_TablePropName="DTReport3" msprop:Generator_RowDeletingName="DTReport3RowDeleting" msprop:Generator_RowChangingName="DTReport3RowChanging" msprop:Generator_RowEvHandlerName="DTReport3RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport3RowDeleted" msprop:Generator_RowClassName="DTReport3Row" msprop:Generator_UserTableName="DTReport3" msprop:Generator_RowEvArgName="DTReport3RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER" minOccurs="0">
@@ -336,7 +342,7 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER" type="xs:string" minOccurs="0" />
@@ -349,6 +355,7 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE</CommandText>
               <xs:element name="PAIDSOFAR" msprop:Generator_ColumnVarNameInTable="columnPAIDSOFAR" msprop:Generator_ColumnPropNameInRow="PAIDSOFAR" msprop:Generator_ColumnPropNameInTable="PAIDSOFARColumn" msprop:Generator_UserColumnName="PAIDSOFAR" type="xs:decimal" minOccurs="0" />
               <xs:element name="DUEDATE" msprop:Generator_ColumnVarNameInTable="columnDUEDATE" msprop:Generator_ColumnPropNameInRow="DUEDATE" msprop:Generator_ColumnPropNameInTable="DUEDATEColumn" msprop:Generator_UserColumnName="DUEDATE" type="xs:dateTime" minOccurs="0" />
               <xs:element name="LASTPAYMENTDATE" msprop:Generator_ColumnVarNameInTable="columnLASTPAYMENTDATE" msprop:Generator_ColumnPropNameInRow="LASTPAYMENTDATE" msprop:Generator_ColumnPropNameInTable="LASTPAYMENTDATEColumn" msprop:Generator_UserColumnName="LASTPAYMENTDATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="STATUS" msprop:Generator_ColumnVarNameInTable="columnSTATUS" msprop:Generator_ColumnPropNameInRow="STATUS" msprop:Generator_ColumnPropNameInTable="STATUSColumn" msprop:Generator_UserColumnName="STATUS" type="xs:short" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
