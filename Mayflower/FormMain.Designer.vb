@@ -1112,7 +1112,6 @@ Partial Class FormMain
         'LinkLabelFiles
         '
         Me.LinkLabelFiles.AutoSize = True
-        Me.LinkLabelFiles.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DTFreelancerInfoBindingSource, "RES_CODE", True))
         Me.LinkLabelFiles.Location = New System.Drawing.Point(102, 54)
         Me.LinkLabelFiles.Name = "LinkLabelFiles"
         Me.LinkLabelFiles.Size = New System.Drawing.Size(33, 15)
@@ -1368,7 +1367,7 @@ Partial Class FormMain
         Me.TemplatesCombo.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TemplatesCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.TemplatesCombo.FormattingEnabled = True
-        Me.TemplatesCombo.Location = New System.Drawing.Point(191, 5)
+        Me.TemplatesCombo.Location = New System.Drawing.Point(191, 6)
         Me.TemplatesCombo.Name = "TemplatesCombo"
         Me.TemplatesCombo.Size = New System.Drawing.Size(698, 23)
         Me.TemplatesCombo.TabIndex = 2

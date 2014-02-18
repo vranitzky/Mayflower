@@ -197,7 +197,7 @@ Public Class FormMain
     Private Sub DataGridView1_CellMouseDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseDoubleClick
         'MessageBox.Show("Double clicked")
         Dim ID As Integer
-        'Dim a As String
+        Dim a As String
 
         Try
             Me.Cursor = Cursors.WaitCursor
@@ -205,7 +205,8 @@ Public Class FormMain
             FreelancerInfoTableAdapter.FillByResid(Me.DataSet2DataSet.DTFreelancerInfo, ID) ', "'" + FreelancersFolder.Text + "'")
             TADetails.Fill(Me.DataSet2DataSet.DTDetails, ID)
             CatToolsTableAdapter.FillByResID(Me.DataSet2DataSet.CatTools, ID)
-            LinkLabelFiles.Text = FreelancersFolder.Text + "\" + LinkLabelFiles.Text + "\CV"
+            a = Me.DataSet2DataSet.DTFreelancerInfo.Item(0).RES_CODE
+            LinkLabelFiles.Text = FreelancersFolder.Text + "\" + a + "\CV"
             TabControl1.SelectedTab = TabDetails
         Catch ex As Exception
             MessageBox.Show("There was an error!" & Environment.NewLine & Environment.NewLine &
@@ -841,7 +842,7 @@ Public Class FormMain
         Try
             System.Diagnostics.Process.Start(LinkLabelFiles.Text)
         Catch ex As Exception
-            MsgBox("The person has no folder")
+            MsgBox("This freelancer has no CV folder, or the server is not accessible")
         End Try
     End Sub
 End Class

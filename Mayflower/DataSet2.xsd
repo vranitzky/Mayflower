@@ -169,25 +169,26 @@ ORDER BY Tools ASC</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DomainsTableAdapter" GeneratorDataComponentClassName="DomainsTableAdapter" Name="DataTableDomains" UserDataComponentName="DomainsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="SELECT DISTINCT LOWER(&quot;AIT$CUSTOMF00103&quot;) AS Domains FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00103&quot; &lt;&gt; '') UNION SELECT DISTINCT LOWER(&quot;AIT$CUSTOMF00104&quot;) FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00104&quot; &lt;&gt; '') UNION SELECT DISTINCT LOWER(&quot;AIT$CUSTOMF00105&quot;) FROM RESOURCES WHERE (&quot;AIT$CUSTOMF00105&quot; &lt;&gt; '') UNION SELECT '-ALL-' FROM RESOURCES" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ProjetexDB2 (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>Select Domains FROM (
 SELECT DISTINCT LOWER("AIT$CUSTOMF00103") AS Domains
 FROM            RESOURCES
-WHERE        ("AIT$CUSTOMF00103" &lt;&gt; '')
+WHERE        ("AIT$CUSTOMF00103" &lt;&gt; '') AND NOT (RESOURCES."AIT$CUSTOMF00103" CONTAINING '----')
 UNION
 SELECT    DISTINCT    LOWER("AIT$CUSTOMF00104") 
 fROM            RESOURCES 
-WHERE        ("AIT$CUSTOMF00104" &lt;&gt; '')
+WHERE        ("AIT$CUSTOMF00104" &lt;&gt; '') AND NOT (RESOURCES."AIT$CUSTOMF00104" CONTAINING '----')
 UNION
 SELECT    DISTINCT    LOWER("AIT$CUSTOMF00105")
 fROM            RESOURCES 
-WHERE        ("AIT$CUSTOMF00105" &lt;&gt; '')
+WHERE        ("AIT$CUSTOMF00105" &lt;&gt; '') AND NOT (RESOURCES."AIT$CUSTOMF00105" CONTAINING '----')
 UNION 
 SELECT '-ALL-'
 from RESOURCES) Results
-ORDER BY Domains ASC</CommandText>
+ORDER BY Domains ASC
+</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -424,7 +425,7 @@ ORDER BY "Role" ASC
   <xs:element name="DataSet2DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="False" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet2DataSet" msprop:Generator_UserDSName="DataSet2DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTableSourceLang" msprop:Generator_TableClassName="DataTableSourceLangDataTable" msprop:Generator_TableVarName="tableDataTableSourceLang" msprop:Generator_RowChangedName="DataTableSourceLangRowChanged" msprop:Generator_TablePropName="DataTableSourceLang" msprop:Generator_RowDeletingName="DataTableSourceLangRowDeleting" msprop:Generator_RowChangingName="DataTableSourceLangRowChanging" msprop:Generator_RowEvHandlerName="DataTableSourceLangRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableSourceLangRowDeleted" msprop:Generator_RowClassName="DataTableSourceLangRow" msprop:Generator_UserTableName="DataTableSourceLang" msprop:Generator_RowEvArgName="DataTableSourceLangRowChangeEvent">
+        <xs:element name="DataTableSourceLang" msprop:Generator_TableClassName="DataTableSourceLangDataTable" msprop:Generator_TableVarName="tableDataTableSourceLang" msprop:Generator_TablePropName="DataTableSourceLang" msprop:Generator_RowDeletingName="DataTableSourceLangRowDeleting" msprop:Generator_RowChangingName="DataTableSourceLangRowChanging" msprop:Generator_RowEvHandlerName="DataTableSourceLangRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableSourceLangRowDeleted" msprop:Generator_UserTableName="DataTableSourceLang" msprop:Generator_RowChangedName="DataTableSourceLangRowChanged" msprop:Generator_RowEvArgName="DataTableSourceLangRowChangeEvent" msprop:Generator_RowClassName="DataTableSourceLangRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SOURCELANG" msprop:Generator_ColumnVarNameInTable="columnSOURCELANG" msprop:Generator_ColumnPropNameInRow="SOURCELANG" msprop:Generator_ColumnPropNameInTable="SOURCELANGColumn" msprop:Generator_UserColumnName="SOURCELANG" minOccurs="0">
@@ -437,7 +438,7 @@ ORDER BY "Role" ASC
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTableTargetLang" msprop:Generator_TableClassName="DataTableTargetLangDataTable" msprop:Generator_TableVarName="tableDataTableTargetLang" msprop:Generator_RowChangedName="DataTableTargetLangRowChanged" msprop:Generator_TablePropName="DataTableTargetLang" msprop:Generator_RowDeletingName="DataTableTargetLangRowDeleting" msprop:Generator_RowChangingName="DataTableTargetLangRowChanging" msprop:Generator_RowEvHandlerName="DataTableTargetLangRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableTargetLangRowDeleted" msprop:Generator_RowClassName="DataTableTargetLangRow" msprop:Generator_UserTableName="DataTableTargetLang" msprop:Generator_RowEvArgName="DataTableTargetLangRowChangeEvent">
+        <xs:element name="DataTableTargetLang" msprop:Generator_TableClassName="DataTableTargetLangDataTable" msprop:Generator_TableVarName="tableDataTableTargetLang" msprop:Generator_TablePropName="DataTableTargetLang" msprop:Generator_RowDeletingName="DataTableTargetLangRowDeleting" msprop:Generator_RowChangingName="DataTableTargetLangRowChanging" msprop:Generator_RowEvHandlerName="DataTableTargetLangRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableTargetLangRowDeleted" msprop:Generator_UserTableName="DataTableTargetLang" msprop:Generator_RowChangedName="DataTableTargetLangRowChanged" msprop:Generator_RowEvArgName="DataTableTargetLangRowChangeEvent" msprop:Generator_RowClassName="DataTableTargetLangRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TARGETLANG" msprop:Generator_ColumnVarNameInTable="columnTARGETLANG" msprop:Generator_ColumnPropNameInRow="TARGETLANG" msprop:Generator_ColumnPropNameInTable="TARGETLANGColumn" msprop:Generator_UserColumnName="TARGETLANG" minOccurs="0">
@@ -450,7 +451,7 @@ ORDER BY "Role" ASC
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTableFreelancers" msprop:Generator_TableClassName="DataTableFreelancersDataTable" msprop:Generator_TableVarName="tableDataTableFreelancers" msprop:Generator_RowChangedName="DataTableFreelancersRowChanged" msprop:Generator_TablePropName="DataTableFreelancers" msprop:Generator_RowDeletingName="DataTableFreelancersRowDeleting" msprop:Generator_RowChangingName="DataTableFreelancersRowChanging" msprop:Generator_RowEvHandlerName="DataTableFreelancersRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableFreelancersRowDeleted" msprop:Generator_RowClassName="DataTableFreelancersRow" msprop:Generator_UserTableName="DataTableFreelancers" msprop:Generator_RowEvArgName="DataTableFreelancersRowChangeEvent">
+        <xs:element name="DataTableFreelancers" msprop:Generator_TableClassName="DataTableFreelancersDataTable" msprop:Generator_TableVarName="tableDataTableFreelancers" msprop:Generator_TablePropName="DataTableFreelancers" msprop:Generator_RowDeletingName="DataTableFreelancersRowDeleting" msprop:Generator_RowChangingName="DataTableFreelancersRowChanging" msprop:Generator_RowEvHandlerName="DataTableFreelancersRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableFreelancersRowDeleted" msprop:Generator_UserTableName="DataTableFreelancers" msprop:Generator_RowChangedName="DataTableFreelancersRowChanged" msprop:Generator_RowEvArgName="DataTableFreelancersRowChangeEvent" msprop:Generator_RowClassName="DataTableFreelancersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -528,7 +529,7 @@ ORDER BY "Role" ASC
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CatTools" msprop:Generator_TableClassName="CatToolsDataTable" msprop:Generator_TableVarName="tableCatTools" msprop:Generator_TablePropName="CatTools" msprop:Generator_RowDeletingName="CatToolsRowDeleting" msprop:Generator_RowChangingName="CatToolsRowChanging" msprop:Generator_RowEvHandlerName="CatToolsRowChangeEventHandler" msprop:Generator_RowDeletedName="CatToolsRowDeleted" msprop:Generator_UserTableName="CatTools" msprop:Generator_RowChangedName="CatToolsRowChanged" msprop:Generator_RowEvArgName="CatToolsRowChangeEvent" msprop:Generator_RowClassName="CatToolsRow">
+        <xs:element name="CatTools" msprop:Generator_TableClassName="CatToolsDataTable" msprop:Generator_TableVarName="tableCatTools" msprop:Generator_RowChangedName="CatToolsRowChanged" msprop:Generator_TablePropName="CatTools" msprop:Generator_RowDeletingName="CatToolsRowDeleting" msprop:Generator_RowChangingName="CatToolsRowChanging" msprop:Generator_RowEvHandlerName="CatToolsRowChangeEventHandler" msprop:Generator_RowDeletedName="CatToolsRowDeleted" msprop:Generator_RowClassName="CatToolsRow" msprop:Generator_UserTableName="CatTools" msprop:Generator_RowEvArgName="CatToolsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TOOLS" msprop:Generator_ColumnVarNameInTable="columnTOOLS" msprop:Generator_ColumnPropNameInRow="TOOLS" msprop:Generator_ColumnPropNameInTable="TOOLSColumn" msprop:Generator_UserColumnName="TOOLS" minOccurs="0">
@@ -541,7 +542,7 @@ ORDER BY "Role" ASC
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTableDomains" msprop:Generator_TableClassName="DataTableDomainsDataTable" msprop:Generator_TableVarName="tableDataTableDomains" msprop:Generator_TablePropName="DataTableDomains" msprop:Generator_RowDeletingName="DataTableDomainsRowDeleting" msprop:Generator_RowChangingName="DataTableDomainsRowChanging" msprop:Generator_RowEvHandlerName="DataTableDomainsRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableDomainsRowDeleted" msprop:Generator_UserTableName="DataTableDomains" msprop:Generator_RowChangedName="DataTableDomainsRowChanged" msprop:Generator_RowEvArgName="DataTableDomainsRowChangeEvent" msprop:Generator_RowClassName="DataTableDomainsRow">
+        <xs:element name="DataTableDomains" msprop:Generator_TableClassName="DataTableDomainsDataTable" msprop:Generator_TableVarName="tableDataTableDomains" msprop:Generator_RowChangedName="DataTableDomainsRowChanged" msprop:Generator_TablePropName="DataTableDomains" msprop:Generator_RowDeletingName="DataTableDomainsRowDeleting" msprop:Generator_RowChangingName="DataTableDomainsRowChanging" msprop:Generator_RowEvHandlerName="DataTableDomainsRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableDomainsRowDeleted" msprop:Generator_RowClassName="DataTableDomainsRow" msprop:Generator_UserTableName="DataTableDomains" msprop:Generator_RowEvArgName="DataTableDomainsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DOMAINS" msprop:Generator_ColumnVarNameInTable="columnDOMAINS" msprop:Generator_ColumnPropNameInRow="DOMAINS" msprop:Generator_ColumnPropNameInTable="DOMAINSColumn" msprop:Generator_UserColumnName="DOMAINS" minOccurs="0">
@@ -554,7 +555,7 @@ ORDER BY "Role" ASC
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTableService" msprop:Generator_TableClassName="DataTableServiceDataTable" msprop:Generator_TableVarName="tableDataTableService" msprop:Generator_TablePropName="DataTableService" msprop:Generator_RowDeletingName="DataTableServiceRowDeleting" msprop:Generator_RowChangingName="DataTableServiceRowChanging" msprop:Generator_RowEvHandlerName="DataTableServiceRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableServiceRowDeleted" msprop:Generator_UserTableName="DataTableService" msprop:Generator_RowChangedName="DataTableServiceRowChanged" msprop:Generator_RowEvArgName="DataTableServiceRowChangeEvent" msprop:Generator_RowClassName="DataTableServiceRow">
+        <xs:element name="DataTableService" msprop:Generator_TableClassName="DataTableServiceDataTable" msprop:Generator_TableVarName="tableDataTableService" msprop:Generator_RowChangedName="DataTableServiceRowChanged" msprop:Generator_TablePropName="DataTableService" msprop:Generator_RowDeletingName="DataTableServiceRowDeleting" msprop:Generator_RowChangingName="DataTableServiceRowChanging" msprop:Generator_RowEvHandlerName="DataTableServiceRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableServiceRowDeleted" msprop:Generator_RowClassName="DataTableServiceRow" msprop:Generator_UserTableName="DataTableService" msprop:Generator_RowEvArgName="DataTableServiceRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SERVICE" msprop:Generator_ColumnVarNameInTable="columnSERVICE" msprop:Generator_ColumnPropNameInRow="SERVICE" msprop:Generator_ColumnPropNameInTable="SERVICEColumn" msprop:Generator_UserColumnName="SERVICE" minOccurs="0">
@@ -567,7 +568,7 @@ ORDER BY "Role" ASC
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTDetails" msprop:Generator_TableClassName="DTDetailsDataTable" msprop:Generator_TableVarName="tableDTDetails" msprop:Generator_RowChangedName="DTDetailsRowChanged" msprop:Generator_TablePropName="DTDetails" msprop:Generator_RowDeletingName="DTDetailsRowDeleting" msprop:Generator_RowChangingName="DTDetailsRowChanging" msprop:Generator_RowEvHandlerName="DTDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="DTDetailsRowDeleted" msprop:Generator_RowClassName="DTDetailsRow" msprop:Generator_UserTableName="DTDetails" msprop:Generator_RowEvArgName="DTDetailsRowChangeEvent">
+        <xs:element name="DTDetails" msprop:Generator_TableClassName="DTDetailsDataTable" msprop:Generator_TableVarName="tableDTDetails" msprop:Generator_TablePropName="DTDetails" msprop:Generator_RowDeletingName="DTDetailsRowDeleting" msprop:Generator_RowChangingName="DTDetailsRowChanging" msprop:Generator_RowEvHandlerName="DTDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="DTDetailsRowDeleted" msprop:Generator_UserTableName="DTDetails" msprop:Generator_RowChangedName="DTDetailsRowChanged" msprop:Generator_RowEvArgName="DTDetailsRowChangeEvent" msprop:Generator_RowClassName="DTDetailsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LASTJOB" msprop:Generator_ColumnVarNameInTable="columnLASTJOB" msprop:Generator_ColumnPropNameInRow="LASTJOB" msprop:Generator_ColumnPropNameInTable="LASTJOBColumn" msprop:Generator_UserColumnName="LASTJOB" minOccurs="0">
@@ -649,7 +650,7 @@ ORDER BY "Role" ASC
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTFreelancerInfo" msprop:Generator_TableClassName="DTFreelancerInfoDataTable" msprop:Generator_TableVarName="tableDTFreelancerInfo" msprop:Generator_TablePropName="DTFreelancerInfo" msprop:Generator_RowDeletingName="DTFreelancerInfoRowDeleting" msprop:Generator_RowChangingName="DTFreelancerInfoRowChanging" msprop:Generator_RowEvHandlerName="DTFreelancerInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTFreelancerInfoRowDeleted" msprop:Generator_UserTableName="DTFreelancerInfo" msprop:Generator_RowChangedName="DTFreelancerInfoRowChanged" msprop:Generator_RowEvArgName="DTFreelancerInfoRowChangeEvent" msprop:Generator_RowClassName="DTFreelancerInfoRow">
+        <xs:element name="DTFreelancerInfo" msprop:Generator_TableClassName="DTFreelancerInfoDataTable" msprop:Generator_TableVarName="tableDTFreelancerInfo" msprop:Generator_RowChangedName="DTFreelancerInfoRowChanged" msprop:Generator_TablePropName="DTFreelancerInfo" msprop:Generator_RowDeletingName="DTFreelancerInfoRowDeleting" msprop:Generator_RowChangingName="DTFreelancerInfoRowChanging" msprop:Generator_RowEvHandlerName="DTFreelancerInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTFreelancerInfoRowDeleted" msprop:Generator_RowClassName="DTFreelancerInfoRow" msprop:Generator_UserTableName="DTFreelancerInfo" msprop:Generator_RowEvArgName="DTFreelancerInfoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RES_NAME" msprop:Generator_ColumnVarNameInTable="columnRES_NAME" msprop:Generator_ColumnPropNameInRow="RES_NAME" msprop:Generator_ColumnPropNameInTable="RES_NAMEColumn" msprop:Generator_UserColumnName="RES_NAME">
@@ -822,7 +823,7 @@ ORDER BY "Role" ASC
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PROJ_ID" msprop:Generator_ColumnVarNameInTable="columnPROJ_ID" msprop:Generator_ColumnPropNameInRow="PROJ_ID" msprop:Generator_ColumnPropNameInTable="PROJ_IDColumn" msprop:Generator_UserColumnName="PROJ_ID" type="xs:int" />
@@ -844,7 +845,7 @@ ORDER BY "Role" ASC
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="COUNTRIES" msprop:Generator_TableClassName="COUNTRIESDataTable" msprop:Generator_TableVarName="tableCOUNTRIES" msprop:Generator_RowChangedName="COUNTRIESRowChanged" msprop:Generator_TablePropName="COUNTRIES" msprop:Generator_RowDeletingName="COUNTRIESRowDeleting" msprop:Generator_RowChangingName="COUNTRIESRowChanging" msprop:Generator_RowEvHandlerName="COUNTRIESRowChangeEventHandler" msprop:Generator_RowDeletedName="COUNTRIESRowDeleted" msprop:Generator_RowClassName="COUNTRIESRow" msprop:Generator_UserTableName="COUNTRIES" msprop:Generator_RowEvArgName="COUNTRIESRowChangeEvent">
+        <xs:element name="COUNTRIES" msprop:Generator_TableClassName="COUNTRIESDataTable" msprop:Generator_TableVarName="tableCOUNTRIES" msprop:Generator_TablePropName="COUNTRIES" msprop:Generator_RowDeletingName="COUNTRIESRowDeleting" msprop:Generator_RowChangingName="COUNTRIESRowChanging" msprop:Generator_RowEvHandlerName="COUNTRIESRowChangeEventHandler" msprop:Generator_RowDeletedName="COUNTRIESRowDeleted" msprop:Generator_UserTableName="COUNTRIES" msprop:Generator_RowChangedName="COUNTRIESRowChanged" msprop:Generator_RowEvArgName="COUNTRIESRowChangeEvent" msprop:Generator_RowClassName="COUNTRIESRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="COUNTRY" msprop:Generator_ColumnVarNameInTable="columnCOUNTRY" msprop:Generator_ColumnPropNameInRow="COUNTRY" msprop:Generator_ColumnPropNameInTable="COUNTRYColumn" msprop:Generator_UserColumnName="COUNTRY">
@@ -864,7 +865,7 @@ ORDER BY "Role" ASC
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTableRole" msprop:Generator_TableClassName="DataTableRoleDataTable" msprop:Generator_TableVarName="tableDataTableRole" msprop:Generator_TablePropName="DataTableRole" msprop:Generator_RowDeletingName="DataTableRoleRowDeleting" msprop:Generator_RowChangingName="DataTableRoleRowChanging" msprop:Generator_RowEvHandlerName="DataTableRoleRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableRoleRowDeleted" msprop:Generator_UserTableName="DataTableRole" msprop:Generator_RowChangedName="DataTableRoleRowChanged" msprop:Generator_RowEvArgName="DataTableRoleRowChangeEvent" msprop:Generator_RowClassName="DataTableRoleRow">
+        <xs:element name="DataTableRole" msprop:Generator_TableClassName="DataTableRoleDataTable" msprop:Generator_TableVarName="tableDataTableRole" msprop:Generator_RowChangedName="DataTableRoleRowChanged" msprop:Generator_TablePropName="DataTableRole" msprop:Generator_RowDeletingName="DataTableRoleRowDeleting" msprop:Generator_RowChangingName="DataTableRoleRowChanging" msprop:Generator_RowEvHandlerName="DataTableRoleRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableRoleRowDeleted" msprop:Generator_RowClassName="DataTableRoleRow" msprop:Generator_UserTableName="DataTableRole" msprop:Generator_RowEvArgName="DataTableRoleRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Role" msprop:Generator_ColumnVarNameInTable="columnRole" msprop:Generator_ColumnPropNameInRow="Role" msprop:Generator_ColumnPropNameInTable="RoleColumn" msprop:Generator_UserColumnName="Role" minOccurs="0">
