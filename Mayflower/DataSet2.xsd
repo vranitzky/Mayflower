@@ -483,7 +483,7 @@ ORDER BY "Role" ASC
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="RATE" msprop:Generator_ColumnVarNameInTable="columnRATE" msprop:Generator_ColumnPropNameInRow="RATE" msprop:Generator_ColumnPropNameInTable="RATEColumn" msprop:Generator_UserColumnName="RATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RATE" msprop:Generator_ColumnVarNameInTable="columnRATE" msprop:Generator_ColumnPropNameInRow="RATE" msprop:Generator_ColumnPropNameInTable="RATEColumn" msprop:Generator_UserColumnName="RATE" type="xs:string" minOccurs="0" />
               <xs:element name="CURRENCY" msprop:Generator_ColumnVarNameInTable="columnCURRENCY" msprop:Generator_ColumnPropNameInRow="CURRENCY" msprop:Generator_ColumnPropNameInTable="CURRENCYColumn" msprop:Generator_UserColumnName="CURRENCY">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -811,8 +811,8 @@ ORDER BY "Role" ASC
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="REPSRATE" msprop:Generator_ColumnVarNameInTable="columnREPSRATE" msprop:Generator_ColumnPropNameInRow="REPSRATE" msprop:Generator_ColumnPropNameInTable="REPSRATEColumn" msprop:Generator_UserColumnName="REPSRATE" type="xs:decimal" minOccurs="0" />
-              <xs:element name="FUZZYRATE" msprop:Generator_ColumnVarNameInTable="columnFUZZYRATE" msprop:Generator_ColumnPropNameInRow="FUZZYRATE" msprop:Generator_ColumnPropNameInTable="FUZZYRATEColumn" msprop:Generator_UserColumnName="FUZZYRATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="REPSRATE" msprop:Generator_ColumnVarNameInTable="columnREPSRATE" msprop:Generator_ColumnPropNameInRow="REPSRATE" msprop:Generator_ColumnPropNameInTable="REPSRATEColumn" msprop:Generator_UserColumnName="REPSRATE" type="xs:string" minOccurs="0" />
+              <xs:element name="FUZZYRATE" msprop:Generator_ColumnVarNameInTable="columnFUZZYRATE" msprop:Generator_ColumnPropNameInRow="FUZZYRATE" msprop:Generator_ColumnPropNameInTable="FUZZYRATEColumn" msprop:Generator_UserColumnName="FUZZYRATE" type="xs:string" minOccurs="0" />
               <xs:element name="RES_CODE" msprop:Generator_ColumnVarNameInTable="columnRES_CODE" msprop:Generator_ColumnPropNameInRow="RES_CODE" msprop:Generator_ColumnPropNameInTable="RES_CODEColumn" msprop:Generator_UserColumnName="RES_CODE">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

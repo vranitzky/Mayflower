@@ -691,6 +691,14 @@ Public Class FormMain
             'do nothing
         End If
     End Sub
+    Private Sub EmailSubject_Leave(sender As Object, e As EventArgs) Handles EmailSubject.Leave
+        If Not IsInAddTemplateMode Then ' simple changes to the body
+            My.Settings.EmailTemplatesSubjects(TemplatesCombo.SelectedIndex) = EmailSubject.Text
+        Else 'we are adding a new template. Don't save until the user presses the OK button
+            'do nothing
+            'xxx()
+        End If
+    End Sub
 
     Private Sub EmailBody_Enter(sender As System.Object, e As System.EventArgs) Handles EmailBody.Enter
         'EmailBody.Load(My.Settings.EmailBody, TXTextControl.StringStreamType.HTMLFormat)
@@ -734,11 +742,11 @@ Public Class FormMain
             TemplatesButtonRemove.Text = "Remove" 'change it back to 'Remove'
             TemplatesCombo.DropDownStyle = ComboBoxStyle.DropDownList
             'TODO: all ok, add into templates list
-            MsgBox("here I would save the template:" & Environment.NewLine &
-                    subject & Environment.NewLine &
-                    title & Environment.NewLine &
-                    body,
-                   MsgBoxStyle.Exclamation)
+            'MsgBox("here I would save the template:" & Environment.NewLine &
+            '       subject & Environment.NewLine &
+            '      title & Environment.NewLine &
+            '     body,
+            '   MsgBoxStyle.Exclamation)
             ' using new index:
             newindex = TemplatesCombo.Items.Count
             title = newindex.ToString & "-" & title
@@ -821,6 +829,14 @@ Public Class FormMain
         If DataGridView1.Rows(e.RowIndex).Cells("APPROVALDataGridViewTextBoxColumn").Value.ToString = "Block" Then
             DataGridView1.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
         End If
+        ''Now the Rate is not a number, but text, so the trick of using INR, USD etc as currency symbol does not work anymore
+        ''which means we have to manually add the currency if there is any value in the cell
+        'If Not String.IsNullOrWhiteSpace(DataGridView1.Rows(e.RowIndex).Cells("RATEDataGridViewTextBoxColumn").Value.ToString) Then
+        'DataGridView1.Rows(e.RowIndex).Cells("RATEDataGridViewTextBoxColumn").Value =
+        'DataGridView1.Rows(e.RowIndex).Cells("FreelancersCURRENCY").Value.ToString(+" " + DataGridView1.Rows(e.RowIndex).Cells("RATEDataGridViewTextBoxColumn").Value.ToString)
+        'End If
+        'Actually, just show a column with currency instead, as sometimes they now put the currency in themselves
+
     End Sub
 
     Private Sub DataGridView1_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridView1.RowPrePaint
@@ -845,4 +861,5 @@ Public Class FormMain
             MsgBox("This freelancer has no CV folder, or the server is not accessible")
         End Try
     End Sub
+
 End Class

@@ -4009,7 +4009,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{B7BB6F25-B77C-442D-A74F-ED78EF74F3F7}</td></row>
 		<row><td>ISUSSignature</td><td>{2B0A5E59-AA8B-4883-8F20-C9A6D7DC0CC7}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewAppFiles,viewObjects,viewShortcuts,viewUI,viewSystemSearch,viewRelease,viewDependencies,viewUpgradePaths</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewAppFiles,viewObjects,viewShortcuts,viewUI,viewSystemSearch,viewRelease,viewDependencies,viewUpgradePaths,viewUpdateService</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4388,9 +4388,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]Freelancer Lookup Tool.Primary output</td><td/></row>
-		<row><td>ProductCode</td><td>{937D869E-5B3F-4F82-A101-26A6C837FFC5}</td><td/></row>
+		<row><td>ProductCode</td><td>{D1055D48-4242-4611-B01E-914B9C42E2C3}</td><td/></row>
 		<row><td>ProductName</td><td>Freelancers Lookup Tool-Setup</td><td/></row>
-		<row><td>ProductVersion</td><td>1.9</td><td/></row>
+		<row><td>ProductVersion</td><td>1.9.1</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4682,7 +4682,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">ActionProperty</col>
 		<col def="S72">ISDisplayName</col>
 		<row><td>{00000000-0000-0000-0000-000000000000}</td><td>***ALL_VERSIONS***</td><td></td><td></td><td>2</td><td/><td>ISFOUNDNEWERPRODUCTVERSION</td><td>ISPreventDowngrade</td></row>
-		<row><td>{508A5463-095A-4C12-A1E5-0EAA1AFBAF5C}</td><td>1.9</td><td>1.9</td><td></td><td>1</td><td/><td>ISACTIONPROP2</td><td>NewUpgradeEntry2</td></row>
+		<row><td>{508A5463-095A-4C12-A1E5-0EAA1AFBAF5C}</td><td></td><td>1.9.1</td><td></td><td>769</td><td/><td>ISACTIONPROP2</td><td>NewUpgradeEntry2</td></row>
 	</table>
 
 	<table name="Verb">

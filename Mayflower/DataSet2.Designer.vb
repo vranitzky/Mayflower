@@ -1331,7 +1331,7 @@ Partial Public Class DataSet2DataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddDataTableFreelancersRow(ByVal ID As Integer, ByVal NAME As String, ByVal SOURCELANG As String, ByVal TARGETLANG1 As String, ByVal TARGETLANG2 As String, ByVal RATE As Decimal, ByVal CURRENCY As String, ByVal COUNTRY As String, ByVal Role As String, ByVal SERVICE As String, ByVal APPROVAL As String, ByVal EMAIL1 As String) As DataTableFreelancersRow
+        Public Overloads Function AddDataTableFreelancersRow(ByVal ID As Integer, ByVal NAME As String, ByVal SOURCELANG As String, ByVal TARGETLANG1 As String, ByVal TARGETLANG2 As String, ByVal RATE As String, ByVal CURRENCY As String, ByVal COUNTRY As String, ByVal Role As String, ByVal SERVICE As String, ByVal APPROVAL As String, ByVal EMAIL1 As String) As DataTableFreelancersRow
             Dim rowDataTableFreelancersRow As DataTableFreelancersRow = CType(Me.NewRow, DataTableFreelancersRow)
             Dim columnValuesArray() As Object = New Object() {ID, NAME, SOURCELANG, TARGETLANG1, TARGETLANG2, RATE, CURRENCY, COUNTRY, Role, SERVICE, APPROVAL, EMAIL1}
             rowDataTableFreelancersRow.ItemArray = columnValuesArray
@@ -1389,7 +1389,7 @@ Partial Public Class DataSet2DataSet
             MyBase.Columns.Add(Me.columnTARGETLANG1)
             Me.columnTARGETLANG2 = New Global.System.Data.DataColumn("TARGETLANG2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTARGETLANG2)
-            Me.columnRATE = New Global.System.Data.DataColumn("RATE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnRATE = New Global.System.Data.DataColumn("RATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRATE)
             Me.columnCURRENCY = New Global.System.Data.DataColumn("CURRENCY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCURRENCY)
@@ -3189,8 +3189,8 @@ Partial Public Class DataSet2DataSet
                     ByVal TOOLS As String, _
                     ByVal SOURCE As String, _
                     ByVal TARGET1 As String, _
-                    ByVal REPSRATE As Decimal, _
-                    ByVal FUZZYRATE As Decimal, _
+                    ByVal REPSRATE As String, _
+                    ByVal FUZZYRATE As String, _
                     ByVal RES_CODE As String) As DTFreelancerInfoRow
             Dim rowDTFreelancerInfoRow As DTFreelancerInfoRow = CType(Me.NewRow, DTFreelancerInfoRow)
             Dim columnValuesArray() As Object = New Object() {RES_NAME, CURR_NAME, COUN_NAME, RES_PT_TYPE, RES_PT_DAYS, RES_PT_DESC, RES_STREET1, RES_STREET2, RES_CITY, RES_STATE, RES_ZIP, RES_EMAIL1, RES_EMAIL2, RES_PHONE1, RES_PHONE2, RES_FAX, RES_WWW, RES_VATNUM, RES_MINFEE, RES_PHONE3, RES_PHONE4, SKYPE, DOB, TOOLS, SOURCE, TARGET1, REPSRATE, FUZZYRATE, RES_CODE}
@@ -3302,9 +3302,9 @@ Partial Public Class DataSet2DataSet
             MyBase.Columns.Add(Me.columnSOURCE)
             Me.columnTARGET1 = New Global.System.Data.DataColumn("TARGET1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTARGET1)
-            Me.columnREPSRATE = New Global.System.Data.DataColumn("REPSRATE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnREPSRATE = New Global.System.Data.DataColumn("REPSRATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREPSRATE)
-            Me.columnFUZZYRATE = New Global.System.Data.DataColumn("FUZZYRATE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnFUZZYRATE = New Global.System.Data.DataColumn("FUZZYRATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFUZZYRATE)
             Me.columnRES_CODE = New Global.System.Data.DataColumn("RES_CODE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRES_CODE)
@@ -4469,15 +4469,15 @@ Partial Public Class DataSet2DataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property RATE() As Decimal
+        Public Property RATE() As String
             Get
                 Try
-                    Return CType(Me(Me.tableDataTableFreelancers.RATEColumn), Decimal)
+                    Return CType(Me(Me.tableDataTableFreelancers.RATEColumn), String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'RATE' in table 'DataTableFreelancers' is DBNull.", e)
                 End Try
             End Get
-            Set(value As Decimal)
+            Set(value As String)
                 Me(Me.tableDataTableFreelancers.RATEColumn) = value
             End Set
         End Property
@@ -5381,30 +5381,30 @@ Partial Public Class DataSet2DataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property REPSRATE() As Decimal
+        Public Property REPSRATE() As String
             Get
                 Try
-                    Return CType(Me(Me.tableDTFreelancerInfo.REPSRATEColumn), Decimal)
+                    Return CType(Me(Me.tableDTFreelancerInfo.REPSRATEColumn), String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'REPSRATE' in table 'DTFreelancerInfo' is DBNull.", e)
                 End Try
             End Get
-            Set(value As Decimal)
+            Set(value As String)
                 Me(Me.tableDTFreelancerInfo.REPSRATEColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property FUZZYRATE() As Decimal
+        Public Property FUZZYRATE() As String
             Get
                 Try
-                    Return CType(Me(Me.tableDTFreelancerInfo.FUZZYRATEColumn), Decimal)
+                    Return CType(Me(Me.tableDTFreelancerInfo.FUZZYRATEColumn), String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'FUZZYRATE' in table 'DTFreelancerInfo' is DBNull.", e)
                 End Try
             End Get
-            Set(value As Decimal)
+            Set(value As String)
                 Me(Me.tableDTFreelancerInfo.FUZZYRATEColumn) = value
             End Set
         End Property
