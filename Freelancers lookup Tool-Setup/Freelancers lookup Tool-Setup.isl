@@ -2413,7 +2413,7 @@
 		<row><td>DVD-18</td><td>Express</td><td>&lt;ISProjectDataFolder&gt;</td><td>Default</td><td>3</td><td>1033</td><td>0</td><td>2</td><td>Intel</td><td/><td>1033</td><td>0</td><td>15.83</td><td>1</td><td>2048</td><td/><td>0</td><td/><td>MediaLocation</td><td/><td>http://</td><td/><td/><td/><td/><td>75805</td><td/><td/><td/><td>3</td></row>
 		<row><td>DVD-5</td><td>Express</td><td>&lt;ISProjectDataFolder&gt;</td><td>Default</td><td>3</td><td>1033</td><td>0</td><td>2</td><td>Intel</td><td/><td>1033</td><td>0</td><td>4.38</td><td>1</td><td>2048</td><td/><td>0</td><td/><td>MediaLocation</td><td/><td>http://</td><td/><td/><td/><td/><td>75805</td><td/><td/><td/><td>3</td></row>
 		<row><td>DVD-9</td><td>Express</td><td>&lt;ISProjectDataFolder&gt;</td><td>Default</td><td>3</td><td>1033</td><td>0</td><td>2</td><td>Intel</td><td/><td>1033</td><td>0</td><td>7.95</td><td>1</td><td>2048</td><td/><td>0</td><td/><td>MediaLocation</td><td/><td>http://</td><td/><td/><td/><td/><td>75805</td><td/><td/><td/><td>3</td></row>
-		<row><td>SingleImage</td><td>Express</td><td>&lt;ISProjectDataFolder&gt;</td><td>PackageName</td><td>1</td><td>1033</td><td>0</td><td>1</td><td>Intel</td><td/><td>1033</td><td>0</td><td>0</td><td>0</td><td>0</td><td/><td>0</td><td/><td>MediaLocation</td><td/><td>http://</td><td/><td/><td/><td/><td>108573</td><td/><td/><td/><td>3</td></row>
+		<row><td>SingleImage</td><td>Express</td><td>&lt;ISProjectDataFolder&gt;</td><td>PackageName</td><td>1</td><td>1033</td><td>0</td><td>1</td><td>Intel</td><td/><td>1033</td><td>2</td><td>0</td><td>0</td><td>0</td><td/><td>0</td><td/><td>MediaLocation</td><td/><td>http://</td><td/><td/><td/><td/><td>108573</td><td/><td/><td/><td>3</td></row>
 		<row><td>WebDeployment</td><td>Express</td><td>&lt;ISProjectDataFolder&gt;</td><td>PackageName</td><td>4</td><td>1033</td><td>2</td><td>1</td><td>Intel</td><td/><td>1033</td><td>0</td><td>0</td><td>0</td><td>0</td><td/><td>0</td><td/><td>MediaLocation</td><td/><td>http://</td><td/><td/><td/><td/><td>124941</td><td/><td/><td/><td>3</td></row>
 	</table>
 
@@ -3872,8 +3872,8 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Mayflower\Mayflower.ico</td><td>0</td></row>
-		<row><td>NewShortcut11_F8E50C6A9539464B818AF323B9728F79.exe</td><td/><td>&lt;ProgramFilesFolder&gt;\Adobe\Acrobat 11.0\Acrobat\AcroRd32.exe</td><td>0</td></row>
-		<row><td>NewShortcut1_939DA59B2DF14CEA97A1F511DCC8CE49.exe</td><td/><td>&lt;ProgramFilesFolder&gt;\Adobe\Acrobat 11.0\Acrobat\AcroRd32.exe</td><td>0</td></row>
+		<row><td>NewShortcut11_D398675880CF4F03B2ED104D19638A48.exe</td><td/><td>&lt;ProgramFilesFolder&gt;\Adobe\Reader 11.0\Reader\AcroRd32.exe</td><td>0</td></row>
+		<row><td>NewShortcut1_E01AEF40E80B4AF98C1928BD8893E98B.exe</td><td/><td>&lt;ProgramFilesFolder&gt;\Adobe\Reader 11.0\Reader\AcroRd32.exe</td><td>0</td></row>
 		<row><td>_Built1_20DF648C159F4B92BDA057D0E732A602.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Mayflower\Mayflower.ico</td><td>0</td></row>
 		<row><td>_Built_4B3823679D2D41F29B59DDEED9D931BE.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Mayflower\Mayflower.ico</td><td>0</td></row>
 	</table>
@@ -4388,9 +4388,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]Freelancer Lookup Tool.Primary output</td><td/></row>
-		<row><td>ProductCode</td><td>{D1055D48-4242-4611-B01E-914B9C42E2C3}</td><td/></row>
+		<row><td>ProductCode</td><td>{DC151AC7-23EC-45CE-9F35-94F503BD3D9C}</td><td/></row>
 		<row><td>ProductName</td><td>Freelancers Lookup Tool-Setup</td><td/></row>
-		<row><td>ProductVersion</td><td>1.9.1</td><td/></row>
+		<row><td>ProductVersion</td><td>1.9.2</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4556,8 +4556,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>NewShortcut1</td><td>freela_1_freelancers_lookup_tool_setup</td><td>##ID_STRING5##</td><td>ISX_DEFAULTCOMPONENT</td><td>[INSTALLDIR]FreelancersLookupTool UserGuide.pdf</td><td/><td/><td/><td>NewShortcut1_939DA59B2DF14CEA97A1F511DCC8CE49.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>NewShortcut11</td><td>DesktopFolder</td><td>##ID_STRING6##</td><td>ISX_DEFAULTCOMPONENT</td><td>[INSTALLDIR]FreelancersLookupTool UserGuide.pdf</td><td/><td/><td/><td>NewShortcut11_F8E50C6A9539464B818AF323B9728F79.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut1</td><td>freela_1_freelancers_lookup_tool_setup</td><td>##ID_STRING5##</td><td>ISX_DEFAULTCOMPONENT</td><td>[INSTALLDIR]FreelancersLookupTool UserGuide.pdf</td><td/><td/><td/><td>NewShortcut1_E01AEF40E80B4AF98C1928BD8893E98B.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>NewShortcut11</td><td>DesktopFolder</td><td>##ID_STRING6##</td><td>ISX_DEFAULTCOMPONENT</td><td>[INSTALLDIR]FreelancersLookupTool UserGuide.pdf</td><td/><td/><td/><td>NewShortcut11_D398675880CF4F03B2ED104D19638A48.exe</td><td>1</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built</td><td>freela_1_freelancers_lookup_tool_setup</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>Freelancer_Lookup_Tool.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built_4B3823679D2D41F29B59DDEED9D931BE.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>Freelancer_Lookup_Tool.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built1_20DF648C159F4B92BDA057D0E732A602.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
@@ -4682,7 +4682,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">ActionProperty</col>
 		<col def="S72">ISDisplayName</col>
 		<row><td>{00000000-0000-0000-0000-000000000000}</td><td>***ALL_VERSIONS***</td><td></td><td></td><td>2</td><td/><td>ISFOUNDNEWERPRODUCTVERSION</td><td>ISPreventDowngrade</td></row>
-		<row><td>{508A5463-095A-4C12-A1E5-0EAA1AFBAF5C}</td><td></td><td>1.9.1</td><td></td><td>769</td><td/><td>ISACTIONPROP2</td><td>NewUpgradeEntry2</td></row>
+		<row><td>{508A5463-095A-4C12-A1E5-0EAA1AFBAF5C}</td><td></td><td>1.9.2</td><td></td><td>769</td><td/><td>ISACTIONPROP2</td><td>NewUpgradeEntry2</td></row>
 	</table>
 
 	<table name="Verb">

@@ -24,11 +24,11 @@ Partial Class FormMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabFreelancers = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -70,6 +70,18 @@ Partial Class FormMain
         Me.RestrictByRole = New System.Windows.Forms.CheckBox()
         Me.LabelRecordsFound = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SOURCELANGDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TARGETLANG2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FreelancersCURRENCY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.COUNTRYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RoleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SERVICEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.APPROVALDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmailButton = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.BindingSourceFreelancers = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabDetails = New System.Windows.Forms.TabPage()
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
@@ -168,18 +180,6 @@ Partial Class FormMain
         Me.COUNTRIESTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.COUNTRIESTableAdapter()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.RoleTableAdapter = New Freelancers_Lookup.DataSet2DataSetTableAdapters.RoleTableAdapter()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SOURCELANGDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TARGETLANG2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FreelancersCURRENCY = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.COUNTRYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RoleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SERVICEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.APPROVALDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EmailButton = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabFreelancers.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -721,6 +721,108 @@ Partial Class FormMain
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.DataGridView1.Size = New System.Drawing.Size(954, 374)
         Me.DataGridView1.TabIndex = 25
+        '
+        'ID
+        '
+        Me.ID.DataPropertyName = "ID"
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        Me.ID.Visible = False
+        '
+        'NAMEDataGridViewTextBoxColumn
+        '
+        Me.NAMEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.NAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME"
+        Me.NAMEDataGridViewTextBoxColumn.HeaderText = "Name"
+        Me.NAMEDataGridViewTextBoxColumn.MinimumWidth = 100
+        Me.NAMEDataGridViewTextBoxColumn.Name = "NAMEDataGridViewTextBoxColumn"
+        Me.NAMEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.NAMEDataGridViewTextBoxColumn.Width = 150
+        '
+        'SOURCELANGDataGridViewTextBoxColumn
+        '
+        Me.SOURCELANGDataGridViewTextBoxColumn.DataPropertyName = "SOURCELANG"
+        Me.SOURCELANGDataGridViewTextBoxColumn.FillWeight = 13.30059!
+        Me.SOURCELANGDataGridViewTextBoxColumn.HeaderText = "Source Lang"
+        Me.SOURCELANGDataGridViewTextBoxColumn.Name = "SOURCELANGDataGridViewTextBoxColumn"
+        Me.SOURCELANGDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TARGETLANG1DataGridViewTextBoxColumn
+        '
+        Me.TARGETLANG1DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG1"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.FillWeight = 13.30059!
+        Me.TARGETLANG1DataGridViewTextBoxColumn.HeaderText = "TargetLang 1"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.Name = "TARGETLANG1DataGridViewTextBoxColumn"
+        Me.TARGETLANG1DataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TARGETLANG2DataGridViewTextBoxColumn
+        '
+        Me.TARGETLANG2DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG2"
+        Me.TARGETLANG2DataGridViewTextBoxColumn.FillWeight = 13.30059!
+        Me.TARGETLANG2DataGridViewTextBoxColumn.HeaderText = "TargetLang 2"
+        Me.TARGETLANG2DataGridViewTextBoxColumn.Name = "TARGETLANG2DataGridViewTextBoxColumn"
+        Me.TARGETLANG2DataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'RATEDataGridViewTextBoxColumn
+        '
+        Me.RATEDataGridViewTextBoxColumn.DataPropertyName = "RATE"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.RATEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        Me.RATEDataGridViewTextBoxColumn.FillWeight = 8.842526!
+        Me.RATEDataGridViewTextBoxColumn.HeaderText = "Rate"
+        Me.RATEDataGridViewTextBoxColumn.Name = "RATEDataGridViewTextBoxColumn"
+        Me.RATEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'FreelancersCURRENCY
+        '
+        Me.FreelancersCURRENCY.DataPropertyName = "CURRENCY"
+        Me.FreelancersCURRENCY.FillWeight = 6.631895!
+        Me.FreelancersCURRENCY.HeaderText = "Currency"
+        Me.FreelancersCURRENCY.Name = "FreelancersCURRENCY"
+        Me.FreelancersCURRENCY.ReadOnly = True
+        '
+        'COUNTRYDataGridViewTextBoxColumn
+        '
+        Me.COUNTRYDataGridViewTextBoxColumn.DataPropertyName = "COUNTRY"
+        Me.COUNTRYDataGridViewTextBoxColumn.FillWeight = 8.842526!
+        Me.COUNTRYDataGridViewTextBoxColumn.HeaderText = "Country"
+        Me.COUNTRYDataGridViewTextBoxColumn.Name = "COUNTRYDataGridViewTextBoxColumn"
+        Me.COUNTRYDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'RoleDataGridViewTextBoxColumn
+        '
+        Me.RoleDataGridViewTextBoxColumn.DataPropertyName = "Role"
+        Me.RoleDataGridViewTextBoxColumn.FillWeight = 13.30059!
+        Me.RoleDataGridViewTextBoxColumn.HeaderText = "Role"
+        Me.RoleDataGridViewTextBoxColumn.Name = "RoleDataGridViewTextBoxColumn"
+        Me.RoleDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'SERVICEDataGridViewTextBoxColumn
+        '
+        Me.SERVICEDataGridViewTextBoxColumn.DataPropertyName = "SERVICE"
+        Me.SERVICEDataGridViewTextBoxColumn.FillWeight = 13.30059!
+        Me.SERVICEDataGridViewTextBoxColumn.HeaderText = "Service"
+        Me.SERVICEDataGridViewTextBoxColumn.Name = "SERVICEDataGridViewTextBoxColumn"
+        Me.SERVICEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'APPROVALDataGridViewTextBoxColumn
+        '
+        Me.APPROVALDataGridViewTextBoxColumn.DataPropertyName = "APPROVAL"
+        Me.APPROVALDataGridViewTextBoxColumn.FillWeight = 13.30059!
+        Me.APPROVALDataGridViewTextBoxColumn.HeaderText = "Approval"
+        Me.APPROVALDataGridViewTextBoxColumn.Name = "APPROVALDataGridViewTextBoxColumn"
+        Me.APPROVALDataGridViewTextBoxColumn.ReadOnly = True
+        Me.APPROVALDataGridViewTextBoxColumn.Visible = False
+        '
+        'EmailButton
+        '
+        Me.EmailButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.EmailButton.DataPropertyName = "EMAIL1"
+        Me.EmailButton.HeaderText = "Emailing"
+        Me.EmailButton.Name = "EmailButton"
+        Me.EmailButton.ReadOnly = True
         '
         'BindingSourceFreelancers
         '
@@ -1717,108 +1819,6 @@ Partial Class FormMain
         'RoleTableAdapter
         '
         Me.RoleTableAdapter.ClearBeforeFill = True
-        '
-        'ID
-        '
-        Me.ID.DataPropertyName = "ID"
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.ReadOnly = True
-        Me.ID.Visible = False
-        '
-        'NAMEDataGridViewTextBoxColumn
-        '
-        Me.NAMEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.NAMEDataGridViewTextBoxColumn.DataPropertyName = "NAME"
-        Me.NAMEDataGridViewTextBoxColumn.HeaderText = "Name"
-        Me.NAMEDataGridViewTextBoxColumn.MinimumWidth = 100
-        Me.NAMEDataGridViewTextBoxColumn.Name = "NAMEDataGridViewTextBoxColumn"
-        Me.NAMEDataGridViewTextBoxColumn.ReadOnly = True
-        Me.NAMEDataGridViewTextBoxColumn.Width = 150
-        '
-        'SOURCELANGDataGridViewTextBoxColumn
-        '
-        Me.SOURCELANGDataGridViewTextBoxColumn.DataPropertyName = "SOURCELANG"
-        Me.SOURCELANGDataGridViewTextBoxColumn.FillWeight = 13.30059!
-        Me.SOURCELANGDataGridViewTextBoxColumn.HeaderText = "Source Lang"
-        Me.SOURCELANGDataGridViewTextBoxColumn.Name = "SOURCELANGDataGridViewTextBoxColumn"
-        Me.SOURCELANGDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TARGETLANG1DataGridViewTextBoxColumn
-        '
-        Me.TARGETLANG1DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG1"
-        Me.TARGETLANG1DataGridViewTextBoxColumn.FillWeight = 13.30059!
-        Me.TARGETLANG1DataGridViewTextBoxColumn.HeaderText = "TargetLang 1"
-        Me.TARGETLANG1DataGridViewTextBoxColumn.Name = "TARGETLANG1DataGridViewTextBoxColumn"
-        Me.TARGETLANG1DataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TARGETLANG2DataGridViewTextBoxColumn
-        '
-        Me.TARGETLANG2DataGridViewTextBoxColumn.DataPropertyName = "TARGETLANG2"
-        Me.TARGETLANG2DataGridViewTextBoxColumn.FillWeight = 13.30059!
-        Me.TARGETLANG2DataGridViewTextBoxColumn.HeaderText = "TargetLang 2"
-        Me.TARGETLANG2DataGridViewTextBoxColumn.Name = "TARGETLANG2DataGridViewTextBoxColumn"
-        Me.TARGETLANG2DataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'RATEDataGridViewTextBoxColumn
-        '
-        Me.RATEDataGridViewTextBoxColumn.DataPropertyName = "RATE"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.RATEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
-        Me.RATEDataGridViewTextBoxColumn.FillWeight = 8.842526!
-        Me.RATEDataGridViewTextBoxColumn.HeaderText = "Rate"
-        Me.RATEDataGridViewTextBoxColumn.Name = "RATEDataGridViewTextBoxColumn"
-        Me.RATEDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'FreelancersCURRENCY
-        '
-        Me.FreelancersCURRENCY.DataPropertyName = "CURRENCY"
-        Me.FreelancersCURRENCY.FillWeight = 6.631895!
-        Me.FreelancersCURRENCY.HeaderText = "Currency"
-        Me.FreelancersCURRENCY.Name = "FreelancersCURRENCY"
-        Me.FreelancersCURRENCY.ReadOnly = True
-        '
-        'COUNTRYDataGridViewTextBoxColumn
-        '
-        Me.COUNTRYDataGridViewTextBoxColumn.DataPropertyName = "COUNTRY"
-        Me.COUNTRYDataGridViewTextBoxColumn.FillWeight = 8.842526!
-        Me.COUNTRYDataGridViewTextBoxColumn.HeaderText = "Country"
-        Me.COUNTRYDataGridViewTextBoxColumn.Name = "COUNTRYDataGridViewTextBoxColumn"
-        Me.COUNTRYDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'RoleDataGridViewTextBoxColumn
-        '
-        Me.RoleDataGridViewTextBoxColumn.DataPropertyName = "Role"
-        Me.RoleDataGridViewTextBoxColumn.FillWeight = 13.30059!
-        Me.RoleDataGridViewTextBoxColumn.HeaderText = "Role"
-        Me.RoleDataGridViewTextBoxColumn.Name = "RoleDataGridViewTextBoxColumn"
-        Me.RoleDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'SERVICEDataGridViewTextBoxColumn
-        '
-        Me.SERVICEDataGridViewTextBoxColumn.DataPropertyName = "SERVICE"
-        Me.SERVICEDataGridViewTextBoxColumn.FillWeight = 13.30059!
-        Me.SERVICEDataGridViewTextBoxColumn.HeaderText = "Service"
-        Me.SERVICEDataGridViewTextBoxColumn.Name = "SERVICEDataGridViewTextBoxColumn"
-        Me.SERVICEDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'APPROVALDataGridViewTextBoxColumn
-        '
-        Me.APPROVALDataGridViewTextBoxColumn.DataPropertyName = "APPROVAL"
-        Me.APPROVALDataGridViewTextBoxColumn.FillWeight = 13.30059!
-        Me.APPROVALDataGridViewTextBoxColumn.HeaderText = "Approval"
-        Me.APPROVALDataGridViewTextBoxColumn.Name = "APPROVALDataGridViewTextBoxColumn"
-        Me.APPROVALDataGridViewTextBoxColumn.ReadOnly = True
-        Me.APPROVALDataGridViewTextBoxColumn.Visible = False
-        '
-        'EmailButton
-        '
-        Me.EmailButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.EmailButton.DataPropertyName = "EMAIL1"
-        Me.EmailButton.HeaderText = "Emailing"
-        Me.EmailButton.Name = "EmailButton"
-        Me.EmailButton.ReadOnly = True
         '
         'FormMain
         '
