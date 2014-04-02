@@ -59,7 +59,6 @@ Partial Class FormMain
         Me.Label23 = New System.Windows.Forms.Label()
         Me.TextBoxName = New System.Windows.Forms.TextBox()
         Me.RestrictByName = New System.Windows.Forms.CheckBox()
-        Me.Label30 = New System.Windows.Forms.Label()
         Me.ComboBoxServices = New System.Windows.Forms.ComboBox()
         Me.DataTableServiceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label12 = New System.Windows.Forms.Label()
@@ -68,6 +67,10 @@ Partial Class FormMain
         Me.DataTableRoleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet2DataSet2 = New Freelancers_Lookup.DataSet2DataSet()
         Me.RestrictByRole = New System.Windows.Forms.CheckBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
+        Me.ButtonBirthdays = New System.Windows.Forms.Button()
+        Me.Label30 = New System.Windows.Forms.Label()
         Me.LabelRecordsFound = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -195,6 +198,8 @@ Partial Class FormMain
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataTableRoleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataSet2DataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.TableLayoutPanel7.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabDetails.SuspendLayout()
@@ -300,12 +305,12 @@ Partial Class FormMain
         Me.TableLayoutPanel6.Controls.Add(Me.Label23, 3, 1)
         Me.TableLayoutPanel6.Controls.Add(Me.TextBoxName, 4, 1)
         Me.TableLayoutPanel6.Controls.Add(Me.RestrictByName, 5, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label30, 4, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.ComboBoxServices, 7, 3)
         Me.TableLayoutPanel6.Controls.Add(Me.Label12, 6, 3)
         Me.TableLayoutPanel6.Controls.Add(Me.Label31, 3, 3)
         Me.TableLayoutPanel6.Controls.Add(Me.ComboBoxRole, 4, 3)
         Me.TableLayoutPanel6.Controls.Add(Me.RestrictByRole, 5, 3)
+        Me.TableLayoutPanel6.Controls.Add(Me.Panel1, 4, 0)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel6.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
@@ -596,18 +601,6 @@ Partial Class FormMain
         Me.RestrictByName.Text = "CheckBox1"
         Me.RestrictByName.UseVisualStyleBackColor = True
         '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.TableLayoutPanel6.SetColumnSpan(Me.Label30, 2)
-        Me.Label30.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label30.Location = New System.Drawing.Point(437, 0)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(218, 30)
-        Me.Label30.TabIndex = 63
-        Me.Label30.Text = "Restrict?"
-        Me.Label30.TextAlign = System.Drawing.ContentAlignment.BottomRight
-        '
         'ComboBoxServices
         '
         Me.ComboBoxServices.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
@@ -684,6 +677,55 @@ Partial Class FormMain
         Me.RestrictByRole.TabIndex = 66
         Me.RestrictByRole.Text = "CheckBox1"
         Me.RestrictByRole.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.TableLayoutPanel6.SetColumnSpan(Me.Panel1, 2)
+        Me.Panel1.Controls.Add(Me.TableLayoutPanel7)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(434, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(224, 30)
+        Me.Panel1.TabIndex = 67
+        '
+        'TableLayoutPanel7
+        '
+        Me.TableLayoutPanel7.ColumnCount = 2
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel7.Controls.Add(Me.ButtonBirthdays, 0, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.Label30, 1, 0)
+        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
+        Me.TableLayoutPanel7.RowCount = 1
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(224, 30)
+        Me.TableLayoutPanel7.TabIndex = 0
+        '
+        'ButtonBirthdays
+        '
+        Me.ButtonBirthdays.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonBirthdays.Location = New System.Drawing.Point(3, 3)
+        Me.ButtonBirthdays.Name = "ButtonBirthdays"
+        Me.ButtonBirthdays.Size = New System.Drawing.Size(106, 24)
+        Me.ButtonBirthdays.TabIndex = 0
+        Me.ButtonBirthdays.Text = "Birthdays"
+        Me.ButtonBirthdays.UseVisualStyleBackColor = True
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label30.Location = New System.Drawing.Point(115, 0)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(106, 30)
+        Me.Label30.TabIndex = 1
+        Me.Label30.Text = "Restrict?"
+        Me.Label30.TextAlign = System.Drawing.ContentAlignment.BottomRight
         '
         'LabelRecordsFound
         '
@@ -1851,6 +1893,9 @@ Partial Class FormMain
         CType(Me.DataTableServiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataTableRoleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet2DataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.TableLayoutPanel7.ResumeLayout(False)
+        Me.TableLayoutPanel7.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceFreelancers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabDetails.ResumeLayout(False)
@@ -2026,7 +2071,6 @@ Partial Class FormMain
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents TextBoxName As System.Windows.Forms.TextBox
     Friend WithEvents RestrictByName As System.Windows.Forms.CheckBox
-    Friend WithEvents Label30 As System.Windows.Forms.Label
     Friend WithEvents RJOB_ASSIGNED As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ISCOMPLETED As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PROJ_CODE As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -2057,5 +2101,9 @@ Partial Class FormMain
     Friend WithEvents SERVICEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents APPROVALDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents EmailButton As System.Windows.Forms.DataGridViewButtonColumn
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents TableLayoutPanel7 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents ButtonBirthdays As System.Windows.Forms.Button
+    Friend WithEvents Label30 As System.Windows.Forms.Label
 
 End Class

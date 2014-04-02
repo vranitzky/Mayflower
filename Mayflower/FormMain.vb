@@ -6,6 +6,9 @@ Public Class FormMain
     Private Loaded As Boolean = False
     Public Attachments As New Dictionary(Of String, String) ' = New Dictionary(Of String, String)
     Private IsInAddTemplateMode As Boolean = False
+    Dim BirthdaysButtonIsActive As Color = Color.Red
+    Dim BirthdaysButtonIsInactive As Color = Color.Transparent
+
 
     Private Sub GetCatTools()
         Dim t As Freelancers_Lookup.DataSet2DataSet.CatToolsDataTable
@@ -59,6 +62,7 @@ Public Class FormMain
         'Dim f As function
 
         ' TODO: parametrise this!
+        ' OK, this is terrible and prone to hacking.... anyone willing to fix, please do!
         'Build SQL query:
         sql = "SELECT RESOURCES.RES_ID AS ID, " &
                 "RESOURCES.RES_NAME AS Name, " &
@@ -74,7 +78,7 @@ Public Class FormMain
                 "FROM RESOURCES " &
                 "INNER JOIN COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID " &
                 "INNER JOIN CURR ON RESOURCES.CURR_ID = CURR.CURR_ID " &
-                "WHERE ((""AIT$CUSTOMF00125"" <> 'Rejected') OR (""AIT$CUSTOMF00125"" is null)) "
+                "WHERE ((""AIT$CUSTOMF00125"" <> 'Rejected') OR (""AIT$CUSTOMF00125"" is null) OR (""AIT$CUSTOMF00125"" <> 'Sample') ) "
         '"WHERE 1=1 "
 
         'sql = "SELECT	RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" AS SourceLang, " &
@@ -86,29 +90,33 @@ Public Class FormMain
         '        "WHERE 1=1 "
         'What follows is horrible, I know. Directly using user submitted text into SQL queries? VERY BAD IDEA!
         'Should change this into @parameters
-        If RestrictBySourceLang.Checked And ComboBoxSourceLang.Text <> "-ALL-" Then
-            sql &= "AND (RESOURCES.""AIT$CUSTOMF00068"" = '" & ComboBoxSourceLang.Text & "')"
-        End If
-        If RestrictByTargetLang.Checked And ComboBoxTargetLang.Text <> "-ALL-" Then
-            sql &= "AND ((RESOURCES.""AIT$CUSTOMF00069"" = '" & ComboBoxTargetLang.Text & "') OR (RESOURCES.""AIT$CUSTOMF00074"" = '" & ComboBoxTargetLang.Text & "')) "
-        End If
-        If RestrictByService.Checked And ComboBoxServices.Text <> "-ALL-" Then
-            sql &= "AND (""AIT$CUSTOMF00094"" = '" & ComboBoxServices.Text & "') "
-        End If
-        If RestrictByRole.Checked And ComboBoxRole.Text <> "-ALL-" Then
-            sql &= "AND (""AIT$CUSTOMF00093"" = '" & ComboBoxRole.Text & "') "
-        End If
-        If RestrictByDomain.Checked And ComboBoxDomains.Text <> "-ALL-" Then
-            sql &= "AND ((RESOURCES.""AIT$CUSTOMF00103"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00104"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00105"" CONTAINING '" & ComboBoxDomains.Text & "')) "
-        End If
-        If RestrictByTools.Checked And TextBoxTools.Text <> "" And TextBoxTools.Text <> "-ALL-" Then
-            sql &= "AND (UPPER(RESOURCES.""AIT$CUSTOMF00067"") LIKE UPPER('%" & TextBoxTools.Text & "%')) "
-        End If
-        If RestrictByCountry.Checked And ComboBoxCountry.SelectedValue.ToString <> "-1" Then
-            sql &= "AND (RESOURCES.COUN_ID = '" & ComboBoxCountry.SelectedValue.ToString & "') "
-        End If
-        If RestrictByName.Checked And Not String.IsNullOrWhiteSpace(TextBoxName.Text) Then
-            sql &= "AND (RESOURCES.RES_NAME CONTAINING '" & TextBoxName.Text & "') "
+        If ButtonBirthdays.BackColor = BirthdaysButtonIsActive Then 'ignore everything and show upcoming birthdays
+            sql &= "AND mod(DATEDIFF(day, current_date,DATEADD(year,DATEDIFF(year, ""AIT$CUSTOMF00017"", current_date) + 1, ""AIT$CUSTOMF00017"")), 366) < 7"
+        Else
+            If RestrictBySourceLang.Checked And ComboBoxSourceLang.Text <> "-ALL-" Then
+                sql &= "AND (RESOURCES.""AIT$CUSTOMF00068"" = '" & ComboBoxSourceLang.Text & "')"
+            End If
+            If RestrictByTargetLang.Checked And ComboBoxTargetLang.Text <> "-ALL-" Then
+                sql &= "AND ((RESOURCES.""AIT$CUSTOMF00069"" = '" & ComboBoxTargetLang.Text & "') OR (RESOURCES.""AIT$CUSTOMF00074"" = '" & ComboBoxTargetLang.Text & "')) "
+            End If
+            If RestrictByService.Checked And ComboBoxServices.Text <> "-ALL-" Then
+                sql &= "AND (""AIT$CUSTOMF00094"" = '" & ComboBoxServices.Text & "') "
+            End If
+            If RestrictByRole.Checked And ComboBoxRole.Text <> "-ALL-" Then
+                sql &= "AND (""AIT$CUSTOMF00093"" = '" & ComboBoxRole.Text & "') "
+            End If
+            If RestrictByDomain.Checked And ComboBoxDomains.Text <> "-ALL-" Then
+                sql &= "AND ((RESOURCES.""AIT$CUSTOMF00103"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00104"" CONTAINING '" & ComboBoxDomains.Text & "') OR (RESOURCES.""AIT$CUSTOMF00105"" CONTAINING '" & ComboBoxDomains.Text & "')) "
+            End If
+            If RestrictByTools.Checked And TextBoxTools.Text <> "" And TextBoxTools.Text <> "-ALL-" Then
+                sql &= "AND (UPPER(RESOURCES.""AIT$CUSTOMF00067"") LIKE UPPER('%" & TextBoxTools.Text & "%')) "
+            End If
+            If RestrictByCountry.Checked And ComboBoxCountry.SelectedValue.ToString <> "-1" Then
+                sql &= "AND (RESOURCES.COUN_ID = '" & ComboBoxCountry.SelectedValue.ToString & "') "
+            End If
+            If RestrictByName.Checked And Not String.IsNullOrWhiteSpace(TextBoxName.Text) Then
+                sql &= "AND (RESOURCES.RES_NAME CONTAINING '" & TextBoxName.Text & "') "
+            End If
         End If
 
         command.Connection = FreelancersTableAdapter.Connection
@@ -150,6 +158,19 @@ Public Class FormMain
         Me.Cursor = Cursors.Default
         'command.Dispose()
     End Sub
+    Private Sub ButtonBirthdays_Click(sender As Object, e As EventArgs) Handles ButtonBirthdays.Click
+        If ButtonBirthdays.BackColor = BirthdaysButtonIsActive Then
+            ButtonBirthdays.BackColor = BirthdaysButtonIsInactive
+            ' TODO: restore all controls to active
+            ComboBoxSourceLang.Enabled = True
+        Else
+            ButtonBirthdays.BackColor = BirthdaysButtonIsActive
+            'TODO: grey out all controls until deactivated
+            ComboBoxSourceLang.Enabled = False
+        End If
+        FillFreelancersTable()
+    End Sub
+
 
     Private Sub ComboBoxSourceLang_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ComboBoxSourceLang.SelectionChangeCommitted
 
