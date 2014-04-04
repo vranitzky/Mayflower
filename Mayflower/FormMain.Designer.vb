@@ -74,6 +74,7 @@ Partial Class FormMain
         Me.LabelRecordsFound = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DAYSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SOURCELANGDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TARGETLANG1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -753,7 +754,7 @@ Partial Class FormMain
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.NAMEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.RATEDataGridViewTextBoxColumn, Me.FreelancersCURRENCY, Me.COUNTRYDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn, Me.APPROVALDataGridViewTextBoxColumn, Me.EmailButton})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.DAYSDataGridViewTextBoxColumn, Me.NAMEDataGridViewTextBoxColumn, Me.SOURCELANGDataGridViewTextBoxColumn, Me.TARGETLANG1DataGridViewTextBoxColumn, Me.TARGETLANG2DataGridViewTextBoxColumn, Me.RATEDataGridViewTextBoxColumn, Me.FreelancersCURRENCY, Me.COUNTRYDataGridViewTextBoxColumn, Me.RoleDataGridViewTextBoxColumn, Me.SERVICEDataGridViewTextBoxColumn, Me.APPROVALDataGridViewTextBoxColumn, Me.EmailButton})
         Me.DataGridView1.DataSource = Me.BindingSourceFreelancers
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
@@ -771,6 +772,15 @@ Partial Class FormMain
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
         Me.ID.Visible = False
+        '
+        'DAYSDataGridViewTextBoxColumn
+        '
+        Me.DAYSDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.DAYSDataGridViewTextBoxColumn.DataPropertyName = "DAYS"
+        Me.DAYSDataGridViewTextBoxColumn.HeaderText = "Days to BDay"
+        Me.DAYSDataGridViewTextBoxColumn.Name = "DAYSDataGridViewTextBoxColumn"
+        Me.DAYSDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DAYSDataGridViewTextBoxColumn.Visible = False
         '
         'NAMEDataGridViewTextBoxColumn
         '
@@ -2089,7 +2099,12 @@ Partial Class FormMain
     Friend WithEvents DataTableRoleBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents RoleTableAdapter As Freelancers_Lookup.DataSet2DataSetTableAdapters.RoleTableAdapter
     Friend WithEvents LinkLabelFiles As System.Windows.Forms.LinkLabel
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents TableLayoutPanel7 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents ButtonBirthdays As System.Windows.Forms.Button
+    Friend WithEvents Label30 As System.Windows.Forms.Label
     Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DAYSDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents SOURCELANGDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TARGETLANG1DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -2101,9 +2116,5 @@ Partial Class FormMain
     Friend WithEvents SERVICEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents APPROVALDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents EmailButton As System.Windows.Forms.DataGridViewButtonColumn
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents TableLayoutPanel7 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents ButtonBirthdays As System.Windows.Forms.Button
-    Friend WithEvents Label30 As System.Windows.Forms.Label
 
 End Class

@@ -64,7 +64,13 @@ Public Class FormMain
         ' TODO: parametrise this!
         ' OK, this is terrible and prone to hacking.... anyone willing to fix, please do!
         'Build SQL query:
-        sql = "SELECT RESOURCES.RES_ID AS ID, " &
+        sql = "SELECT "
+        If ButtonBirthdays.BackColor = BirthdaysButtonIsActive Then
+            sql &= "mod(DATEDIFF(day, current_date,DATEADD(year,DATEDIFF(year, ""AIT$CUSTOMF00017"", current_date) + 1, ""AIT$CUSTOMF00017""))+1, 366) as DAYS,"
+        Else
+            sql &= "0 as DAYS,"
+        End If
+        sql &= "RESOURCES.RES_ID AS ID, " &
                 "RESOURCES.RES_NAME AS Name, " &
                 "RESOURCES.""AIT$CUSTOMF00068"" AS SourceLang, " &
                 "RESOURCES.""AIT$CUSTOMF00069"" AS TargetLang1, " &
@@ -78,7 +84,7 @@ Public Class FormMain
                 "FROM RESOURCES " &
                 "INNER JOIN COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID " &
                 "INNER JOIN CURR ON RESOURCES.CURR_ID = CURR.CURR_ID " &
-                "WHERE ((""AIT$CUSTOMF00125"" <> 'Rejected') OR (""AIT$CUSTOMF00125"" is null) OR (""AIT$CUSTOMF00125"" <> 'Sample') ) "
+                "WHERE ((""AIT$CUSTOMF00125"" <> 'Rejected') AND (""AIT$CUSTOMF00125"" is not null) AND (""AIT$CUSTOMF00125"" <> 'Sample') ) "
         '"WHERE 1=1 "
 
         'sql = "SELECT	RESOURCES.RES_ID, RESOURCES.RES_NAME, RESOURCES.""AIT$CUSTOMF00068"" AS SourceLang, " &
@@ -91,7 +97,7 @@ Public Class FormMain
         'What follows is horrible, I know. Directly using user submitted text into SQL queries? VERY BAD IDEA!
         'Should change this into @parameters
         If ButtonBirthdays.BackColor = BirthdaysButtonIsActive Then 'ignore everything and show upcoming birthdays
-            sql &= "AND mod(DATEDIFF(day, current_date,DATEADD(year,DATEDIFF(year, ""AIT$CUSTOMF00017"", current_date) + 1, ""AIT$CUSTOMF00017"")), 366) < 7"
+            sql &= "AND mod(DATEDIFF(day, current_date,DATEADD(year,DATEDIFF(year, ""AIT$CUSTOMF00017"", current_date) + 1, ""AIT$CUSTOMF00017""))+1, 366) < 3"
         Else
             If RestrictBySourceLang.Checked And ComboBoxSourceLang.Text <> "-ALL-" Then
                 sql &= "AND (RESOURCES.""AIT$CUSTOMF00068"" = '" & ComboBoxSourceLang.Text & "')"
@@ -163,10 +169,42 @@ Public Class FormMain
             ButtonBirthdays.BackColor = BirthdaysButtonIsInactive
             ' TODO: restore all controls to active
             ComboBoxSourceLang.Enabled = True
+            ComboBoxCountry.Enabled = True
+            ComboBoxDomains.Enabled = True
+            ComboBoxRole.Enabled = True
+            ComboBoxServices.Enabled = True
+            ComboBoxTargetLang.Enabled = True
+            TextBoxName.Enabled = True
+            TextBoxTools.Enabled = True
+            RestrictByCountry.Enabled = True
+            RestrictByDomain.Enabled = True
+            RestrictByService.Enabled = True
+            RestrictByName.Enabled = True
+            RestrictByRole.Enabled = True
+            RestrictBySourceLang.Enabled = True
+            RestrictByTargetLang.Enabled = True
+            RestrictByTools.Enabled = True
+            DAYSDataGridViewTextBoxColumn.Visible = False
         Else
             ButtonBirthdays.BackColor = BirthdaysButtonIsActive
             'TODO: grey out all controls until deactivated
             ComboBoxSourceLang.Enabled = False
+            ComboBoxCountry.Enabled = False
+            ComboBoxDomains.Enabled = False
+            ComboBoxRole.Enabled = False
+            ComboBoxServices.Enabled = False
+            ComboBoxTargetLang.Enabled = False
+            TextBoxName.Enabled = False
+            TextBoxTools.Enabled = False
+            RestrictByCountry.Enabled = False
+            RestrictByDomain.Enabled = False
+            RestrictByService.Enabled = False
+            RestrictByName.Enabled = False
+            RestrictByRole.Enabled = False
+            RestrictBySourceLang.Enabled = False
+            RestrictByTargetLang.Enabled = False
+            RestrictByTools.Enabled = False
+            DAYSDataGridViewTextBoxColumn.Visible = True
         End If
         FillFreelancersTable()
     End Sub

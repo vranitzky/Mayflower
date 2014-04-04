@@ -32,7 +32,7 @@
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.9.2.%2a</ApplicationVersion>
+    <ApplicationVersion>1.9.3.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -80,10 +80,10 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CCC6F7BBDEEFE8401A7112EA942780D00558716B</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>9BB8A2C4470E4B178809E840C688DAD2F43CBBC3</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Mayflower_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Freelancer Lookup Tool_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -95,7 +95,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Mayflower_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
@@ -233,6 +233,7 @@
     <None Include="DSVirtualBox.xss">
       <DependentUpon>DSVirtualBox.xsd</DependentUpon>
     </None>
+    <None Include="Freelancer Lookup Tool_TemporaryKey.pfx" />
     <None Include="Mayflower_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest">
       <SubType>Designer</SubType>

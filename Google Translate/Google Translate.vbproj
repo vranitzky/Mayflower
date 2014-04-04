@@ -126,6 +126,8 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="TXTextControl, Version=20.0.1300.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638" />
+    <Reference Include="TXTextControl.Windows.Forms, Version=20.0.500.500, Culture=neutral, PublicKeyToken=6b83fe9a75cfb638, processorArchitecture=MSIL" />
     <Reference Include="Zlib.Portable">
       <HintPath>..\packages\Zlib.Portable.1.9.2\lib\portable-net4+sl4+wp71+win8\Zlib.Portable.dll</HintPath>
     </Reference>
@@ -139,6 +141,7 @@
     <Import Include="System.Collections.Specialized" />
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
+    <Import Include="System.IO" />
     <Import Include="System.Net" />
     <Import Include="System.Net.Http" />
     <Import Include="System.Net.Http.Headers" />
@@ -187,6 +190,7 @@
     <EmbeddedResource Include="DialogLangs.resx">
       <DependentUpon>DialogLangs.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

@@ -46,8 +46,8 @@
         Dim responseReader As System.IO.StreamReader
 
         'send a POST request
-        webRequest = HttpWebRequest.Create("https://api.beglobal.com/translate")
-        'webRequest = HttpWebRequest.Create("http://localhost/trans")
+        'webRequest = HttpWebRequest.Create("https://api.beglobal.com/translate")
+        webRequest = HttpWebRequest.Create("http://localhost/")
         webRequest.Method = "POST"
         webRequest.ContentType = "application/json"
         'CType(request, HttpWebRequest).UserAgent = ".NET Framework Example Client"

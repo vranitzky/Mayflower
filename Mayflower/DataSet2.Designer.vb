@@ -1163,6 +1163,8 @@ Partial Public Class DataSet2DataSet
 
         Private columnEMAIL1 As Global.System.Data.DataColumn
 
+        Private columnDAYS As Global.System.Data.DataColumn
+
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
@@ -1295,6 +1297,14 @@ Partial Public Class DataSet2DataSet
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property DAYSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDAYS
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Browsable(False)> _
         Public ReadOnly Property Count() As Integer
@@ -1331,9 +1341,9 @@ Partial Public Class DataSet2DataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddDataTableFreelancersRow(ByVal ID As Integer, ByVal NAME As String, ByVal SOURCELANG As String, ByVal TARGETLANG1 As String, ByVal TARGETLANG2 As String, ByVal RATE As String, ByVal CURRENCY As String, ByVal COUNTRY As String, ByVal Role As String, ByVal SERVICE As String, ByVal APPROVAL As String, ByVal EMAIL1 As String) As DataTableFreelancersRow
+        Public Overloads Function AddDataTableFreelancersRow(ByVal ID As Integer, ByVal NAME As String, ByVal SOURCELANG As String, ByVal TARGETLANG1 As String, ByVal TARGETLANG2 As String, ByVal RATE As String, ByVal CURRENCY As String, ByVal COUNTRY As String, ByVal Role As String, ByVal SERVICE As String, ByVal APPROVAL As String, ByVal EMAIL1 As String, ByVal DAYS As Integer) As DataTableFreelancersRow
             Dim rowDataTableFreelancersRow As DataTableFreelancersRow = CType(Me.NewRow, DataTableFreelancersRow)
-            Dim columnValuesArray() As Object = New Object() {ID, NAME, SOURCELANG, TARGETLANG1, TARGETLANG2, RATE, CURRENCY, COUNTRY, Role, SERVICE, APPROVAL, EMAIL1}
+            Dim columnValuesArray() As Object = New Object() {ID, NAME, SOURCELANG, TARGETLANG1, TARGETLANG2, RATE, CURRENCY, COUNTRY, Role, SERVICE, APPROVAL, EMAIL1, DAYS}
             rowDataTableFreelancersRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTableFreelancersRow)
             Return rowDataTableFreelancersRow
@@ -1374,6 +1384,7 @@ Partial Public Class DataSet2DataSet
             Me.columnSERVICE = MyBase.Columns("SERVICE")
             Me.columnAPPROVAL = MyBase.Columns("APPROVAL")
             Me.columnEMAIL1 = MyBase.Columns("EMAIL1")
+            Me.columnDAYS = MyBase.Columns("DAYS")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -1403,6 +1414,8 @@ Partial Public Class DataSet2DataSet
             MyBase.Columns.Add(Me.columnAPPROVAL)
             Me.columnEMAIL1 = New Global.System.Data.DataColumn("EMAIL1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEMAIL1)
+            Me.columnDAYS = New Global.System.Data.DataColumn("DAYS", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDAYS)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, True))
             Me.columnID.AllowDBNull = False
             Me.columnID.Unique = True
@@ -1420,6 +1433,7 @@ Partial Public Class DataSet2DataSet
             Me.columnAPPROVAL.MaxLength = 255
             Me.columnEMAIL1.AllowDBNull = False
             Me.columnEMAIL1.MaxLength = 150
+            Me.columnDAYS.AllowDBNull = False
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -4562,6 +4576,17 @@ Partial Public Class DataSet2DataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property DAYS() As Integer
+            Get
+                Return CType(Me(Me.tableDataTableFreelancers.DAYSColumn), Integer)
+            End Get
+            Set(value As Integer)
+                Me(Me.tableDataTableFreelancers.DAYSColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Function IsSOURCELANGNull() As Boolean
             Return Me.IsNull(Me.tableDataTableFreelancers.SOURCELANGColumn)
         End Function
@@ -6636,6 +6661,7 @@ Namespace DataSet2DataSetTableAdapters
             tableMapping.ColumnMappings.Add("SERVICE", "SERVICE")
             tableMapping.ColumnMappings.Add("APPROVAL", "APPROVAL")
             tableMapping.ColumnMappings.Add("EMAIL1", "EMAIL1")
+            tableMapping.ColumnMappings.Add("DAYS", "DAYS")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
 
@@ -6658,9 +6684,9 @@ Namespace DataSet2DataSetTableAdapters
                 "$CUSTOMF00092"" AS Rate, CURR.CURR_NAME AS Currency, COUNTRIES.COUN_NAME AS Count" & _
                 "ry, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         RESOURCES.""AIT$CUSTOMF00093"" AS ""Role"", RESOURCES" & _
                 ".""AIT$CUSTOMF00094"" AS Service, RESOURCES.""AIT$CUSTOMF00125"" AS Approval, RESOUR" & _
-                "CES.RES_EMAIL1 AS Email1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RESOURCES INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
-                "         COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
-                "                 CURR ON RESOURCES.CURR_ID = CURR.CURR_ID"
+                "CES.RES_EMAIL1 AS Email1,0 as DAYS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            RESOURCES INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
+                "                   COUNTRIES ON RESOURCES.COUN_ID = COUNTRIES.COUN_ID INNER JOIN" & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CURR ON RESOURCES.CURR_ID = CURR.CURR_ID"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.FirebirdSql.Data.FirebirdClient.FbCommand()
             Me._commandCollection(1).Connection = Me.Connection
