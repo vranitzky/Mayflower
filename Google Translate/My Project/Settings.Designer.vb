@@ -76,9 +76,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.BeGlobalTest.My.MySettings
+        Friend ReadOnly Property Settings() As Global.GoogleTranslate.My.MySettings
             Get
-                Return Global.BeGlobalTest.My.MySettings.Default
+                Return Global.GoogleTranslate.My.MySettings.Default
             End Get
         End Property
     End Module

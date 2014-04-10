@@ -28,7 +28,7 @@ Partial Class GTMainForm
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.SourceCombo = New System.Windows.Forms.ComboBox()
         Me.TargetCombo = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ButtonTranslate = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -42,7 +42,9 @@ Partial Class GTMainForm
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonLoad = New System.Windows.Forms.Button()
         Me.LabelFileName = New System.Windows.Forms.Label()
+        Me.ButtonSaveFile = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -78,10 +80,10 @@ Partial Class GTMainForm
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.SourceCombo, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TargetCombo, 3, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Button1, 4, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonTranslate, 4, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label2, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label3, 2, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
@@ -90,7 +92,7 @@ Partial Class GTMainForm
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(768, 34)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(802, 34)
         Me.TableLayoutPanel2.TabIndex = 6
         '
         'SourceCombo
@@ -102,7 +104,7 @@ Partial Class GTMainForm
         Me.SourceCombo.Margin = New System.Windows.Forms.Padding(4, 6, 4, 4)
         Me.SourceCombo.MinimumSize = New System.Drawing.Size(116, 0)
         Me.SourceCombo.Name = "SourceCombo"
-        Me.SourceCombo.Size = New System.Drawing.Size(264, 23)
+        Me.SourceCombo.Size = New System.Drawing.Size(277, 23)
         Me.SourceCombo.TabIndex = 1
         '
         'TargetCombo
@@ -110,23 +112,23 @@ Partial Class GTMainForm
         Me.TargetCombo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TargetCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.TargetCombo.FormattingEnabled = True
-        Me.TargetCombo.Location = New System.Drawing.Point(386, 6)
+        Me.TargetCombo.Location = New System.Drawing.Point(399, 6)
         Me.TargetCombo.Margin = New System.Windows.Forms.Padding(4, 6, 4, 4)
         Me.TargetCombo.MinimumSize = New System.Drawing.Size(116, 0)
         Me.TargetCombo.Name = "TargetCombo"
-        Me.TargetCombo.Size = New System.Drawing.Size(264, 23)
+        Me.TargetCombo.Size = New System.Drawing.Size(277, 23)
         Me.TargetCombo.TabIndex = 2
         '
-        'Button1
+        'ButtonTranslate
         '
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Button1.Location = New System.Drawing.Point(676, 4)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(88, 26)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "Go"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ButtonTranslate.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ButtonTranslate.Location = New System.Drawing.Point(698, 4)
+        Me.ButtonTranslate.Margin = New System.Windows.Forms.Padding(4)
+        Me.ButtonTranslate.Name = "ButtonTranslate"
+        Me.ButtonTranslate.Size = New System.Drawing.Size(100, 26)
+        Me.ButtonTranslate.TabIndex = 3
+        Me.ButtonTranslate.Text = "Go"
+        Me.ButtonTranslate.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -144,7 +146,7 @@ Partial Class GTMainForm
         '
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label3.Location = New System.Drawing.Point(333, 0)
+        Me.Label3.Location = New System.Drawing.Point(346, 0)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(45, 34)
@@ -177,14 +179,14 @@ Partial Class GTMainForm
         '
         'APIKey
         '
-        Me.APIKey.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.BeGlobalTest.My.MySettings.Default, "APIKey", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.APIKey.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.GoogleTranslate.My.MySettings.Default, "APIKey", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.APIKey.Dock = System.Windows.Forms.DockStyle.Fill
         Me.APIKey.Location = New System.Drawing.Point(103, 4)
         Me.APIKey.Margin = New System.Windows.Forms.Padding(4)
         Me.APIKey.Name = "APIKey"
-        Me.APIKey.Size = New System.Drawing.Size(760, 21)
+        Me.APIKey.Size = New System.Drawing.Size(794, 21)
         Me.APIKey.TabIndex = 20
-        Me.APIKey.Text = Global.BeGlobalTest.My.MySettings.Default.APIKey
+        Me.APIKey.Text = Global.GoogleTranslate.My.MySettings.Default.APIKey
         '
         'TableLayoutPanel1
         '
@@ -213,7 +215,7 @@ Partial Class GTMainForm
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(866, 537)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(901, 537)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'SourceText
@@ -225,9 +227,15 @@ Partial Class GTMainForm
         Me.SourceText.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.SourceText.Location = New System.Drawing.Point(102, 66)
         Me.SourceText.Name = "SourceText"
-        Me.SourceText.Size = New System.Drawing.Size(762, 202)
+        Me.SourceText.PageMargins.Bottom = 0.0R
+        Me.SourceText.PageMargins.Left = 0.0R
+        Me.SourceText.PageMargins.Right = 0.0R
+        Me.SourceText.PageMargins.Top = 0.0R
+        Me.SourceText.PageSize.Height = 2000.0R
+        Me.SourceText.PageSize.Width = 2000.0R
+        Me.SourceText.Size = New System.Drawing.Size(796, 202)
         Me.SourceText.TabIndex = 21
-        Me.SourceText.ViewMode = TXTextControl.ViewMode.SimpleControl
+        Me.SourceText.ViewMode = TXTextControl.ViewMode.Normal
         '
         'TargetText
         '
@@ -237,8 +245,14 @@ Partial Class GTMainForm
         Me.TargetText.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.TargetText.Location = New System.Drawing.Point(102, 303)
         Me.TargetText.Name = "TargetText"
+        Me.TargetText.PageMargins.Bottom = 0.0R
+        Me.TargetText.PageMargins.Left = 0.0R
+        Me.TargetText.PageMargins.Right = 0.0R
+        Me.TargetText.PageMargins.Top = 0.0R
+        Me.TargetText.PageSize.Height = 2000.0R
+        Me.TargetText.PageSize.Width = 2000.0R
         Me.TableLayoutPanel1.SetRowSpan(Me.TargetText, 2)
-        Me.TargetText.Size = New System.Drawing.Size(762, 231)
+        Me.TargetText.Size = New System.Drawing.Size(796, 231)
         Me.TargetText.TabIndex = 22
         Me.TargetText.ViewMode = TXTextControl.ViewMode.Normal
         '
@@ -265,18 +279,20 @@ Partial Class GTMainForm
         'TableLayoutPanel3
         '
         Me.TableLayoutPanel3.AutoSize = True
-        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnCount = 3
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.ButtonLoad, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.LabelFileName, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ButtonSaveFile, 2, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(99, 271)
         Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(768, 29)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(802, 29)
         Me.TableLayoutPanel3.TabIndex = 25
         '
         'ButtonLoad
@@ -295,22 +311,34 @@ Partial Class GTMainForm
         Me.LabelFileName.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabelFileName.Location = New System.Drawing.Point(83, 0)
         Me.LabelFileName.Name = "LabelFileName"
-        Me.LabelFileName.Size = New System.Drawing.Size(682, 29)
+        Me.LabelFileName.Size = New System.Drawing.Size(636, 29)
         Me.LabelFileName.TabIndex = 1
         Me.LabelFileName.Text = "No File Loaded"
         Me.LabelFileName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'ButtonSaveFile
+        '
+        Me.ButtonSaveFile.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonSaveFile.Location = New System.Drawing.Point(725, 3)
+        Me.ButtonSaveFile.Name = "ButtonSaveFile"
+        Me.ButtonSaveFile.Size = New System.Drawing.Size(74, 23)
+        Me.ButtonSaveFile.TabIndex = 2
+        Me.ButtonSaveFile.Text = "Save File"
+        Me.ButtonSaveFile.UseVisualStyleBackColor = True
+        '
         'OpenFileDialog1
         '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        Me.OpenFileDialog1.Filter = "Text files (*.txt)|*.txt|HTML files (*.htm;*.html)|*.htm;*.html"
+        Me.OpenFileDialog1.Filter = "Text files (*.txt;*.*)|*.txt;*.*|HTML files (*.htm;*.html)|*.htm;*.html"
+        '
+        'SaveFileDialog1
+        '
+        Me.SaveFileDialog1.Filter = "Text files (*.txt)|*.txt|HTML files (*.htm;*.html)|*.htm;*.html"
         '
         'GTMainForm
         '
-        Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(866, 537)
+        Me.ClientSize = New System.Drawing.Size(901, 537)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -331,7 +359,7 @@ Partial Class GTMainForm
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents SourceCombo As System.Windows.Forms.ComboBox
     Friend WithEvents TargetCombo As System.Windows.Forms.ComboBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents ButtonTranslate As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -346,5 +374,7 @@ Partial Class GTMainForm
     Friend WithEvents ButtonLoad As System.Windows.Forms.Button
     Friend WithEvents LabelFileName As System.Windows.Forms.Label
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents ButtonSaveFile As System.Windows.Forms.Button
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
 
 End Class

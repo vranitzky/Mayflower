@@ -23,33 +23,33 @@ Partial Class FormFinRep
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle47 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormFinRep))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle48 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle49 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle50 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle51 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle52 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle41 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle42 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle43 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle44 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle45 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle46 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabReport1 = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -75,13 +75,11 @@ Partial Class FormFinRep
         Me.DateTimePickerR3from = New System.Windows.Forms.DateTimePicker()
         Me.ButtonExportR3 = New System.Windows.Forms.Button()
         Me.DataGridViewReport3 = New System.Windows.Forms.DataGridView()
-        Me.R3STATUS = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.R3StatusText = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabSettings = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.LabelDBStatus = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.ButtonTestDBSettings = New System.Windows.Forms.Button()
         Me.ButtonApplyDBSettings = New System.Windows.Forms.Button()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
@@ -117,6 +115,10 @@ Partial Class FormFinRep
         Me.DUEDATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.R2OVERDUEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DTReport2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataTable1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DTReport1TA = New Financial_Reports.DataSetFRTableAdapters.DTReport1TA()
+        Me.DTReport2TA = New Financial_Reports.DataSetFRTableAdapters.DTReport2TA()
+        Me.DataTable1TableAdapter = New Financial_Reports.DataSetFRTableAdapters.DataTable1TableAdapter()
         Me.SALEOWNERDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CONTACTNAMEDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.INVOICEDATEDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -127,10 +129,8 @@ Partial Class FormFinRep
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DUEDATEDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataTable1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DTReport1TA = New Financial_Reports.DataSetFRTableAdapters.DTReport1TA()
-        Me.DTReport2TA = New Financial_Reports.DataSetFRTableAdapters.DTReport2TA()
-        Me.DataTable1TableAdapter = New Financial_Reports.DataSetFRTableAdapters.DataTable1TableAdapter()
+        Me.R3STATUS = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.R3StatusText = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabReport1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -208,7 +208,7 @@ Partial Class FormFinRep
         '
         'ButtonR1Export
         '
-        Me.ButtonR1Export.Location = New System.Drawing.Point(593, 2)
+        Me.ButtonR1Export.Location = New System.Drawing.Point(640, 2)
         Me.ButtonR1Export.Name = "ButtonR1Export"
         Me.ButtonR1Export.Size = New System.Drawing.Size(75, 23)
         Me.ButtonR1Export.TabIndex = 9
@@ -217,7 +217,7 @@ Partial Class FormFinRep
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(512, 2)
+        Me.Button2.Location = New System.Drawing.Point(559, 2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 4
@@ -230,7 +230,7 @@ Partial Class FormFinRep
         Me.DateTimePickerFrom.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Financial_Reports.My.MySettings.Default, "R1DateFrom", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.DateTimePickerFrom.Location = New System.Drawing.Point(49, 3)
         Me.DateTimePickerFrom.Name = "DateTimePickerFrom"
-        Me.DateTimePickerFrom.Size = New System.Drawing.Size(200, 21)
+        Me.DateTimePickerFrom.Size = New System.Drawing.Size(224, 21)
         Me.DateTimePickerFrom.TabIndex = 6
         Me.DateTimePickerFrom.Value = Global.Financial_Reports.My.MySettings.Default.R1DateFrom
         '
@@ -250,7 +250,7 @@ Partial Class FormFinRep
         Me.DateTimePickerTo.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Financial_Reports.My.MySettings.Default, "R1DateTo", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.DateTimePickerTo.Location = New System.Drawing.Point(306, 3)
         Me.DateTimePickerTo.Name = "DateTimePickerTo"
-        Me.DateTimePickerTo.Size = New System.Drawing.Size(200, 21)
+        Me.DateTimePickerTo.Size = New System.Drawing.Size(224, 21)
         Me.DateTimePickerTo.TabIndex = 5
         Me.DateTimePickerTo.Value = Global.Financial_Reports.My.MySettings.Default.R1DateTo
         '
@@ -320,13 +320,13 @@ Partial Class FormFinRep
         '
         Me.DateTimePickerR2.Location = New System.Drawing.Point(0, 3)
         Me.DateTimePickerR2.Name = "DateTimePickerR2"
-        Me.DateTimePickerR2.Size = New System.Drawing.Size(145, 21)
+        Me.DateTimePickerR2.Size = New System.Drawing.Size(229, 21)
         Me.DateTimePickerR2.TabIndex = 10
         Me.DateTimePickerR2.Value = New Date(2014, 1, 20, 0, 0, 0, 0)
         '
         'ButtonExportR2
         '
-        Me.ButtonExportR2.Location = New System.Drawing.Point(148, 0)
+        Me.ButtonExportR2.Location = New System.Drawing.Point(232, -1)
         Me.ButtonExportR2.Margin = New System.Windows.Forms.Padding(0)
         Me.ButtonExportR2.Name = "ButtonExportR2"
         Me.ButtonExportR2.Size = New System.Drawing.Size(75, 26)
@@ -344,14 +344,14 @@ Partial Class FormFinRep
         Me.DataGridViewReport2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewReport2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SALEOWNERDataGridViewTextBoxColumn, Me.CONTACTNAMEDataGridViewTextBoxColumn, Me.INVOICEDATEDataGridViewTextBoxColumn, Me.INVOICENUMBERDataGridViewTextBoxColumn, Me.PARTYNAMEDataGridViewTextBoxColumn, Me.R2CURRENCY, Me.TOTALAMOUNTDataGridViewTextBoxColumn, Me.PENDINGAMOUNTDataGridViewTextBoxColumn, Me.ACTUALLYPAIDDataGridViewTextBoxColumn, Me.DUEDATEDataGridViewTextBoxColumn, Me.R2OVERDUEDataGridViewTextBoxColumn})
         Me.DataGridViewReport2.DataSource = Me.DTReport2BindingSource
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewReport2.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle47.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewReport2.DefaultCellStyle = DataGridViewCellStyle47
         Me.DataGridViewReport2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridViewReport2.Location = New System.Drawing.Point(0, 0)
         Me.DataGridViewReport2.Name = "DataGridViewReport2"
@@ -406,7 +406,7 @@ Partial Class FormFinRep
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(417, 0)
+        Me.Button3.Location = New System.Drawing.Point(558, 0)
         Me.Button3.Margin = New System.Windows.Forms.Padding(0)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 25)
@@ -417,7 +417,7 @@ Partial Class FormFinRep
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(230, 6)
+        Me.Label9.Location = New System.Drawing.Point(282, 6)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(24, 15)
         Me.Label9.TabIndex = 13
@@ -434,9 +434,9 @@ Partial Class FormFinRep
         '
         'DateTimePickerR3to
         '
-        Me.DateTimePickerR3to.Location = New System.Drawing.Point(260, 3)
+        Me.DateTimePickerR3to.Location = New System.Drawing.Point(312, 3)
         Me.DateTimePickerR3to.Name = "DateTimePickerR3to"
-        Me.DateTimePickerR3to.Size = New System.Drawing.Size(145, 21)
+        Me.DateTimePickerR3to.Size = New System.Drawing.Size(224, 21)
         Me.DateTimePickerR3to.TabIndex = 11
         Me.DateTimePickerR3to.Value = New Date(2014, 1, 20, 0, 0, 0, 0)
         '
@@ -444,16 +444,16 @@ Partial Class FormFinRep
         '
         Me.DateTimePickerR3from.Location = New System.Drawing.Point(53, 3)
         Me.DateTimePickerR3from.Name = "DateTimePickerR3from"
-        Me.DateTimePickerR3from.Size = New System.Drawing.Size(145, 21)
+        Me.DateTimePickerR3from.Size = New System.Drawing.Size(224, 21)
         Me.DateTimePickerR3from.TabIndex = 10
         Me.DateTimePickerR3from.Value = New Date(2014, 1, 20, 0, 0, 0, 0)
         '
         'ButtonExportR3
         '
-        Me.ButtonExportR3.Location = New System.Drawing.Point(492, -1)
+        Me.ButtonExportR3.Location = New System.Drawing.Point(633, 0)
         Me.ButtonExportR3.Margin = New System.Windows.Forms.Padding(0)
         Me.ButtonExportR3.Name = "ButtonExportR3"
-        Me.ButtonExportR3.Size = New System.Drawing.Size(75, 26)
+        Me.ButtonExportR3.Size = New System.Drawing.Size(75, 25)
         Me.ButtonExportR3.TabIndex = 9
         Me.ButtonExportR3.Text = "Export"
         Me.ButtonExportR3.UseVisualStyleBackColor = True
@@ -470,14 +470,14 @@ Partial Class FormFinRep
         Me.DataGridViewReport3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewReport3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SALEOWNERDataGridViewTextBoxColumn2, Me.CONTACTNAMEDataGridViewTextBoxColumn2, Me.INVOICEDATEDataGridViewTextBoxColumn2, Me.INVOICENUMBERDataGridViewTextBoxColumn2, Me.PARTYNAMEDataGridViewTextBoxColumn2, Me.R3CURRENCY, Me.TOTALAMOUNTDataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn2, Me.DUEDATEDataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.R3STATUS, Me.R3StatusText})
         Me.DataGridViewReport3.DataSource = Me.DataTable1BindingSource
-        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewReport3.DefaultCellStyle = DataGridViewCellStyle26
+        DataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle36.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridViewReport3.DefaultCellStyle = DataGridViewCellStyle36
         Me.DataGridViewReport3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridViewReport3.Location = New System.Drawing.Point(0, 0)
         Me.DataGridViewReport3.Name = "DataGridViewReport3"
@@ -485,22 +485,6 @@ Partial Class FormFinRep
         Me.DataGridViewReport3.RowHeadersVisible = False
         Me.DataGridViewReport3.Size = New System.Drawing.Size(1135, 454)
         Me.DataGridViewReport3.TabIndex = 0
-        '
-        'R3STATUS
-        '
-        Me.R3STATUS.DataPropertyName = "STATUS"
-        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.R3STATUS.DefaultCellStyle = DataGridViewCellStyle25
-        Me.R3STATUS.HeaderText = "Overdue"
-        Me.R3STATUS.Name = "R3STATUS"
-        Me.R3STATUS.ReadOnly = True
-        Me.R3STATUS.Visible = False
-        '
-        'R3StatusText
-        '
-        Me.R3StatusText.HeaderText = "Status"
-        Me.R3StatusText.Name = "R3StatusText"
-        Me.R3StatusText.ReadOnly = True
         '
         'TabSettings
         '
@@ -517,9 +501,9 @@ Partial Class FormFinRep
         '
         Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox1.BackColor = System.Drawing.Color.IndianRed
+        Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.LabelDBStatus)
         Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.ButtonTestDBSettings)
         Me.GroupBox1.Controls.Add(Me.ButtonApplyDBSettings)
         Me.GroupBox1.Controls.Add(Me.CheckBox3)
@@ -540,14 +524,23 @@ Partial Class FormFinRep
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Database - HIC SUNT LEONES!"
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(60, 147)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(37, 13)
+        Me.Label10.TabIndex = 23
+        Me.Label10.Text = "Status"
+        '
         'LabelDBStatus
         '
         Me.LabelDBStatus.AutoSize = True
-        Me.LabelDBStatus.Location = New System.Drawing.Point(108, 148)
+        Me.LabelDBStatus.Location = New System.Drawing.Point(108, 147)
         Me.LabelDBStatus.Name = "LabelDBStatus"
-        Me.LabelDBStatus.Size = New System.Drawing.Size(39, 13)
+        Me.LabelDBStatus.Size = New System.Drawing.Size(16, 13)
         Me.LabelDBStatus.TabIndex = 22
-        Me.LabelDBStatus.Text = "Label4"
+        Me.LabelDBStatus.Text = "..."
         '
         'Button1
         '
@@ -557,15 +550,6 @@ Partial Class FormFinRep
         Me.Button1.TabIndex = 21
         Me.Button1.Text = "Clear Saved Prefs"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(68, 148)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(37, 13)
-        Me.Label8.TabIndex = 19
-        Me.Label8.Text = "Status"
         '
         'ButtonTestDBSettings
         '
@@ -710,10 +694,10 @@ Partial Class FormFinRep
         'CJOBSDataGridViewTextBoxColumn
         '
         Me.CJOBSDataGridViewTextBoxColumn.DataPropertyName = "CJOBS"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle1.Format = "C2"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.CJOBSDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle48.Format = "C2"
+        DataGridViewCellStyle48.NullValue = Nothing
+        Me.CJOBSDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle48
         Me.CJOBSDataGridViewTextBoxColumn.HeaderText = "Client Jobs"
         Me.CJOBSDataGridViewTextBoxColumn.Name = "CJOBSDataGridViewTextBoxColumn"
         Me.CJOBSDataGridViewTextBoxColumn.ReadOnly = True
@@ -721,10 +705,10 @@ Partial Class FormFinRep
         'RJOBSDataGridViewTextBoxColumn
         '
         Me.RJOBSDataGridViewTextBoxColumn.DataPropertyName = "RJOBS"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Format = "C2"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.RJOBSDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle49.Format = "C2"
+        DataGridViewCellStyle49.NullValue = Nothing
+        Me.RJOBSDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle49
         Me.RJOBSDataGridViewTextBoxColumn.HeaderText = "Freelance Jobs"
         Me.RJOBSDataGridViewTextBoxColumn.Name = "RJOBSDataGridViewTextBoxColumn"
         Me.RJOBSDataGridViewTextBoxColumn.ReadOnly = True
@@ -739,10 +723,10 @@ Partial Class FormFinRep
         'ProfitDataGridViewTextBoxColumn
         '
         Me.ProfitDataGridViewTextBoxColumn.DataPropertyName = "Profit"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "C2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.ProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle50.Format = "C2"
+        DataGridViewCellStyle50.NullValue = Nothing
+        Me.ProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle50
         Me.ProfitDataGridViewTextBoxColumn.HeaderText = "Profit"
         Me.ProfitDataGridViewTextBoxColumn.Name = "ProfitDataGridViewTextBoxColumn"
         Me.ProfitDataGridViewTextBoxColumn.ReadOnly = True
@@ -750,10 +734,10 @@ Partial Class FormFinRep
         'PCProfitDataGridViewTextBoxColumn
         '
         Me.PCProfitDataGridViewTextBoxColumn.DataPropertyName = "PCProfit"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "p2"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.PCProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle51.Format = "p2"
+        DataGridViewCellStyle51.NullValue = Nothing
+        Me.PCProfitDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle51
         Me.PCProfitDataGridViewTextBoxColumn.HeaderText = "%Profit"
         Me.PCProfitDataGridViewTextBoxColumn.Name = "PCProfitDataGridViewTextBoxColumn"
         Me.PCProfitDataGridViewTextBoxColumn.ReadOnly = True
@@ -761,9 +745,9 @@ Partial Class FormFinRep
         'InvNoDataGridViewTextBoxColumn
         '
         Me.InvNoDataGridViewTextBoxColumn.DataPropertyName = "InvNo"
-        DataGridViewCellStyle5.Format = "N0"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.InvNoDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle52.Format = "N0"
+        DataGridViewCellStyle52.NullValue = Nothing
+        Me.InvNoDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle52
         Me.InvNoDataGridViewTextBoxColumn.HeaderText = "InvNo"
         Me.InvNoDataGridViewTextBoxColumn.Name = "InvNoDataGridViewTextBoxColumn"
         Me.InvNoDataGridViewTextBoxColumn.ReadOnly = True
@@ -781,8 +765,8 @@ Partial Class FormFinRep
         'SALEOWNERDataGridViewTextBoxColumn
         '
         Me.SALEOWNERDataGridViewTextBoxColumn.DataPropertyName = "SALEOWNER"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.SALEOWNERDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.SALEOWNERDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle37
         Me.SALEOWNERDataGridViewTextBoxColumn.HeaderText = "Sale Owner"
         Me.SALEOWNERDataGridViewTextBoxColumn.Name = "SALEOWNERDataGridViewTextBoxColumn"
         Me.SALEOWNERDataGridViewTextBoxColumn.ReadOnly = True
@@ -790,8 +774,8 @@ Partial Class FormFinRep
         'CONTACTNAMEDataGridViewTextBoxColumn
         '
         Me.CONTACTNAMEDataGridViewTextBoxColumn.DataPropertyName = "CONTACTNAME"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.CONTACTNAMEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.CONTACTNAMEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle38
         Me.CONTACTNAMEDataGridViewTextBoxColumn.HeaderText = "Contact Name"
         Me.CONTACTNAMEDataGridViewTextBoxColumn.Name = "CONTACTNAMEDataGridViewTextBoxColumn"
         Me.CONTACTNAMEDataGridViewTextBoxColumn.ReadOnly = True
@@ -799,9 +783,9 @@ Partial Class FormFinRep
         'INVOICEDATEDataGridViewTextBoxColumn
         '
         Me.INVOICEDATEDataGridViewTextBoxColumn.DataPropertyName = "INVOICEDATE"
-        DataGridViewCellStyle8.Format = "d"
-        DataGridViewCellStyle8.NullValue = Nothing
-        Me.INVOICEDATEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle39.Format = "d"
+        DataGridViewCellStyle39.NullValue = Nothing
+        Me.INVOICEDATEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle39
         Me.INVOICEDATEDataGridViewTextBoxColumn.HeaderText = "Invoice Date"
         Me.INVOICEDATEDataGridViewTextBoxColumn.Name = "INVOICEDATEDataGridViewTextBoxColumn"
         Me.INVOICEDATEDataGridViewTextBoxColumn.ReadOnly = True
@@ -809,8 +793,8 @@ Partial Class FormFinRep
         'INVOICENUMBERDataGridViewTextBoxColumn
         '
         Me.INVOICENUMBERDataGridViewTextBoxColumn.DataPropertyName = "INVOICENUMBER"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.INVOICENUMBERDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.INVOICENUMBERDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle40
         Me.INVOICENUMBERDataGridViewTextBoxColumn.HeaderText = "Invoice Number"
         Me.INVOICENUMBERDataGridViewTextBoxColumn.Name = "INVOICENUMBERDataGridViewTextBoxColumn"
         Me.INVOICENUMBERDataGridViewTextBoxColumn.ReadOnly = True
@@ -818,8 +802,8 @@ Partial Class FormFinRep
         'PARTYNAMEDataGridViewTextBoxColumn
         '
         Me.PARTYNAMEDataGridViewTextBoxColumn.DataPropertyName = "PARTYNAME"
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.PARTYNAMEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.PARTYNAMEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle41
         Me.PARTYNAMEDataGridViewTextBoxColumn.HeaderText = "Party Name"
         Me.PARTYNAMEDataGridViewTextBoxColumn.Name = "PARTYNAMEDataGridViewTextBoxColumn"
         Me.PARTYNAMEDataGridViewTextBoxColumn.ReadOnly = True
@@ -827,9 +811,9 @@ Partial Class FormFinRep
         'TOTALAMOUNTDataGridViewTextBoxColumn
         '
         Me.TOTALAMOUNTDataGridViewTextBoxColumn.DataPropertyName = "TOTALAMOUNT"
-        DataGridViewCellStyle11.Format = "C2"
-        DataGridViewCellStyle11.NullValue = Nothing
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle42.Format = "C2"
+        DataGridViewCellStyle42.NullValue = Nothing
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle42
         Me.TOTALAMOUNTDataGridViewTextBoxColumn.HeaderText = "Total Amount"
         Me.TOTALAMOUNTDataGridViewTextBoxColumn.Name = "TOTALAMOUNTDataGridViewTextBoxColumn"
         Me.TOTALAMOUNTDataGridViewTextBoxColumn.ReadOnly = True
@@ -837,9 +821,9 @@ Partial Class FormFinRep
         'PENDINGAMOUNTDataGridViewTextBoxColumn
         '
         Me.PENDINGAMOUNTDataGridViewTextBoxColumn.DataPropertyName = "PENDINGAMOUNT"
-        DataGridViewCellStyle12.Format = "C2"
-        DataGridViewCellStyle12.NullValue = Nothing
-        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle43.Format = "C2"
+        DataGridViewCellStyle43.NullValue = Nothing
+        Me.PENDINGAMOUNTDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle43
         Me.PENDINGAMOUNTDataGridViewTextBoxColumn.HeaderText = "Pending Amount"
         Me.PENDINGAMOUNTDataGridViewTextBoxColumn.Name = "PENDINGAMOUNTDataGridViewTextBoxColumn"
         Me.PENDINGAMOUNTDataGridViewTextBoxColumn.ReadOnly = True
@@ -847,8 +831,8 @@ Partial Class FormFinRep
         'ACTUALLYPAIDDataGridViewTextBoxColumn
         '
         Me.ACTUALLYPAIDDataGridViewTextBoxColumn.DataPropertyName = "ACTUALLYPAID"
-        DataGridViewCellStyle13.Format = "C2"
-        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle44.Format = "C2"
+        Me.ACTUALLYPAIDDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle44
         Me.ACTUALLYPAIDDataGridViewTextBoxColumn.HeaderText = "Paid so far"
         Me.ACTUALLYPAIDDataGridViewTextBoxColumn.Name = "ACTUALLYPAIDDataGridViewTextBoxColumn"
         Me.ACTUALLYPAIDDataGridViewTextBoxColumn.ReadOnly = True
@@ -856,8 +840,8 @@ Partial Class FormFinRep
         'DUEDATEDataGridViewTextBoxColumn
         '
         Me.DUEDATEDataGridViewTextBoxColumn.DataPropertyName = "DUEDATE"
-        DataGridViewCellStyle14.Format = "d"
-        Me.DUEDATEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle45.Format = "d"
+        Me.DUEDATEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle45
         Me.DUEDATEDataGridViewTextBoxColumn.HeaderText = "Due Date"
         Me.DUEDATEDataGridViewTextBoxColumn.Name = "DUEDATEDataGridViewTextBoxColumn"
         Me.DUEDATEDataGridViewTextBoxColumn.ReadOnly = True
@@ -865,8 +849,8 @@ Partial Class FormFinRep
         'R2OVERDUEDataGridViewTextBoxColumn
         '
         Me.R2OVERDUEDataGridViewTextBoxColumn.DataPropertyName = "OVERDUE"
-        DataGridViewCellStyle15.Format = "N0"
-        Me.R2OVERDUEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle46.Format = "N0"
+        Me.R2OVERDUEDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle46
         Me.R2OVERDUEDataGridViewTextBoxColumn.HeaderText = "Overdue by days"
         Me.R2OVERDUEDataGridViewTextBoxColumn.Name = "R2OVERDUEDataGridViewTextBoxColumn"
         Me.R2OVERDUEDataGridViewTextBoxColumn.ReadOnly = True
@@ -875,93 +859,6 @@ Partial Class FormFinRep
         '
         Me.DTReport2BindingSource.DataMember = "DTReport2"
         Me.DTReport2BindingSource.DataSource = Me.DataSetFR
-        '
-        'SALEOWNERDataGridViewTextBoxColumn2
-        '
-        Me.SALEOWNERDataGridViewTextBoxColumn2.DataPropertyName = "SALEOWNER"
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.SALEOWNERDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle17
-        Me.SALEOWNERDataGridViewTextBoxColumn2.HeaderText = "Sale Owner"
-        Me.SALEOWNERDataGridViewTextBoxColumn2.Name = "SALEOWNERDataGridViewTextBoxColumn2"
-        Me.SALEOWNERDataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'CONTACTNAMEDataGridViewTextBoxColumn2
-        '
-        Me.CONTACTNAMEDataGridViewTextBoxColumn2.DataPropertyName = "CONTACTNAME"
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.CONTACTNAMEDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle18
-        Me.CONTACTNAMEDataGridViewTextBoxColumn2.HeaderText = "Contact Name"
-        Me.CONTACTNAMEDataGridViewTextBoxColumn2.Name = "CONTACTNAMEDataGridViewTextBoxColumn2"
-        Me.CONTACTNAMEDataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'INVOICEDATEDataGridViewTextBoxColumn2
-        '
-        Me.INVOICEDATEDataGridViewTextBoxColumn2.DataPropertyName = "INVOICEDATE"
-        DataGridViewCellStyle19.Format = "d"
-        Me.INVOICEDATEDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle19
-        Me.INVOICEDATEDataGridViewTextBoxColumn2.HeaderText = "Invoice Date"
-        Me.INVOICEDATEDataGridViewTextBoxColumn2.Name = "INVOICEDATEDataGridViewTextBoxColumn2"
-        Me.INVOICEDATEDataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'INVOICENUMBERDataGridViewTextBoxColumn2
-        '
-        Me.INVOICENUMBERDataGridViewTextBoxColumn2.DataPropertyName = "INVOICENUMBER"
-        Me.INVOICENUMBERDataGridViewTextBoxColumn2.HeaderText = "Invoice Number"
-        Me.INVOICENUMBERDataGridViewTextBoxColumn2.Name = "INVOICENUMBERDataGridViewTextBoxColumn2"
-        Me.INVOICENUMBERDataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'PARTYNAMEDataGridViewTextBoxColumn2
-        '
-        Me.PARTYNAMEDataGridViewTextBoxColumn2.DataPropertyName = "PARTYNAME"
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.PARTYNAMEDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle20
-        Me.PARTYNAMEDataGridViewTextBoxColumn2.HeaderText = "Party Name"
-        Me.PARTYNAMEDataGridViewTextBoxColumn2.Name = "PARTYNAMEDataGridViewTextBoxColumn2"
-        Me.PARTYNAMEDataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'R3CURRENCY
-        '
-        Me.R3CURRENCY.DataPropertyName = "CURRENCY"
-        Me.R3CURRENCY.HeaderText = "CURRENCY"
-        Me.R3CURRENCY.Name = "R3CURRENCY"
-        Me.R3CURRENCY.ReadOnly = True
-        Me.R3CURRENCY.Visible = False
-        '
-        'TOTALAMOUNTDataGridViewTextBoxColumn2
-        '
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn2.DataPropertyName = "TOTALAMOUNT"
-        DataGridViewCellStyle21.Format = "C2"
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle21
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn2.HeaderText = "Total Amount"
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn2.Name = "TOTALAMOUNTDataGridViewTextBoxColumn2"
-        Me.TOTALAMOUNTDataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "PAIDSOFAR"
-        DataGridViewCellStyle22.Format = "C2"
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle22
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Paid So Far"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DUEDATEDataGridViewTextBoxColumn2
-        '
-        Me.DUEDATEDataGridViewTextBoxColumn2.DataPropertyName = "DUEDATE"
-        DataGridViewCellStyle23.Format = "d"
-        Me.DUEDATEDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle23
-        Me.DUEDATEDataGridViewTextBoxColumn2.HeaderText = "Due Date"
-        Me.DUEDATEDataGridViewTextBoxColumn2.Name = "DUEDATEDataGridViewTextBoxColumn2"
-        Me.DUEDATEDataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "LASTPAYMENTDATE"
-        DataGridViewCellStyle24.Format = "d"
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle24
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Last Payment Date"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
         '
         'DataTable1BindingSource
         '
@@ -979,6 +876,111 @@ Partial Class FormFinRep
         'DataTable1TableAdapter
         '
         Me.DataTable1TableAdapter.ClearBeforeFill = True
+        '
+        'SALEOWNERDataGridViewTextBoxColumn2
+        '
+        Me.SALEOWNERDataGridViewTextBoxColumn2.DataPropertyName = "SALEOWNER"
+        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.SALEOWNERDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle27
+        Me.SALEOWNERDataGridViewTextBoxColumn2.HeaderText = "Sale Owner"
+        Me.SALEOWNERDataGridViewTextBoxColumn2.Name = "SALEOWNERDataGridViewTextBoxColumn2"
+        Me.SALEOWNERDataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'CONTACTNAMEDataGridViewTextBoxColumn2
+        '
+        Me.CONTACTNAMEDataGridViewTextBoxColumn2.DataPropertyName = "CONTACTNAME"
+        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.CONTACTNAMEDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle28
+        Me.CONTACTNAMEDataGridViewTextBoxColumn2.HeaderText = "Contact Name"
+        Me.CONTACTNAMEDataGridViewTextBoxColumn2.Name = "CONTACTNAMEDataGridViewTextBoxColumn2"
+        Me.CONTACTNAMEDataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'INVOICEDATEDataGridViewTextBoxColumn2
+        '
+        Me.INVOICEDATEDataGridViewTextBoxColumn2.DataPropertyName = "INVOICEDATE"
+        DataGridViewCellStyle29.Format = "d"
+        Me.INVOICEDATEDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle29
+        Me.INVOICEDATEDataGridViewTextBoxColumn2.HeaderText = "Invoice Date"
+        Me.INVOICEDATEDataGridViewTextBoxColumn2.Name = "INVOICEDATEDataGridViewTextBoxColumn2"
+        Me.INVOICEDATEDataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'INVOICENUMBERDataGridViewTextBoxColumn2
+        '
+        Me.INVOICENUMBERDataGridViewTextBoxColumn2.DataPropertyName = "INVOICENUMBER"
+        Me.INVOICENUMBERDataGridViewTextBoxColumn2.HeaderText = "Invoice Number"
+        Me.INVOICENUMBERDataGridViewTextBoxColumn2.Name = "INVOICENUMBERDataGridViewTextBoxColumn2"
+        Me.INVOICENUMBERDataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'PARTYNAMEDataGridViewTextBoxColumn2
+        '
+        Me.PARTYNAMEDataGridViewTextBoxColumn2.DataPropertyName = "PARTYNAME"
+        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.PARTYNAMEDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle30
+        Me.PARTYNAMEDataGridViewTextBoxColumn2.HeaderText = "Party Name"
+        Me.PARTYNAMEDataGridViewTextBoxColumn2.Name = "PARTYNAMEDataGridViewTextBoxColumn2"
+        Me.PARTYNAMEDataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'R3CURRENCY
+        '
+        Me.R3CURRENCY.DataPropertyName = "CURRENCY"
+        Me.R3CURRENCY.HeaderText = "CURRENCY"
+        Me.R3CURRENCY.Name = "R3CURRENCY"
+        Me.R3CURRENCY.ReadOnly = True
+        Me.R3CURRENCY.Visible = False
+        '
+        'TOTALAMOUNTDataGridViewTextBoxColumn2
+        '
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn2.DataPropertyName = "TOTALAMOUNT"
+        DataGridViewCellStyle31.Format = "C2"
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle31
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn2.HeaderText = "Total Amount"
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn2.Name = "TOTALAMOUNTDataGridViewTextBoxColumn2"
+        Me.TOTALAMOUNTDataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "PAIDSOFAR"
+        DataGridViewCellStyle32.Format = "C2"
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle32
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Paid So Far"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'DUEDATEDataGridViewTextBoxColumn2
+        '
+        Me.DUEDATEDataGridViewTextBoxColumn2.DataPropertyName = "DUEDATE"
+        DataGridViewCellStyle33.Format = "d"
+        Me.DUEDATEDataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle33
+        Me.DUEDATEDataGridViewTextBoxColumn2.HeaderText = "Due Date"
+        Me.DUEDATEDataGridViewTextBoxColumn2.Name = "DUEDATEDataGridViewTextBoxColumn2"
+        Me.DUEDATEDataGridViewTextBoxColumn2.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "LASTPAYMENTDATE"
+        DataGridViewCellStyle34.Format = "d"
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle34
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Last Payment Date"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'R3STATUS
+        '
+        Me.R3STATUS.DataPropertyName = "STATUS"
+        DataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle35.Format = "N0"
+        Me.R3STATUS.DefaultCellStyle = DataGridViewCellStyle35
+        Me.R3STATUS.HeaderText = "Overdue"
+        Me.R3STATUS.Name = "R3STATUS"
+        Me.R3STATUS.ReadOnly = True
+        Me.R3STATUS.Visible = False
+        '
+        'R3StatusText
+        '
+        Me.R3StatusText.DataPropertyName = "STATUSTXT"
+        Me.R3StatusText.HeaderText = "Status"
+        Me.R3StatusText.Name = "R3StatusText"
+        Me.R3StatusText.ReadOnly = True
         '
         'FormFinRep
         '
@@ -1027,7 +1029,6 @@ Partial Class FormFinRep
     Friend WithEvents TabSettings As System.Windows.Forms.TabPage
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents ButtonTestDBSettings As System.Windows.Forms.Button
     Friend WithEvents ButtonApplyDBSettings As System.Windows.Forms.Button
     Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
@@ -1051,7 +1052,6 @@ Partial Class FormFinRep
     Friend WithEvents DTReport1TA As Financial_Reports.DataSetFRTableAdapters.DTReport1TA
     Friend WithEvents ButtonR1Export As System.Windows.Forms.Button
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
-    Friend WithEvents LabelDBStatus As System.Windows.Forms.Label
     Friend WithEvents FbConnection1 As FirebirdSql.Data.FirebirdClient.FbConnection
     Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
     Friend WithEvents ButtonExportR2 As System.Windows.Forms.Button
@@ -1107,6 +1107,8 @@ Partial Class FormFinRep
     Friend WithEvents DataTable1BindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DataTable1TableAdapter As Financial_Reports.DataSetFRTableAdapters.DataTable1TableAdapter
     Friend WithEvents DataGridViewReport3 As System.Windows.Forms.DataGridView
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents LabelDBStatus As System.Windows.Forms.Label
     Friend WithEvents SALEOWNERDataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CONTACTNAMEDataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents INVOICEDATEDataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn

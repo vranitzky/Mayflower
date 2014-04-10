@@ -10,7 +10,7 @@ Imports System.Globalization
 '!!!! remember to UPDATE updateTableAdapters EVERY TIME you add a TableAdapter !!!!!
 '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-Public Class FormFinRep
+Public Class FormProjRep
     Private Loaded As Boolean = False
     Private defaultCulture As CultureInfo = Application.CurrentCulture
 
@@ -18,22 +18,14 @@ Public Class FormFinRep
     '!!!! remember to UPDATE updateTableAdapters EVERY TIME you add a TableAdapter !!!!!
     '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     Private Sub updateTableAdapters(connstr As String)
-        DTReport1TA.Connection.ConnectionString = connstr
-        DTReport2TA.Connection.ConnectionString = connstr
+        'DTReport1TA.Connection.ConnectionString = connstr
+        'DTReport2TA.Connection.ConnectionString = connstr
         'DTReport3TA.Connection.ConnectionString = connstr
         'DTReportIncentiveTA.Connection.ConnectionString = connstr
         DataTable1TableAdapter.Connection.ConnectionString = connstr
+        AIT_USERSTableAdapter.Connection.ConnectionString = connstr
     End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Cursor = Cursors.WaitCursor
-        Try
-            DTReport1TA.Fill(DataSetFR.DTReport1, DateTimePickerFrom.Value, DateTimePickerTo.Value)
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-        End Try
-        Me.Cursor = Me.DefaultCursor
-    End Sub
-
+ 
     Public Sub New()
         ' This call is required by the designer.
         Try
@@ -47,7 +39,12 @@ Public Class FormFinRep
     End Sub
 
     Private Sub FormFinRep_Load(sender As Object, e As EventArgs) Handles Me.Load
-        DateTimePickerR2.Value = Today
+        'TODO: This line of code loads data into the 'DataSetPR._AIT_USERS' table. You can move, or remove it, as needed.
+        Me.AIT_USERSTableAdapter.Fill(Me.DataSetPR._AIT_USERS)
+        'TODO: This line of code loads data into the 'DataSetPR.DataTable1' table. You can move, or remove it, as needed.
+        'Me.DataTable1TableAdapter.Fill(Me.DataSetPR.DataTable1)
+        DateTimePickerFrom.Value = Today.AddDays(-30)
+        DateTimePickerTo.Value = Today.AddDays(3)
         'DateTimePickerR3from.Value = 
         Try
             updateTableAdapters(My.Settings.ProjetexDB)
@@ -66,90 +63,12 @@ Public Class FormFinRep
         End Try
     End Sub
 
-    Private Sub ButtonR1Export_Click(sender As Object, e As EventArgs) Handles ButtonR1Export.Click
-        exportToXLSX(DataGridViewReport1, "Profit Report " + DateTimePickerFrom.Value.ToShortDateString.Replace("/", "-") +
-                                        "-" + DateTimePickerTo.Value.ToShortDateString.Replace("/", "-"))
+    Private Sub ButtonR1Export_Click(sender As Object, e As EventArgs)
+        ' exportToXLSX(DataGridViewReport1, "Profit Report " + DateTimePickerFrom.Value.ToShortDateString.Replace("/", "-") +
+        '                                "-" + DateTimePickerTo.Value.ToShortDateString.Replace("/", "-"))
     End Sub
 
-    Private Sub exportToXLSX(grid As DataGridView, filename As String)
-        Dim path, currency As String
-        Dim currencyColumn As DataGridViewColumn = Nothing
-
-        currency = ""
-        Try
-            SaveFileDialog1.FileName = filename + ".xlsx"
-            If SaveFileDialog1.ShowDialog() Then
-                path = SaveFileDialog1.FileName
-            Else
-                Return
-            End If
-
-            Dim f As FileInfo = New FileInfo(path)
-            If f.Exists Then f.Delete()
-
-            Dim p = New OfficeOpenXml.ExcelPackage(f)
-
-            Dim ws = p.Workbook.Worksheets.Add(name)
-
-            Dim i As Integer = 1
-            For Each c As DataGridViewColumn In grid.Columns
-                'If c.Visible Then
-                ws.SetValue(1, i, c.HeaderText)
-                'End If
-                i = i + 1
-                If c.DataPropertyName = "CURRENCY" Then
-                    currencyColumn = c
-                End If
-            Next
-            ws.Cells("1:1").Style.Font.Bold = True
-            ws.Cells("1:1").Style.Border.Bottom.Style = Style.ExcelBorderStyle.Medium
-
-            For r = 0 To grid.Rows.Count - 1
-                If Not IsNothing(currencyColumn) Then
-                    currency = grid.Rows(r).Cells(currencyColumn.Index).Value.ToString
-                End If
-                For c = 0 To grid.Columns.Count - 1
-                    Try
-                        'If Not grid.Columns(c).Visible Then
-                        'Continue For
-                        'End If
-                        If IsDBNull(grid.Rows(r).Cells(c).Value) Then
-                            Continue For
-                        End If
-                        If grid.Columns(c).DefaultCellStyle.Format.StartsWith("C") Then 'currency
-                            ws.SetValue(r + 2, c + 1, Double.Parse(grid.Rows(r).Cells(c).Value.ToString))
-                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "[$" + currency + "]\ #,##0.00;[Red]\-[$" + currency + "]\ #,##0.00"
-                            'ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "#,##0.00;[Red]\-#,##0.00"
-                        ElseIf grid.Columns(c).DefaultCellStyle.Format.StartsWith("p") Then 'percentage
-                            ws.SetValue(r + 2, c + 1, Double.Parse(grid.Rows(r).Cells(c).Value.ToString) / 100)
-                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "0.00%"
-                        ElseIf grid.Columns(c).DefaultCellStyle.Format.StartsWith("N") Then 'number
-                            If grid.Columns(c).DefaultCellStyle.Format.StartsWith("N0") Then
-                                ws.SetValue(r + 2, c + 1, Integer.Parse(grid.Rows(r).Cells(c).Value.ToString))
-                                ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "0"
-                            Else
-                                ws.SetValue(r + 2, c + 1, Double.Parse(grid.Rows(r).Cells(c).Value.ToString))
-                                ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "#,##0.00;[Red]\-#,##0.00"
-                            End If
-                        ElseIf grid.Columns(c).DefaultCellStyle.Format.StartsWith("d") Then 'date
-                            ws.SetValue(r + 2, c + 1, grid.Rows(r).Cells(c).Value)
-                            ws.Cells(r + 2, c + 1).Style.Numberformat.Format = "dd/mm/yyyy"
-                        Else
-                            ws.SetValue(r + 2, c + 1, grid.Rows(r).Cells(c).Value)
-                        End If
-                    Catch ex As Exception
-                        MsgBox("r=" + r.ToString + " c=" + c.ToString + vbNewLine + ex.Message)
-                    End Try
-
-                Next
-            Next
-            p.Save()
-            System.Diagnostics.Process.Start(f.FullName)
-        Catch ex As Exception
-            MsgBox("There was an error:" + vbNewLine + ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
-
+    
     Private Sub ButtonTestDBSettings_Click(sender As Object, e As EventArgs) Handles ButtonTestDBSettings.Click
         Dim connstr, text As String
         'Dim conn As New 
@@ -325,83 +244,71 @@ Public Class FormFinRep
         applyDBSettings()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles ButtonExportR2.Click
-        exportToXLSX(DataGridViewReport2, "Payment Tracker " + DateTimePickerR2.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
-    End Sub
 
-    Private Sub DateTimePickerR2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePickerR2.ValueChanged
-        If Not Me.Loaded Then Return
-        Me.Cursor = Cursors.WaitCursor
-        Try
-            DTReport2TA.Fill(DataSetFR.DTReport2, DateTimePickerR2.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
-        Catch ex As Exception
-            MsgBox(ex.Message.ToString)
-        End Try
-        Me.Cursor = Me.DefaultCursor
-    End Sub
 
-    Private Sub DataGridViewReport2_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridViewReport2.RowPostPaint
-        If Integer.Parse(DataGridViewReport2.Rows(e.RowIndex).Cells(R2OVERDUEDataGridViewTextBoxColumn.Index).Value.ToString) > 0 Then
-            DataGridViewReport2.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
-        Else
-            DataGridViewReport2.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.LightGreen
-        End If
-        Application.CurrentCulture = defaultCulture
-    End Sub
-
-    Private Sub DataGridViewReport2_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridViewReport2.RowPrePaint
-        Dim myCI As New CultureInfo("en-IN", True) 'Globalization.CultureTypes.NeutralCultures, True)
-
-        myCI.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(R2CURRENCY.Index).Value.ToString
-        Application.CurrentCulture = myCI
-        'CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol = DataGridViewReport2.Rows(e.RowIndex).Cells(CURRENCY.Index).Value.ToString
-    End Sub
-
-    Private Sub DataGridViewReport3_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridViewReport3.RowPostPaint
+    Private Sub DataGridViewReport1_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DataGridViewReport1.RowPostPaint
         Dim status As Integer
 
-        If Not String.IsNullOrEmpty(DataGridViewReport3.Rows(e.RowIndex).Cells(R3STATUS.Index).Value.ToString) Then
-            status = Integer.Parse(DataGridViewReport3.Rows(e.RowIndex).Cells(R3STATUS.Index).Value.ToString)
-            If status > 0 Then 'overdue
+        If Not String.IsNullOrEmpty(DataGridViewReport1.Rows(e.RowIndex).Cells(DAYSLEFTDataGridViewTextBoxColumn.Index).Value.ToString) Then
+            status = Integer.Parse(DataGridViewReport1.Rows(e.RowIndex).Cells(DAYSLEFTDataGridViewTextBoxColumn.Index).Value.ToString)
+            If status = 0 Then 'today - blue
                 'DataGridViewReport3.Rows(e.RowIndex).Cells(R3StatusText.Index).Value = "Overdue " + status.ToString + " late"
-                DataGridViewReport3.Rows(e.RowIndex).Cells(R3StatusText.Index).Style.ForeColor = Color.Red
-                'DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.PeachPuff
-            ElseIf status < 0 Then
+                'DataGridViewReport1.Rows(e.RowIndex).Cells(DAYSLEFTDataGridViewTextBoxColumn.Index).Style.ForeColor = Color.Red
+                DataGridViewReport1.Rows(e.RowIndex).DefaultCellStyle.ForeColor = Color.Blue
+            ElseIf status < 0 Then 'overdue - red
                 'status = -status
                 'DataGridViewReport3.Rows(e.RowIndex).Cells(R3StatusText.Index).Value = "Settled " + status.ToString + " earlier"
                 'DataGridViewReport3.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.LightGreen
+                DataGridViewReport1.Rows(e.RowIndex).DefaultCellStyle.ForeColor = Color.Red
             Else ' 0
+                DataGridViewReport1.Rows(e.RowIndex).DefaultCellStyle.ForeColor = Color.Green
                 'DataGridViewReport3.Rows(e.RowIndex).Cells(R3StatusText.Index).Value = "Settled properly"
             End If
         End If
         'Application.CurrentCulture = defaultCulture
+
     End Sub
 
-    Private Sub DataGridViewReport3_RowPrePaint(sender As Object, e As DataGridViewRowPrePaintEventArgs) Handles DataGridViewReport3.RowPrePaint
-        Dim myCI As New CultureInfo("en-IN", True) 'Globalization.CultureTypes.NeutralCultures, True)
-
-        myCI.NumberFormat.CurrencySymbol = DataGridViewReport3.Rows(e.RowIndex).Cells(R3CURRENCY.Index).Value.ToString
-        Application.CurrentCulture = myCI
-    End Sub
-
-    Private Sub ButtonExportR3_Click(sender As Object, e As EventArgs) Handles ButtonExportR3.Click
-        exportToXLSX(DataGridViewReport3, "Incentive Calc " + DateTimePickerR3from.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
-    End Sub
-
-    Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub ButtonGO_Click(sender As Object, e As EventArgs) Handles ButtonGO.Click
         Me.Cursor = Cursors.WaitCursor
+        Dim row As System.Data.DataRowView = ComboBoxPM.SelectedItem
         Try
-            ' DTReport3TA.Fill(DataSetFR.DTReport3, DateTimePickerR3from.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
-            DataTable1TableAdapter.Fill(
-                DataSetFR.DataTable1,
-                DateTimePickerR3from.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
-                DateTimePickerR3to.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
-            )
+            Me.DataTable1TableAdapter.FillByPM(Me.DataSetPR.DataTable1, row.Item("ID"), DateTimePickerFrom.Value, DateTimePickerTo.Value)
+
+
+            DataGridViewReport1.AutoSize = False
+
+            '// autosize all columns according to their content
+            'DataGridViewReport1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells)
+            '// make column 1 (or whatever) fill the empty space
+            'DataGridViewReport1.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            '// remove column 1 autosizing to prevent 'jumping' behaviour
+            'DataGridViewReport1.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+            '// let the last column fill the empty space when the grid or any column is resized (more natural/expected behaviour) 
+            'DataGridViewReport1.Columns.GetLastColumn(DataGridViewElementStates.None, DataGridViewElementStates.None).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+
         Catch ex As Exception
-            MsgBox(ex.Message.ToString)
+            MsgBox(ex.ToString)
         End Try
         Me.Cursor = Me.DefaultCursor
 
     End Sub
 
+    Private Sub DataGridViewReport1_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs)
+        If (e.RowIndex >= 0 And e.ColumnIndex >= 0) Then
+            If (DataGridViewReport1.Rows(e.RowIndex).Cells(e.ColumnIndex).Selected = True) Then
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All And Not DataGridViewPaintParts.Border)
+                Dim p As Pen = New Pen(Color.Black, 1)
+                Dim rect As Rectangle = e.CellBounds
+                rect.Width -= 3
+                rect.Height -= 3
+                e.Graphics.DrawRectangle(p, rect)
+                e.Handled = True
+
+                e.CellStyle.SelectionForeColor = DataGridViewReport1.Rows(e.RowIndex).DefaultCellStyle.ForeColor
+            End If
+        End If
+
+
+    End Sub
 End Class

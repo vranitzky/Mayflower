@@ -15,7 +15,7 @@
       <Value Profile="(Default)">password</Value>
     </Setting>
     <Setting Name="ProjetexDB" Type="System.String" Scope="User">
-      <Value Profile="(Default)">character set=UTF8;data source=192.168.56.101;initial catalog="C:\Projetex9\Projetex Server\Database\projetex.fdb";user id=ODBC;password=pwww;role=PROJETEX_ODBC</Value>
+      <Value Profile="(Default)">character set=UTF8;initial catalog="E:\Program Files (x86)\AIT\Projetex 9\Projetex Server\Database\projetex.fdb";data source=192.168.0.56;user id=ODBC;password=password;role=PROJETEX_ODBC</Value>
     </Setting>
     <Setting Name="ProjetexDB2" GenerateDefaultValueInCode="false" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;

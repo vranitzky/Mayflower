@@ -1,4 +1,5 @@
 ﻿Imports System.Globalization
+Imports System.IO
 Public Class GTMainForm
     Const MAXREQUESTLENGTH As Integer = 5000
     Public Function getLanguageListFromGoogle() As Object
@@ -10,18 +11,22 @@ Public Class GTMainForm
         Dim responseReader As System.IO.StreamReader
 
         'send a POST request
-        webRequest = HttpWebRequest.Create("https://www.googleapis.com/language/translate/v2/languages?key=" + APIKey.Text)
-        webRequest.Method = "GET"
-        webRequest.UserAgent = "API Testing 0.1"
-        webRequest.Accept = "*/*"
-        webRequest.KeepAlive = False
+        Try
+            webRequest = HttpWebRequest.Create("https://www.googleapis.com/language/translate/v2/languages?key=" + APIKey.Text)
+            webRequest.Method = "GET"
+            webRequest.UserAgent = "API Testing 0.1"
+            webRequest.Accept = "*/*"
+            webRequest.KeepAlive = False
 
-        webResponse = webRequest.GetResponse
-        responseReader = New System.IO.StreamReader(webResponse.GetResponseStream)
-        response = responseReader.ReadToEnd
-        responseReader.Close()
+            webResponse = webRequest.GetResponse
+            responseReader = New System.IO.StreamReader(webResponse.GetResponseStream)
+            response = responseReader.ReadToEnd
+            responseReader.Close()
 
-        Return serializer.DeserializeObject(response)
+            Return serializer.DeserializeObject(response)
+        Catch ex As Exception
+            MsgBox("While trying to get server languages:" + ex.Message, MsgBoxStyle.Exclamation)
+        End Try
     End Function
 
     Public Function sendGETRequest(ByVal req As System.Collections.Generic.Dictionary(Of String, String)) As Object ' System.Collections.Generic.Dictionary(Of String, String)
@@ -96,7 +101,7 @@ Public Class GTMainForm
         ''reqString &= "&q=" + req("q")
         webRequest = HttpWebRequest.Create(reqString)
         webRequest.Method = "POST"
-        webRequest.ContentType = "application/x-www-form-urlencoded"
+        webRequest.ContentType = "application/x-www-form-urlencoded; charset=UTF-8"
         webRequest.UserAgent = "API Testing 0.1"
         webRequest.Accept = "*/*"
         webRequest.Headers.Add("X-HTTP-Method-Override: GET")
@@ -119,7 +124,7 @@ Public Class GTMainForm
                 encodedData &= "&source=" + req("source")
             End If
             encodedData &= "&target=" + req("target")
-            encodedData &= "&q=" + req("q")
+            encodedData &= "&q=" + System.Web.HttpUtility.UrlEncode(req("q"))
             'webRequest.ContentLength = 58 'chars.Count
             'webRequest.ContentLength = chars.Count
             'datastream = request.GetRequestStream
@@ -143,14 +148,15 @@ Public Class GTMainForm
         Return temp
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonTranslate.Click
         'Dim g As New Google.Apis.Translate.v2.LanguagesResource.ListRequest()
-
+        Dim col As System.Drawing.Color = ButtonTranslate.BackColor
         Dim o As New System.Collections.Generic.Dictionary(Of String, String)
         Dim source, dest As String
         Dim numlines, donelines As Integer
 
         Try
+            ButtonTranslate.Text = "Translating..."
             source = ""
             dest = ""
             Me.Cursor = Cursors.WaitCursor
@@ -215,7 +221,11 @@ Public Class GTMainForm
             TargetText.Load(dest, TXTextControl.StringStreamType.HTMLFormat)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Exclamation)
+            ButtonTranslate.BackColor = col
+            ButtonTranslate.Text = "Go"
         End Try
+        ButtonTranslate.BackColor = col
+        ButtonTranslate.Text = "Go"
         Me.Cursor = Me.DefaultCursor
     End Sub
 
@@ -319,10 +329,13 @@ Public Class GTMainForm
         Log.AppendText(vbNewLine + "You may close this window now.")
         Me.Cursor = Me.DefaultCursor
 
+
     End Sub
 
     Private Sub ButtonClearSource_Click(sender As Object, e As EventArgs) Handles ButtonClearSource.Click
         SourceText.ResetContents()
+        OpenFileDialog1.FileName = ""
+        LabelFileName.Text = ""
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -344,10 +357,59 @@ Public Class GTMainForm
                     Case ".doc"
                         type = TXTextControl.StreamType.MSWord
                     Case Else
-                        Throw New ArgumentException("Unknown file type")
+                        type = TXTextControl.StreamType.PlainText
+                        MsgBox("The file will be loaded as a text file!")
+                        'Throw New ArgumentException("Unknown file type")
                 End Select
                 LabelFileName.Text = OpenFileDialog1.FileName
                 SourceText.Load(OpenFileDialog1.FileName, type)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Exclamation)
+        End Try
+    End Sub
+
+    Private Sub ButtonSaveFile_Click(sender As Object, e As EventArgs) Handles ButtonSaveFile.Click
+        Try
+            'If OpenFileDialog1.FileName = "" Then
+            If TargetText.Text = "" Then
+                Throw New IOException("No text to save. Translate something first!")
+            End If
+            If OpenFileDialog1.FileName <> "" Then
+                SaveFileDialog1.FileName =
+                    System.IO.Path.GetFullPath(OpenFileDialog1.FileName) +
+                    System.IO.Path.GetFileNameWithoutExtension(OpenFileDialog1.FileName) +
+                    "-" + TargetCombo.SelectedValue +
+                    System.IO.Path.GetExtension(OpenFileDialog1.FileName)
+                SaveFileDialog1.Filter &= "|*" & System.IO.Path.GetExtension(OpenFileDialog1.FileName) & "|*" & System.IO.Path.GetExtension(OpenFileDialog1.FileName)
+            End If
+
+            If SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                Dim myStream As Stream = SaveFileDialog1.OpenFile()
+                If (myStream IsNot Nothing) Then
+                    Dim type As TXTextControl.StreamType
+                    Select Case Path.GetExtension(SaveFileDialog1.FileName)
+                        Case ".txt"
+                            type = TXTextControl.StreamType.PlainText
+                        Case ".pdf"
+                            type = TXTextControl.StreamType.AdobePDF
+                        Case ".htm", ".html"
+                            type = TXTextControl.StreamType.HTMLFormat
+                        Case ".doc"
+                            type = TXTextControl.StreamType.MSWord
+                        Case Else
+                            type = TXTextControl.StreamType.PlainText
+                            MsgBox("The file will be saved as a text file!")
+                            'Throw New ArgumentException("Unknown file type")
+                    End Select
+                    TargetText.Save(myStream, type)
+                    MsgBox("File saved")
+                    myStream.Close()
+                Else
+                    Throw New IOException("Failed to save file!")
+                End If
+
+                SaveFileDialog1.FileName = ""
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Exclamation)
