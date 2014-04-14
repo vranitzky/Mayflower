@@ -23,6 +23,7 @@ Public Class FormFinRep
         'DTReport3TA.Connection.ConnectionString = connstr
         'DTReportIncentiveTA.Connection.ConnectionString = connstr
         DataTable1TableAdapter.Connection.ConnectionString = connstr
+        DTReport4TA.Connection.ConnectionString = connstr
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Cursor = Cursors.WaitCursor
@@ -47,7 +48,7 @@ Public Class FormFinRep
     End Sub
 
     Private Sub FormFinRep_Load(sender As Object, e As EventArgs) Handles Me.Load
-        DateTimePickerR2.Value = Today
+         DateTimePickerR2.Value = Today
         'DateTimePickerR3from.Value = 
         Try
             updateTableAdapters(My.Settings.ProjetexDB)
@@ -404,4 +405,29 @@ Public Class FormFinRep
 
     End Sub
 
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim sfrom As String
+        Dim sto As String
+
+        Me.Cursor = Cursors.WaitCursor
+        sfrom = DateTimePickerR4From.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
+        sto = DateTimePickerR4To.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)
+        Try
+            ' DTReport3TA.Fill(DataSetFR.DTReport3, DateTimePickerR3from.Value) '.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
+            DTReport4TA.Fill(DataSetFR.DTReport4, sfrom, sto)
+            'DTReport4TA.FillBy(
+            'DataSetFR.DTReport4,
+            'sfrom,
+            'sto
+            ')
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString)
+        End Try
+        Me.Cursor = Me.DefaultCursor
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        exportToXLSX(DataGridViewR4, "Invoice Creating " + DateTimePickerR4From.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + "-" + DateTimePickerR4To.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
+    End Sub
 End Class

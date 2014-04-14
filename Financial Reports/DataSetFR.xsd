@@ -17,27 +17,114 @@
 
 distinct p3.proj_id, 
 p3.proj_full, 
-a17."AIT$USER_REALNAME",
-IIF((select SUM(c9.cjob_total_b) from cjobs c9 where p3.proj_id=c9.proj_id)&gt;0,(select SUM(c9.cjob_total_b) from cjobs c9 where p3.proj_id=c9.proj_id),0) as "CJobs",
-IIF((select SUM(r6.rjob_total_b) from rjobs r6 where p3.proj_id=r6.proj_id)&gt;0,(select SUM(r6.rjob_total_b) from rjobs r6 where p3.proj_id=r6.proj_id),0) as "RJobs",
+ca.CACC_NAME as "AIT$USER_REALNAME",
+COALESCE((
+    SELECT SUM(subRF.LINK_SUM*subRP.cPAYM_RATE) as PAID
+        FROM cFINLINKS subRF
+            INNER JOIN cPAYMENTS subRP ON subRP.cPAYM_ID=subRF.cPAYM_ID
+        where subRF.cINV_ID IN (
+                Select subsubRJ.cINV_ID
+                from cjobs subsubRJ where subsubRJ.PROJ_ID=p3.proj_id --'2138'
+            )
+),0) as "CJobs",
+COALESCE((
+    SELECT SUM(subRF.LINK_SUM*subRP.RPAYM_RATE) as PAID
+        FROM RFINLINKS subRF
+            INNER JOIN RPAYMENTS subRP ON subRP.RPAYM_ID=subRF.RPAYM_ID
+        where subRF.RINV_ID IN (
+                Select subsubRJ.RINV_ID
+                from Rjobs subsubRJ where subsubRJ.PROJ_ID=p3.proj_id --'2138'
+            )
+),0) as "RJobs",
+
+
+
+
+COALESCE((
+COALESCE((
+    SELECT SUM(subRF.LINK_SUM*subRP.cPAYM_RATE) as PAID
+        FROM cFINLINKS subRF
+            INNER JOIN cPAYMENTS subRP ON subRP.cPAYM_ID=subRF.cPAYM_ID
+        where subRF.cINV_ID IN (
+                Select subsubRJ.cINV_ID
+                from cjobs subsubRJ where subsubRJ.PROJ_ID=p3.proj_id --'2138'
+            )
+),0)-COALESCE((
+    SELECT SUM(subRF.LINK_SUM*subRP.RPAYM_RATE) as PAID
+        FROM RFINLINKS subRF
+            INNER JOIN RPAYMENTS subRP ON subRP.RPAYM_ID=subRF.RPAYM_ID
+        where subRF.RINV_ID IN (
+                Select subsubRJ.RINV_ID
+                from Rjobs subsubRJ where subsubRJ.PROJ_ID=p3.proj_id --'2138'
+            )
+),0)
+
+
+),0) as "Profit",
+IIF(
+COALESCE((
+    SELECT SUM(subRF.LINK_SUM*subRP.cPAYM_RATE) as PAID
+        FROM cFINLINKS subRF
+            INNER JOIN cPAYMENTS subRP ON subRP.cPAYM_ID=subRF.cPAYM_ID
+        where subRF.cINV_ID IN (
+                Select subsubRJ.cINV_ID
+                from cjobs subsubRJ where subsubRJ.PROJ_ID=p3.proj_id --'2138'
+            )
+),0) &gt;0,
+(
+COALESCE((
+    SELECT SUM(subRF.LINK_SUM*subRP.cPAYM_RATE) as PAID
+        FROM cFINLINKS subRF
+            INNER JOIN cPAYMENTS subRP ON subRP.cPAYM_ID=subRF.cPAYM_ID
+        where subRF.cINV_ID IN (
+                Select subsubRJ.cINV_ID
+                from cjobs subsubRJ where subsubRJ.PROJ_ID=p3.proj_id --'2138'
+            )
+),0)        --=CJOBS
+    -
+COALESCE((
+    SELECT SUM(subRF.LINK_SUM*subRP.RPAYM_RATE) as PAID
+        FROM RFINLINKS subRF
+            INNER JOIN RPAYMENTS subRP ON subRP.RPAYM_ID=subRF.RPAYM_ID
+        where subRF.RINV_ID IN (
+                Select subsubRJ.RINV_ID
+                from Rjobs subsubRJ where subsubRJ.PROJ_ID=p3.proj_id --'2138'
+            )
+),0)        --=RJobs
+)*100 --=CJobs-RJobs
+
+/
+
+COALESCE((
+    SELECT SUM(subRF.LINK_SUM*subRP.cPAYM_RATE) as PAID
+        FROM cFINLINKS subRF
+            INNER JOIN cPAYMENTS subRP ON subRP.cPAYM_ID=subRF.cPAYM_ID
+        where subRF.cINV_ID IN (
+                Select subsubRJ.cINV_ID
+                from cjobs subsubRJ where subsubRJ.PROJ_ID=p3.proj_id --'2138'
+            )
+),1) --=Cjobs
+
+,
+--else (CJobs&lt;=0):
+
+0
+
+)
+
+as "PCProfit",
 c3.ccon_name,
-
-IIF((select SUM(c9.cjob_total_b) from cjobs c9 where p3.proj_id=c9.proj_id)&gt;0,(select SUM(c9.cjob_total_b) from cjobs c9 where p3.proj_id=c9.proj_id)-(select SUM(r6.rjob_total_b) from rjobs r6 where p3.proj_id=r6.proj_id),0) as "Profit",
-
-IIF((select SUM(c9.cjob_total_b) from cjobs c9 where p3.proj_id=c9.proj_id)&gt;0, ((select SUM(c9.cjob_total_b) from cjobs c9 where p3.proj_id=c9.proj_id)-(select SUM(r6.rjob_total_b) from rjobs r6 where p3.proj_id=r6.proj_id))/(((select SUM(c9.cjob_total_b) 
-from cjobs c9 where p3.proj_id=c9.proj_id))/100),0) "% Profit",
 
 MAX((select c8.cinv_gnumb from cinvoices c8 where c8.cinv_id=c9.cinv_id and c9.proj_id=p3.proj_id)) as "Inv No"
 
-FROM  PROJECTS p3 INNER JOIN
-        CCONTACTS c3 ON p3.CLIENT_ID = c3.CLIENT_ID AND p3.CLIENT_PM = c3.CCON_ID INNER JOIN
-        CACCMANAGERS ca ON ca.CLIENT_ID = c3.CLIENT_ID INNER join
-         CJOBS c9 ON p3.PROJ_ID = c9.PROJ_ID AND c3.CCON_ID = c9.CCON_ID INNER JOIN
-        CINVOICES c8 ON c3.CCON_ID = c8.CCON_ID AND c9.CINV_ID = c8.CINV_ID
-        INNER JOIN "AIT$USERS" a17 ON ca."AIT$USER_ID" = a17."AIT$USER_ID"                  
-WHERE        (p3.PROJ_COMPLETED &gt;@fromdate) AND (p3.PROJ_COMPLETED &lt; @todate)
-GROUP BY  p3.proj_id, p3.proj_full, a17."AIT$USER_REALNAME", c3.ccon_name
-
+FROM  PROJECTS p3 
+        INNER JOIN CCONTACTS c3 ON p3.CLIENT_ID = c3.CLIENT_ID AND p3.CLIENT_PM = c3.CCON_ID 
+        INNER JOIN CACCOUNTS ca ON ca.CLIENT_ID = c3.CLIENT_ID 
+        INNER join CJOBS c9 ON p3.PROJ_ID = c9.PROJ_ID AND c3.CCON_ID = c9.CCON_ID 
+        INNER JOIN CINVOICES c8 ON c3.CCON_ID = c8.CCON_ID AND c9.CINV_ID = c8.CINV_ID
+        INNER JOIN CLIENTS cl ON cl.client_id=ca.CLIENT_ID
+WHERE       (p3.PROJ_COMPLETED &gt;=@fromdate) AND (p3.PROJ_COMPLETED &lt;= @todate)
+GROUP BY  p3.proj_id, p3.proj_full, ca.CACC_NAME, c3.ccon_name 
 ORDER BY  p3.proj_id
 </CommandText>
                     <Parameters>
@@ -262,6 +349,64 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DTReport4TA" GeneratorDataComponentClassName="DTReport4TA" Name="DTReport4" UserDataComponentName="DTReport4TA">
+            <MainSource>
+              <DbSource ConnectionRef="192.168.0.56 (projetex)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  
+p3.proj_id, 
+ca.CACC_NAME as ClientAccount,
+cl.CLIENT_NAME as Client,
+separent.SERV_NAME as Services,
+p3.PROJ_CODE as ProjectCode,
+c9.CJOB_COMPLETED as Completed,
+CAST(c8.CINV_DATE AS DATE) as InvoiceDate,
+c8.CINV_GNUMB as InvGlobalCode,
+cu.CURR_NAME,
+c9.CJOB_RATE,
+c9.CJOB_TOTAL,
+CAST(DATEADD(7 day to c9.CJOB_COMPLETED) as DATE) as "CompDateSeven",
+DAtediff(day from c8.CINV_DATE to DATEADD(7 day to c9.CJOB_COMPLETED)) as Delay,
+p3.PROJ_COMPLETED
+
+
+FROM  PROJECTS p3 
+        INNER JOIN CCONTACTS c3 ON p3.CLIENT_ID = c3.CLIENT_ID AND p3.CLIENT_PM = c3.CCON_ID 
+        INNER JOIN CACCOUNTS ca ON ca.CLIENT_ID = c3.CLIENT_ID 
+        INNER join CJOBS c9 ON p3.PROJ_ID = c9.PROJ_ID AND c3.CCON_ID = c9.CCON_ID AND (CAST(c9.CJOB_COMPLETED AS DATE) &gt;= CAST(@from AS DATE)  and CAST(c9.CJOB_COMPLETED as DATE)  &lt;= CAST(@to AS DATE))
+        LEFT JOIN CINVOICES c8 ON c3.CCON_ID = c8.CCON_ID AND c9.CINV_ID = c8.CINV_ID
+        INNER JOIN CLIENTS cl ON cl.client_id=ca.CLIENT_ID
+        INNER JOIN CURR cu ON cu.CURR_ID=c9.CURR_ID
+        INNER JOIN SERVICES sechild on sechild.SERV_ID=c9.SERV_ID
+        INNER JOIN SERVICES separent on sechild.SERV_PARENT_ID = separent.SERV_ID
+ORDER BY  ca.CACC_NAME</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@from" Precision="0" Scale="0" Size="0" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@to" Precision="0" Scale="0" Size="0" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PROJ_ID" DataSetColumn="PROJ_ID" />
+              <Mapping SourceColumn="CLIENTACCOUNT" DataSetColumn="CLIENTACCOUNT" />
+              <Mapping SourceColumn="CLIENT" DataSetColumn="CLIENT" />
+              <Mapping SourceColumn="SERVICES" DataSetColumn="SERVICES" />
+              <Mapping SourceColumn="PROJECTCODE" DataSetColumn="PROJECTCODE" />
+              <Mapping SourceColumn="COMPLETED" DataSetColumn="COMPLETED" />
+              <Mapping SourceColumn="INVOICEDATE" DataSetColumn="INVOICEDATE" />
+              <Mapping SourceColumn="INVGLOBALCODE" DataSetColumn="INVGLOBALCODE" />
+              <Mapping SourceColumn="CURR_NAME" DataSetColumn="CURR_NAME" />
+              <Mapping SourceColumn="CJOB_RATE" DataSetColumn="CJOB_RATE" />
+              <Mapping SourceColumn="CJOB_TOTAL" DataSetColumn="CJOB_TOTAL" />
+              <Mapping SourceColumn="DELAY" DataSetColumn="DELAY" />
+              <Mapping SourceColumn="CompDateSeven" DataSetColumn="CompDateSeven" />
+              <Mapping SourceColumn="PROJ_COMPLETED" DataSetColumn="PROJ_COMPLETED" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -270,7 +415,7 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE
   <xs:element name="DataSetFR" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSetFR" msprop:Generator_UserDSName="DataSetFR">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DTReport1" msprop:Generator_TableClassName="DTReport1DataTable" msprop:Generator_TableVarName="tableDTReport1" msprop:Generator_TablePropName="DTReport1" msprop:Generator_RowDeletingName="DTReport1RowDeleting" msprop:Generator_RowChangingName="DTReport1RowChanging" msprop:Generator_RowEvHandlerName="DTReport1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport1RowDeleted" msprop:Generator_UserTableName="DTReport1" msprop:Generator_RowChangedName="DTReport1RowChanged" msprop:Generator_RowEvArgName="DTReport1RowChangeEvent" msprop:Generator_RowClassName="DTReport1Row">
+        <xs:element name="DTReport1" msprop:Generator_TableClassName="DTReport1DataTable" msprop:Generator_TableVarName="tableDTReport1" msprop:Generator_RowChangedName="DTReport1RowChanged" msprop:Generator_TablePropName="DTReport1" msprop:Generator_RowDeletingName="DTReport1RowDeleting" msprop:Generator_RowChangingName="DTReport1RowChanging" msprop:Generator_RowEvHandlerName="DTReport1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport1RowDeleted" msprop:Generator_RowClassName="DTReport1Row" msprop:Generator_UserTableName="DTReport1" msprop:Generator_RowEvArgName="DTReport1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PROJ_ID" msprop:Generator_ColumnVarNameInTable="columnPROJ_ID" msprop:Generator_ColumnPropNameInRow="PROJ_ID" msprop:Generator_ColumnPropNameInTable="PROJ_IDColumn" msprop:Generator_UserColumnName="PROJ_ID" type="xs:int" />
@@ -297,7 +442,7 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTReport2" msprop:Generator_TableClassName="DTReport2DataTable" msprop:Generator_TableVarName="tableDTReport2" msprop:Generator_TablePropName="DTReport2" msprop:Generator_RowDeletingName="DTReport2RowDeleting" msprop:Generator_RowChangingName="DTReport2RowChanging" msprop:Generator_RowEvHandlerName="DTReport2RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport2RowDeleted" msprop:Generator_UserTableName="DTReport2" msprop:Generator_RowChangedName="DTReport2RowChanged" msprop:Generator_RowEvArgName="DTReport2RowChangeEvent" msprop:Generator_RowClassName="DTReport2Row">
+        <xs:element name="DTReport2" msprop:Generator_TableClassName="DTReport2DataTable" msprop:Generator_TableVarName="tableDTReport2" msprop:Generator_RowChangedName="DTReport2RowChanged" msprop:Generator_TablePropName="DTReport2" msprop:Generator_RowDeletingName="DTReport2RowDeleting" msprop:Generator_RowChangingName="DTReport2RowChanging" msprop:Generator_RowEvHandlerName="DTReport2RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport2RowDeleted" msprop:Generator_RowClassName="DTReport2Row" msprop:Generator_UserTableName="DTReport2" msprop:Generator_RowEvArgName="DTReport2RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER" minOccurs="0">
@@ -338,7 +483,7 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTReport3" msprop:Generator_TableClassName="DTReport3DataTable" msprop:Generator_TableVarName="tableDTReport3" msprop:Generator_RowChangedName="DTReport3RowChanged" msprop:Generator_TablePropName="DTReport3" msprop:Generator_RowDeletingName="DTReport3RowDeleting" msprop:Generator_RowChangingName="DTReport3RowChanging" msprop:Generator_RowEvHandlerName="DTReport3RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport3RowDeleted" msprop:Generator_RowClassName="DTReport3Row" msprop:Generator_UserTableName="DTReport3" msprop:Generator_RowEvArgName="DTReport3RowChangeEvent">
+        <xs:element name="DTReport3" msprop:Generator_TableClassName="DTReport3DataTable" msprop:Generator_TableVarName="tableDTReport3" msprop:Generator_TablePropName="DTReport3" msprop:Generator_RowDeletingName="DTReport3RowDeleting" msprop:Generator_RowChangingName="DTReport3RowChanging" msprop:Generator_RowEvHandlerName="DTReport3RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport3RowDeleted" msprop:Generator_UserTableName="DTReport3" msprop:Generator_RowChangedName="DTReport3RowChanged" msprop:Generator_RowEvArgName="DTReport3RowChangeEvent" msprop:Generator_RowClassName="DTReport3Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER" minOccurs="0">
@@ -381,7 +526,7 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER" type="xs:string" minOccurs="0" />
@@ -396,6 +541,56 @@ ORDER by CACCOUNTS.CACC_NAME,INVOICES.CINV_DATE
               <xs:element name="LASTPAYMENTDATE" msprop:Generator_ColumnVarNameInTable="columnLASTPAYMENTDATE" msprop:Generator_ColumnPropNameInRow="LASTPAYMENTDATE" msprop:Generator_ColumnPropNameInTable="LASTPAYMENTDATEColumn" msprop:Generator_UserColumnName="LASTPAYMENTDATE" type="xs:dateTime" minOccurs="0" />
               <xs:element name="STATUS" msprop:Generator_ColumnVarNameInTable="columnSTATUS" msprop:Generator_ColumnPropNameInRow="STATUS" msprop:Generator_ColumnPropNameInTable="STATUSColumn" msprop:Generator_UserColumnName="STATUS" type="xs:short" minOccurs="0" />
               <xs:element name="STATUSTXT" msprop:Generator_ColumnVarNameInTable="columnSTATUSTXT" msprop:Generator_ColumnPropNameInRow="STATUSTXT" msprop:Generator_ColumnPropNameInTable="STATUSTXTColumn" msprop:Generator_UserColumnName="STATUSTXT" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTReport4" msprop:Generator_TableClassName="DTReport4DataTable" msprop:Generator_TableVarName="tableDTReport4" msprop:Generator_TablePropName="DTReport4" msprop:Generator_RowDeletingName="DTReport4RowDeleting" msprop:Generator_RowChangingName="DTReport4RowChanging" msprop:Generator_RowEvHandlerName="DTReport4RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport4RowDeleted" msprop:Generator_UserTableName="DTReport4" msprop:Generator_RowChangedName="DTReport4RowChanged" msprop:Generator_RowEvArgName="DTReport4RowChangeEvent" msprop:Generator_RowClassName="DTReport4Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PROJ_ID" msprop:Generator_ColumnVarNameInTable="columnPROJ_ID" msprop:Generator_ColumnPropNameInRow="PROJ_ID" msprop:Generator_ColumnPropNameInTable="PROJ_IDColumn" msprop:Generator_UserColumnName="PROJ_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="CLIENTACCOUNT" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CLIENTACCOUNT" msprop:Generator_ColumnVarNameInTable="columnCLIENTACCOUNT" msprop:Generator_ColumnPropNameInTable="CLIENTACCOUNTColumn" msprop:Generator_UserColumnName="CLIENTACCOUNT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CLIENT" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CLIENT" msprop:Generator_ColumnVarNameInTable="columnCLIENT" msprop:Generator_ColumnPropNameInTable="CLIENTColumn" msprop:Generator_UserColumnName="CLIENT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SERVICES" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="SERVICES" msprop:Generator_ColumnVarNameInTable="columnSERVICES" msprop:Generator_ColumnPropNameInTable="SERVICESColumn" msprop:Generator_UserColumnName="SERVICES" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PROJECTCODE" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="PROJECTCODE" msprop:Generator_ColumnVarNameInTable="columnPROJECTCODE" msprop:Generator_ColumnPropNameInTable="PROJECTCODEColumn" msprop:Generator_UserColumnName="PROJECTCODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COMPLETED" msprop:Generator_ColumnVarNameInTable="columnCOMPLETED" msprop:Generator_ColumnPropNameInRow="COMPLETED" msprop:Generator_ColumnPropNameInTable="COMPLETEDColumn" msprop:Generator_UserColumnName="COMPLETED" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="INVOICEDATE" msprop:nullValue="_throw" msprop:Generator_ColumnPropNameInRow="INVOICEDATE" msprop:Generator_ColumnVarNameInTable="columnINVOICEDATE" msprop:Generator_ColumnPropNameInTable="INVOICEDATEColumn" msprop:Generator_UserColumnName="INVOICEDATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="INVGLOBALCODE" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="INVGLOBALCODE" msprop:Generator_ColumnVarNameInTable="columnINVGLOBALCODE" msprop:Generator_ColumnPropNameInTable="INVGLOBALCODEColumn" msprop:Generator_UserColumnName="INVGLOBALCODE" type="xs:int" minOccurs="0" />
+              <xs:element name="CURR_NAME" msprop:Generator_ColumnVarNameInTable="columnCURR_NAME" msprop:Generator_ColumnPropNameInRow="CURR_NAME" msprop:Generator_ColumnPropNameInTable="CURR_NAMEColumn" msprop:Generator_UserColumnName="CURR_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CJOB_RATE" msprop:Generator_ColumnVarNameInTable="columnCJOB_RATE" msprop:Generator_ColumnPropNameInRow="CJOB_RATE" msprop:Generator_ColumnPropNameInTable="CJOB_RATEColumn" msprop:Generator_UserColumnName="CJOB_RATE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CJOB_TOTAL" msprop:Generator_ColumnVarNameInTable="columnCJOB_TOTAL" msprop:Generator_ColumnPropNameInRow="CJOB_TOTAL" msprop:Generator_ColumnPropNameInTable="CJOB_TOTALColumn" msprop:Generator_UserColumnName="CJOB_TOTAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DELAY" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="DELAY" msprop:Generator_ColumnVarNameInTable="columnDELAY" msprop:Generator_ColumnPropNameInTable="DELAYColumn" msprop:Generator_UserColumnName="DELAY" type="xs:int" minOccurs="0" />
+              <xs:element name="CompDateSeven" msprop:Generator_ColumnVarNameInTable="columnCompDateSeven" msprop:Generator_ColumnPropNameInRow="CompDateSeven" msprop:Generator_ColumnPropNameInTable="CompDateSevenColumn" msprop:Generator_UserColumnName="CompDateSeven" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PROJ_COMPLETED" msprop:Generator_ColumnVarNameInTable="columnPROJ_COMPLETED" msprop:Generator_ColumnPropNameInRow="PROJ_COMPLETED" msprop:Generator_ColumnPropNameInTable="PROJ_COMPLETEDColumn" msprop:Generator_UserColumnName="PROJ_COMPLETED" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
