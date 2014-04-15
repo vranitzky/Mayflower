@@ -428,6 +428,6 @@ Public Class FormFinRep
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        exportToXLSX(DataGridViewR4, "Invoice Creating " + DateTimePickerR4From.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + "-" + DateTimePickerR4To.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
+        exportToXLSX(DataGridViewR4, "Invoice Creation " + DateTimePickerR4From.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + "-" + DateTimePickerR4To.Value.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
     End Sub
 End Class
