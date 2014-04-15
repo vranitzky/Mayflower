@@ -375,7 +375,7 @@ FROM  PROJECTS p3
         INNER JOIN CCONTACTS c3 ON p3.CLIENT_ID = c3.CLIENT_ID AND p3.CLIENT_PM = c3.CCON_ID 
         INNER JOIN CACCOUNTS ca ON ca.CLIENT_ID = c3.CLIENT_ID 
         INNER join CJOBS c9 ON p3.PROJ_ID = c9.PROJ_ID AND c3.CCON_ID = c9.CCON_ID AND (CAST(c9.CJOB_COMPLETED AS DATE) &gt;= CAST(@from AS DATE)  and CAST(c9.CJOB_COMPLETED as DATE)  &lt;= CAST(@to AS DATE))
-        LEFT JOIN CINVOICES c8 ON c3.CCON_ID = c8.CCON_ID AND c9.CINV_ID = c8.CINV_ID
+        LEFT JOIN CINVOICES c8 ON c9.CINV_ID = c8.CINV_ID
         INNER JOIN CLIENTS cl ON cl.client_id=ca.CLIENT_ID
         INNER JOIN CURR cu ON cu.CURR_ID=c9.CURR_ID
         INNER JOIN SERVICES sechild on sechild.SERV_ID=c9.SERV_ID
@@ -407,6 +407,93 @@ ORDER BY  ca.CACC_NAME</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTablePaymentCollectionTableAdapter" GeneratorDataComponentClassName="DataTablePaymentCollectionTableAdapter" Name="DataTablePaymentCollection" UserDataComponentName="DataTablePaymentCollectionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="192.168.0.56 (projetex)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  CLIENTS.CLIENT_NAME AS Client,
+        '?????????????????????????????????????????' as ProjectCode,
+        CPAYMENTS.CPAYM_DATE  as ProjectCompleted,
+        INVOICES.CINV_DATE as InvoiceDate,
+        INVOICES.CINV_GNUMB as InvoiceGlobalCode,
+        CURR.CURR_NAME as Currency,
+        CPAYMENTS.CPAYM_RATE as ExchangeRate,
+        INVOICES.CINV_TOTAL AS InvoiceTotal,
+        CFINLINKS.LINK_SUM as Paid,
+        (INVOICES.CINV_TOTAL-CFINLINKS.LINK_SUM) as PendingAmount,
+        INVOICES.CINV_PLAN_SETTL_DATE AS DueDate,
+        CPAYMENTS.CPAYM_DATE as DateReceived,
+        -2 AS Status,
+        '?????????????????????????????????????????????????' AS StatusTXT
+FROM CINVOICES INVOICES 
+    INNER JOIN CPAYMENTS ON CPAYMENTS.CPAYM_DATE   &gt;= '2014-02-01' AND CPAYMENTS.CPAYM_DATE&lt;= '2014-02-28'
+    INNER JOIN CFINLINKS ON CPAYMENTS.CPAYM_ID=CFINLINKS.CPAYM_ID AND CFINLINKS.CINV_ID=INVOICES.CINV_ID
+    INNER JOIN CURR ON CURR.CURR_ID=INVOICES.CURR_ID
+    LEFT JOIN CLIENTS ON CLIENTS.CLIENT_ID=INVOICES.CLIENT_ID
+    
+ORDER BY invoices.CINV_DATE ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CLIENT" DataSetColumn="CLIENT" />
+              <Mapping SourceColumn="PROJECTCODE" DataSetColumn="PROJECTCODE" />
+              <Mapping SourceColumn="PROJECTCOMPLETED" DataSetColumn="PROJECTCOMPLETED" />
+              <Mapping SourceColumn="INVOICEDATE" DataSetColumn="INVOICEDATE" />
+              <Mapping SourceColumn="INVOICEGLOBALCODE" DataSetColumn="INVOICEGLOBALCODE" />
+              <Mapping SourceColumn="CURRENCY" DataSetColumn="CURRENCY" />
+              <Mapping SourceColumn="EXCHANGERATE" DataSetColumn="EXCHANGERATE" />
+              <Mapping SourceColumn="INVOICETOTAL" DataSetColumn="INVOICETOTAL" />
+              <Mapping SourceColumn="PAID" DataSetColumn="PAID" />
+              <Mapping SourceColumn="PENDINGAMOUNT" DataSetColumn="PENDINGAMOUNT" />
+              <Mapping SourceColumn="DUEDATE" DataSetColumn="DUEDATE" />
+              <Mapping SourceColumn="DATERECEIVED" DataSetColumn="DATERECEIVED" />
+              <Mapping SourceColumn="STATUS" DataSetColumn="STATUS" />
+              <Mapping SourceColumn="STATUSTXT" DataSetColumn="STATUSTXT" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="192.168.0.56 (projetex)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  CLIENTS.CLIENT_NAME AS Client,
+        (select p.PROJ_CODE from projects p where p.PROJ_ID=(SELECT FIRST 1 a.PROJ_ID FROM CJOBS a  where a.CINV_ID=invoices.CINV_ID)) as ProjectCode,
+        CAST((select p.PROJ_COMPLETED from projects p where p.PROJ_ID=(SELECT FIRST 1 a.PROJ_ID FROM CJOBS a  where a.CINV_ID=invoices.CINV_ID)) AS DATE) as ProjectCompleted,
+        INVOICES.CINV_DATE as InvoiceDate,
+        INVOICES.CINV_GNUMB as InvoiceGlobalCode,
+        CURR.CURR_NAME as Currency,
+        CPAYMENTS.CPAYM_RATE as ExchangeRate,
+        INVOICES.CINV_TOTAL AS InvoiceTotal,
+        CFINLINKS.LINK_SUM as Paid,
+        (INVOICES.CINV_TOTAL-CFINLINKS.LINK_SUM) as PendingAmount,
+        INVOICES.CINV_PLAN_SETTL_DATE AS DueDate,
+        CPAYMENTS.CPAYM_DATE as DateReceived,
+        datediff(day, INVOICES.CINV_PLAN_SETTL_DATE, CPAYMENTS.CPAYM_DATE) AS Status,
+        case
+                WHEN (datediff(day, INVOICES.CINV_PLAN_SETTL_DATE, CPAYMENTS.CPAYM_DATE) &gt; 0) 
+                    THEN 'Overdue ' || datediff(day, INVOICES.CINV_PLAN_SETTL_DATE, CPAYMENTS.CPAYM_DATE) || ' late'
+                WHEN (datediff(day, INVOICES.CINV_PLAN_SETTL_DATE, CPAYMENTS.CPAYM_DATE) &lt; 0) 
+                    THEN 'Settled ' || datediff(day, CPAYMENTS.CPAYM_DATE, INVOICES.CINV_PLAN_SETTL_DATE) || ' early'
+                ELSE 'Settled properly'
+        end AS StatusTXT
+FROM CINVOICES INVOICES 
+    INNER JOIN CPAYMENTS ON CPAYMENTS.CPAYM_DATE   &gt;= @from AND CPAYMENTS.CPAYM_DATE&lt;= @to
+    INNER JOIN CFINLINKS ON CPAYMENTS.CPAYM_ID=CFINLINKS.CPAYM_ID AND CFINLINKS.CINV_ID=INVOICES.CINV_ID
+    INNER JOIN CURR ON CURR.CURR_ID=INVOICES.CURR_ID
+    LEFT JOIN CLIENTS ON CLIENTS.CLIENT_ID=INVOICES.CLIENT_ID
+    
+ORDER BY invoices.CINV_DATE ASC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@from" Precision="0" Scale="0" Size="0" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@to" Precision="0" Scale="0" Size="0" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -415,7 +502,7 @@ ORDER BY  ca.CACC_NAME</CommandText>
   <xs:element name="DataSetFR" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSetFR" msprop:Generator_UserDSName="DataSetFR">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DTReport1" msprop:Generator_TableClassName="DTReport1DataTable" msprop:Generator_TableVarName="tableDTReport1" msprop:Generator_RowChangedName="DTReport1RowChanged" msprop:Generator_TablePropName="DTReport1" msprop:Generator_RowDeletingName="DTReport1RowDeleting" msprop:Generator_RowChangingName="DTReport1RowChanging" msprop:Generator_RowEvHandlerName="DTReport1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport1RowDeleted" msprop:Generator_RowClassName="DTReport1Row" msprop:Generator_UserTableName="DTReport1" msprop:Generator_RowEvArgName="DTReport1RowChangeEvent">
+        <xs:element name="DTReport1" msprop:Generator_TableClassName="DTReport1DataTable" msprop:Generator_TableVarName="tableDTReport1" msprop:Generator_TablePropName="DTReport1" msprop:Generator_RowDeletingName="DTReport1RowDeleting" msprop:Generator_RowChangingName="DTReport1RowChanging" msprop:Generator_RowEvHandlerName="DTReport1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport1RowDeleted" msprop:Generator_UserTableName="DTReport1" msprop:Generator_RowChangedName="DTReport1RowChanged" msprop:Generator_RowEvArgName="DTReport1RowChangeEvent" msprop:Generator_RowClassName="DTReport1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PROJ_ID" msprop:Generator_ColumnVarNameInTable="columnPROJ_ID" msprop:Generator_ColumnPropNameInRow="PROJ_ID" msprop:Generator_ColumnPropNameInTable="PROJ_IDColumn" msprop:Generator_UserColumnName="PROJ_ID" type="xs:int" />
@@ -442,7 +529,7 @@ ORDER BY  ca.CACC_NAME</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTReport2" msprop:Generator_TableClassName="DTReport2DataTable" msprop:Generator_TableVarName="tableDTReport2" msprop:Generator_RowChangedName="DTReport2RowChanged" msprop:Generator_TablePropName="DTReport2" msprop:Generator_RowDeletingName="DTReport2RowDeleting" msprop:Generator_RowChangingName="DTReport2RowChanging" msprop:Generator_RowEvHandlerName="DTReport2RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport2RowDeleted" msprop:Generator_RowClassName="DTReport2Row" msprop:Generator_UserTableName="DTReport2" msprop:Generator_RowEvArgName="DTReport2RowChangeEvent">
+        <xs:element name="DTReport2" msprop:Generator_TableClassName="DTReport2DataTable" msprop:Generator_TableVarName="tableDTReport2" msprop:Generator_TablePropName="DTReport2" msprop:Generator_RowDeletingName="DTReport2RowDeleting" msprop:Generator_RowChangingName="DTReport2RowChanging" msprop:Generator_RowEvHandlerName="DTReport2RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport2RowDeleted" msprop:Generator_UserTableName="DTReport2" msprop:Generator_RowChangedName="DTReport2RowChanged" msprop:Generator_RowEvArgName="DTReport2RowChangeEvent" msprop:Generator_RowClassName="DTReport2Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER" minOccurs="0">
@@ -483,7 +570,7 @@ ORDER BY  ca.CACC_NAME</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTReport3" msprop:Generator_TableClassName="DTReport3DataTable" msprop:Generator_TableVarName="tableDTReport3" msprop:Generator_TablePropName="DTReport3" msprop:Generator_RowDeletingName="DTReport3RowDeleting" msprop:Generator_RowChangingName="DTReport3RowChanging" msprop:Generator_RowEvHandlerName="DTReport3RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport3RowDeleted" msprop:Generator_UserTableName="DTReport3" msprop:Generator_RowChangedName="DTReport3RowChanged" msprop:Generator_RowEvArgName="DTReport3RowChangeEvent" msprop:Generator_RowClassName="DTReport3Row">
+        <xs:element name="DTReport3" msprop:Generator_TableClassName="DTReport3DataTable" msprop:Generator_TableVarName="tableDTReport3" msprop:Generator_RowChangedName="DTReport3RowChanged" msprop:Generator_TablePropName="DTReport3" msprop:Generator_RowDeletingName="DTReport3RowDeleting" msprop:Generator_RowChangingName="DTReport3RowChanging" msprop:Generator_RowEvHandlerName="DTReport3RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport3RowDeleted" msprop:Generator_RowClassName="DTReport3Row" msprop:Generator_UserTableName="DTReport3" msprop:Generator_RowEvArgName="DTReport3RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER" minOccurs="0">
@@ -526,7 +613,7 @@ ORDER BY  ca.CACC_NAME</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SALEOWNER" msprop:Generator_ColumnVarNameInTable="columnSALEOWNER" msprop:Generator_ColumnPropNameInRow="SALEOWNER" msprop:Generator_ColumnPropNameInTable="SALEOWNERColumn" msprop:Generator_UserColumnName="SALEOWNER" type="xs:string" minOccurs="0" />
@@ -544,7 +631,7 @@ ORDER BY  ca.CACC_NAME</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTReport4" msprop:Generator_TableClassName="DTReport4DataTable" msprop:Generator_TableVarName="tableDTReport4" msprop:Generator_TablePropName="DTReport4" msprop:Generator_RowDeletingName="DTReport4RowDeleting" msprop:Generator_RowChangingName="DTReport4RowChanging" msprop:Generator_RowEvHandlerName="DTReport4RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport4RowDeleted" msprop:Generator_UserTableName="DTReport4" msprop:Generator_RowChangedName="DTReport4RowChanged" msprop:Generator_RowEvArgName="DTReport4RowChangeEvent" msprop:Generator_RowClassName="DTReport4Row">
+        <xs:element name="DTReport4" msprop:Generator_TableClassName="DTReport4DataTable" msprop:Generator_TableVarName="tableDTReport4" msprop:Generator_RowChangedName="DTReport4RowChanged" msprop:Generator_TablePropName="DTReport4" msprop:Generator_RowDeletingName="DTReport4RowDeleting" msprop:Generator_RowChangingName="DTReport4RowChanging" msprop:Generator_RowEvHandlerName="DTReport4RowChangeEventHandler" msprop:Generator_RowDeletedName="DTReport4RowDeleted" msprop:Generator_RowClassName="DTReport4Row" msprop:Generator_UserTableName="DTReport4" msprop:Generator_RowEvArgName="DTReport4RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PROJ_ID" msprop:Generator_ColumnVarNameInTable="columnPROJ_ID" msprop:Generator_ColumnPropNameInRow="PROJ_ID" msprop:Generator_ColumnPropNameInTable="PROJ_IDColumn" msprop:Generator_UserColumnName="PROJ_ID" type="xs:int" minOccurs="0" />
@@ -591,6 +678,38 @@ ORDER BY  ca.CACC_NAME</CommandText>
               <xs:element name="DELAY" msprop:nullValue="0" msprop:Generator_ColumnPropNameInRow="DELAY" msprop:Generator_ColumnVarNameInTable="columnDELAY" msprop:Generator_ColumnPropNameInTable="DELAYColumn" msprop:Generator_UserColumnName="DELAY" type="xs:int" minOccurs="0" />
               <xs:element name="CompDateSeven" msprop:Generator_ColumnVarNameInTable="columnCompDateSeven" msprop:Generator_ColumnPropNameInRow="CompDateSeven" msprop:Generator_ColumnPropNameInTable="CompDateSevenColumn" msprop:Generator_UserColumnName="CompDateSeven" type="xs:dateTime" minOccurs="0" />
               <xs:element name="PROJ_COMPLETED" msprop:Generator_ColumnVarNameInTable="columnPROJ_COMPLETED" msprop:Generator_ColumnPropNameInRow="PROJ_COMPLETED" msprop:Generator_ColumnPropNameInTable="PROJ_COMPLETEDColumn" msprop:Generator_UserColumnName="PROJ_COMPLETED" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTablePaymentCollection" msprop:Generator_TableClassName="DataTablePaymentCollectionDataTable" msprop:Generator_TableVarName="tableDataTablePaymentCollection" msprop:Generator_TablePropName="DataTablePaymentCollection" msprop:Generator_RowDeletingName="DataTablePaymentCollectionRowDeleting" msprop:Generator_RowChangingName="DataTablePaymentCollectionRowChanging" msprop:Generator_RowEvHandlerName="DataTablePaymentCollectionRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTablePaymentCollectionRowDeleted" msprop:Generator_UserTableName="DataTablePaymentCollection" msprop:Generator_RowChangedName="DataTablePaymentCollectionRowChanged" msprop:Generator_RowEvArgName="DataTablePaymentCollectionRowChangeEvent" msprop:Generator_RowClassName="DataTablePaymentCollectionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CLIENT" msprop:Generator_ColumnVarNameInTable="columnCLIENT" msprop:Generator_ColumnPropNameInRow="CLIENT" msprop:Generator_ColumnPropNameInTable="CLIENTColumn" msprop:Generator_UserColumnName="CLIENT" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PROJECTCODE" msprop:Generator_ColumnVarNameInTable="columnPROJECTCODE" msprop:Generator_ColumnPropNameInRow="PROJECTCODE" msprop:Generator_ColumnPropNameInTable="PROJECTCODEColumn" msprop:Generator_UserColumnName="PROJECTCODE" type="xs:string" />
+              <xs:element name="PROJECTCOMPLETED" msprop:Generator_ColumnVarNameInTable="columnPROJECTCOMPLETED" msprop:Generator_ColumnPropNameInRow="PROJECTCOMPLETED" msprop:Generator_ColumnPropNameInTable="PROJECTCOMPLETEDColumn" msprop:Generator_UserColumnName="PROJECTCOMPLETED" type="xs:dateTime" />
+              <xs:element name="INVOICEDATE" msprop:Generator_ColumnVarNameInTable="columnINVOICEDATE" msprop:Generator_ColumnPropNameInRow="INVOICEDATE" msprop:Generator_ColumnPropNameInTable="INVOICEDATEColumn" msprop:Generator_UserColumnName="INVOICEDATE" type="xs:dateTime" />
+              <xs:element name="INVOICEGLOBALCODE" msprop:Generator_ColumnVarNameInTable="columnINVOICEGLOBALCODE" msprop:Generator_ColumnPropNameInRow="INVOICEGLOBALCODE" msprop:Generator_ColumnPropNameInTable="INVOICEGLOBALCODEColumn" msprop:Generator_UserColumnName="INVOICEGLOBALCODE" type="xs:int" minOccurs="0" />
+              <xs:element name="CURRENCY" msprop:Generator_ColumnVarNameInTable="columnCURRENCY" msprop:Generator_ColumnPropNameInRow="CURRENCY" msprop:Generator_ColumnPropNameInTable="CURRENCYColumn" msprop:Generator_UserColumnName="CURRENCY">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXCHANGERATE" msprop:Generator_ColumnVarNameInTable="columnEXCHANGERATE" msprop:Generator_ColumnPropNameInRow="EXCHANGERATE" msprop:Generator_ColumnPropNameInTable="EXCHANGERATEColumn" msprop:Generator_UserColumnName="EXCHANGERATE" type="xs:decimal" />
+              <xs:element name="INVOICETOTAL" msprop:Generator_ColumnVarNameInTable="columnINVOICETOTAL" msprop:Generator_ColumnPropNameInRow="INVOICETOTAL" msprop:Generator_ColumnPropNameInTable="INVOICETOTALColumn" msprop:Generator_UserColumnName="INVOICETOTAL" type="xs:decimal" />
+              <xs:element name="PAID" msprop:Generator_ColumnVarNameInTable="columnPAID" msprop:Generator_ColumnPropNameInRow="PAID" msprop:Generator_ColumnPropNameInTable="PAIDColumn" msprop:Generator_UserColumnName="PAID" type="xs:decimal" />
+              <xs:element name="PENDINGAMOUNT" msprop:Generator_ColumnVarNameInTable="columnPENDINGAMOUNT" msprop:Generator_ColumnPropNameInRow="PENDINGAMOUNT" msprop:Generator_ColumnPropNameInTable="PENDINGAMOUNTColumn" msprop:Generator_UserColumnName="PENDINGAMOUNT" type="xs:decimal" />
+              <xs:element name="DUEDATE" msprop:Generator_ColumnVarNameInTable="columnDUEDATE" msprop:Generator_ColumnPropNameInRow="DUEDATE" msprop:Generator_ColumnPropNameInTable="DUEDATEColumn" msprop:Generator_UserColumnName="DUEDATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DATERECEIVED" msprop:Generator_ColumnVarNameInTable="columnDATERECEIVED" msprop:Generator_ColumnPropNameInRow="DATERECEIVED" msprop:Generator_ColumnPropNameInTable="DATERECEIVEDColumn" msprop:Generator_UserColumnName="DATERECEIVED" type="xs:dateTime" />
+              <xs:element name="STATUS" msprop:Generator_ColumnVarNameInTable="columnSTATUS" msprop:Generator_ColumnPropNameInRow="STATUS" msprop:Generator_ColumnPropNameInTable="STATUSColumn" msprop:Generator_UserColumnName="STATUS" type="xs:int" />
+              <xs:element name="STATUSTXT" msprop:Generator_ColumnVarNameInTable="columnSTATUSTXT" msprop:Generator_ColumnPropNameInRow="STATUSTXT" msprop:Generator_ColumnPropNameInTable="STATUSTXTColumn" msprop:Generator_UserColumnName="STATUSTXT" type="xs:string" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

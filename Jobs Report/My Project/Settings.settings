@@ -38,5 +38,11 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">character set=UTF8;initial catalog="C:\Projetex9\Projetex Server\Database\Projetex.fdb";user id=ODBC;password=pwww;data source=192.168.56.101;role=PROJETEX_ODBC</Value>
     </Setting>
+    <Setting Name="Splitter1Location" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 189</Value>
+    </Setting>
+    <Setting Name="Splitter2Location" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 404</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

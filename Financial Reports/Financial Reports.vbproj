@@ -30,7 +30,7 @@
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.4.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.6.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -194,8 +194,8 @@
     </None>
     <None Include="DataSetFR.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>DataSetFR.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="DataSetFR.xss">
       <DependentUpon>DataSetFR.xsd</DependentUpon>

@@ -159,6 +159,30 @@ Namespace My
                 Return CType(Me("VirtualBoxDB"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0, 189")>  _
+        Public Property Splitter1Location() As Global.System.Drawing.Point
+            Get
+                Return CType(Me("Splitter1Location"),Global.System.Drawing.Point)
+            End Get
+            Set
+                Me("Splitter1Location") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0, 404")>  _
+        Public Property Splitter2Location() As Global.System.Drawing.Point
+            Get
+                Return CType(Me("Splitter2Location"),Global.System.Drawing.Point)
+            End Get
+            Set
+                Me("Splitter2Location") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
